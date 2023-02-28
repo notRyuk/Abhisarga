@@ -10,7 +10,7 @@ export default model<Session>("session", new Schema({
         type: String,
         default: new Date(Date.now()).toUTCString()
     },
-    email: {
+    username: {
         type: String,
         required: [true, "The email of the user session is required"]
     }

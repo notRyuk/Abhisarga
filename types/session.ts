@@ -1,5 +1,5 @@
 export default interface Session {
     token: string
-    email: string
+    username: string
     timestamp: string
 }

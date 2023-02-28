@@ -1,10 +1,19 @@
 import fs from 'node:fs/promises'
 import express from 'express'
+import { connect as mongooseConnect } from "mongoose"
+import { BASE as base, PORT, NODE_ENV, DB_URL } from './config.ts'
 
-// Constants
-const isProduction = process.env.NODE_ENV === 'production'
-const port = process.env.PORT || 5173
-const base = process.env.BASE || '/'
+const isProduction = NODE_ENV.toUpperCase() === "PRODUCTION"
+
+try {
+  mongooseConnect(DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+}
+catch(e) {
+  console.log("Not able to connect to the database")
+}
 
 // Cached production assets
 const templateHtml = isProduction
@@ -16,6 +25,8 @@ const ssrManifest = isProduction
 
 // Create http server
 const app = express()
+import adminRouter from "./routes/admin.ts"
+app.use("/admin", adminRouter)
 
 // Add Vite or respective production middlewares
 let vite
@@ -66,6 +77,6 @@ app.use('*', async (req, res) => {
 })
 
 // Start http server
-app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`)
 })
