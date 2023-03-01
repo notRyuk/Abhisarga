@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import { connect as mongooseConnect } from "mongoose"
-import { BASE as base, PORT, NODE_ENV, DB_URL } from './config.ts'
+import { BASE as base, PORT, NODE_ENV, DB_URL } from "./config.js"
 
 const isProduction = NODE_ENV.toUpperCase() === "PRODUCTION"
 
@@ -25,7 +25,7 @@ const ssrManifest = isProduction
 
 // Create http server
 const app = express()
-import adminRouter from "./routes/admin.ts"
+import adminRouter from "./routes/user.js"
 app.use("/admin", adminRouter)
 
 // Add Vite or respective production middlewares

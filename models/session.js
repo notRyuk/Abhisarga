@@ -1,7 +1,6 @@
 import { model, Schema } from "mongoose"
-import Session from "../types/session"
 
-export default model<Session>("session", new Schema({
+export default model("session", new Schema({
     token: {
         type: String,
         required: [true, "The token of the session is required"]

@@ -10,10 +10,6 @@
     "vite.config.ts",
     "src/entry-server.tsx",
     "src/vite-env.d.ts",
-    "config.ts",
-    "models",
-    "routes",
-    "types",
     "src"
   ]
 }

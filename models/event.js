@@ -1,7 +1,6 @@
 import { model, Schema } from "mongoose";
-import Event from "../types/event";
 
-export default model<Event>("event", new Schema({
+export default model("event", new Schema({
     _id: Number,
     name: {
         type: String,

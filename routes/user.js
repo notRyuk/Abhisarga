@@ -1,21 +1,21 @@
-import Base64 from 'crypto-js/enc-base64';
-import hmacSHA512 from 'crypto-js/hmac-sha512';
-import sha256 from 'crypto-js/sha256';
+import Base64 from 'crypto-js/enc-base64.js';
+import hmacSHA512 from 'crypto-js/hmac-sha512.js';
+import sha256 from 'crypto-js/sha256.js';
 import { Router } from "express";
 import { readFileSync as readFile } from 'fs';
-import { PRIVATE_KEY } from "../config";
-import Session from "../models/session";
-import ISession from "../types/session";
+import { PRIVATE_KEY } from "../config.js";
+import Session from "../models/session.js";
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = Router()
 
-interface AdminLogin {
-    username: string
-    password: string
-}
 
-const adminLogins: AdminLogin[] = []
-readFile("../emails.txt", "utf-8").split("\n").forEach(line => {
+const adminLogins = []
+readFile(resolve(__dirname, "..", "emails.txt"), "utf-8").split("\n").forEach(line => {
     line = line.trim()
     if(line.startsWith("#")) {
         return
@@ -28,10 +28,7 @@ readFile("../emails.txt", "utf-8").split("\n").forEach(line => {
 })
 
 app.post("/login", async (req, res) => {
-    const { username, password }: {
-        username?: string,
-        password?: string
-    } = req.body
+    const { username, password } = req.body
     if(!username) {
         res.status(403).send({
             status: 403,
@@ -55,7 +52,7 @@ app.post("/login", async (req, res) => {
     }
     const hashDigest = sha256(username+password)
     const hmacDigest = Base64.stringify(hmacSHA512(new Date(Date.now()).toUTCString()+hashDigest, PRIVATE_KEY))
-    const session = await new Session({username, token: hmacDigest}).save() as ISession
+    const session = await new Session({username, token: hmacDigest}).save()
     if(!session) {
         res.status(404).send({
             status: 404,
@@ -66,7 +63,7 @@ app.post("/login", async (req, res) => {
     res.status(200).send({
         status: 200,
         message: "Successfully logged in!",
-        session
+        session: session.__doc
     })
 })
 
