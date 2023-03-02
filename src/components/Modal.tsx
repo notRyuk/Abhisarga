@@ -1,0 +1,76 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import LaptopIcon from '@mui/icons-material/Laptop';
+import AddIcon from '@mui/icons-material/Add';
+import { shuffle } from '../helper';
+import NorthIcon from '@mui/icons-material/North';
+import styles from "../styles/modal.module.css"
+
+const colors = ["#FF68A8", "#64CFF7", "#F7E752", "#CA7CD8", "#3968CB"];
+const newArr = shuffle(colors)
+
+export default function BasicModal() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    
+    
+    const style = {
+      position: 'absolute' as 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      maxWidth: '540px',
+      width: '100%',
+      bgcolor: 'background.paper',
+      border: '5px solid' + newArr[0],
+      boxShadow: 24,
+      padding: '2px',
+      borderRadius: "10px",
+    };
+
+  return (
+    <div className={styles.main}>
+        <div className={styles.mainDiv} onClick={handleOpen} style={{ border: "5px solid" + newArr[0]}} >
+            <div style={{ padding: "7px" }}>
+                <img className={styles.cardImg} src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" alt="img" height={'200px'} width={'356px'} style={{ borderRadius: "5px" }} />
+                {/* <div className={styles.mainImg}></div> */}
+            </div>
+            <div style={{ backgroundColor: newArr[0], padding: "5px" }}>
+                <div className={styles.bottomNav}>
+                    <LaptopIcon className={styles.laptop} fontSize='large' sx={{ color: newArr[0] }} />
+                    <AddIcon className={styles.addIcon} fontSize='large' />
+                </div>
+                <div className={styles.mainNav}>
+                    <div style={{ width: "20%", height: "100px" }}>
+                        <NorthIcon style={{ color: "white", fontSize: "60px" }} />
+                    </div>
+                <div style={{ width: "80%" }}>
+                    <Typography style={{ fontWeight: "400", letterSpacing: "1.5px", fontSize: "26px", color: "white", fontFamily: 'DM Serif Display' }}>IIITS Hackathon</Typography>
+                </div>
+            </div>
+        </div>
+    </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        sx={{
+            border: "none",
+            outline: "none"
+        }}
+      >
+        <Box sx={style}>
+            <div className={styles.modalMain}>
+                <p className={styles.modalHeading} style={{ color: newArr[0] }}>IIITS Hackathon</p>
+                <img className={styles.modalImg} src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" alt='img' width={'96%'} height={'auto'} style={{ border: "2px solid"+newArr[0] }}></img>
+                
+            </div>
+        </Box>
+      </Modal>
+    </div>
+  );
+}

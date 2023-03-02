@@ -1,0 +1,120 @@
+.main {
+    width: 370px;
+    border-radius: 5px;
+    transition: transform .2s;
+}
+
+.main:hover {
+    transform: scale(1.02);
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 0px;
+    max-width: 370px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.bottomNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.laptop {
+    background-color: white;
+    justify-self: end;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.addIcon {
+    border: 3px solid white;
+    background-color: transparent;
+    color: white;
+    align-self: center;
+    justify-self: flex-end;
+    border-radius: 5px;
+}
+
+.mainNav {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainNav div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 24px;
+    color: white;
+}
+
+.mainImg {
+    background-size: cover;
+    background-image: url("https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png");
+    height: 200px;
+    width: 356px;
+    border-radius: 5px;
+}
+
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
+}
+
+.mainImg::after {
+    content: "";
+    /* animation: grain 8s steps(10) infinite; */
+    background-image: url('../assets/paper_1.png');
+    /* height: 200%; */
+    /* width: 200%; */
+    opacity: 0.3;
+    position: fixed;
+}
+
+img::after {
+    content: "";
+    animation: grain 8s steps(10) infinite;
+    background-image: url('../assets/paper_1.png');
+    height: 200%;
+    width: 200%;
+    opacity: 0.3;
+    position: fixed;
+}
+
+.modalMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: "2%"
+}
+
+.modalHeading {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.modalImg {
+    border-radius: 5px;
+}
+
+
