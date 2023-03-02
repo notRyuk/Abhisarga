@@ -1,4 +1,4 @@
-import Card from "../components/Modal"
+import Card from "../../components/Modal"
 
 const Modal = () => {
     return (
