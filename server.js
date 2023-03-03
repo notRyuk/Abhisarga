@@ -25,8 +25,13 @@ const ssrManifest = isProduction
 
 // Create http server
 const app = express()
-import adminRouter from "./routes/user.js"
-app.use("/admin", adminRouter)
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+import userRouter from "./routes/user.js"
+app.use("/user", userRouter)
+import queryRouter from "./routes/query.js"
+app.use('/query', queryRouter)
+
 
 // Add Vite or respective production middlewares
 let vite
@@ -75,6 +80,8 @@ app.use('*', async (req, res) => {
     res.status(500).end(e.stack)
   }
 })
+
+
 
 // Start http server
 app.listen(PORT, () => {
