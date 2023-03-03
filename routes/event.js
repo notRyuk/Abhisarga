@@ -140,7 +140,56 @@ app.post("/create", async (req, res) => {
         body.maxTeamSize = 1
     }
     const event = await new Event(body).save()
-    
+    if(!event) {
+        res.status(404).send({
+            status: 404,
+            message: "An error occurred in the database! Try submitting in after sometime"
+        })
+        return
+    }
+    res.status(200).send({
+        status: 200,
+        event
+    })
+})
+
+app.post("/update", async (req, res) => {
+    const body = req.body
+    if(!body.id) {
+        res.status(400).send({
+            status: 400,
+            message: "The event id is missing to update."
+        })
+        return
+    }
+    const event = await Event.findById(body.id)
+    if(!event) {
+        res.status(400).send({
+            status: 400,
+            message: "An error occurred in the database! Try submitting in after sometime"
+        })
+        return
+    }
+    if(Object.keys(body).includes("rules") && body.rules.length) {
+        event.set("rules", [...event.rules, body.rules])
+        delete body.rules
+    }
+    delete body.id
+    for(const key in body) {
+        event.set(key, body[key])
+    }
+    const newEvent = await event.save()
+    if(!newEvent) {
+        res.status(400).send({
+            status: 400,
+            message: "An error occurred in the database! Try submitting in after sometime"
+        })
+        return
+    }
+    res.status(200).send({
+        status: 200,
+        event: newEvent
+    })
 })
 
 export default app
