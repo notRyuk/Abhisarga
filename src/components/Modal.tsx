@@ -29,7 +29,7 @@ export default function BasicModal() {
       maxWidth: '540px',
       width: '90%',
       bgcolor: 'background.paper',
-      border: '5px solid' + newArr[0],
+      border: '8px solid' + newArr[0],
       padding: '2px',
       borderRadius: "16px",
     };

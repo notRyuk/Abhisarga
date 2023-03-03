@@ -1,7 +1,15 @@
 import { model, Schema } from "mongoose";
 
 export default model("registration", new Schema({
-    _id: String,
+    _id: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    eventName: {
+        type: String,
+        required: true
+    },
     teamName: {
         type: String,
         required: false
@@ -9,10 +17,5 @@ export default model("registration", new Schema({
     participants: {
         type: [String],
         required: true  
-    },
-    format: {
-        type: String,
-        enum: ['INDIVIDUAL', 'TEAM'],
-        default: 'INDIVIDUAL'
     }
 }))

@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 
-export default model("user", new Schema({
+export default model("User", new Schema({
     name: {
         type: String,
         required: [true, "The participant name is required"]
@@ -11,7 +11,8 @@ export default model("user", new Schema({
     },
     email: {
         type: String,
-        required: [true, "The participant email is required"]
+        required: [true, "The participant email is required"],
+        unique: true
     },
     phone: {
         type: String,
