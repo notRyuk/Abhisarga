@@ -92,15 +92,28 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
         sx={{
             border: "none",
-            outline: "none"
+            outline: "none",
+            background: "none"
         }}
       >
         <Box sx={style}>
             <IconButton 
                 onClick={handleClose} 
                 className={styles.closeButton} 
-                sx={{ "&:hover": { backgroundColor: "#EDEDED" }, position: "fixed", top: -20, right: 10, zIndex: 2000, backgroundColor: "white", borderRadius: "10px", border: "5px solid "+newArr[0] }}>
-                    <CloseIcon style={{color: newArr[0]}} />
+                sx={{ 
+                    "&:hover": {
+                        backgroundColor: "#EDEDED" 
+                    }, 
+                    position: "fixed", 
+                    top: -20, 
+                    right: 10, 
+                    zIndex: 2000, 
+                    backgroundColor: "white", 
+                    borderRadius: "10px", 
+                    border: "5px solid "+newArr[0] 
+                }}
+            >
+                <CloseIcon style={{color: newArr[0]}} />
             </IconButton>
             <div className={styles.modalMain}>
                 <div className={styles.topLevel}>
@@ -119,18 +132,24 @@ export default function BasicModal() {
                         </img>
                 </div>
                 <div className={styles.modalDescDiv}>
-                        <p className={styles.desc} 
-                        style={{color: newArr[0]}}>
+                    <p 
+                        className={styles.desc} 
+                        style={{
+                            color: newArr[0]
+                        }}
+                    >
                         Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
-                        </p>
+                    </p>
                 </div>
                 <hr className={styles.ruler} 
                     style={{ backgroundColor: newArr[0]}}>
                 </hr>
                 <div className={styles.modalDescDiv}>
-                    <p className={styles.quote} 
-                        style={{color: newArr[0]}}>
-                            "It's harder to read code than to write it."
+                    <p 
+                        className={styles.quote} 
+                        style={{color: newArr[0]}}
+                    >
+                        "It's harder to read code than to write it."
                     </p>
                 </div>
                 <Button 
