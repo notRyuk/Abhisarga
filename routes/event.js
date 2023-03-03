@@ -9,7 +9,30 @@ app.post("/create", async (req, res) => {
             status: 404,
             message: "Name of the event is missing"
         })
+        return
     }
+    if(!body.timings) {
+        res.status(404).send({
+            status: 404,
+            message: "Timings of the event is missing"
+        })
+        return
+    }
+    if(!body.timings.start) {
+        res.status(404).send({
+            status: 404,
+            message: "Start time of the event is missing"
+        })
+        return
+    }
+    if(!body.timings.end) {
+        res.status(404).send({
+            status: 404,
+            message: "Start time of the event is missing"
+        })
+        return
+    }
+    
 })
 
 export default app
