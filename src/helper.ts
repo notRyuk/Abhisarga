@@ -1,4 +1,4 @@
-export function shuffle(array: Array<any>) {
+export const shuffle = (array: Array<any>) => {
     var m = array.length, t: any, i: any
     while(m) {
         i = Math.floor(Math.random()*m--)

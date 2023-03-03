@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 
 export default model("User", new Schema({
+    _id: String,
     name: {
         type: String,
         required: [true, "The participant name is required"]

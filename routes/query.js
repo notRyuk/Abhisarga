@@ -1,6 +1,5 @@
 import { Router } from "express";
 import mailer from "nodemailer"
-// import SMTPTransport from "nodemailer/lib/smtp-transport"
 import { MAILER_MAIL, MAILER_PASS } from "../config.js"
 
 const transporter = mailer.createTransport({
@@ -10,9 +9,6 @@ const transporter = mailer.createTransport({
         pass: MAILER_PASS
     }
 })
-
-let errorMsg;
-let infoMsg;
 
 class Mailer {
     static async sendMail(to, subject, text) {
@@ -24,12 +20,10 @@ class Mailer {
                 text
             }, (err, info) => {
                 if(err) {
-                    errorMsg = err
                     reject(err)
                     return
                 }
                 if(info) {
-                    infoMsg = info
                     resolve(info)
                 }
             })

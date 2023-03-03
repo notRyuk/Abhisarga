@@ -2,15 +2,11 @@ import Base64 from 'crypto-js/enc-base64.js';
 import hmacSHA512 from 'crypto-js/hmac-sha512.js';
 import sha256 from 'crypto-js/sha256.js';
 import { Router } from "express";
-import { readFileSync as readFile } from 'fs';
 import { PRIVATE_KEY } from "../config.js";
+import { validateEmail, validatePhone } from '../helper.js';
 import Session from "../models/session.js";
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
 import User from '../models/user.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const app = Router()
 
@@ -28,15 +24,29 @@ app.post("/register", async (req, res) => {
             return
         }
     }
-    if(await User.findById(req.body.email)) {
+    if(!validateEmail(req.body.email.trim())) {
+        res.status(404).send({
+            status: 404,
+            message: "Email format invalid!"
+        })
+        return
+    }
+    if(!validatePhone(req.body.phone.trim())) {
+        res.status(404).send({
+            status: 404,
+            message: "Phone format invalid!"
+        })
+        return
+    }
+    if(await User.findById(req.body.email.trim())) {
         res.status(400).send({
             status: 400,
             message: "The registered email already exists!"
         })
+        return
     }
-    req.body._id = req.body.email
+    req.body._id = req.body.email.trim()
     const user = await new User(req.body).save()
-    
     if(!user) {
         res.status(404).send({
             status: 404,
@@ -46,7 +56,6 @@ app.post("/register", async (req, res) => {
     }
     delete user.__v
     delete user._id
-
     res.status(200).send({
         status: 200,
         message: "Successfully registered!",
