@@ -1,10 +1,7 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import LaptopIcon from '@mui/icons-material/Laptop';
 import AddIcon from '@mui/icons-material/Add';
-import { shuffle } from '../helper';
+import LaptopIcon from '@mui/icons-material/Laptop';
 import NorthIcon from '@mui/icons-material/North';
 import styles from "../styles/modal.module.css"
 import CodeIcon from '@mui/icons-material/Code';
@@ -12,12 +9,14 @@ import Button from '@mui/material/Button';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { shuffle } from '../helper';
+import { useState } from 'react';
 
 const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
 const newArr = shuffle(colors)
 
 export default function BasicModal() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     
@@ -91,7 +90,7 @@ export default function BasicModal() {
                 <div className={styles.modalDescDiv}>
                     <p className={styles.quote} style={{color: newArr[0]}}>"It's harder to read code than to write it."</p>
                 </div>
-                <Button variant="contained" className={styles.moreDetailsButton} style={{backgroundColor: newArr[0], marginBottom: "20px"}}>
+                <Button variant="contained" sx={{ "&:hover": { opacity: 0.9 } }} className={styles.moreDetailsButton} style={{backgroundColor: newArr[0], marginBottom: "20px"}}>
                     More Details 
                     <ArrowRightAltIcon fontSize='large' style={{marginLeft: "20px"}} /> 
                 </Button>

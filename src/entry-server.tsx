@@ -9,11 +9,9 @@ interface RenderProps {
 
 export function render({ path }: RenderProps) {
   const html = ReactDOMServer.renderToString(
-    <React.StrictMode>
-      <StaticRouter location={path}>
-        <App />
-      </StaticRouter>
-    </React.StrictMode>
+    <StaticRouter location={path}>
+      <App />
+    </StaticRouter>
   )
   return { html }
 }
