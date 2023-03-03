@@ -1,10 +1,10 @@
 import { model, Schema } from "mongoose";
 
-export default model("event", new Schema({
-    _id: Number,
-    name: {
+export default model("Event", new Schema({
+    eventName: {
         type: String,
-        required: [true, "Event name is required"]
+        required: [true, "Event name is required"],
+        unique: true
     },
     timings: {
         type: {
@@ -40,12 +40,8 @@ export default model("event", new Schema({
         }],
         default: []
     },
-    format: {
-        type: String,
-        enum: ['INDIVIDUAL', 'TEAM'],
-        default: 'INDIVIDUAL'
-    },
-    participants: {
-        type: [String]
+    maxTeamSize: {
+        type: Number,
+        required: true
     }
 }))

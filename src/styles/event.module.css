@@ -1,0 +1,79 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Dosis', sans-serif;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.mainLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    padding-top: 2%;
+    background-color: peachpuff;
+}
+
+.mainMid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding-top: 2%;
+    background-color: white;
+}
+
+.mainRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    padding-top: 2%;
+    background-color: peachpuff;
+}
+
+.nameCardMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 3%;
+    border-radius: 15px;
+    color: white;
+}
+
+.nameCardP {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+}
+
+.nameCardH {
+    margin-top: -1%;
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.computerIcon {
+    margin-top: -1%;
+    scale:3;
+}
+
+.ruler {
+    margin-top: 5%;
+    width: 100%;
+    border: 1px dotted;
+}
+
+

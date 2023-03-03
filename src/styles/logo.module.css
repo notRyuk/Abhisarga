@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #BFF3B7;
+    opacity: 0.6;
+    width: 60%;
+}
+
+.topRight {
+    top: 0;
+    right: 0;
+}
+
+.topLeft {
+    top: 0;
+    left: 0;
+}
+
+.bottomRight {
+    bottom: 0;
+    right: 0;
+}
+
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+}
