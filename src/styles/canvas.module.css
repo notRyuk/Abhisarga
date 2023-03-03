@@ -1,0 +1,8 @@
+.canvas_container::-webkit-scrollbar {
+    display: none;
+}
+
+.canvas_container {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}

@@ -45,7 +45,7 @@ export default function BasicModal() {
                     letterSpacing: "1.5px", 
                     fontSize: "26px", 
                     color: "white", 
-                    fontFamily: 'DM Serif Display' 
+                    fontFamily: "Dosis, sans-serif"
                   }}
                 >
                   IIITS Hackathon
