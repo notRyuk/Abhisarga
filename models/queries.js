@@ -1,13 +1,22 @@
 import { model, Schema } from "mongoose";
 
 export default model("queries", new Schema({
-    email: {
+    _id: {
         type: String,
         required: true
     },
-    queries: {
-        type: [String],
+    queries: [{
+        type: {
+            title: {
+                type: String,
+                required: true
+            },
+            body: {
+                type: String,
+                required: true
+            }
+        },
         required: true,
         default: []
-    }
+    }]
 }))

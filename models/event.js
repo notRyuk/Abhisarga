@@ -1,5 +1,4 @@
 import { model, Schema } from "mongoose";
-import user from "./user";
 
 export default model("event", new Schema({
     _id: Number,
@@ -42,11 +41,11 @@ export default model("event", new Schema({
         default: []
     },
     format: {
-        type: Number,
+        type: String,
         enum: ['INDIVIDUAL', 'TEAM'],
         default: 'INDIVIDUAL'
     },
     participants: {
-        type: [user]
+        type: [String]
     }
 }))

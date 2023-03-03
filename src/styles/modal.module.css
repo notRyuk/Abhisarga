@@ -172,3 +172,16 @@ img::after {
     flex-direction: row;
     width: 90%;
 }
+/* 
+.scroll {
+    
+} */
+
+html {
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
