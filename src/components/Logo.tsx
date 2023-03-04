@@ -1,10 +1,14 @@
 import React from 'react'
 import styles from '../styles/logo.module.css'
-import abhisarga from '../assets/Frame 1.png'
+import { CSSProperties } from "react"
 
-const Logo = () => {
+interface Props {
+  sx?: CSSProperties
+}
+
+const Logo = ({sx}: Props) => {
   return (
-    <div className={styles.main}>
+    <div className={styles.main} style={sx}>
         <img src='/Group 32.svg' className={styles.bg}></img>
         <img src='/Transparent Title.png' className={styles.fg}></img>
     </div>

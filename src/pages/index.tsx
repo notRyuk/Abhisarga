@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import backgroundImage from "../assets/background.png"
+import backgroundImage from "../assets/background.png";
+import Logo from '../components/Logo';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -7,6 +8,12 @@ function App() {
   useEffect(() => {
     const element = document.getElementsByClassName("App")[0]
     const view = document.defaultView
+    window.addEventListener('load', () => {
+      view.scrollTo({
+        left: (element.clientWidth-view.innerWidth)/2,
+        top: (element.clientHeight-view.innerHeight)/2
+      })
+    })
     view.scrollTo({
       left: (element.clientWidth-view.innerWidth)/2,
       top: (element.clientHeight-view.innerHeight)/2
@@ -17,15 +24,19 @@ function App() {
     <div 
       className="App"
       style={{
-        width: 4000,
-        height: 2000,
-        backgroundImage,
-        display: "flex",
-        justifyContent: "center",
-        "alignItems": "center",
+        width: 3975*2,
+        height: 2809*2,
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100%"
       }}
     >
-      <h1>Something</h1>
+      <Logo 
+        sx={{
+          scale: "0.25",
+          transform: "translate(5000px, 7000px)"
+        }}
+      />
     </div>
   )
 }
