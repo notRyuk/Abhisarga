@@ -8,29 +8,32 @@
 }
 
 .reg_card {
-    scale: 1;
     margin-top: 0.5rem;
-    /* margin-bottom: -3.2rem; */
 }
 
 .gridCenterMain {
     display: flex;
     flex-direction: column;
+    /* padding-left: 18rem; */
+    padding-top: 35rem; 
 }
 
 .gridCenterTop {
     display: grid;
     grid-template-rows: 2fr 1fr;
+    padding-left: 4rem;
 }
 
 .top1 {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    column-gap: 5rem;
 }
 
 .top1left {
     display: grid;
     grid-template-rows: 1fr 2fr;
+    row-gap: 3rem;
 }
 
 .top1lefttop {
@@ -39,17 +42,22 @@
 }
 
 .top1leftbottom {
+    padding-left: 7rem;
     display: flex;
     flex-direction: row;
-    /*  margin-left: 10px; */
+    gap: 3rem;
 }
 
 .top2 {
     display: flex;
     flex-direction: row;
+    padding-left: 7rem;
+    gap: 3.5rem;
+    margin-top: -7rem;
 }
 
 .top1right {
     display: grid;
     grid-template-rows: 2fr 1fr;
+    max-width: 15rem;
 }

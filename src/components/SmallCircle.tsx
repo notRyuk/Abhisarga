@@ -1,10 +1,14 @@
 import React from 'react'
 import styles from '../styles/smallcircle.module.css'
 
-const SmallCircle = () => {
+interface Props {
+  color: string
+}
+
+const SmallCircle = ({color}: Props) => {
   return (
-    <div className={styles.main} style={{ color: "#FF68A8", border: "10px solid #FF68A8" }}>
-        <p className={styles.p}>SPONSORS</p> 
+    <div className={styles.main} style={{ color, border:  `10px solid ${color}` }}>
+      <p className={styles.p}>SPONSORS</p> 
     </div>
   )
 }

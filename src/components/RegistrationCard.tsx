@@ -21,9 +21,6 @@ const RegistrationCard = ({ className }: Props) => {
         <p>
           REGISTRATIONS ARE OPEN!
         </p>
-        <p>
-          REGISTRATIONS ARE OPEN!
-        </p>
       </div>
     </div>
   )

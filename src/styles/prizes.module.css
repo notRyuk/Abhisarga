@@ -3,8 +3,9 @@
     flex-direction: row;
     justify-content: space-between;
     border: 10px solid gray;
-    width: 30%;
+    width: 27rem;
     min-width: 200px;
+    max-height: 11rem;
     padding: 10px;
     border-radius: 15px;
     background-color: #01a863;
@@ -17,4 +18,7 @@
     width: 40%;
     text-align: center;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

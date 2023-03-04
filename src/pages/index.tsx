@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react'
 import backgroundImage from "../assets/background.png";
 import Logo from '../components/Logo';
-import Modal from '../components/Modal';
+import Modal from "../components/CustomCard"
 import Prizes from '../components/Prizes';
 import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
+import Image from "../assets/react.svg"
+import { shuffle } from '../helper';
+
+const getRandomColor = () => {
+  const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
+  return colors[Math.floor(Math.random()*colors.length)]
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -43,16 +50,16 @@ function App() {
           flexDirection: "column",
           // left: "90%",
           gap: "3rem",
-          marginLeft: "28rem",
-          paddingTop: "28rem",
-          width: "12rem"
+          marginLeft: "27rem",
+          paddingTop: "28.9rem",
+          // width: "12rem"
         }}
       >
-        <Modal className={styles.modal}/>
-        <Modal className={styles.modal}/>
+        <Modal color={getRandomColor()} title="Lorem Ipsum" />
+        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
         <RegistrationCard className={`${styles.modal} ${styles.reg_card}`}/>
-        <Modal className={styles.modal}/>
-        <Modal className={styles.modal}/>
+        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
+        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
       </div>
       <div className={styles.gridCenterMain}>
         <div className={styles.gridCenterTop}>
@@ -67,8 +74,8 @@ function App() {
                 </div>
               </div>
               <div className={styles.top1leftbottom}>
-                <Modal />
-                <Modal />
+                <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385}} />
+                <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385}} />
               </div>
             </div>
             <div className={styles.top1right}>
@@ -79,14 +86,12 @@ function App() {
                 <RegistrationCard />
               </div>
             </div>
-            {/* <div className={styles.top1bottom}>
-              <Prizes />
-              <Logo />
-            </div> */}
           </div>
           <div className={styles.top2}>
             <Prizes />
-            <Logo />
+            <div className={styles.logo}>
+              <Logo />
+            </div>
           </div>
         </div>
         <div className={styles.gridCenterBottom}>
@@ -98,10 +103,3 @@ function App() {
 }
 
 export default App
-
-
-
-/*
-
-
-*/
