@@ -1,0 +1,20 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 10px solid gray;
+    width: 30%;
+    min-width: 200px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #01a863;
+}
+
+.black {
+    background-color: black;
+    padding: 5px;
+    color: white;
+    width: 40%;
+    text-align: center;
+    border-radius: 15px;
+}

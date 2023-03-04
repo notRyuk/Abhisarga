@@ -23,6 +23,8 @@ export default function TechnicalEvents() {
             return
         setOpen(false)
     } 
+
+    const handleClick = (e, r) => handleClose(e, r)
     
     
     const style = {
@@ -80,7 +82,7 @@ export default function TechnicalEvents() {
         </div>
         <div 
             style={{ padding: "6px" }}>
-            <img className={styles.cardImg} 
+            <img className={styles.cardImg}
                 src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201810/stockvault-person-studying-and-learning---knowledge-concept178241_0.jpeg?size=690:388" 
                 alt="img" 
                 height={'198px'} 
