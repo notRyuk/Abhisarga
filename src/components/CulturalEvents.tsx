@@ -18,7 +18,7 @@ const newArr = shuffle(colors)
 export default function CulturalEventsModal() {
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = (event: any, reason: any) => {
+    const handleClose = (event: any, reason?: string) => {
         if (reason && reason == "backdropClick")
             return
         setOpen(false)

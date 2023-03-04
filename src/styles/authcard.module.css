@@ -1,12 +1,12 @@
 .main {
-    border-left: 3px;
-    border-right: 6px;
-    border-bottom: 6px;
-    border-top: 3px;
+    border-left: 9px;
+    border-right: 12px;
+    border-bottom: 12px;
+    border-top: 9px;
     padding: 10px;
     border-color: black;
     border-style: solid;
-    width: 20%;
+    width: 19%;
     min-width: 150px;
     display: flex;
     flex-direction: column;
@@ -14,6 +14,7 @@
     align-items: center;
     font-family: 'Dosis', sans-serif;
     animation: transform 0.2s;
+    border-radius: 15px;
 }
 
 .main:hover {

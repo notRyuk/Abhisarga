@@ -13,6 +13,10 @@ import AboutUs from '../components/AboutUs';
 import Socials from '../components/Socials';
 import Quote from '../components/Quote';
 import Members from '../components/Members';
+import AuthCard from '../components/AuthCard';
+import Queries from '../components/Queries';
+import Sponsors from '../components/Sponsors';
+import Fun from '../components/Fun'
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -61,8 +65,8 @@ function App() {
           // width: "12rem"
         }}
       >
-        <Modal color={getRandomColor()} title="Lorem Ipsum" />
-        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT #4" />
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT #3"/>
         <Quote 
           className={`${styles.modal} ${styles.reg_card}`}
           sx={{
@@ -72,8 +76,8 @@ function App() {
             marginLeft: "-1rem"
           }}
         />
-        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
-        <Modal color={getRandomColor()} title="Lorem Ipsum"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT #5"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT #2"/>
       </div>
       <div className={styles.gridCenterMain}>
         <div className={styles.gridCenterTop}>
@@ -90,8 +94,8 @@ function App() {
               <div className={styles.top1leftbottom}>
                 <div></div>
                 <div className={styles.tempflex}>
-                  <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 600}} />
-                  <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 600}} />
+                  <Modal color={getRandomColor()} title="ACCOMODATION" style={{ height: 385, width: 600}} />
+                  <Modal color={getRandomColor()} title="CULTURAL EVENTS" style={{ height: 385, width: 600}} />
                 </div>
               </div>
             </div>
@@ -113,7 +117,7 @@ function App() {
         </div>
         <div className={styles.gridCenterBottom}>
           <div className={styles.gridBottomLeft}>
-            <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385 }}/>
+            <Modal color={getRandomColor()} title="TECHNICAL EVENTS" style={{ height: 385 }}/>
             <div className={styles.nav}>
               <div className={styles.navtop}>
                 <SmallBox  title='CULTURAL EVENTS' color={getRandomColor()} />
@@ -124,7 +128,7 @@ function App() {
                 <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />
               </div>
             </div>
-            <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
+            <Modal color={getRandomColor()} title="TECHNICAL EVENT #1" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
             <div className={styles.team}>
               <Members 
                 sx={{
@@ -145,6 +149,70 @@ function App() {
           </div>
           <div className={styles.gridBottomRight}>
             <AboutUs />
+          </div>
+        </div>
+      </div>
+      <div className={styles.rightGridMain}>
+        <div className={styles.rightGridTop}>
+          <div className={styles.topLeft}>
+            <Modal color={getRandomColor()} title="CULTURAL EVENT #2" style={{ height: 385 }} />
+            <Modal color={getRandomColor()} title="CULTURAL EVENT #1" style={{ height: 385, marginTop: "-3rem" }} />
+          </div>
+          <div className={styles.topRight}>
+              <div></div>
+              <div className={styles.topRightMid}>
+                <Modal color={getRandomColor()} title="CULTURAL EVENT #3" style={{ height: 400, marginLeft: "-.5rem" }} />
+                <Modal color={getRandomColor()} title="CULTURAL EVENT #4" style={{ height: 400, marginLeft: ".5rem" }} />
+              </div>
+              <Fun 
+                sx={{
+                  backgroundColor: "#01a863",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "16.4rem",
+                  height: "10.5rem",
+                  paddingLeft: "7rem",
+                  marginLeft: "22.5rem",
+                  marginTop: "-1.2rem"
+                }} 
+              />
+          </div>
+        </div>
+        <div className={styles.rightGridBottom}>
+          <div className={styles.bottomLeft}>
+              <AuthCard 
+                sx={{
+                  height: "17rem",
+                  width: "20rem"
+                }} 
+              />
+              <Queries
+                sx={{
+                  height: "19rem",
+                  width: "20rem"
+                }}
+              />
+          </div>
+          <div className={styles.bottomRight}>
+            <div className={styles.bottomRightTop}>
+              <Modal color={getRandomColor()} title='WORKSHOPS' style={{ height: 385, marginLeft: "-.5rem" }} />
+              <Modal color={getRandomColor()} title='CULTURAL EVENT #5' style={{ height: 385, marginLeft: "-2rem" }} />
+            </div>
+            <div className={styles.bottomRightBottom}>
+                <Sponsors 
+                  sx={{
+                    height: "28rem",
+                    marginLeft: "-0.3rem",
+                    marginTop: "-0.2rem",
+                    width: "29rem",
+                    borderWidth: "15px",
+                    borderRadius: "10px"
+                  }} 
+                />
+                <Modal color={getRandomColor()} title='CULTURAL EVENT #6' style={{ height: 385, width: 420, marginLeft: "-19px" }} />
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import styles from '../styles/query.module.css'
 import Button from '@mui/material/Button';
 
-const Queries = () => {
+interface Props {
+    sx?: CSSProperties
+}
+
+const Queries = ({ sx }: Props) => {
   return (
-    <div className={styles.main}>
+    <div className={styles.main} style={sx}>
         <p className={styles.heading}>QUERIES</p>
         <Button 
             variant="outlined"
