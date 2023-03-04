@@ -7,9 +7,9 @@ const Prizes = () => {
         <div className={styles.black}>
             PRIZE POOL OF OVER 10 LAKH SPREAD OVER 11 EVENTS!
         </div>
-        <div className={styles.}>
+        {/* <div className={styles.}>
 
-        </div>
+        </div> */}
     </div>
   )
 }

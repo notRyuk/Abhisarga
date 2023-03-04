@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from '../styles/logo.module.css'
+import { Box } from '@mui/material'
 import { CSSProperties } from "react"
+import backgroundImage from "../assets/Group 32.svg"
 
 interface Props {
   sx?: CSSProperties
@@ -9,8 +11,13 @@ interface Props {
 const Logo = ({sx}: Props) => {
   return (
     <div className={styles.main} style={sx}>
-        <img src='/Group 32.svg' className={styles.bg}></img>
-        <img src='/Transparent Title.png' className={styles.fg}></img>
+      <Box 
+        component="img"
+        src={backgroundImage}
+      />
+      <Box
+        component={"img"}
+      />
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import backgroundImage from "../assets/background.png";
+import Logo from '../components/Logo';
 import Modal from '../components/Modal';
+import Prizes from '../components/Prizes';
 import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
 
@@ -26,22 +28,24 @@ function App() {
     <div 
       className={styles.main}
       style={{
-        width: 3975*2,
-        height: 2809*2,
+        width: 3975,
+        height: 2809,
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%"
+        backgroundSize: "100%",
+        display: "flex",
+        flexDirection: "row"
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          left: "100%",
-          gap: "30rem",
-          marginLeft: "67rem",
-          paddingTop: "70rem",
-          width: "23rem"
+          // left: "90%",
+          gap: "3rem",
+          marginLeft: "28rem",
+          paddingTop: "28rem",
+          width: "12rem"
         }}
       >
         <Modal className={styles.modal}/>
@@ -55,3 +59,10 @@ function App() {
 }
 
 export default App
+
+
+
+/*
+
+
+*/
