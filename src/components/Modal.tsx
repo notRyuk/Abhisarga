@@ -30,12 +30,20 @@ export default function BasicModal() {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      maxWidth: '540px',
-      width: '90%',
+      width: '30vw',
       bgcolor: 'background.paper',
       border: '8px solid' + newArr[0],
       padding: '2px',
       borderRadius: "16px",
+      "@media(max-width: 900px)": {
+        width: "60vw"
+      },
+      "@media(max-width: 650px)": {
+        width: "60vw"
+      },
+      "@media(max-width: 450px)": {
+        width: "75vw"
+      },
     };
 
   return (

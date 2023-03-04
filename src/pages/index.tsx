@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import backgroundImage from "../assets/background.png";
 import Logo from '../components/Logo';
+import Modal from '../components/Modal';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -38,6 +39,7 @@ function App() {
           backgroundColor: "#acacab"
         }}
       />
+      <Modal />
     </div>
   )
 }
