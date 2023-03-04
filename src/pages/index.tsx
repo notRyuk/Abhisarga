@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import backgroundImage from "../assets/background.png"
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -18,10 +19,10 @@ function App() {
       style={{
         width: 4000,
         height: 2000,
-        backgroundImage: "linear-gradient(red, yellow)",
+        backgroundImage,
         display: "flex",
         justifyContent: "center",
-        "alignItems": "center"
+        "alignItems": "center",
       }}
     >
       <h1>Something</h1>
