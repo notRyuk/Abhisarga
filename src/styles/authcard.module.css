@@ -1,0 +1,39 @@
+.main {
+    border-left: 3px;
+    border-right: 6px;
+    border-bottom: 6px;
+    border-top: 3px;
+    padding: 10px;
+    border-color: black;
+    border-style: solid;
+    width: 20%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+    animation: transform 0.2s;
+}
+
+.main:hover {
+    transform: scale(1.02);
+}
+
+.login {
+    margin-bottom: 10px;
+    animation: transform 0.2s;
+}
+
+.login:hover {
+    transform: scale(1.02);
+}
+
+.signup {
+    margin-top: 10px;
+    animation: transform 0.2s;
+}
+
+.signup:hover {
+    transform: scale(1.02);
+}

@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import AddIcon from '@mui/icons-material/Add';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import NorthIcon from '@mui/icons-material/North';
+import NorthEastIcon from '@mui/icons-material/NorthEast';
 import styles from "../styles/modal.module.css"
 import CodeIcon from '@mui/icons-material/Code';
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ import { useState } from 'react';
 const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
 const newArr = shuffle(colors)
 
-export default function BasicModal() {
+export default function CulturalEventsModal() {
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (event: any, reason: any) => {
@@ -41,10 +41,10 @@ export default function BasicModal() {
   return (
     <div className={styles.main}>
         <div className={styles.mainDiv} onClick={handleOpen} style={{ border: "5px solid" + newArr[0]}} >
-            <div 
+            <div
                 style={{ padding: "6px" }}>
                 <img className={styles.cardImg} 
-                    src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" 
+                    src="https://exambazaar-2020.s3.amazonaws.com/7840163a82fdf16df256e63fdcbdff21.JPG" 
                     alt="img" 
                     height={'198px'} 
                     width={'350px'} 
@@ -73,7 +73,7 @@ export default function BasicModal() {
                 <div className={styles.mainNav}>
                     <div 
                         style={{ width: "20%", height: "100px" }}>
-                        <NorthIcon 
+                        <NorthEastIcon 
                             style={{ color: "white", fontSize: "60px" }} 
                         />
                     </div>
@@ -83,7 +83,7 @@ export default function BasicModal() {
                 <div className={styles.headingCard} 
                     style={{ width: "40%" }}>
                     <p>
-                        IIITS HACKATHON
+                        CULTURAL EVENTS
                     </p>
                 </div>
             </div>
@@ -110,13 +110,13 @@ export default function BasicModal() {
                 <div className={styles.topLevel}>
                     <p className={styles.modalHeading} 
                         style={{ color: newArr[0] }}>
-                            IIITS HACKATHON
+                            CULTURAL EVENTS
                     </p>
                 </div>
                 <div className={styles.modalImgDiv} 
                     style={{ border: "2px solid"+newArr[0] }}>
                         <img className={styles.modalImg} 
-                            src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" 
+                            src="https://exambazaar-2020.s3.amazonaws.com/7840163a82fdf16df256e63fdcbdff21.JPG" 
                             alt='img' 
                             width={'98%'} 
                             height={'auto'}>
@@ -125,7 +125,7 @@ export default function BasicModal() {
                 <div className={styles.modalDescDiv}>
                         <p className={styles.desc} 
                         style={{color: newArr[0]}}>
-                        Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
+                            Events designed for entertainment and enjoyment for everyone!
                         </p>
                 </div>
                 <hr className={styles.ruler} 
@@ -134,7 +134,7 @@ export default function BasicModal() {
                 <div className={styles.modalDescDiv}>
                     <p className={styles.quote} 
                         style={{color: newArr[0]}}>
-                            "It's harder to read code than to write it."
+                            "Culture is the arts elevated to a set of beliefs."
                     </p>
                 </div>
                 <Button 

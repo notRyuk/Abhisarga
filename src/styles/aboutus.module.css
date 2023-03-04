@@ -1,0 +1,43 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 20%;
+    min-width: 150px;
+    border: 5px solid #FF68A8;
+    border-radius: 10px;
+    background-color: white;
+    color: #FF68A8;
+}
+
+.heading {
+    font-size: 28px;
+    color: #FF68A8;
+    font-weight: 600;
+}
+
+.miniCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    border: 5px solid #FF68A8;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+    height: 10%;
+    min-height: 120px;
+}
+
+.p {
+    width: 70%;
+    font-weight: 600;   
+}
+
+.dot {
+    border: 5px solid #FF68A8;
+    border-radius: 10px;
+}

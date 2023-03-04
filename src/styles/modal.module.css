@@ -124,10 +124,11 @@ img::after {
 }
 
 .modalHeading {
-    font-family: 'Dosis', sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    /* font-family: 'Dosis', sans-serif; */
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    /* letter-spacing: 1px; */
 }
 
 .modalImgDiv {
