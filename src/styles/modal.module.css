@@ -1,5 +1,4 @@
 .main {
-    width: 370px;
     border-radius: 5px;
     transition: transform .2s;
 }
@@ -20,7 +19,6 @@
     flex-direction: column;
     border-radius: 16px;
     padding: 0px;
-    max-width: 370px;
     width: 98%;
     cursor: pointer;
 }
@@ -84,10 +82,7 @@
 
 .mainImg::after {
     content: "";
-    /* animation: grain 8s steps(10) infinite; */
     background-image: url('../assets/paper_1.png');
-    /* height: 200%; */
-    /* width: 200%; */
     opacity: 0.3;
     position: fixed;
 }
@@ -111,11 +106,9 @@ img::after {
 }
 
 .modalHeading {
-    /* font-family: 'Dosis', sans-serif; */
     font-family: 'ArcadeClassic', sans-serif;
     font-size: 36px;
     font-weight: 500;
-    /* letter-spacing: 1px; */
 }
 
 .modalImgDiv {

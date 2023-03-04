@@ -15,7 +15,11 @@ import { useState } from 'react';
 const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
 const newArr = shuffle(colors)
 
-export default function BasicModal() {
+interface Props {
+    className?: string
+}
+
+export default function BasicModal({ className }: Props) {
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (event: any, reason?: string) => {
@@ -47,7 +51,7 @@ export default function BasicModal() {
     };
 
   return (
-    <div className={styles.main}>
+    <div className={`${styles.main} ${className}`}>
         <div className={styles.mainDiv} onClick={handleOpen} style={{ border: "5px solid" + newArr[0]}} >
             <div 
                 style={{ padding: "6px" }}>
