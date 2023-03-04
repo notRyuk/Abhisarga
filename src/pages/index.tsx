@@ -33,8 +33,9 @@ function App() {
     >
       <Logo 
         sx={{
-          scale: "0.25",
-          transform: "translate(5000px, 7000px)"
+          scale: "0.2515",
+          transform: "translate(5140px, 7370px)",
+          backgroundColor: "#acacab"
         }}
       />
     </div>
