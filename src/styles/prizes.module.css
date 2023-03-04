@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 10px solid gray;
+    border: 10px solid #CA7CD8;
     width: 27rem;
     min-width: 200px;
     max-height: 11rem;
     padding: 10px;
     border-radius: 15px;
-    background-color: #01a863;
+    background-color: #CA7CD8;
 }
 
 .black {

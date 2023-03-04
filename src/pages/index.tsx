@@ -11,6 +11,8 @@ import SmallCircle from '../components/SmallCircle';
 import SmallBox from '../components/SmallBox';
 import AboutUs from '../components/AboutUs';
 import Socials from '../components/Socials';
+import Quote from '../components/Quote';
+import Members from '../components/Members';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -61,7 +63,15 @@ function App() {
       >
         <Modal color={getRandomColor()} title="Lorem Ipsum" />
         <Modal color={getRandomColor()} title="Lorem Ipsum"/>
-        <RegistrationCard className={`${styles.modal} ${styles.reg_card}`}/>
+        <Quote 
+          className={`${styles.modal} ${styles.reg_card}`}
+          sx={{
+            margin: 0,
+            marginBottom: "-1.5rem",
+            width: "25rem",
+            marginLeft: "-1rem"
+          }}
+        />
         <Modal color={getRandomColor()} title="Lorem Ipsum"/>
         <Modal color={getRandomColor()} title="Lorem Ipsum"/>
       </div>
@@ -78,8 +88,11 @@ function App() {
                 </div>
               </div>
               <div className={styles.top1leftbottom}>
-                <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385}} />
-                <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385}} />
+                <div></div>
+                <div className={styles.tempflex}>
+                  <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 600}} />
+                  <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 600}} />
+                </div>
               </div>
             </div>
             <div className={styles.top1right}>
@@ -113,7 +126,21 @@ function App() {
             </div>
             <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
             <div className={styles.team}>
-              
+              <Members 
+                sx={{
+                  height: "18.5rem",
+                  // marginBottom: "-3rem",
+                  marginTop: "1.7rem",
+                  width: "96.5%",
+                  justifyContent: "center",
+                  marginLeft: "-1rem",
+                  borderColor: "orange"
+                }} 
+                sx2={{
+                  padding: 0,
+                  borderColor: "orange"
+                }}
+              />
             </div>
           </div>
           <div className={styles.gridBottomRight}>

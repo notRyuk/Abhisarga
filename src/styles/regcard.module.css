@@ -1,12 +1,16 @@
 .main {
     display: flex;
     flex-direction: column;
-    border: 5px solid;
+    border: 10px solid;
     width: 100%;
     border-radius: 15px;
     padding: 8px;
     animation: transform 0.2s;
     background-color: white;
+    height: 10rem;
+    margin-top: -2.5rem;
+    margin-left: -2rem;
+    margin-right: 2rem;
 }
 
 .main:hover {
@@ -39,4 +43,5 @@
     font-size: 20px;
     margin-bottom: -5%;
     padding: 2%;
+    padding-left: 2%;
 }

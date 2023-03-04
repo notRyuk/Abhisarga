@@ -11,12 +11,17 @@
     margin-top: 0.5rem;
 }
 
+.logo {
+    width: 38rem;
+}
+
 .gridCenterMain {
     display: flex;
     flex-direction: column;
     /* padding-left: 18rem; */
     padding-top: 35rem; 
     width: 84rem;
+    margin-left: -1.2rem;
 }
 
 .gridCenterTop {
@@ -24,13 +29,13 @@
     grid-template-rows: 2fr 1fr;
     padding-left: 4rem;
     height: 62rem;
-    width: 95rem;
+    max-width: 95rem;
 }
 
 .top1 {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 5rem;
+    grid-template-columns: 2.5fr 1fr;
+    column-gap: 0rem;
 }
 
 .top1left {
@@ -45,10 +50,18 @@
 }
 
 .top1leftbottom {
-    padding-left: 7rem;
+    /* padding-left: 3rem; */
+    display: grid;
+    grid-template-columns: 0.3fr 4fr;
+    column-gap: 6.5rem;
+    /* margin-left: 3rem; */
+    /* margin-right: -5rem; */
+}
+
+.tempflex {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 3.5rem;
 }
 
 .top2 {
@@ -56,13 +69,14 @@
     flex-direction: row;
     padding-left: 7rem;
     gap: 3.5rem;
-    margin-top: -7rem;
+    margin-top: -4rem;
 }
 
 .top1right {
     display: grid;
     grid-template-rows: 2fr 1fr;
     max-width: 15rem;
+    margin-left: 5rem;
 }
 
 .gridCenterBottom {
@@ -77,7 +91,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 3rem;
-    row-gap: 5rem;
+    row-gap: 4.5rem;
+    margin-top: 1rem    ;
 }
 
 .gridBottomRight {
