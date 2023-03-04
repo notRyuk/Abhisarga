@@ -13,7 +13,10 @@ import TechnicalEvents from "../../components/TechnicalEvents"
 
 const Modal = () => {
     return (
-        <TechnicalEvents />
+        <>
+            <BasicModal />
+            <TechnicalEvents />
+        </>
     )
 }
 
