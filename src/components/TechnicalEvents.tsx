@@ -23,6 +23,8 @@ export default function TechnicalEvents() {
             return
         setOpen(false)
     } 
+
+    const handleClick = (e, r) => handleClose(e, r)
     
     
     const style = {
@@ -101,7 +103,7 @@ export default function TechnicalEvents() {
       >
         <Box sx={style}>
             <IconButton 
-                onClick={handleClose} 
+                onClick={(e, r) => handleClick(e, r)} 
                 className={styles.closeButton} 
                 sx={{ "&:hover": { backgroundColor: "#EDEDED" }, position: "fixed", top: -20, right: 10, zIndex: 2000, backgroundColor: "white", borderRadius: "10px", border: "5px solid "+"#a9b436" }}>
                     <CloseIcon style={{color: "#a9b436"}} />
