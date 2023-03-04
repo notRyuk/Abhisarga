@@ -4,16 +4,16 @@ import styles from "../../styles/canvas.module.css"
 
 export default function Canvas() {
     const sketch = (p5: P5) => {
-        p5.setup = () => p5.createCanvas(2000, 2000/1.3659742829, p5.WEBGL);
+        let img: P5.Element = p5.createImg("../../assets/paper_1.png", "react logo")
+        // p5.preload = () => {
+        //     img = p5.createImg("../../assets/paper_1.png", "react logo")
+        // }
+        p5.setup = () => {
+            p5.createCanvas(1000, 1000)
+        }
         p5.draw = () => {
-            p5.background(250);
-            p5.normalMaterial();
-            p5.push();
-            p5.rotateZ(p5.frameCount * 0.01);
-            p5.rotateX(p5.frameCount * 0.01);
-            p5.rotateY(p5.frameCount * 0.01);
-            p5.plane(100);
-            p5.pop();
+            p5.background(127);
+            p5.image(img, 0, 0, 100, 100)
         }
     }
     return (

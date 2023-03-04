@@ -34,7 +34,7 @@ export default model("Event", new Schema({
                 required: [true, "The winning amount of the prize is required"]
             },
             winner: {
-                type: Number,
+                type: String,
                 required: false
             }
         }],

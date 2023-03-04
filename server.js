@@ -2,6 +2,8 @@ import fs from 'node:fs/promises'
 import express from 'express'
 import { connect as mongooseConnect } from "mongoose"
 import { BASE as base, PORT, NODE_ENV, DB_URL } from "./config.js"
+import userRouter from "./routes/user.js"
+import queryRouter from "./routes/query.js"
 
 const isProduction = NODE_ENV.toUpperCase() === "PRODUCTION"
 
@@ -27,9 +29,7 @@ const ssrManifest = isProduction
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-import userRouter from "./routes/user.js"
 app.use("/user", userRouter)
-import queryRouter from "./routes/query.js"
 app.use('/query', queryRouter)
 
 
