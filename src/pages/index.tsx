@@ -54,6 +54,45 @@ function App() {
         <Modal className={styles.modal}/>
         <Modal className={styles.modal}/>
       </div>
+      <div className={styles.gridCenterMain}>
+        <div className={styles.gridCenterTop}>
+          <div className={styles.top1}>
+            <div className={styles.top1left}>
+              <div className={styles.top1lefttop}>
+                <div>
+                  ghaas
+                </div>
+                <div>
+                  <Logo />
+                </div>
+              </div>
+              <div className={styles.top1leftbottom}>
+                <Modal />
+                <Modal />
+              </div>
+            </div>
+            <div className={styles.top1right}>
+              <div>
+                ghaas
+              </div>
+              <div>
+                <RegistrationCard />
+              </div>
+            </div>
+            {/* <div className={styles.top1bottom}>
+              <Prizes />
+              <Logo />
+            </div> */}
+          </div>
+          <div className={styles.top2}>
+            <Prizes />
+            <Logo />
+          </div>
+        </div>
+        <div className={styles.gridCenterBottom}>
+
+        </div>
+      </div>
     </div>
   )
 }
