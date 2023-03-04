@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React from 'react'
 import styles from '../styles/aboutus.module.css'
 
@@ -12,7 +13,7 @@ const AboutUs = () => {
                 IIIT Sri City is a University.
             </p>
         </div>
-        <div className="dot"></div>
+        <Button variant='contained' sx={{ width: "90%", fontFamily: "ArcadeClassic", fontSize: "28px", backgroundColor: "#FF68A8", "&:hover": { backgroundColor: "#FF68A8", opacity: "0.8" } }}>Learn More</Button>
     </div>
   )
 }

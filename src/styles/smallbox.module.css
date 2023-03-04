@@ -9,6 +9,8 @@
     background-color: white;
     border-radius: 20px;
     animation: transform 0.2s;
+    width: 8rem;
+    
 }
 
 .main:hover {

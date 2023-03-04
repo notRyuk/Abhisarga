@@ -7,6 +7,10 @@ import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
 import Image from "../assets/react.svg"
 import { shuffle } from '../helper';
+import SmallCircle from '../components/SmallCircle';
+import SmallBox from '../components/SmallBox';
+import AboutUs from '../components/AboutUs';
+import Socials from '../components/Socials';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -70,7 +74,7 @@ function App() {
                   ghaas
                 </div>
                 <div>
-                  <Logo />
+                  <Socials />
                 </div>
               </div>
               <div className={styles.top1leftbottom}>
@@ -95,7 +99,26 @@ function App() {
           </div>
         </div>
         <div className={styles.gridCenterBottom}>
-
+          <div className={styles.gridBottomLeft}>
+            <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385 }}/>
+            <div className={styles.nav}>
+              <div className={styles.navtop}>
+                <SmallBox  title='CULTURAL EVENTS' color={getRandomColor()} />
+                <SmallCircle title='TEAM' color={getRandomColor()} />
+              </div>
+              <div className={styles.navbot}>
+                <SmallCircle title='SPONSORS' color={getRandomColor()} />
+                <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />
+              </div>
+            </div>
+            <Modal color={getRandomColor()} title="Lorem Ipsum" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
+            <div className={styles.team}>
+              
+            </div>
+          </div>
+          <div className={styles.gridBottomRight}>
+            <AboutUs />
+          </div>
         </div>
       </div>
     </div>
