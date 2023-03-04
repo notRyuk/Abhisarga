@@ -15,15 +15,16 @@ import TechnicalEvents from "../../components/TechnicalEvents"
 const Modal = () => {
     return (
         <>
-            <TechnicalEvents />
+            {/* <TechnicalEvents /> */}
             {/* <AboutUs /> */}
             {/* <AuthCard /> */}
             {/* <CulturalEventsModal /> */}
             {/* <Logo /> */}
-            {/* <Card /> */}
+            <Card />
             {/* <Queries /> */}
             {/* <RegistrationCard /> */}
             {/* <Prizes /> */}
+            {/* <BasicModal /> */}
         </>
     )
 }

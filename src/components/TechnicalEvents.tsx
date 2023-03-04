@@ -10,7 +10,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { shuffle } from '../helper';
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 const colors = ["#FF68A8", "#64CFF7", "#a9b436", "#a9b436", "#3968CB"];
 const newArr = shuffle(colors)
@@ -18,7 +18,7 @@ const newArr = shuffle(colors)
 export default function TechnicalEvents() {
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = (event: any, reason: any) => {
+    const handleClose = (event: SyntheticEvent, reason?: string) => {
         if (reason && reason == "backdropClick")
             return
         setOpen(false)
@@ -82,7 +82,7 @@ export default function TechnicalEvents() {
         </div>
         <div 
             style={{ padding: "6px" }}>
-            <img className={styles.cardImg} 
+            <img className={styles.cardImg}
                 src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201810/stockvault-person-studying-and-learning---knowledge-concept178241_0.jpeg?size=690:388" 
                 alt="img" 
                 height={'198px'} 
@@ -103,10 +103,22 @@ export default function TechnicalEvents() {
       >
         <Box sx={style}>
             <IconButton 
-                onClick={(e, r) => handleClick(e, r)} 
-                className={styles.closeButton} 
-                sx={{ "&:hover": { backgroundColor: "#EDEDED" }, position: "fixed", top: -20, right: 10, zIndex: 2000, backgroundColor: "white", borderRadius: "10px", border: "5px solid "+"#a9b436" }}>
-                    <CloseIcon style={{color: "#a9b436"}} />
+                onClick={handleClose}
+                className={styles.closeButton}
+                sx={{ 
+                    "&:hover": { 
+                        backgroundColor: "#EDEDED" 
+                    }, 
+                    position: "fixed", 
+                    top: -20, 
+                    right: 10, 
+                    zIndex: 2000, 
+                    backgroundColor: "white", 
+                    borderRadius: "10px", 
+                    border: "5px solid "+"#a9b436" 
+                }}
+            >
+                <CloseIcon style={{color: "#a9b436"}} />
             </IconButton>
             <div className={styles.modalMain}>
                 <div className={styles.topLevel}>

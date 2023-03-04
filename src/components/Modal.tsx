@@ -7,7 +7,7 @@ import styles from "../styles/modal.module.css"
 import CodeIcon from '@mui/icons-material/Code';
 import Button from '@mui/material/Button';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import IconButton from '@mui/material/IconButton';
+import { IconButton }  from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { shuffle } from '../helper';
 import { useState } from 'react';
