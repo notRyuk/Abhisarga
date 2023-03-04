@@ -10,7 +10,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { shuffle } from '../helper';
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 const colors = ["#FF68A8", "#64CFF7", "#a9b436", "#a9b436", "#3968CB"];
 const newArr = shuffle(colors)
@@ -18,7 +18,7 @@ const newArr = shuffle(colors)
 export default function TechnicalEvents() {
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = (event: any, reason: any) => {
+    const handleClose = (event: SyntheticEvent, reason?: string) => {
         if (reason && reason == "backdropClick")
             return
         setOpen(false)
@@ -101,10 +101,22 @@ export default function TechnicalEvents() {
       >
         <Box sx={style}>
             <IconButton 
-                onClick={handleClose} 
-                className={styles.closeButton} 
-                sx={{ "&:hover": { backgroundColor: "#EDEDED" }, position: "fixed", top: -20, right: 10, zIndex: 2000, backgroundColor: "white", borderRadius: "10px", border: "5px solid "+"#a9b436" }}>
-                    <CloseIcon style={{color: "#a9b436"}} />
+                onClick={handleClose}
+                className={styles.closeButton}
+                sx={{ 
+                    "&:hover": { 
+                        backgroundColor: "#EDEDED" 
+                    }, 
+                    position: "fixed", 
+                    top: -20, 
+                    right: 10, 
+                    zIndex: 2000, 
+                    backgroundColor: "white", 
+                    borderRadius: "10px", 
+                    border: "5px solid "+"#a9b436" 
+                }}
+            >
+                <CloseIcon style={{color: "#a9b436"}} />
             </IconButton>
             <div className={styles.modalMain}>
                 <div className={styles.topLevel}>
