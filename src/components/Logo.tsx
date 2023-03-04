@@ -1,14 +1,12 @@
 import React from 'react'
 import styles from '../styles/logo.module.css'
+import abhisarga from '../assets/Frame 1.png'
 
 const Logo = () => {
   return (
     <div className={styles.main}>
-        <p className={styles.topLeft}>.</p>
-        <p className={styles.topRight}>.</p>
-        <img src='../' alt=''></img>
-        <p className={styles.bottomLeft}>.</p>
-        <p className={styles.bottomRight}>.</p>
+        <img src='/Group 32.svg' className={styles.bg}></img>
+        <img src='/Transparent Title.png' className={styles.fg}></img>
     </div>
   )
 }

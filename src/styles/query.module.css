@@ -1,0 +1,49 @@
+.main {
+    border-left: 4px;
+    border-right: 8px;
+    border-bottom: 8px;
+    border-top: 4px;
+    padding: 10px;
+    border-color: #CA7CD8;
+    border-style: solid;
+    width: 20%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+    border-radius: 15px;
+    animation: transform 0.2s;
+}
+
+.main:hover {
+    transform: scale(1.02);
+}
+
+.heading {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #CA7CD8;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+
+.login {
+    margin-bottom: 10px;
+    animation: transform 0.2s;
+}
+
+.login:hover {
+    transform: scale(1.02);
+}
+
+.signup {
+    margin-top: 10px;
+    animation: transform 0.2s;
+}
+
+.signup:hover {
+    transform: scale(1.02);
+}
