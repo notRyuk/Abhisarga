@@ -51,7 +51,8 @@ function App() {
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        backgroundColor: "#aaa9a9"
       }}
     >
       <div

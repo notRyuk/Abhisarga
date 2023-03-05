@@ -1,5 +1,10 @@
-.main {
+.main:-webkit-scrollbar {
+    display: none;
+}
 
+.main {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
 }
 
 .modal {

@@ -7,11 +7,8 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 const Prizes = () => {
   return (
     <div className={styles.main}>
-          <IconButton>
-            <AddIcon style={{color: "white", top: 0, right: 0, position: "fixed"}} />
-          </IconButton>
         <div className={styles.black}>
-            PRIZE POOL OF OVER 10 LAKH SPREAD OVER 11 EVENTS!
+          PRIZE POOL OF OVER 10 LAKH SPREAD OVER 11 EVENTS!
         </div>
         <div className={styles.text}>
           <p className={styles.prizes}>PRIZES</p>
