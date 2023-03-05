@@ -39,35 +39,35 @@ function App() {
       left: (element.clientWidth-view.innerWidth)/2,
       top: (element.clientHeight-view.innerHeight)/2
     })
+  }, [])
 
-    var _startX = 0;
-    var _startY = 0;
-    var _offsetX = 0;           
-    var _offsetY = 0;
-    var _dragElement;
-    document.onmousedown = OnMouseDown;
-    document.onmouseup = OnMouseUp;
+  useEffect(() => {
+    let _startX = 0,
+    _startY = 0,
+    _scrollTop = 0,
+    _scrollLeft = 0;
 
-    function OnMouseDown(event: any){
-      console.log(event)
-      document.onmousemove = OnMouseMove;
-      _startX = event.clientX;
-      _startY = event.clientY;
-      _offsetX = document.getElementById('div1').offsetLeft;
-      _offsetY = document.getElementById('div1').offsetTop;
-      _dragElement = document.getElementById('div1')
+document.onmousedown = OnMouseDown;
+document.onmouseup = OnMouseUp;
 
-    }
+function OnMouseDown(event) {
+    document.onmousemove = OnMouseMove;
+    _startX = event.clientX;
+    _startY = event.clientY;
+    _scrollTop = document.documentElement.scrollTop;
+    _scrollLeft = document.documentElement.scrollLeft;
+}
 
-    function OnMouseMove(event: any){
-        _dragElement.style.left = (_offsetX + event.clientX - _startX) + 'px';
-      _dragElement.style.top = (_offsetY + event.clientY - _startY) + 'px';
-    }
+function OnMouseMove(event) {
+    window.scrollTo({
+        left: _scrollLeft + (_startX - event.clientX),
+        top: _scrollTop + (_startY - event.clientY)
+    });
+}
 
-    function OnMouseUp(event: any){
-      document.onmousemove = null;
-      _dragElement=null;
-    }
+function OnMouseUp() {
+    document.onmousemove = null;
+}
   }, [])
   
   return (

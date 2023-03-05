@@ -14,15 +14,6 @@ import {
 } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import styles2 from "../styles/modal.module.css"
-// import AddIcon from '@mui/icons-material/Add';
-// import LaptopIcon from '@mui/icons-material/Laptop';
-// import NorthIcon from '@mui/icons-material/North';
-// import NorthEastIcon from '@mui/icons-material/NorthEast';
-// import NorthWestIcon from '@mui/icons-material/NorthWest';
-// import SouthIcon from '@mui/icons-material/South';
-// import SouthEastIcon from '@mui/icons-material/SouthEast';
-// import SouthWestIcon from '@mui/icons-material/SouthWest';
-// import CodeIcon from '@mui/icons-material/Code';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Label } from '@mui/icons-material';
@@ -43,7 +34,7 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
         transform: 'translate(-50%, -50%)',
         width: '30vw',
         bgcolor: 'background.paper',
-        border: '8px solid' + color,
+        border: '8px solid black',
         padding: '2px',
         borderRadius: "16px",
         "@media(max-width: 900px)": {
@@ -59,17 +50,52 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
 
         const [open, setOpen] = useState<boolean>(false);
         const [heading, setHeading] = useState<string>("LOGIN")
+        const [page, setPage] = useState<Number>(1)
         const handleOpen = () => setOpen(true);
         const handleClose = (event: any, reason?: string) => {
+            setPage(1)
             if (reason && reason == "backdropClick")
                 return
             setOpen(false)
         }
+
+        const handleSubmit = () => {
+            console.log("hi")
+            if (heading==="LOGIN") {
+                // login
+            }
+            else {
+                if (page===1) {
+                    setPage(2)
+                }
+                else {
+                    // signup
+                }
+            }
+        }
   return (
-    <div className={styles.main} style={sx}>
+    <div style={{
+        borderLeft: "9px",
+        borderRight: "12px",
+        borderBottom: "12px",
+        borderTop: "9px",
+        padding: "10px",
+        borderColor: "black",
+        borderStyle: "solid",
+        width: "19%",
+        minWidth: "150px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Dosis",
+        animation: "transform 0.2s",
+        borderRadius: "15px",
+        backgroundColor: "white",
+        ...sx
+    }}>
         <Button 
             variant="outlined"
-            className={styles.login}
             style={{
                 fontFamily: "ArcadeClassic",
                 color: "black",
@@ -81,7 +107,9 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                 width: "80%",
                 padding: "1rem",
                 marginTop: "15px",
-                fontSize: "30px"
+                fontSize: "30px",
+                marginBottom: "10px",
+                animation: "transform 0.2s",
             }}
             onClick={() => {
                 handleOpen()
@@ -89,17 +117,16 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
             }}
             sx={{
                 "&:hover": {
-                    backgroundColor: "#EDEDED"
+                    backgroundColor: "#EDEDED",
+                    scale: "1.02",
                 }
             }}>
                 LOGIN
         </Button>
         <Button 
             variant="outlined"
-            className={styles.signup}
             style={{
                 fontFamily: "ArcadeClassic",
-                marginTop: "10px",
                 color: "black",
                 borderTop: "3px solid black",
                 borderLeft: "3px solid black",
@@ -109,6 +136,8 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                 padding: "1rem",
                 marginBottom: "15px",
                 fontSize: "30px",
+                marginTop: "10px",
+                animation: "transform 0.2s",
             }}
             onClick={() => {
                 handleOpen()
@@ -116,7 +145,8 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
             }}
             sx={{
                 "&:hover": {
-                    backgroundColor: "#EDEDED"
+                    backgroundColor: "#EDEDED",
+                    scale: "1.02",
                 }
             }}>
                 SIGN UP
@@ -135,7 +165,6 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                 <Box sx={modalStyle}>
                     <IconButton 
                         onClick={handleClose} 
-                        className={styles2.closeButton} 
                         sx={{ 
                             "&:hover": {
                                 backgroundColor: "#EDEDED" 
@@ -146,32 +175,190 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                             zIndex: 2000, 
                             backgroundColor: "white", 
                             borderRadius: "10px", 
-                            border: "5px solid "+color 
+                            border: "5px solid "+color,
                         }}
                     >
                         <CloseIcon style={{color: color}} />
                     </IconButton>
-                    <div className={styles2.modalMain}>
-                        <div className={styles2.topLevel}>
-                            <p className={styles2.modalHeading} 
-                                style={{ color: color }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "2%",
+                            textAlign: "center",
+                        }}
+                    >
+                        <div 
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                            }}    
+                        >
+                            <p
+                              style={{ 
+                                color: color,
+                                fontFamily: 'ArcadeClassic',
+                                fontSize: "36px",
+                                fontWeight: "500", 
+                            }}>
                                     {heading}
                             </p>
                         </div>
-                        <div className={styles2.loginSignup}>
-                                {heading === "LOGIN" ? 
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                width: "70%",
+                                // fontFamily: 'ArcadeClassic',
+                                textAlign: "left",
+                                fontFamily: "Dosis",
+                                fontSize: "24px",
+                                letterSpacing: "1px",
+                            }}
+                        >
+                            {(heading === "LOGIN")?(
                                 <>
-                                    <p>EMAIL</p>
-                                    <input type={'email'} id="outlined-basic" />
-                                    <p>PASSWORD</p>
-                                    <input type={'password'} id="outlined-basic" />
+                                    <p style={{ marginBottom: "5px" }}>EMAIL</p>
+                                    <input 
+                                    style={{ 
+                                        height: "40px", 
+                                        paddingLeft: "5px", 
+                                        fontSize: "18px",
+                                        paddingRight: "5px", 
+                                        border: "solid black", 
+                                        borderWidth: "3px 6px 6px 3px", 
+                                        borderRadius: "2px"
+                                    }} 
+                                    type={'email'} 
+                                    id="outlined-basic" 
+                                    />
+                                    <p style={{ marginBottom: "5px" }}>PASSWORD</p>
+                                    <input 
+                                    style={{ 
+                                        height: "40px", 
+                                        fontSize: "18px",
+                                        paddingLeft: "5px", 
+                                        paddingRight: "5px", 
+                                        border: "solid black", 
+                                        borderWidth: "3px 6px 6px 3px",
+                                        borderRadius: "2px" 
+                                        
+                                    }} 
+                                    type={'password'} 
+                                    id="outlined-basic" 
+                                    />
                                 </>    
-                                :
+                            ):(
                                 <>
-                                    <p>EMAIL</p>
-                                    <input type={'email'} id="outlined-basic" />   
+                                    {(page === 1)?(
+                                        <>
+                                            <p 
+                                                style={{ marginBottom: "5px" }}>
+                                                    NAME
+                                            </p>
+                                            <input 
+                                            style={{ 
+                                                height: "40px", 
+                                                fontSize: "18px",
+                                                paddingLeft: "5px", 
+                                                paddingRight: "5px", 
+                                                border: "solid black", 
+                                                borderWidth: "3px 6px 6px 3px",
+                                                borderRadius: "2px"                                                
+                                            }} 
+                                            name="name"
+                                            type={'text'} 
+                                            id="outlined-basic" 
+                                            />
+                                            <p style={{ marginBottom: "5px" }}>EMAIL</p>
+                                            <input 
+                                            style={{ 
+                                                height: "40px", 
+                                                paddingLeft: "5px", 
+                                                fontSize: "18px",
+                                                paddingRight: "5px", 
+                                                border: "solid black", 
+                                                borderWidth: "3px 6px 6px 3px",
+                                                borderRadius: "2px"                                                
+                                            }} 
+                                            type={'email'} 
+                                            name="email"
+                                            id="outlined-basic" 
+                                            />  
+                                            <p style={{ marginBottom: "5px" }}>PASSWORD</p>
+                                            <input 
+                                            style={{ 
+                                                height: "40px", 
+                                                paddingLeft: "5px", 
+                                                fontSize: "18px",
+                                                paddingRight: "5px", 
+                                                border: "solid black", 
+                                                borderWidth: "3px 6px 6px 3px",
+                                                borderRadius: "2px"
+                                            }} 
+                                            type={'email'}
+                                            name="password"
+                                            id="outlined-basic" 
+                                            />  
+                                        </>
+                                    ):(
+                                        <>
+                                            <p style={{ marginBottom: "5px" }}>PHONE NUMBER</p>
+                                            <input 
+                                            style={{ 
+                                                height: "40px", 
+                                                paddingLeft: "5px", 
+                                                fontSize: "18px",
+                                                paddingRight: "5px", 
+                                                border: "solid black", 
+                                                borderWidth: "3px 6px 6px 3px",
+                                                borderRadius: "2px"
+                                            }} 
+                                            type={'text'}
+                                            name="phone"
+                                            id="outlined-basic" 
+                                            />
+
+                                            <p style={{ marginBottom: "5px" }}>COLLEGE</p>
+                                            <input 
+                                            style={{ 
+                                                height: "40px", 
+                                                paddingLeft: "5px", 
+                                                fontSize: "18px",
+                                                paddingRight: "5px", 
+                                                border: "solid black", 
+                                                borderWidth: "3px 6px 6px 3px",
+                                                borderRadius: "2px"
+                                            }}
+                                            name="collegeName"
+                                            type={'text'} 
+                                            id="outlined-basic" 
+                                            />
+
+                                            <p style={{ marginBottom: "5px" }}>ADDRESS</p>
+                                            <textarea 
+                                                style={{ 
+                                                    height: "100px", 
+                                                    paddingLeft: "5px", 
+                                                    fontSize: "18px",
+                                                    paddingRight: "5px", 
+                                                    border: "solid black", 
+                                                    borderWidth: "3px 6px 6px 3px",
+                                                    borderRadius: "2px"
+                                                }}
+                                                rows={5}
+                                                maxLength={150}
+                                                name="address"
+                                                id="outlined-basic" 
+                                            />
+                                        </>
+                                    )} 
                                 </>
-                                }
+                            )}
                         </div>
                         <div className={styles2.modalDescDiv}>
                             <span>
@@ -184,41 +371,70 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                                     {heading === "LOGIN" ? 
                                     <>
                                         <p>
-                                            Don't have an account yet? <button onClick={() => setHeading("SIGNUP")}>SIGN UP</button> 
+                                            Don't have an account yet? 
+                                            <Button 
+                                                onClick={() => setHeading("SIGNUP")} 
+                                                style={{ 
+                                                    cursor: "pointer",
+                                                    color: "#3968CB",
+                                                    padding: "2px",
+                                                    marginLeft: "10px",
+                                                    borderBottom: "2px solid black"
+                                                    }}>
+                                                        
+                                                        SIGN UP
+                                                </Button>
                                         </p>
                                         
                                     </>    
                                     :
                                     <>
                                         <p>
-                                            Already have an account? <button onClick={() => setHeading("LOGIN")}>LOGIN</button>
+                                            Already have an account? 
+                                            <Button 
+                                                onClick={() => setHeading("LOGIN")} 
+                                                style={{ 
+                                                    cursor: "pointer",
+                                                    color: "#3968CB",
+                                                    padding: "2px",
+                                                    marginLeft: "10px",
+                                                    borderBottom: "2px solid black"
+                                                    }}>
+                                                        LOGIN
+                                            </Button>
                                         </p> 
                                     </>
                                     }
                                 </p>
                             </span>
                         </div>
-                        <hr className={styles2.ruler} 
+                        {heading === "LOGIN" &&
+                            <Button 
+                                style={{ 
+                                    cursor: "pointer",
+                                    color: "#3968CB",
+                                    padding: "2px",
+                                    marginLeft: "10px",
+                                    borderBottom: "2px solid black"
+                                    }}>
+                                        FORGOT PASSWORD
+                            </Button>
+                        }
+                        <hr className={styles2.ruler}
                             style={{ backgroundColor: color}}>
                         </hr>
-                        <div className={styles2.modalDescDiv}>
-                            <p 
-                                className={styles2.quote} 
-                                style={{color: color}}
-                            >
-                                "It's harder to read code than to write it."
-                            </p>
-                        </div>
-                        <Button 
+                        <Button
                             variant="contained" 
                             sx={{ "&:hover": { opacity: 0.9 }, textAlign: "center" }} 
-                            className={styles.moreDetailsButton} 
-                            style={{backgroundColor: color, marginBottom: "20px"}}>
-                                More Details 
-                            <ArrowRightAltIcon 
-                                fontSize='large'
-                                style={{marginLeft: "20px"}} 
-                            /> 
+                            className={styles.moreDetailsButton}
+                            onClick={handleSubmit}
+                            style={{
+                                backgroundColor: color, 
+                                marginBottom: "20px",
+                                paddingLeft: "2rem",
+                                paddingRight: "2rem"
+                            }}>
+                                {(heading === "LOGIN")?heading:(page===1?"NEXT":heading)}
                         </Button>
                     </div>
                 </Box>
