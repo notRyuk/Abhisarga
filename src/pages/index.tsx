@@ -156,7 +156,7 @@ function App() {
               </div>
               <div className={styles.navbot}>
                 <SmallCircle title='SPONSORS' color={getRandomColor()} />
-                <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />
+                <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />/
               </div>
             </div>
             <Modal color={getRandomColor()} title="TECHNICAL EVENT #1" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
@@ -213,8 +213,8 @@ function App() {
         </div>
         <div className={styles.rightGridBottom}>
           <div className={styles.bottomLeft}>
-              <AuthCard 
-                color='black'
+              <AuthCard
+                color="black"
                 sx={{
                   height: "17rem",
                   width: "20rem"

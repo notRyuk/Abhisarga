@@ -5,15 +5,28 @@ import styles from '../styles/aboutus.module.css'
 const AboutUs = () => {
   return (
     <div className={styles.main}>
-        <p className={styles.heading}>
-            ABOUT US
+      <p className={styles.heading}>
+        ABOUT US
+      </p>
+      <div className={styles.miniCard}>
+        <p className={styles.p}>
+            IIIT Sri City is a University.
         </p>
-        <div className={styles.miniCard}>
-            <p className={styles.p}>
-                IIIT Sri City is a University.
-            </p>
-        </div>
-        <Button variant='contained' sx={{ width: "90%", fontFamily: "ArcadeClassic", fontSize: "28px", backgroundColor: "#FF68A8", "&:hover": { backgroundColor: "#FF68A8", opacity: "0.8" } }}>Learn More</Button>
+      </div>
+      <Button 
+        variant='contained' 
+        sx={{ 
+          width: "90%", 
+          fontFamily: "ArcadeClassic", 
+          fontSize: "28px", 
+          backgroundColor: "#FF68A8", 
+          "&:hover": { 
+            backgroundColor: "#FF68A8", 
+            opacity: "0.8" 
+          } 
+        }}>
+          Learn More
+        </Button>
     </div>
   )
 }

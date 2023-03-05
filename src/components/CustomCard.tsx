@@ -9,7 +9,8 @@ import {
     Modal,
     Box,
     IconButton,
-    Button
+    Button,
+    styled
 } from "@mui/material";
 import styles from "../styles/modal.module.css"
 import AddIcon from '@mui/icons-material/Add';
@@ -24,6 +25,26 @@ import CodeIcon from '@mui/icons-material/Code';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
+const StyledBox = styled(Box)({
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '30vw',
+    bgcolor: 'background.paper',
+    padding: '2px',
+    borderRadius: "16px",
+    "@media(max-width: 900px)": {
+      width: "60vw"
+    },
+    "@media(max-width: 650px)": {
+      width: "60vw"
+    },
+    "@media(max-width: 450px)": {
+      width: "75vw"
+    },
+})
+
 interface Props {
     style?: SxProps
     image?: string
@@ -34,32 +55,11 @@ interface Props {
 export default function CustomCard({ style, image, color, title }: Props){
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = (event: any, reason?: string) => {
+    const handleClose = (_: any, reason?: string) => {
         if (reason && reason == "backdropClick")
             return
         setOpen(false)
     }
-
-    const modalStyle = {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '30vw',
-        bgcolor: 'background.paper',
-        border: '8px solid' + color,
-        padding: '2px',
-        borderRadius: "16px",
-        "@media(max-width: 900px)": {
-          width: "60vw"
-        },
-        "@media(max-width: 650px)": {
-          width: "60vw"
-        },
-        "@media(max-width: 450px)": {
-          width: "75vw"
-        },
-      };
 
     const icons = [NorthEastIcon, NorthIcon, NorthWestIcon, SouthEastIcon, SouthIcon, SouthWestIcon]
     const RandomIcon = icons[Math.floor(Math.random()*6)]
@@ -85,7 +85,7 @@ export default function CustomCard({ style, image, color, title }: Props){
                 onClick={handleOpen}
             >
                 <img
-                    src={"https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
+                    src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"
                     alt="SOM"
                     style={{
                         marginTop: "1rem",
@@ -105,9 +105,33 @@ export default function CustomCard({ style, image, color, title }: Props){
                         gap: "2rem",
                     }}
                 >
-                    <LaptopIcon sx={{ padding: ".4rem", color: "white", backgroundColor: alpha(color, 0.5), border: "5px solid white", borderRadius: ".5rem"}}/>
-                    <CodeIcon sx={{ padding: ".4rem", color: "white", backgroundColor: alpha(color, 0.5), border: "5px solid white", borderRadius: ".5rem"}}/>
-                    <AddIcon sx={{ padding: ".4rem", color: "white", backgroundColor: alpha(color, 0.5), border: "5px solid white", borderRadius: ".5rem"}}/>
+                    <LaptopIcon 
+                        sx={{ 
+                            padding: ".4rem", 
+                            color: "white", 
+                            backgroundColor: alpha(color, 0.5), 
+                            border: "5px solid white", 
+                            borderRadius: ".5rem"
+                        }}
+                    />
+                    <CodeIcon 
+                        sx={{ 
+                            padding: ".4rem", 
+                            color: "white", 
+                            backgroundColor: alpha(color, 0.5), 
+                            border: "5px solid white", 
+                            borderRadius: ".5rem"
+                        }}
+                    />
+                    <AddIcon 
+                        sx={{ 
+                            padding: ".4rem", 
+                            color: "white", 
+                            backgroundColor: alpha(color, 0.5), 
+                            border: "5px solid white", 
+                            borderRadius: ".5rem"
+                        }}
+                    />
                 </Container>
                 <CardContent
                     sx={{
@@ -130,7 +154,7 @@ export default function CustomCard({ style, image, color, title }: Props){
                     background: "none"
                 }}
             >
-                <Box sx={modalStyle}>
+                <StyledBox sx={{ border: '8px solid'+color }}>
                     <IconButton 
                         onClick={handleClose} 
                         className={styles.closeButton} 
@@ -198,7 +222,7 @@ export default function CustomCard({ style, image, color, title }: Props){
                             /> 
                         </Button>
                     </div>
-                </Box>
+                </StyledBox>
             </Modal>
         </>
     )
