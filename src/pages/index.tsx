@@ -66,19 +66,20 @@ function App() {
           // width: "12rem"
         }}
       >
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT #4" />
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT #3"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT" />
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT"/>
         <Quote 
           className={`${styles.modal} ${styles.reg_card}`}
           sx={{
             margin: 0,
             marginBottom: "-1.5rem",
             width: "25rem",
-            marginLeft: "-1rem"
+            marginLeft: "-1rem",
+            marginTop: "-.25rem"
           }}
         />
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT #5"/>
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT #2"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT"/>
+        <Modal color={getRandomColor()} title="TECHNICAL EVENT"/>
       </div>
       <div className={styles.gridCenterMain}>
         <div className={styles.gridCenterTop}>
@@ -86,7 +87,7 @@ function App() {
             <div className={styles.top1left}>
               <div className={styles.top1lefttop}>
                 <div>
-                  ghaas
+                  .
                 </div>
                 <div>
                   <Socials />
