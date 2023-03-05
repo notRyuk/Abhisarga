@@ -16,7 +16,6 @@ import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
 import Sponsors from '../components/Sponsors';
 import Fun from '../components/Fun'
-import { motion } from 'framer-motion';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -51,11 +50,11 @@ document.onmousedown = OnMouseDown;
 document.onmouseup = OnMouseUp;
 
 function OnMouseDown(event) {
-    document.onmousemove = OnMouseMove;
-    _startX = event.clientX;
-    _startY = event.clientY;
-    _scrollTop = document.documentElement.scrollTop;
-    _scrollLeft = document.documentElement.scrollLeft;
+  document.onmousemove = OnMouseMove;
+  _startX = event.clientX;
+  _startY = event.clientY;
+  _scrollTop = document.documentElement.scrollTop;
+  _scrollLeft = document.documentElement.scrollLeft;
 }
 
 function OnMouseMove(event) {
@@ -71,7 +70,7 @@ function OnMouseUp() {
   }, [])
   
   return (
-    <motion.div 
+    <div
       className={styles.main}
       style={{
         width: 3975,
@@ -271,7 +270,7 @@ function OnMouseUp() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
