@@ -43,31 +43,31 @@ function App() {
 
   useEffect(() => {
     let _startX = 0,
-    _startY = 0,
-    _scrollTop = 0,
-    _scrollLeft = 0;
+      _startY = 0,
+      _scrollTop = 0,
+      _scrollLeft = 0;
 
-document.onmousedown = OnMouseDown;
-document.onmouseup = OnMouseUp;
+    document.onmousedown = OnMouseDown;
+    document.onmouseup = OnMouseUp;
 
-function OnMouseDown(event) {
-    document.onmousemove = OnMouseMove;
-    _startX = event.clientX;
-    _startY = event.clientY;
-    _scrollTop = document.documentElement.scrollTop;
-    _scrollLeft = document.documentElement.scrollLeft;
-}
+    function OnMouseDown(event) {
+      document.onmousemove = OnMouseMove;
+      _startX = event.clientX;
+      _startY = event.clientY;
+      _scrollTop = document.documentElement.scrollTop;
+      _scrollLeft = document.documentElement.scrollLeft;
+    }
 
-function OnMouseMove(event) {
-    window.scrollTo({
+    function OnMouseMove(event) {
+      window.scrollTo({
         left: _scrollLeft + (_startX - event.clientX),
         top: _scrollTop + (_startY - event.clientY)
-    });
-}
+      })
+    }
 
-function OnMouseUp() {
-    document.onmousemove = null;
-}
+    function OnMouseUp() {
+        document.onmousemove = null;
+    }
   }, [])
   
   return (
@@ -95,8 +95,17 @@ function OnMouseUp() {
           // width: "12rem"
         }}
       >
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT" />
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT" style={{ height: 385, marginTop: "5px" }}/>
+        <Modal 
+          color={getRandomColor()} 
+          title="TECHNICAL EVENT" 
+          vertical 
+        />
+        <Modal 
+          color={getRandomColor()} 
+          title="TECHNICAL EVENT" 
+          style={{ height: 385, marginTop: "5px" }}
+          vertical
+        />
         <Quote 
           className={`${styles.modal} ${styles.reg_card}`}
           sx={{
@@ -107,8 +116,18 @@ function OnMouseUp() {
             marginTop: "-2px"
           }}
         />
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT" style={{ height: 385, marginTop: "12px" }}/>
-        <Modal color={getRandomColor()} title="TECHNICAL EVENT" style={{ height: 385 }}/>
+        <Modal 
+          color={getRandomColor()} 
+          title="TECHNICAL EVENT" 
+          style={{ height: 385, marginTop: "12px" }}
+          vertical
+        />
+        <Modal 
+          color={getRandomColor()} 
+          title="TECHNICAL EVENT" 
+          style={{ height: 385 }}
+          vertical
+        />
       </div>
       <div className={styles.gridCenterMain}>
         <div className={styles.gridCenterTop}>
@@ -229,7 +248,7 @@ function OnMouseUp() {
                   width: "23rem",
                   height: "10.5rem",
                   marginLeft: "22.5rem",
-                  marginTop: "-2rem"
+                  marginTop: "-1.5rem"
                 }}
               />
           </div>

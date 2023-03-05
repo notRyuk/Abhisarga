@@ -15,7 +15,7 @@ const Prizes = ({ sx }: Props) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        border: "10px solid #01a863",
+        border: "8px solid #01a863",
         padding: 10,
         borderRadius: 15,
         animation: "transform 0.2s"

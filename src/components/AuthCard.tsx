@@ -351,7 +351,7 @@ const AuthCard = ({ sx, style, image, color }: Props) => {
                                     )} 
                                 </>
                             )}
-                        </div>
+                        </div>  
                         <div className={styles2.modalDescDiv}>
                             <span>
                                 <p 
