@@ -132,7 +132,7 @@ function App() {
             </div>
             <div className={styles.top1right}>
               <div>
-                ghaas
+                
               </div>
               <div>
                 <RegistrationCard />
