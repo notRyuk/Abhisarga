@@ -171,9 +171,6 @@
     gap: 3rem;
 }
 
-.topRightDown {
-    
-}
 
 .rightGridBottom {
     display: grid;
@@ -185,7 +182,8 @@
     display: flex;
     flex-direction: column;
     padding-left: 1rem;
-    gap: 3rem;
+    gap: 2.8rem;
+    margin-top: -.6rem;
 }
 
 .bottomRight {
@@ -193,6 +191,7 @@
     flex-direction: column;
     padding-left: 18px;
     gap: 3.25rem;
+    margin-top: -1rem;
 }
 
 .bottomRightTop {

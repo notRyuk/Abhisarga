@@ -34,7 +34,10 @@ const Queries = ({ sx }: Props) => {
         <Button 
             variant="outlined"
             className={styles.signup}
-            style={{
+            sx={{
+                "&:hover": {
+                    backgroundColor: "#EDEDED"
+                },
                 marginTop: "10px",
                 color: "#CA7CD8",
                 borderTop: "3px solid #CA7CD8",
@@ -44,14 +47,11 @@ const Queries = ({ sx }: Props) => {
                 borderRadius: "10px",
                 width: "70%",
                 marginBottom: "15px",
-                fontWeight: "500"
+                fontWeight: "500",
+                letterSpacing: 0.1
             }}
-            sx={{
-                "&:hover": {
-                    backgroundColor: "#EDEDED"
-                }
-            }}>
-                Write to Us
+        >
+            Write  to  Us
         </Button>
     </div>
   )

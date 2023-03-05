@@ -7,11 +7,6 @@
     transition: transform .2s;
 }
 
-.main:hover {
-    /* transform: scale(1.01); */
-    cursor: pointer;
-}
-
 .topRight {
     top: 0;
     right: 0;
@@ -44,10 +39,6 @@
     height: auto;
     /* width: 60%; */
     max-width: 35rem;
-}
-
-.fg:hover {
-    transform: scale(1.02);
 }
 
 @media screen and (max-width: 1300px) {

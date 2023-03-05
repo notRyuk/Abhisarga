@@ -17,10 +17,7 @@ const StyledButton = styled(Button)({
     width: "80%",
     padding: "1rem",
     marginTop: "15px",
-    fontSize: "30px",
-    "&:hover": {
-        backgroundColor: "#EDEDED"
-    }
+    fontSize: "30px"
 })
 
 interface Props {

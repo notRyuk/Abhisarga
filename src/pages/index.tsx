@@ -5,7 +5,6 @@ import Modal from "../components/CustomCard"
 import Prizes from '../components/Prizes';
 import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
-import Image from "../assets/react.svg"
 import { shuffle } from '../helper';
 import SmallCircle from '../components/SmallCircle';
 import SmallBox from '../components/SmallBox';
@@ -17,6 +16,7 @@ import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
 import Sponsors from '../components/Sponsors';
 import Fun from '../components/Fun'
+import { motion } from 'framer-motion';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -39,39 +39,10 @@ function App() {
       left: (element.clientWidth-view.innerWidth)/2,
       top: (element.clientHeight-view.innerHeight)/2
     })
-
-    var _startX = 0;
-    var _startY = 0;
-    var _offsetX = 0;           
-    var _offsetY = 0;
-    var _dragElement;
-    document.onmousedown = OnMouseDown;
-    document.onmouseup = OnMouseUp;
-
-    function OnMouseDown(event: any){
-      console.log(event)
-      document.onmousemove = OnMouseMove;
-      _startX = event.clientX;
-      _startY = event.clientY;
-      _offsetX = document.getElementById('div1').offsetLeft;
-      _offsetY = document.getElementById('div1').offsetTop;
-      _dragElement = document.getElementById('div1')
-
-    }
-
-    function OnMouseMove(event: any){
-        _dragElement.style.left = (_offsetX + event.clientX - _startX) + 'px';
-      _dragElement.style.top = (_offsetY + event.clientY - _startY) + 'px';
-    }
-
-    function OnMouseUp(event: any){
-      document.onmousemove = null;
-      _dragElement=null;
-    }
   }, [])
   
   return (
-    <div 
+    <motion.div 
       className={styles.main}
       style={{
         width: 3975,
@@ -159,7 +130,16 @@ function App() {
                 <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />/
               </div>
             </div>
-            <Modal color={getRandomColor()} title="TECHNICAL EVENT #1" style={{ height: 385, width: 430, marginTop: "-2rem", marginRight: "1rem"}}/>
+            <Modal 
+              color={getRandomColor()} 
+              title="TECHNICAL EVENT #1" 
+              style={{ 
+                height: 385, 
+                width: 430, 
+                marginTop: "-7rem", 
+                marginRight: "1rem"
+              }}
+            />
             <div className={styles.team}>
               <Members 
                 sx={{
@@ -192,8 +172,22 @@ function App() {
           <div className={styles.topRight}>
               <div></div>
               <div className={styles.topRightMid}>
-                <Modal color={getRandomColor()} title="CULTURAL EVENT #3" style={{ height: 400, marginLeft: "-.5rem" }} />
-                <Modal color={getRandomColor()} title="CULTURAL EVENT #4" style={{ height: 400, marginLeft: ".5rem" }} />
+                <Modal 
+                  color={getRandomColor()} 
+                  title="CULTURAL EVENT #3" 
+                  style={{ 
+                    height: 400, 
+                    marginLeft: "-.5rem" 
+                  }} 
+                />
+                <Modal 
+                  color={getRandomColor()} 
+                  title="CULTURAL EVENT #4" 
+                  style={{ 
+                    height: 400, 
+                    marginLeft: ".5rem" 
+                  }} 
+                />
               </div>
               <Fun 
                 sx={{
@@ -203,11 +197,11 @@ function App() {
                   alignItems: "center",
                   justifyContent: "center",
                   paddingLeft: "7rem",
-                  width: "16.4rem",
+                  width: "23rem",
                   height: "10.5rem",
                   marginLeft: "22.5rem",
-                  marginTop: "-1.2rem"
-                }} 
+                  marginTop: "-2rem"
+                }}
               />
           </div>
         </div>
@@ -248,7 +242,7 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -5,7 +5,7 @@ import Modal from "../../components/CustomCard"
 import Prizes from '../../components/Prizes';
 import RegistrationCard from '../../components/RegistrationCard';
 import styles from "../../styles/app.module.css";
-import Image from "../../assets/react.svg"
+import Image from "../../assets/title.png"
 import { shuffle } from '../../helper';
 import SmallCircle from '../../components/SmallCircle';
 import SmallBox from '../../components/SmallBox';

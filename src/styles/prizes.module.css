@@ -1,3 +1,5 @@
+/*agar isko change krra hai tho inline wala poora fun.tsx m hai*/
+
 .main {
     display: flex;
     flex-direction: row;
@@ -10,11 +12,6 @@
     border-radius: 15px;
     background-color: #CA7CD8;
     animation: transform 0.2s;
-}
-
-.main:hover {
-    transform: scale(1.02);
-    cursor: pointer;
 }
 
 .black {
@@ -33,7 +30,6 @@
 .text {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     color: white;
     font-size: 36px;

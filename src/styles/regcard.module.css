@@ -13,11 +13,6 @@
     margin-right: 2rem;
 }
 
-.main:hover {
-    transform: scale(1.03);
-    cursor: pointer;
-}
-
 .nav {
     display: flex;
     flex-direction: row;

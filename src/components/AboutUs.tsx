@@ -21,8 +21,8 @@ const AboutUs = () => {
           fontSize: "28px", 
           backgroundColor: "#FF68A8", 
           "&:hover": { 
-            backgroundColor: "#FF68A8", 
-            opacity: "0.8" 
+            backgroundColor: "#FF68A8",
+            transform: "scale(1.01)",
           } 
         }}>
           Learn More

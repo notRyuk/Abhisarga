@@ -18,10 +18,6 @@
     background-color: white;
 }
 
-.main:hover {
-    transform: scale(1.02);
-}
-
 .heading {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #CA7CD8;

@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from '../styles/prizes.module.css'
-import AddIcon from '@mui/icons-material/Add';
-import { IconButton } from "@mui/material";
-import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import arrowImage from "../assets/arrow.svg";
+
 
 const Prizes = () => {
   return (
@@ -12,11 +11,9 @@ const Prizes = () => {
         </div>
         <div className={styles.text}>
           <p className={styles.prizes}>PRIZES</p>
-          <KeyboardReturnIcon fontSize='large'
-            sx={{
-              marginTop: "-35%",
-              fontSize: "60px"
-            }}
+          <img 
+            src={arrowImage} 
+            alt="arrow"
           />
         </div>
     </div>

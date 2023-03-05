@@ -11,7 +11,7 @@
 // import SmallBox from "../../components/SmallBox"
 // import SmallCircle from "../../components/SmallCircle"
 // import TechnicalEvents from "../../components/TechnicalEvents"
-import Image from "../../assets/react.svg"
+import Image from "../../assets/title.png"
 import Card from "../../components/CustomCard"
 
 

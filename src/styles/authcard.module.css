@@ -18,10 +18,6 @@
     background-color: white;
 }
 
-.main:hover {
-    transform: scale(1.02);
-}
-
 .login {
     margin-bottom: 10px;
     animation: transform 0.2s;
@@ -29,6 +25,7 @@
 
 .login:hover {
     transform: scale(1.02);
+    border: 4px solid black;
 }
 
 .signup {
@@ -38,4 +35,5 @@
 
 .signup:hover {
     transform: scale(1.02);
+    border: 4px solid black;
 }

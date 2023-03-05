@@ -12,7 +12,6 @@ import {
     Button,
     styled
 } from "@mui/material";
-import styles from "../styles/modal.module.css"
 import AddIcon from '@mui/icons-material/Add';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import NorthIcon from '@mui/icons-material/North';
@@ -31,7 +30,8 @@ const StyledBox = styled(Box)({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '30vw',
-    bgcolor: 'background.paper',
+    bgcolor: 'white',
+    backgroundColor: "white",
     padding: '2px',
     borderRadius: "16px",
     "@media(max-width: 900px)": {
@@ -42,7 +42,7 @@ const StyledBox = styled(Box)({
     },
     "@media(max-width: 450px)": {
       width: "75vw"
-    },
+    }
 })
 
 interface Props {
@@ -52,7 +52,8 @@ interface Props {
     title: string
 }
 
-export default function CustomCard({ style, image, color, title }: Props){
+export default function CustomCard({ style, image, color, title }: Props) {
+    const reverse = Math.random()>.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (_: any, reason?: string) => {
@@ -70,11 +71,11 @@ export default function CustomCard({ style, image, color, title }: Props){
                     maxWidth: 400,
                     display: "flex",
                     alignItems: "center",
-                    flexDirection: "column",
+                    flexDirection: reverse?"column-reverse":"column",
                     borderRadius: "1.2rem",
                     bgcolor: color,
                     gap: "1rem",
-                    padding: 0,
+                    paddingBottom: reverse?1:0,
                     animation: "transform 0.2s",
                     "&:hover": {
                         scale: "1.02",
@@ -91,8 +92,10 @@ export default function CustomCard({ style, image, color, title }: Props){
                         marginTop: "1rem",
                         border: `6px solid white`,
                         width: "90%",
-                        borderTopLeftRadius: "1.2rem",
-                        borderTopRightRadius: "1.2rem",
+                        borderTopLeftRadius: !reverse?"1.2rem":0,
+                        borderTopRightRadius: !reverse?"1.2rem":0,
+                        borderBottomLeftRadius: reverse?"1.2rem":0,
+                        borderBottomRightRadius: reverse?"1.2rem":0,
                         backgroundColor: alpha(color, .5)
                     }}
                 ></img>
@@ -156,8 +159,7 @@ export default function CustomCard({ style, image, color, title }: Props){
             >
                 <StyledBox sx={{ border: '8px solid'+color }}>
                     <IconButton 
-                        onClick={handleClose} 
-                        className={styles.closeButton} 
+                        onClick={handleClose}
                         sx={{ 
                             "&:hover": {
                                 backgroundColor: "#EDEDED" 
@@ -173,53 +175,128 @@ export default function CustomCard({ style, image, color, title }: Props){
                     >
                         <CloseIcon style={{color: color}} />
                     </IconButton>
-                    <div className={styles.modalMain}>
-                        <div className={styles.topLevel}>
-                            <p className={styles.modalHeading} 
-                                style={{ color: color }}>
-                                    IIITS HACKATHON
+                    <div 
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "2%",
+                            textAlign: "center"
+                        }}
+                    >
+                        <div 
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                alignItems: "center"
+                            }}
+                        >
+                            <p
+                                style={{ 
+                                    color: color,
+                                    fontFamily: "ArcadeClassic, sans-serif",
+                                    fontSize: 36,
+                                    fontWeight: 500
+                                }}
+                            >
+                                IIITS HACKATHON
                             </p>
                         </div>
-                        <div className={styles.modalImgDiv} 
-                            style={{ border: "2px solid"+color }}>
-                                <img className={styles.modalImg} 
-                                    src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" 
-                                    alt='img' 
-                                    width={'98%'} 
-                                    height={'auto'}>
-                                </img>
-                        </div>
-                        <div className={styles.modalDescDiv}>
-                            <p 
-                                className={styles.desc} 
+                        <div  
+                            style={{ 
+                                border: "2px solid"+color,
+                                width: "90%",
+                                borderRadius: 16,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                paddingTop: 5,
+                                paddingBottom: 5
+                            }}
+                        >
+                            <img 
                                 style={{
-                                    color: color
+                                    borderRadius: 16
+                                }}
+                                src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" 
+                                alt='Modal Image' 
+                                width='98%' 
+                                height='auto'
+                            />
+                        </div>
+                        <div 
+                            style={{
+                                width: "90%",
+                                marginTop: "3%",
+                                alignSelf: "center",
+                                justifySelf: "center",
+                                textAlign: "center"
+                            }}
+                        >
+                            <p 
+                                style={{
+                                    color: color,
+                                    fontWeight: 400,
+                                    letterSpacing: 0.3,
+                                    fontSize: 16
                                 }}
                             >
                                 Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
                             </p>
                         </div>
-                        <hr className={styles.ruler} 
-                            style={{ backgroundColor: color}}>
-                        </hr>
-                        <div className={styles.modalDescDiv}>
-                            <p 
-                                className={styles.quote} 
-                                style={{color: color}}
+                        <hr
+                            style={{ 
+                                backgroundColor: color,
+                                borderStyle: "dotted",
+                                borderWidth: 1,
+                                width: "90%",
+                                letterSpacing: 10
+                            }}
+                        />
+                        <div
+                            style={{
+                                width: "90%",
+                                marginTop: "3%",
+                                alignSelf: "center",
+                                justifySelf: "center",
+                                textAlign: "center"
+                            }}
+                        >
+                            <p
+                                style={{
+                                    color: color,
+                                    marginTop: "-1%",
+                                    fontSize: 20,
+                                    fontStyle: "italic",
+                                    fontWeight: 500
+                                }}
                             >
                                 "It's harder to read code than to write it."
                             </p>
                         </div>
                         <Button 
                             variant="contained" 
-                            sx={{ "&:hover": { opacity: 0.9 }, textAlign: "center" }} 
-                            className={styles.moreDetailsButton} 
-                            style={{backgroundColor: color, marginBottom: "20px"}}>
-                                More Details 
+                            sx={{ 
+                                "&:hover": { 
+                                    opacity: 0.9 
+                                }, 
+                                textAlign: "center",
+                                backgroundColor: color, 
+                                marginBottom: "20px",
+                                display: "flex",
+                                flexDirection: "row",
+                                width: "90%"
+                            }}
+                        >
+                            More Details 
                             <ArrowRightAltIcon 
                                 fontSize='large'
-                                style={{marginLeft: "20px"}} 
-                            /> 
+                                style={{
+                                    marginLeft: "20px"
+                                }} 
+                            />
                         </Button>
                     </div>
                 </StyledBox>

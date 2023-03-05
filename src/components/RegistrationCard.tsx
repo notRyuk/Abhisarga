@@ -10,7 +10,7 @@ interface Props {
 const RegistrationCard = ({ className }: Props) => {
   return (
     <div 
-      className={`${styles.main} ${className}`} 
+      className={`${styles.main} ${className}`}
       style={{ color: "#3968CB" }}
     >
       <div className={styles.nav}>

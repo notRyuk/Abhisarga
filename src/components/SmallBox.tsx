@@ -9,7 +9,14 @@ interface Props {
 
 const SmallBox = ({color, title, sx}: Props) => {
   return (
-    <div className={styles.main} style={{ color, border:  `10px solid ${color}`, ...sx }}>
+    <div 
+      className={styles.main} 
+      style={{ 
+        color, 
+        border: `10px solid ${color}`,
+        ...sx 
+      }}
+    >
       <p className={styles.p}>{title}</p>
     </div>
   )

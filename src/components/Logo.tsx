@@ -13,7 +13,7 @@ const Logo = ({sx}: Props) => {
   return (
     <div className={styles.main} style={sx}>
       <img className={styles.bg} src={backgroundImage}></img>
-      <img src={titleImage} className={styles.fg} alt="Kuch bhi" width={"80%"}></img>
+      <img src={titleImage} className={styles.fg} alt="Kuch bhi"></img>
     </div>
   )
 }
