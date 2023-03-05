@@ -1,4 +1,6 @@
 import { useRoutes } from "react-router-dom";
+import { Suspense } from "react";
+import LazyLoading from "./components/LazyLoading";
 
 export default function App() {
   const pages = import.meta.glob("./pages/**/*.tsx", { eager: true })
@@ -19,12 +21,16 @@ export default function App() {
   return useRoutes(routes.map(({ Element, ErrorElement, head, ...pathConfig }) => ({
     ...pathConfig,
     element: (
-      <Element />
+      <Suspense fallback={<LazyLoading />}>
+        <Element />
+      </Suspense> 
     ),
     ...(ErrorElement && {
       errorElement: (
-        <ErrorElement />
+        <Suspense fallback={<LazyLoading />}>
+          <ErrorElement />
+        </Suspense>
       )
-    }),
+    })
   })))
 }

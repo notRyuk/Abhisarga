@@ -185,6 +185,7 @@ function App() {
         <div className={styles.rightGridBottom}>
           <div className={styles.bottomLeft}>
               <AuthCard 
+                color='black'
                 sx={{
                   height: "17rem",
                   width: "20rem"
