@@ -8,7 +8,7 @@ const Prizes = () => {
   return (
     <div className={styles.main}>
           <IconButton>
-            <AddIcon style={{color: "white", top: 0, right: 0, position: "fixed"}} />
+            <AddIcon style={{color: "white", top: 0, right: 0, position: "sticky"}} />
           </IconButton>
         <div className={styles.black}>
             PRIZE POOL OF OVER 10 LAKH SPREAD OVER 11 EVENTS!
