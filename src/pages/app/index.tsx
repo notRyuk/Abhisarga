@@ -1,22 +1,22 @@
 import { useEffect, useState, MouseEvent } from 'react'
-import backgroundImage from "../assets/background.png";
-import Logo from '../components/Logo';
-import Modal from "../components/CustomCard"
-import Prizes from '../components/Prizes';
-import RegistrationCard from '../components/RegistrationCard';
-import styles from "../styles/app.module.css";
-import Image from "../assets/react.svg"
-import { shuffle } from '../helper';
-import SmallCircle from '../components/SmallCircle';
-import SmallBox from '../components/SmallBox';
-import AboutUs from '../components/AboutUs';
-import Socials from '../components/Socials';
-import Quote from '../components/Quote';
-import Members from '../components/Members';
-import AuthCard from '../components/AuthCard';
-import Queries from '../components/Queries';
-import Sponsors from '../components/Sponsors';
-import Fun from '../components/Fun'
+import backgroundImage from "../../assets/background.png";
+import Logo from '../../components/Logo';
+import Modal from "../../components/CustomCard"
+import Prizes from '../../components/Prizes';
+import RegistrationCard from '../../components/RegistrationCard';
+import styles from "../../styles/app.module.css";
+import Image from "../../assets/react.svg"
+import { shuffle } from '../../helper';
+import SmallCircle from '../../components/SmallCircle';
+import SmallBox from '../../components/SmallBox';
+import AboutUs from '../../components/AboutUs';
+import Socials from '../../components/Socials';
+import Quote from '../../components/Quote';
+import Members from '../../components/Members';
+import AuthCard from '../../components/AuthCard';
+import Queries from '../../components/Queries';
+import Sponsors from '../../components/Sponsors';
+import Fun from '../../components/Fun'
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -132,7 +132,7 @@ function App() {
             </div>
             <div className={styles.top1right}>
               <div>
-                
+                ghaas
               </div>
               <div>
                 <RegistrationCard />
