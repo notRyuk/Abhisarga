@@ -16,7 +16,6 @@ import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
 import Sponsors from '../components/Sponsors';
 import Fun from '../components/Fun'
-import { motion } from 'framer-motion';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -71,7 +70,7 @@ function App() {
   }, [])
   
   return (
-    <motion.div 
+    <div
       className={styles.main}
       style={{
         width: 3975,
@@ -290,7 +289,7 @@ function App() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
