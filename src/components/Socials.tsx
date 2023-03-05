@@ -13,7 +13,8 @@ const Socials = () => {
           gap: "4rem", 
           paddingTop: "5rem", 
           paddingBottom: "5rem", 
-          borderRadius: "15px"
+          borderRadius: "15px",
+          animation: "transform 0.2s"
         }}
       >
         <Instagram 

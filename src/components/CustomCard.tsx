@@ -75,6 +75,11 @@ export default function CustomCard({ style, image, color, title }: Props){
                     bgcolor: color,
                     gap: "1rem",
                     padding: 0,
+                    animation: "transform 0.2s",
+                    "&:hover": {
+                        scale: "1.02",
+                        cursor: "pointer"
+                    },
                     ...style,
                 }}
                 onClick={handleOpen}

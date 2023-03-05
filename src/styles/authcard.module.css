@@ -15,6 +15,7 @@
     font-family: 'Dosis', sans-serif;
     animation: transform 0.2s;
     border-radius: 15px;
+    background-color: white;
 }
 
 .main:hover {

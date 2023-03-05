@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     border: 10px solid #CA7CD8;
-    width: 27.5rem;
+    width: 27rem;
     min-width: 200px;
     max-height: 11rem;
     padding: 10px;
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -6rem;
+    /* margin-left: -6rem; */
 }
 
 .text {
@@ -38,7 +38,7 @@
     color: white;
     font-size: 36px;
     text-align: center;
-    margin-right: 5rem;
+    margin-right: 2rem;
 }
 
 .prizes {
