@@ -24,24 +24,7 @@ export default model("User", new Schema({
         required: [true, "The college name of the participant is required"]
     },
     address: {
-        type: {
-            street: {
-                type: String,
-                required: false
-            },
-            city: {
-                type: String,
-                required: [true, "The city-address of the participant is required"]
-            },
-            state: {
-                type: String,
-                required: [true, "The state-address of the participant is required"]
-            },
-            pincode: {
-                type: Number,
-                required: [true, "The pincode-address of the pariticipant is required"]
-            }
-        },
+        type: String,
         required: false
     }
 }))

@@ -6,6 +6,10 @@ export default model("Event", new Schema({
         required: [true, "Event name is required"],
         unique: true
     },
+    description: {
+        type: String,
+        required: [true, "Event description is required"],
+    },
     timings: {
         type: {
             start: {

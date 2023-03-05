@@ -1,0 +1,30 @@
+.flex {
+    gap: 4rem;
+    flex-direction: row;
+    width: 70%;
+}
+
+.flex>div {
+    width: 50%;
+}
+
+@media screen and (max-width: 650px) {
+    .flex {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .flex {
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .flex>div {
+        width: 80%
+    }
+}
