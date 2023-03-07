@@ -75,25 +75,17 @@ const index = () => {
             color: "black",
             overflowX: "hidden",
             transition: "0.5s",
+            backgroundImage: `url(${gradient})`,
+            backgroundRepeat: "repeat"
           }}
-        > 
-            <img 
-              src={gradient} 
-              width="100vw" 
-              alt="kuch bhi"
-              style={{
-                position: "absolute",
-                height: "100%",
-                width: "100%"
-              }}>
-            </img>
+        >
           <div
             style={{
               position: "relative",
               textAlign: "center",
-              zIndex: "2002",
+              zIndex: "2002"
             }}
-            className={styles2.navMainDiv}
+            className={styles.navMainDiv}
           >
             {nav==="100vw" && 
               <button
@@ -103,8 +95,8 @@ const index = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       position: "fixed",
-                      top: 40,
-                      right: 20,
+                      top: window.innerWidth > 450 ? 40 : 20,
+                      right: window.innerWidth > 450 ? 20 : 5,
                       padding: ".5rem",
                       paddingRight: "0.5rem",
                       // border: "6px solid black",
@@ -113,9 +105,10 @@ const index = () => {
                       borderRadius: "10px",
                       color: "black",
                       cursor: "pointer",
-                      border: "5px solid black"
+                      border: "5px solid black",
+                      marginLeft: window.innerWidth < 450 ? "1rem" : "0rem" 
                   }}
-                  className={styles2.buttonScale}
+                  className={styles.buttonScale}
                   onClick={() => {
                     if (nav==="100vw") {
                       setNav("0px")
@@ -129,7 +122,7 @@ const index = () => {
                       sx={ width > 600 ? {
                           marginRight: ".5rem"
                       } : {
-                        fontSize: "40px"
+                        fontSize: "40px",
                       }}
                   />
                   {window.innerWidth > 600 &&
@@ -147,8 +140,16 @@ const index = () => {
                 alignItems: "baseline",
                 gap: "2rem"
               }}
-              className={styles2.navFlex}
+              className={styles.navFlex}
             >
+              {/* <img
+                src={abhisargaGrad}
+                style={{
+                  position: "relative",
+                  minWidth: "150px",
+                  maxWidth:
+                }}>
+              </img> */}
               <img src={titleImage} alt="Kuch bhi" width={"85%"}
                 style={{
                   minWidth: "150px",
@@ -157,8 +158,13 @@ const index = () => {
                   borderRadius: "15px",
                   backgroundColor: "#E6F5DA",
                 }}
-                className={styles2.abhisargaNav}
+                className={styles.abhisargaNav}
               ></img>
+              {/* <Logo 
+                sx={{
+                  scale: "0.8"
+                }}
+              /> */}
               <div
                 style={{
                   marginLeft: "2rem",
@@ -169,7 +175,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles2.hover} ${styles2.menuItem}`}
+                className={`${styles.hover} ${styles.menuItem}`}
               >
                 <MusicNoteIcon
                   sx={{
@@ -195,7 +201,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles2.hover} ${styles2.menuItem}`}
+                className={`${styles.hover} ${styles.menuItem}`}
               >
                 <ComputerIcon
                   sx={{
@@ -222,19 +228,20 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles2.hover} ${styles2.menuItem}`}
+                className={`${styles.hover} ${styles.menuItem} ${styles.teamIcon}`}
               >
                 <GroupsIcon
                   sx={{
                     fontSize: "3rem",
-                    marginRight: "1rem"
+                    marginRight: "4rem",
+                    marginLeft: "1rem"
                   }}
                 />
                 TEAM
                 <EastIcon
                   sx={{
                     fontSize: "1.5rem",
-                    marginLeft: "2rem"
+                    marginLeft: "4rem",
                   }}
                  />
               </div>
@@ -249,7 +256,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles2.hover} ${styles2.menuItem}`}
+                className={`${styles.hover} ${styles.menuItem}`}
               >
                 <StarIcon
                   sx={{
@@ -281,15 +288,17 @@ const index = () => {
                   border: "5px solid black",
                   padding: "10px",
                   backgroundColor: "white",
-                  borderRadius: "15px"
+                  borderRadius: "15px",
+                  maxWidth: "350px"
                 }}
-                className={styles2.minimap}
+                className={styles.minimap}
               >
                 <img 
                   src={minimap} 
                   alt="kuch bhi"
                   style={{
-                    borderRadius: "15px"
+                    borderRadius: "15px",
+                    maxWidth: "100%"
                   }}
                   // className={styles.minimap}
                   >
@@ -314,7 +323,7 @@ const index = () => {
                       alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
                       border: "6px solid black"
                   }}
-                  className={styles2.buttonScale}
+                  className={`${styles.buttonScale} ${styles.logoutButton}`}
                 >
                   <LogoutIcon
                       sx={ width > 600 ? {
