@@ -21,6 +21,7 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu';
 import titleImage from "../assets/title.png"
 // import Navigation from '../components/Navigation';
+import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
@@ -106,10 +107,10 @@ function App() {
                 top: 20,
                 right: 20,
                 padding: ".5rem",
-                paddingRight: ".5rem",
+                paddingRight: "0.5rem",
                 // gap: ".5rem",
                 border: "6px solid black",
-                fontSize: "30px",
+                fontSize: "25px",
                 zIndex: "1500",
                 borderRadius: "15px",
                 backgroundColor: "white",
@@ -126,11 +127,14 @@ function App() {
         >
             <MenuIcon
                 sx={ width > 600 && {
-                    marginRight: ".5rem"
+                    marginRight: ".5rem",
+                    fontSize: "40px"
                 }}
             />
             {window.innerWidth > 600 &&
-                <span>MENU</span>
+              <span style={{ marginRight: "1.5rem" }}>
+                MENU
+              </span>
             }
       </button>
         <div
@@ -167,10 +171,10 @@ function App() {
                       top: 20,
                       right: 20,
                       padding: ".5rem",
-                      paddingRight: ".5rem",
+                      paddingRight: "0.5rem",
                       // border: "6px solid black",
                       // gap: ".5rem",
-                      fontSize: "2rem",
+                      fontSize: "25px",
                       borderRadius: "10px",
                       backgroundColor: "red",
                       color: "white",
@@ -186,12 +190,16 @@ function App() {
                   }}
                 >
                   <CloseIcon
-                      sx={ width > 600 && {
+                      sx={ width > 600 ? {
                           marginRight: ".5rem"
+                      } : {
+                        fontSize: "40px"
                       }}
                   />
                   {window.innerWidth > 600 &&
-                      <span>CLOSE</span>
+                      <span style={{ marginRight: "1.5rem" }}>
+                        CLOSE
+                      </span>
                   }
               </button>
             }
@@ -200,10 +208,13 @@ function App() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                alignItems: "baseline"
+                alignItems: "baseline",
+                gap: "2rem",
+                width: "35%",
+                minWidth: "320px"
               }}
             >
-              <img src={titleImage} alt="Kuch bhi" width={"40%"}
+              <img src={titleImage} alt="Kuch bhi" width={"90%"}
                 style={{
                   minWidth: "150px",
                   maxWidth: "500px",
@@ -211,17 +222,53 @@ function App() {
               ></img>
               <div
                 style={{
-                  marginLeft: "2rem"
+                  marginLeft: "2rem",
+                  fontSize: "36px",
+                  color: "orange",
+                  cursor: "pointer",
+                  borderBottom: "5px solid orange",
+                  textAlign: "center"
                 }}
+                className={`${styles.hover} ${styles.menuItem}`}
               >
-                <MusicNoteIcon />
+                <MusicNoteIcon
+                  sx={{
+                    fontSize: "3rem",
+                    marginRight: "1rem"
+                  }}
+                />
+                CULTURAL EVENTS
+                <EastIcon
+                  sx={{
+                    fontSize: "1.5rem",
+                    marginLeft: "2rem"
+                  }}
+                 />
               </div>
               <div
                 style={{
-                  marginLeft: "2rem"
+                  marginLeft: "2rem",
+                  fontSize: "36px",
+                  color: "lightblue",
+                  cursor: "pointer",
+                  borderBottom: "5px solid lightblue",
+                  textAlign: "center"
                 }}
+                className={`${styles.hover} ${styles.menuItem}`}
               >
-                <ComputerIcon />
+                <ComputerIcon
+                  sx={{
+                    fontSize: "3rem",
+                    marginRight: "1rem"
+                  }}
+                 />
+                TECHNICAL EVENTS
+                <EastIcon
+                  sx={{
+                    fontSize: "1.5rem",
+                    marginLeft: "2rem"  
+                  }}
+                 />
               </div>
             </div>
             
