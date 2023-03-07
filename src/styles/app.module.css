@@ -224,3 +224,11 @@
     cursor: grabbing;
     cursor: -webkit-grabbing;
 }
+
+.hover {
+    animation: transform 0.2s;
+}
+
+.hover:hover {
+    transform: scale(1.02);
+}

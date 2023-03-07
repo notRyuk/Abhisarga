@@ -21,6 +21,7 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu';
 import titleImage from "../assets/title.png"
 // import Navigation from '../components/Navigation';
+import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
