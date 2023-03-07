@@ -9,10 +9,11 @@ interface Props {
 
 const Members = ({ sx, sx2 }: Props) => {
   return (
-    <div className={styles.main} style={sx}>
+    <div className={styles.main} style={{...sx, gap:"4rem"}}> 
         <p
           style={{
-            fontSize: "30px"
+            fontSize: "30px",
+            color: "#ffa500"
           }}
         >
           KNOW MORE ABOUT US

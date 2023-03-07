@@ -49,18 +49,16 @@ function App() {
   }, [])
 
   const [width, setWidth] = useState<number>(window.innerWidth)
-    useEffect(() => {
-        setWidth(window.innerWidth)
-    }, [window.innerWidth])
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, [window.innerWidth])
 
   useEffect(() => {
-    let _startX = 0,
-      _startY = 0,
-      _scrollTop = 0,
-      _scrollLeft = 0;
+    let _startX = 0, _startY = 0, _scrollTop = 0, _scrollLeft = 0;
 
     document.onmousedown = OnMouseDown;
     document.onmouseup = OnMouseUp;
+    let element = document.getElementById("main")
 
     function OnMouseDown(event) {
       document.onmousemove = OnMouseMove;
@@ -68,6 +66,7 @@ function App() {
       _startY = event.clientY;
       _scrollTop = document.documentElement.scrollTop;
       _scrollLeft = document.documentElement.scrollLeft;
+      element.style.cursor = "grabbing"
     }
 
     function OnMouseMove(event) {
@@ -78,358 +77,374 @@ function App() {
     }
 
     function OnMouseUp() {
-        document.onmousemove = null;
+      document.onmousemove = null;
+      element.style.cursor = "grab"
     }
   }, [])
   
   return (
-    <div
-      className={styles.main}
+    <div 
+      className={styles.container}
       style={{
-        width: 3975,
-        height: 2809,
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
-        display: "flex",
-        flexDirection: "row",
-        backgroundColor: "#aaa9a9"
+        backgroundSize: "cover",
+        width: 3975,
+        height: 2809,
       }}
-    >
-      <button
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "fixed",
-                top: 20,
-                right: 20,
-                padding: ".5rem",
-                paddingRight: ".5rem",
-                // gap: ".5rem",
-                border: "6px solid black",
-                fontSize: "30px",
-                zIndex: "1500",
-                borderRadius: "15px",
-                backgroundColor: "white",
-                cursor: "pointer"
-            }}
-            onClick={() => {
-              if (nav==="100vw") {
-                setNav("0px")
-              }
-              else {
-                setNav("100vw")
-              }
-            }}
-        >
-            <MenuIcon
-                sx={ width > 600 && {
-                    marginRight: ".5rem"
-                }}
-            />
-            {window.innerWidth > 600 &&
-                <span>MENU</span>
-            }
-      </button>
-        <div
-          id='fulScrNav'
-          style={{
-            height: "100vh",
-            width: nav,
-            position: "fixed",
-            zIndex: "2000",
-            top: "0",
-            left: "0",
-            backgroundColor: "white",
-            color: "black",
-            overflowX: "hidden",
-            transition: "0.5s",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              textAlign: "center",
-              marginTop: "20px"
-            }}
-          >
-            {nav==="100vw" && 
-              <button
-                  style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      position: "fixed",
-                      top: 20,
-                      right: 20,
-                      padding: ".5rem",
-                      paddingRight: ".5rem",
-                      // border: "6px solid black",
-                      // gap: ".5rem",
-                      fontSize: "2rem",
-                      borderRadius: "10px",
-                      backgroundColor: "red",
-                      color: "white",
-                      cursor: "pointer"
-                  }}
-                  onClick={() => {
-                    if (nav==="100vw") {
-                      setNav("0px")
-                    }
-                    else {
-                      setNav("100vw")
-                    }
-                  }}
-                >
-                  <CloseIcon
-                      sx={ width > 600 && {
-                          marginRight: ".5rem"
-                      }}
-                  />
-                  {window.innerWidth > 600 &&
-                      <span>CLOSE</span>
-                  }
-              </button>
-            }
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "baseline"
-              }}
-            >
-              <img src={titleImage} alt="Kuch bhi" width={"40%"}
-                style={{
-                  minWidth: "150px",
-                  maxWidth: "500px",
-                }}
-              ></img>
-              <div
-                style={{
-                  marginLeft: "2rem"
-                }}
-              >
-                <MusicNoteIcon />
-              </div>
-              <div
-                style={{
-                  marginLeft: "2rem"
-                }}
-              >
-                <ComputerIcon />
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      {/* <Navigation /> */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          // left: "90%",
-          gap: "3rem",
-          marginLeft: "27rem",
-          paddingTop: "28.9rem",
-          // width: "12rem"
-        }}
       >
-        <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
-          vertical 
-        />
-        <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
-          style={{ height: 385, marginTop: "5px" }}
-          vertical
-        />
-        <Quote 
-          className={`${styles.modal} ${styles.reg_card}`}
-          sx={{
-            margin: 0,
-            marginBottom: "-1.5rem",
-            width: "25rem",
-            marginLeft: "-1rem",
-            marginTop: "-2px"
-          }}
-        />
-        <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
-          style={{ height: 385, marginTop: "12px" }}
-          vertical
-        />
-        <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
-          style={{ height: 385 }}
-          vertical
-        />
-      </div>
-      <div className={styles.gridCenterMain}>
-        <div className={styles.gridCenterTop}>
-          <div className={styles.top1}>
-            <div className={styles.top1left}>
-              <div className={styles.top1lefttop}>
-                <div>
-                  .
-                </div>
-                <div>
-                  <Socials />
-                </div>
-              </div>
-              <div className={styles.top1leftbottom}>
-                <div></div>
-                <div className={styles.tempflex}>
-                  <Modal color={getRandomColor()} title="ACCOMODATION" style={{ height: 385, width: 600}} />
-                  <Modal color={getRandomColor()} title="CULTURAL EVENTS" style={{ height: 385, width: 600}} />
-                </div>
-              </div>
-            </div>
-            <div className={styles.top1right}>
-              <div>
-                
-              </div>
-              <div>
-                <RegistrationCard />
-              </div>
-            </div>
-          </div>
-          <div className={styles.top2}>
-            <Prizes />
-            <div className={styles.logo}>
-              <Logo />
-            </div>
-          </div>
-        </div>
-        <div className={styles.gridCenterBottom}>
-          <div className={styles.gridBottomLeft}>
-            <Modal color={getRandomColor()} title="TECHNICAL EVENTS" style={{ height: 385 }}/>
-            <div className={styles.nav}>
-              <div className={styles.navtop}>
-                <SmallBox  title='CULTURAL EVENTS' color={getRandomColor()} />
-                <SmallCircle title='TEAM' color={getRandomColor()} />
-              </div>
-              <div className={styles.navbot}>
-                <SmallCircle title='SPONSORS' color={getRandomColor()} />
-                <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />/
-              </div>
-            </div>
-            <Modal 
-              color={getRandomColor()} 
-              title="TECHNICAL EVENT #1" 
-              style={{ 
-                height: 385, 
-                width: 430, 
-                marginTop: "-7rem", 
-                marginRight: "1rem"
-              }}
-            />
-            <div className={styles.team}>
-              <Members 
-                sx={{
-                  height: "18.5rem",
-                  // marginBottom: "-3rem",
-                  marginTop: "-3rem",
-                  width: "96.5%",
-                  justifyContent: "center",
-                  marginLeft: "-1rem",
-                  borderColor: "orange"
-                }} 
-                sx2={{
-                  padding: 0,
-                  borderColor: "orange"
-                }}
-              />
-            </div>
-          </div>
-          <div className={styles.gridBottomRight}>
-            <AboutUs />
-          </div>
-        </div>
-      </div>
-      <div className={styles.rightGridMain}>
-        <div className={styles.rightGridTop}>
-          <div className={styles.topLeft}>
-            <Modal color={getRandomColor()} title="CULTURAL EVENT #2" style={{ height: 385 }} />
-            <Modal color={getRandomColor()} title="CULTURAL EVENT #1" style={{ height: 385, marginTop: "-3rem" }} />
-          </div>
-          <div className={styles.topRight}>
-              <div></div>
-              <div className={styles.topRightMid}>
-                <Modal 
-                  color={getRandomColor()} 
-                  title="CULTURAL EVENT #3" 
-                  style={{ 
-                    height: 400, 
-                    marginLeft: "-.5rem" 
-                  }} 
-                />
-                <Modal 
-                  color={getRandomColor()} 
-                  title="CULTURAL EVENT #4" 
-                  style={{ 
-                    height: 400, 
-                    marginLeft: ".5rem" 
-                  }} 
-                />
-              </div>
-              <Fun 
-                sx={{
-                  backgroundColor: "#01a863",
+      <div
+        className={styles.main}
+        style={{
+          top: 0,
+          margin: 0,
+          boxSizing: "border-box",
+          width: 3975,
+          height: 2809,
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
+          display: "flex",
+          flexDirection: "row",
+          backgroundColor: "#aaa9a9"
+        }}
+        id="main"
+      >
+        <button
+              style={{
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
-                  paddingLeft: "7rem",
-                  width: "23rem",
-                  height: "10.5rem",
-                  marginLeft: "22.5rem",
-                  marginTop: "-1.5rem"
+                  position: "fixed",
+                  top: 20,
+                  right: 20,
+                  padding: ".5rem",
+                  paddingRight: ".5rem",
+                  // gap: ".5rem",
+                  border: "6px solid black",
+                  fontSize: "30px",
+                  zIndex: "1500",
+                  borderRadius: "15px",
+                  backgroundColor: "white",
+                  cursor: "pointer"
+              }}
+              onClick={() => {
+                if (nav==="100vw") {
+                  setNav("0px")
+                }
+                else {
+                  setNav("100vw")
+                }
+              }}
+          >
+              <MenuIcon
+                  sx={ width > 600 && {
+                      marginRight: ".5rem"
+                  }}
+              />
+              {window.innerWidth > 600 &&
+                  <span>MENU</span>
+              }
+        </button>
+          <div
+            id='fulScrNav'
+            style={{
+              height: "100vh",
+              width: nav,
+              position: "fixed",
+              zIndex: "2000",
+              top: "0",
+              left: "0",
+              backgroundColor: "white",
+              color: "black",
+              overflowX: "hidden",
+              transition: "0.5s",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                textAlign: "center",
+                marginTop: "20px"
+              }}
+            >
+              {nav==="100vw" && 
+                <button
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "fixed",
+                        top: 20,
+                        right: 20,
+                        padding: ".5rem",
+                        paddingRight: ".5rem",
+                        // border: "6px solid black",
+                        // gap: ".5rem",
+                        fontSize: "2rem",
+                        borderRadius: "10px",
+                        backgroundColor: "red",
+                        color: "white",
+                        cursor: "pointer"
+                    }}
+                    onClick={() => {
+                      if (nav==="100vw") {
+                        setNav("0px")
+                      }
+                      else {
+                        setNav("100vw")
+                      }
+                    }}
+                  >
+                    <CloseIcon
+                        sx={ width > 600 && {
+                            marginRight: ".5rem"
+                        }}
+                    />
+                    {window.innerWidth > 600 &&
+                        <span>CLOSE</span>
+                    }
+                </button>
+              }
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  alignItems: "baseline"
+                }}
+              >
+                <img src={titleImage} alt="Kuch bhi" width={"40%"}
+                  style={{
+                    minWidth: "150px",
+                    maxWidth: "500px",
+                  }}
+                ></img>
+                <div
+                  style={{
+                    marginLeft: "2rem"
+                  }}
+                >
+                  <MusicNoteIcon />
+                </div>
+                <div
+                  style={{
+                    marginLeft: "2rem"
+                  }}
+                >
+                  <ComputerIcon />
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        {/* <Navigation /> */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            // left: "90%",
+            gap: "3rem",
+            marginLeft: "27rem",
+            paddingTop: "28.9rem",
+            // width: "12rem"
+          }}
+        >
+          <Modal 
+            color={getRandomColor()} 
+            title="TECHNICAL EVENT" 
+            vertical 
+          />
+          <Modal 
+            color={getRandomColor()} 
+            title="TECHNICAL EVENT" 
+            style={{ height: 385, marginTop: "5px" }}
+            vertical
+          />
+          <Quote 
+            className={`${styles.modal} ${styles.reg_card}`}
+            sx={{
+              margin: 0,
+              marginBottom: "-1.5rem",
+              width: "25rem",
+              marginLeft: "-1rem",
+              marginTop: "-2px"
+            }}
+          />
+          <Modal 
+            color={getRandomColor()} 
+            title="TECHNICAL EVENT" 
+            style={{ height: 385, marginTop: "12px" }}
+            vertical
+          />
+          <Modal 
+            color={getRandomColor()} 
+            title="TECHNICAL EVENT" 
+            style={{ height: 385 }}
+            vertical
+          />
+        </div>
+        <div className={styles.gridCenterMain}>
+          <div className={styles.gridCenterTop}>
+            <div className={styles.top1}>
+              <div className={styles.top1left}>
+                <div className={styles.top1lefttop}>
+                  <div>
+                    .
+                  </div>
+                  <div>
+                    <Socials />
+                  </div>
+                </div>
+                <div className={styles.top1leftbottom}>
+                  <div></div>
+                  <div className={styles.tempflex}>
+                    <Modal color={getRandomColor()} title="ACCOMODATION" style={{ height: 385, width: 600}} />
+                    <Modal color={getRandomColor()} title="CULTURAL EVENTS" style={{ height: 385, width: 600}} />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.top1right}>
+                <div>
+                  
+                </div>
+                <div>
+                  <RegistrationCard />
+                </div>
+              </div>
+            </div>
+            <div className={styles.top2}>
+              <Prizes />
+              <div className={styles.logo}>
+                <Logo />
+              </div>
+            </div>
+          </div>
+          <div className={styles.gridCenterBottom}>
+            <div className={styles.gridBottomLeft}>
+              <Modal color={getRandomColor()} title="TECHNICAL EVENTS" style={{ height: 385 }}/>
+              <div className={styles.nav}>
+                <div className={styles.navtop}>
+                  <SmallBox  title='CULTURAL EVENTS' color={getRandomColor()} />
+                  <SmallCircle title='TEAM' color={getRandomColor()} />
+                </div>
+                <div className={styles.navbot}>
+                  <SmallCircle title='SPONSORS' color={getRandomColor()} />
+                  <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />/
+                </div>
+              </div>
+              <Modal 
+                color={getRandomColor()} 
+                title="TECHNICAL EVENT #1" 
+                style={{ 
+                  height: 385, 
+                  width: 430, 
+                  marginTop: "-7rem", 
+                  marginRight: "1rem"
                 }}
               />
+              <div className={styles.team}>
+                <Members 
+                  sx={{
+                    height: "18.5rem",
+                    // marginBottom: "-3rem",
+                    marginTop: "-3rem",
+                    width: "96.5%",
+                    justifyContent: "center",
+                    marginLeft: "-1rem",
+                    borderColor: "orange"
+                  }} 
+                  sx2={{
+                    padding: 0,
+                    borderColor: "orange"
+                  }}
+                />
+              </div>
+            </div>
+            <div className={styles.gridBottomRight}>
+              <AboutUs />
+            </div>
           </div>
         </div>
-        <div className={styles.rightGridBottom}>
-          <div className={styles.bottomLeft}>
-              <AuthCard
-                color="black"
-                sx={{
-                  height: "17rem",
-                  width: "20rem"
-                }} 
-              />
-              <Queries
-                sx={{
-                  height: "19rem",
-                  width: "20rem"
-                }}
-              />
-          </div>
-          <div className={styles.bottomRight}>
-            <div className={styles.bottomRightTop}>
-              <Modal color={getRandomColor()} title='WORKSHOPS' style={{ height: 385, marginLeft: "-.5rem" }} />
-              <Modal color={getRandomColor()} title='CULTURAL EVENT #5' style={{ height: 385, marginLeft: "-2rem" }} />
+        <div className={styles.rightGridMain}>
+          <div className={styles.rightGridTop}>
+            <div className={styles.topLeft}>
+              <Modal color={getRandomColor()} title="CULTURAL EVENT #2" style={{ height: 385 }} />
+              <Modal color={getRandomColor()} title="CULTURAL EVENT #1" style={{ height: 385, marginTop: "-3rem" }} />
             </div>
-            <div className={styles.bottomRightBottom}>
-                <Sponsors 
+            <div className={styles.topRight}>
+                <div></div>
+                <div className={styles.topRightMid}>
+                  <Modal 
+                    color={getRandomColor()} 
+                    title="CULTURAL EVENT #3" 
+                    style={{ 
+                      height: 400, 
+                      marginLeft: "-.5rem" 
+                    }} 
+                  />
+                  <Modal 
+                    color={getRandomColor()} 
+                    title="CULTURAL EVENT #4" 
+                    style={{ 
+                      height: 400, 
+                      marginLeft: ".5rem" 
+                    }} 
+                  />
+                </div>
+                <Fun 
                   sx={{
-                    height: "28rem",
-                    marginLeft: "-0.3rem",
-                    marginTop: "-0.2rem",
-                    width: "29rem",
-                    borderWidth: "15px",
-                    borderRadius: "10px"
+                    backgroundColor: "#01a863",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    paddingLeft: "7rem",
+                    width: "23rem",
+                    height: "10.5rem",
+                    marginLeft: "22.5rem",
+                    marginTop: "-1.5rem"
+                  }}
+                />
+            </div>
+          </div>
+          <div className={styles.rightGridBottom}>
+            <div className={styles.bottomLeft}>
+                <AuthCard
+                  color="black"
+                  sx={{
+                    height: "17rem",
+                    width: "20rem"
                   }} 
                 />
-                <Modal color={getRandomColor()} title='CULTURAL EVENT #6' style={{ height: 385, width: 420, marginLeft: "-19px" }} />
+                <Queries
+                  sx={{
+                    height: "19rem",
+                    width: "20rem"
+                  }}
+                />
+            </div>
+            <div className={styles.bottomRight}>
+              <div className={styles.bottomRightTop}>
+                <Modal color={getRandomColor()} title='WORKSHOPS' style={{ height: 385, marginLeft: "-.5rem" }} />
+                <Modal color={getRandomColor()} title='CULTURAL EVENT #5' style={{ height: 385, marginLeft: "-2rem" }} />
+              </div>
+              <div className={styles.bottomRightBottom}>
+                  <Sponsors 
+                    sx={{
+                      height: "28rem",
+                      marginLeft: "-0.3rem",
+                      marginTop: "-0.2rem",
+                      width: "29rem",
+                      borderWidth: "15px",
+                      borderRadius: "10px"
+                    }} 
+                  />
+                  <Modal color={getRandomColor()} title='CULTURAL EVENT #6' style={{ height: 385, width: 420, marginLeft: "-19px" }} />
+              </div>
             </div>
           </div>
         </div>
