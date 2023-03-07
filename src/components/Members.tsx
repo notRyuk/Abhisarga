@@ -10,7 +10,29 @@ interface Props {
 const Members = ({ sx, sx2 }: Props) => {
   return (
     <div className={styles.main} style={sx}>
-        <Button variant='contained' sx={{ width: "90%", padding: "20px 0px 20px 0px", fontFamily: "ArcadeClassic", fontSize: "28px", backgroundColor: "orange", "&:hover": { backgroundColor: "orange", opacity: "0.8" } }}>TEAM MEMBERS</Button>
+        <p
+          style={{
+            fontSize: "30px"
+          }}
+        >
+          KNOW MORE ABOUT US
+        </p>
+        <Button 
+          variant='contained' 
+          sx={{ 
+            width: "90%", 
+            padding: "20px 0px 20px 0px", 
+            fontFamily: "ArcadeClassic", 
+            fontSize: "28px", 
+            backgroundColor: "orange", 
+            "&:hover": { 
+              backgroundColor: "orange", 
+              opacity: "0.8" 
+            } 
+          }}
+        >
+          TEAM MEMBERS
+        </Button>
     </div>
   )
 }

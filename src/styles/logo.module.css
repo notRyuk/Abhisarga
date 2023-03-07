@@ -40,23 +40,3 @@
     /* width: 60%; */
     max-width: 35rem;
 }
-
-@media screen and (max-width: 1300px) {
-    .main {
-        width: 75%;
-    }
-
-    .fg {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 830px) {
-    .main {
-        width: 85%;
-    }
-
-    .fg {
-        width: 70%;
-    }
-}
