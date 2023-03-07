@@ -11,8 +11,12 @@ import SmallBox from '../components/SmallBox';
 import StarIcon from '@mui/icons-material/Star';
 import AboutUs from '../components/AboutUs';
 import Socials from '../components/Socials';
+import gradient from '../assets/mesh-715.png';
+import abhisargaGrad from '../assets/abhisargaGrad.png';
+import landingPage from '../assets/Landing Page.png'
 import Quote from '../components/Quote';
 import LogoutIcon from '@mui/icons-material/Logout';
+import sand from "../assets/sand.png"
 import as from  '../assets/abhisarga_small.png'
 import Members from '../components/Members';
 import AuthCard from '../components/AuthCard';
@@ -21,9 +25,10 @@ import Sponsors from '../components/Sponsors';
 import ComputerIcon from '@mui/icons-material/Computer'
 import Fun from '../components/Fun'
 import IconButton from '@mui/material/IconButton'
+import bgImg from "../assets/title-background.svg"
 import GroupsIcon from '@mui/icons-material/Groups';
 import MenuIcon from '@mui/icons-material/Menu';
-import titleImage from "../assets/title.png"
+import titleImage from "../assets/Final Iteration.png"
 // import Navigation from '../components/Navigation';
 import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
@@ -119,7 +124,7 @@ function App() {
               }}
               />
       </button>
-    <button
+      <button
             style={{
                 display: "flex",
                 flexDirection: "row",
@@ -180,16 +185,19 @@ function App() {
             zIndex: "2000",
             top: "0",
             left: "0",
-            backgroundColor: "white",
+            backgroundColor: "#e6f5da",
             color: "black",
             overflowX: "hidden",
             transition: "0.5s",
+            backgroundImage: `url(${gradient})`,
+            backgroundRepeat: "repeat"
           }}
         >
           <div
             style={{
               position: "relative",
               textAlign: "center",
+              zIndex: "2002"
             }}
             className={styles.navMainDiv}
           >
@@ -201,17 +209,18 @@ function App() {
                       alignItems: "center",
                       justifyContent: "center",
                       position: "fixed",
-                      top: 20,
-                      right: 20,
+                      top: window.innerWidth > 450 ? 40 : 20,
+                      right: window.innerWidth > 450 ? 20 : 5,
                       padding: ".5rem",
                       paddingRight: "0.5rem",
                       // border: "6px solid black",
                       // gap: ".5rem",
                       fontSize: "30px",
                       borderRadius: "10px",
-                      backgroundColor: "red",
-                      color: "white",
-                      cursor: "pointer"
+                      color: "black",
+                      cursor: "pointer",
+                      border: "5px solid black",
+                      marginLeft: window.innerWidth < 450 ? "1rem" : "0rem" 
                   }}
                   className={styles.buttonScale}
                   onClick={() => {
@@ -227,7 +236,7 @@ function App() {
                       sx={ width > 600 ? {
                           marginRight: ".5rem"
                       } : {
-                        fontSize: "40px"
+                        fontSize: "40px",
                       }}
                   />
                   {window.innerWidth > 600 &&
@@ -243,14 +252,25 @@ function App() {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 alignItems: "baseline",
-                gap: "2rem",
+                gap: "2rem"
               }}
               className={styles.navFlex}
             >
+              {/* <img
+                src={abhisargaGrad}
+                style={{
+                  position: "relative",
+                  minWidth: "150px",
+                  maxWidth:
+                }}>
+              </img> */}
               <img src={titleImage} alt="Kuch bhi" width={"85%"}
                 style={{
                   minWidth: "150px",
                   maxWidth: "500px",
+                  border: "10px solid black",
+                  borderRadius: "15px",
+                  backgroundColor: "#E6F5DA",
                 }}
                 className={styles.abhisargaNav}
               ></img>
@@ -262,10 +282,12 @@ function App() {
               <div
                 style={{
                   marginLeft: "2rem",
-                  color: "orange",
+                  color: "white",
                   cursor: "pointer",
-                  borderBottom: "5px solid orange",
-                  textAlign: "center"
+                  // borderBottom: "5px solid white",
+                  textAlign: "center",
+                  fontFamily: "NimbusSansExtended",
+                  fontWeight: "700"
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
               >
@@ -286,10 +308,12 @@ function App() {
               <div
                 style={{
                   marginLeft: "2rem",
-                  color: "#3968CB",
+                  color: "white",
                   cursor: "pointer",
-                  borderBottom: "5px solid #3968CB",
-                  textAlign: "center"
+                  // borderBottom: "5px solid white",
+                  textAlign: "center",
+                  fontFamily: "NimbusSansExtended",
+                  fontWeight: "700"
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
               >
@@ -310,36 +334,41 @@ function App() {
               <div
                 style={{
                   marginLeft: "2rem",
-                  color: "pink",
+                  color: "white",
                   cursor: "pointer",
-                  borderBottom: "5px solid pink",
+                  // borderBottom: "5px solid white",
                   textAlign: "center",
-                  paddingRight: "2rem"
+                  paddingRight: "2rem",
+                  fontFamily: "NimbusSansExtended",
+                  fontWeight: "700"
                 }}
-                className={`${styles.hover} ${styles.menuItem}`}
+                className={`${styles.hover} ${styles.menuItem} ${styles.teamIcon}`}
               >
                 <GroupsIcon
                   sx={{
                     fontSize: "3rem",
-                    marginRight: "1rem"
+                    marginRight: "4rem",
+                    marginLeft: "1rem"
                   }}
                 />
                 TEAM
                 <EastIcon
                   sx={{
                     fontSize: "1.5rem",
-                    marginLeft: "2rem"
+                    marginLeft: "4rem",
                   }}
                  />
               </div>
               <div
                 style={{
                   marginLeft: "2rem",
-                  color: "lightgreen",
+                  color: "white",
                   cursor: "pointer",
-                  borderBottom: "5px solid lightgreen",
+                  // borderBottom: "5px solid white",
                   textAlign: "center",
-                  paddingRight: "2rem"
+                  paddingRight: "2rem",
+                  fontFamily: "NimbusSansExtended",
+                  fontWeight: "700"
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
               >
@@ -370,10 +399,11 @@ function App() {
             >
               <div
                 style={{
-                  border: "5px solid blue",
+                  border: "5px solid black",
                   padding: "10px",
                   backgroundColor: "white",
-                  borderRadius: "10px"
+                  borderRadius: "15px",
+                  maxWidth: "350px"
                 }}
                 className={styles.minimap}
               >
@@ -381,7 +411,8 @@ function App() {
                   src={minimap} 
                   alt="kuch bhi"
                   style={{
-                    borderRadius: "15px"
+                    borderRadius: "15px",
+                    maxWidth: "100%"
                   }}
                   // className={styles.minimap}
                   >
@@ -397,22 +428,16 @@ function App() {
                       paddingRight: "0.5rem",
                       fontSize: "30px",
                       borderRadius: "10px",
-                      backgroundColor: "red",
-                      color: "white",
+                      color: "black",
                       cursor: "pointer",
                       marginTop: "20px",
                       maxWidth: "20rem",
-                      alignSelf: "flex-end"
+                      fontFamily: "NimbusSansExtended",
+                      fontWeight: "700",
+                      alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
+                      border: "6px solid black"
                   }}
-                  className={styles.buttonScale}
-                  onClick={() => {
-                    if (nav==="100vw") {
-                      setNav("0px")
-                    }
-                    else {
-                      setNav("100vw")
-                    }
-                  }}
+                  className={`${styles.buttonScale} ${styles.logoutButton}`}
                 >
                   <LogoutIcon
                       sx={ width > 600 ? {

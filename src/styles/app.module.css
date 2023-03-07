@@ -233,6 +233,7 @@
 
 .menuItem {
     font-size: 36px;
+    margin-left: 5rem;
 }
 
 .abhisargaNav {
@@ -244,6 +245,18 @@
     height: auto;
 }
 
+.buttonScale {
+    background-color: white;
+}
+
+.buttonScale:hover {
+    background-color: #EDEDED;
+}
+
+.teamIcon {
+    margin-left: 2rem;
+}
+
 @media screen and (max-width: 1150px) {
     .navFlex {
         width: 60%;
@@ -252,17 +265,29 @@
     }
 
     .minimap {
-        width: 20rem;
+        width: 10rem;
+    }
+
+    .navFlex {
+        margin-top: 0rem;
     }
 }
 
 @media screen and (max-width: 821px) {
+    .navFlex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
     .minimap {
         width: 15rem;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .navMainDiv {
         display: flex;
         flex-direction: column;
@@ -281,12 +306,11 @@
     }
 
     .menuItem {
-        margin-left: 100px;
+        /* margin-left: 100px; */
     }
 
     .minimap {
         width: 30rem;
-        margin-left: -60px;
     }
 }
 
@@ -304,6 +328,18 @@
 }
 
 @media screen and (max-width: 500px) {
+    .navMainDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logoutButton {
+        margin-left: 30%;
+    }
+
     .navFlex {
         width: 100%;
         margin-left: 0px;
@@ -340,6 +376,11 @@
     .minimap {
         width: 20rem;
         margin-left: 20px;
+    }
+
+    .abhisargaNav {
+        scale: 0.85;
+        margin-left: -10rem;
     }
 }
 
