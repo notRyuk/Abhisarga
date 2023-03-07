@@ -1,1 +1,0 @@
-export default () => <div><h1>Something</h1></div>

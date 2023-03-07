@@ -85,7 +85,7 @@ const index = () => {
               textAlign: "center",
               zIndex: "2002"
             }}
-            className={styles.navMainDiv}
+            className={styles2.navMainDiv}
           >
             {nav==="100vw" && 
               <button
@@ -108,7 +108,7 @@ const index = () => {
                       border: "5px solid black",
                       marginLeft: window.innerWidth < 450 ? "1rem" : "0rem" 
                   }}
-                  className={styles.buttonScale}
+                  className={styles2.buttonScale}
                   onClick={() => {
                     if (nav==="100vw") {
                       setNav("0px")
@@ -140,7 +140,7 @@ const index = () => {
                 alignItems: "baseline",
                 gap: "2rem"
               }}
-              className={styles.navFlex}
+              className={styles2.navFlex}
             >
               {/* <img
                 src={abhisargaGrad}
@@ -158,7 +158,7 @@ const index = () => {
                   borderRadius: "15px",
                   backgroundColor: "#E6F5DA",
                 }}
-                className={styles.abhisargaNav}
+                className={styles2.abhisargaNav}
               ></img>
               {/* <Logo 
                 sx={{
@@ -175,7 +175,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles.hover} ${styles.menuItem}`}
+                className={`${styles2.hover} ${styles2.menuItem}`}
               >
                 <MusicNoteIcon
                   sx={{
@@ -201,7 +201,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles.hover} ${styles.menuItem}`}
+                className={`${styles2.hover} ${styles2.menuItem}`}
               >
                 <ComputerIcon
                   sx={{
@@ -228,7 +228,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles.hover} ${styles.menuItem} ${styles.teamIcon}`}
+                className={`${styles2.hover} ${styles2.menuItem} ${styles2.teamIcon}`}
               >
                 <GroupsIcon
                   sx={{
@@ -256,7 +256,7 @@ const index = () => {
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
                 }}
-                className={`${styles.hover} ${styles.menuItem}`}
+                className={`${styles2.hover} ${styles2.menuItem}`}
               >
                 <StarIcon
                   sx={{
@@ -291,7 +291,7 @@ const index = () => {
                   borderRadius: "15px",
                   maxWidth: "350px"
                 }}
-                className={styles.minimap}
+                className={styles2.minimap}
               >
                 <img 
                   src={minimap} 
@@ -323,7 +323,7 @@ const index = () => {
                       alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
                       border: "6px solid black"
                   }}
-                  className={`${styles.buttonScale} ${styles.logoutButton}`}
+                  className={`${styles2.buttonScale} ${styles2.logoutButton}`}
                 >
                   <LogoutIcon
                       sx={ width > 600 ? {
@@ -338,7 +338,7 @@ const index = () => {
               </button>
             </div>
           </div>
-        </div>
+      </div>
       <button
             style={{
                 display: "flex",

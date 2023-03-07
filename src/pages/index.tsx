@@ -5,7 +5,6 @@ import Modal from "../components/CustomCard"
 import Prizes from '../components/Prizes';
 import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
-// import { shuffle } from '../helper';
 import SmallCircle from '../components/SmallCircle';
 import SmallBox from '../components/SmallBox';
 import StarIcon from '@mui/icons-material/Star';
@@ -33,7 +32,8 @@ import titleImage from "../assets/Final Iteration.png"
 import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import minimap from '../assets/mini-map.png'
+import minimap from '../assets/mini-map.png';
+import waterImage from '../assets/water.png';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -94,35 +94,42 @@ function App() {
   }, [])
 
   return (
-    <>
-    <button
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "fixed",
-                top: 20,
-                left: 20,
-                // padding: ".5rem",
-                // paddingRight: "0.5rem",
-                // border: "6px solid black",
-                // fontSize: "25px",
-                zIndex: "1500",
-                borderRadius: "15px",
-                borderColor: "transparent",
-                backgroundColor: "transparent",
-                cursor: "pointer"
-            }}
-        >
-            <img 
-              src={as} 
-              height={"70rem"}
-              alt="kuch bhi"
-              style={{
-                borderRadius: "10px"
-              }}
-              />
+    <div 
+      className={styles.container}
+      style={{
+        backgroundImage: `url(${waterImage})`,
+        width: 3975,
+        height: 2809,
+      }}
+    >
+      <button
+        style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "fixed",
+            top: 20,
+            left: 20,
+            // padding: ".5rem",
+            // paddingRight: "0.5rem",
+            // border: "6px solid black",
+            // fontSize: "25px",
+            zIndex: "1500",
+            borderRadius: "15px",
+            borderColor: "transparent",
+            backgroundColor: "transparent",
+            cursor: "pointer"
+        }}
+      >
+        <img 
+          src={as} 
+          height={"70rem"}
+          alt="kuch bhi"
+          style={{
+            borderRadius: "10px"
+          }}
+        />
       </button>
       <button
             style={{
@@ -661,7 +668,7 @@ function App() {
         </div>
       </div>
     </div>
-    </>
+    </div>
   )
 }
 
