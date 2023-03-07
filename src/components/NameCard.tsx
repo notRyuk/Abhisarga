@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from '../styles/eventCard.module.css'
+import Marquee from 'react-fast-marquee'
 
 const NameCard = () => {
   return (
@@ -203,7 +204,11 @@ const NameCard = () => {
                     // lineHeight: "15px"
                   }}
                 >
-                  <EmojiEventsIcon /> 1L
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "gold"
+                    }}
+                  /> 1L
                 </p>
                 <p
                   style={{
@@ -213,7 +218,11 @@ const NameCard = () => {
                     // lineHeight: "18px"
                   }}
                 >
-                  <EmojiEventsIcon /> 50k
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "silver"
+                    }}
+                   /> 50k
                 </p>
                 <p
                   style={{
@@ -222,12 +231,38 @@ const NameCard = () => {
                     // lineHeight: "15px"
                   }}
                 >
-                  <EmojiEventsIcon /> 20k
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "#BE7023"
+                    }}
+                   /> 20k
                 </p>
             </div>
           </div>
         </div>
         </div>
+        {/* <marquee bgcolor = "green" direction = 'left' loop='' scrolldelay='2' >
+              <p>hello hello</p>
+              <p>hello hello</p>
+        </marquee> */}
+        {/* <Marquee pauseOnHover>
+          <div
+            style={{
+              
+            }}
+          >
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ex qui soluta, error nostrum eveniet quidem molestiae ut deleniti enim.</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+        </Marquee> */}
         <Accordion
           sx={{
             width: "80%",
