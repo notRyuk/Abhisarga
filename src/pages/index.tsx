@@ -192,7 +192,7 @@ function App() {
                 sx={{
                   height: "18.5rem",
                   // marginBottom: "-3rem",
-                  marginTop: "1.7rem",
+                  marginTop: "-3rem",
                   width: "96.5%",
                   justifyContent: "center",
                   marginLeft: "-1rem",
