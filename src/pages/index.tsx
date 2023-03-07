@@ -84,20 +84,8 @@ function App() {
   }, [])
   
   return (
-    <div
-      className={styles.main}
-      style={{
-        width: 3975,
-        height: 2809,
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
-        display: "flex",
-        flexDirection: "row",
-        backgroundColor: "#aaa9a9"
-      }}
-    >
-      <button
+    <>
+    <button
             style={{
                 display: "flex",
                 flexDirection: "row",
@@ -137,6 +125,19 @@ function App() {
               </span>
             }
       </button>
+    <div
+      className={styles.main}
+      style={{
+        width: 3975,
+        height: 2809,
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100%",
+        display: "flex",
+        flexDirection: "row",
+        backgroundColor: "#aaa9a9"
+      }}
+    >
         <div
           id='fulScrNav'
           style={{
@@ -210,7 +211,7 @@ function App() {
                 justifyContent: "space-between",
                 alignItems: "baseline",
                 gap: "2rem",
-                width: "35%",
+                width: "43%",
                 minWidth: "320px"
               }}
             >
@@ -482,6 +483,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
