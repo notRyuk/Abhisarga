@@ -8,9 +8,11 @@ import styles from "../styles/app.module.css";
 // import { shuffle } from '../helper';
 import SmallCircle from '../components/SmallCircle';
 import SmallBox from '../components/SmallBox';
+import StarIcon from '@mui/icons-material/Star';
 import AboutUs from '../components/AboutUs';
 import Socials from '../components/Socials';
 import Quote from '../components/Quote';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Members from '../components/Members';
 import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
@@ -18,12 +20,14 @@ import Sponsors from '../components/Sponsors';
 import ComputerIcon from '@mui/icons-material/Computer'
 import Fun from '../components/Fun'
 import IconButton from '@mui/material/IconButton'
+import GroupsIcon from '@mui/icons-material/Groups';
 import MenuIcon from '@mui/icons-material/Menu';
 import titleImage from "../assets/title.png"
 // import Navigation from '../components/Navigation';
 import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import minimap from '../assets/mini-map.png'
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -82,7 +86,7 @@ function App() {
         document.onmousemove = null;
     }
   }, [])
-  
+
   return (
     <>
     <button
@@ -96,7 +100,6 @@ function App() {
                 right: 20,
                 padding: ".5rem",
                 paddingRight: "0.5rem",
-                // gap: ".5rem",
                 border: "6px solid black",
                 fontSize: "25px",
                 zIndex: "1500",
@@ -156,10 +159,9 @@ function App() {
           <div
             style={{
               position: "relative",
-              width: "100%",
               textAlign: "center",
-              marginTop: "20px"
             }}
+            className={styles.navMainDiv}
           >
             {nav==="100vw" && 
               <button
@@ -175,12 +177,13 @@ function App() {
                       paddingRight: "0.5rem",
                       // border: "6px solid black",
                       // gap: ".5rem",
-                      fontSize: "25px",
+                      fontSize: "30px",
                       borderRadius: "10px",
                       backgroundColor: "red",
                       color: "white",
                       cursor: "pointer"
                   }}
+                  className={styles.buttonScale}
                   onClick={() => {
                     if (nav==="100vw") {
                       setNav("0px")
@@ -211,20 +214,24 @@ function App() {
                 justifyContent: "space-between",
                 alignItems: "baseline",
                 gap: "2rem",
-                width: "43%",
-                minWidth: "320px"
               }}
+              className={styles.navFlex}
             >
-              <img src={titleImage} alt="Kuch bhi" width={"90%"}
+              <img src={titleImage} alt="Kuch bhi" width={"85%"}
                 style={{
                   minWidth: "150px",
                   maxWidth: "500px",
                 }}
+                className={styles.abhisargaNav}
               ></img>
+              {/* <Logo 
+                sx={{
+                  scale: "0.8"
+                }}
+              /> */}
               <div
                 style={{
                   marginLeft: "2rem",
-                  fontSize: "36px",
                   color: "orange",
                   cursor: "pointer",
                   borderBottom: "5px solid orange",
@@ -249,7 +256,6 @@ function App() {
               <div
                 style={{
                   marginLeft: "2rem",
-                  fontSize: "36px",
                   color: "lightblue",
                   cursor: "pointer",
                   borderBottom: "5px solid lightblue",
@@ -271,8 +277,115 @@ function App() {
                   }}
                  />
               </div>
+              <div
+                style={{
+                  marginLeft: "2rem",
+                  color: "pink",
+                  cursor: "pointer",
+                  borderBottom: "5px solid pink",
+                  textAlign: "center",
+                  paddingRight: "2rem"
+                }}
+                className={`${styles.hover} ${styles.menuItem}`}
+              >
+                <GroupsIcon
+                  sx={{
+                    fontSize: "3rem",
+                    marginRight: "1rem"
+                  }}
+                />
+                TEAM
+                <EastIcon
+                  sx={{
+                    fontSize: "1.5rem",
+                    marginLeft: "2rem"
+                  }}
+                 />
+              </div>
+              <div
+                style={{
+                  marginLeft: "2rem",
+                  color: "lightgreen",
+                  cursor: "pointer",
+                  borderBottom: "5px solid lightgreen",
+                  textAlign: "center",
+                  paddingRight: "2rem"
+                }}
+                className={`${styles.hover} ${styles.menuItem}`}
+              >
+                <StarIcon
+                  sx={{
+                    fontSize: "3rem",
+                    marginRight: "1rem"
+                  }}
+                />
+                SPONSORS
+                <EastIcon
+                  sx={{
+                    fontSize: "1.5rem",
+                    marginLeft: "2rem"
+                  }}
+                 />
+              </div>
             </div>
-            
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                paddingRight: "20px",
+                paddingTop: "50px",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <img 
+                src={minimap} 
+                alt="kuch bhi"
+                style={{
+                  borderRadius: "15px"
+                }}
+                className={styles.minimap}  
+                >
+              </img>
+              <button
+                  style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "1rem",
+                      paddingRight: "0.5rem",
+                      fontSize: "30px",
+                      borderRadius: "10px",
+                      backgroundColor: "red",
+                      color: "white",
+                      cursor: "pointer",
+                      marginTop: "20px",
+                      maxWidth: "20rem",
+                      alignSelf: "flex-end"
+                  }}
+                  className={styles.buttonScale}
+                  onClick={() => {
+                    if (nav==="100vw") {
+                      setNav("0px")
+                    }
+                    else {
+                      setNav("100vw")
+                    }
+                  }}
+                >
+                  <LogoutIcon
+                      sx={ width > 600 ? {
+                          marginRight: ".5rem"
+                      } : {
+                        fontSize: "40px"
+                      }}
+                  />
+                  <span style={{ marginRight: ".5rem" }}>
+                    LOGOUT
+                  </span>
+              </button>
+            </div>
           </div>
         </div>
       {/* <Navigation /> */}

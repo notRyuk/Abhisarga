@@ -217,3 +217,135 @@
 .hover:hover {
     transform: scale(1.02);
 }
+
+.navFlex {
+    width: 40%;
+    min-width: 350px;
+}
+
+.navMainDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.menuItem {
+    font-size: 36px;
+}
+
+.abhisargaNav {
+    margin-top: -10px;
+}
+
+.minimap {
+    width: 30rem;
+    height: auto;
+}
+
+@media screen and (max-width: 1150px) {
+    .navFlex {
+        width: 60%;
+        padding-left: 30px;
+        margin-top: -50px;
+    }
+
+    .minimap {
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width: 821px) {
+    .minimap {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navMainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        width: 90%; 
+    }
+
+    .navFlex {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    .menuItem {
+        margin-left: 100px;
+    }
+
+    .minimap {
+        width: 30rem;
+        margin-left: -60px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .minimap {
+        margin-left: -30px;
+    }
+}
+
+@media screen {
+    .minimap {
+        margin-left: 50px;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navFlex {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .menuItem {
+        font-size: 30px;
+    }
+
+    .minimap {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .buttonScale {
+        scale: 0.8;
+    }
+
+    .abhisargaNav {
+        margin-left: -100px;
+    }
+
+    .navMainDiv {
+        width: 100%;
+        margin-left: -35px;
+    }
+
+    .menuItem {
+        scale: 0.9;
+        margin-left: -20px;
+    }
+
+    .minimap {
+        width: 20rem;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .minimap {
+        margin-right: 0px;
+        margin-left: 50px;
+    }
+}
