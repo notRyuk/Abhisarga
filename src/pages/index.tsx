@@ -5,7 +5,7 @@ import Modal from "../components/CustomCard"
 import Prizes from '../components/Prizes';
 import RegistrationCard from '../components/RegistrationCard';
 import styles from "../styles/app.module.css";
-import { shuffle } from '../helper';
+// import { shuffle } from '../helper';
 import SmallCircle from '../components/SmallCircle';
 import SmallBox from '../components/SmallBox';
 import AboutUs from '../components/AboutUs';
@@ -15,7 +15,14 @@ import Members from '../components/Members';
 import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
 import Sponsors from '../components/Sponsors';
+import ComputerIcon from '@mui/icons-material/Computer'
 import Fun from '../components/Fun'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu';
+import titleImage from "../assets/title.png"
+// import Navigation from '../components/Navigation';
+import CloseIcon from '@mui/icons-material/Close';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 const getRandomColor = () => {
   const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
@@ -24,6 +31,7 @@ const getRandomColor = () => {
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [nav, setNav] = useState<string>("0px")
   setTimeout(() => setIsLoading(false), 3000)
   useEffect(() => {
     const element = document.getElementsByClassName(styles.main)[0]
@@ -39,6 +47,11 @@ function App() {
       top: (element.clientHeight-view.innerHeight)/2
     })
   }, [])
+
+  const [width, setWidth] = useState<number>(window.innerWidth)
+    useEffect(() => {
+        setWidth(window.innerWidth)
+    }, [window.innerWidth])
 
   useEffect(() => {
     let _startX = 0,
@@ -83,6 +96,138 @@ function App() {
         backgroundColor: "#aaa9a9"
       }}
     >
+      <button
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "fixed",
+                top: 20,
+                right: 20,
+                padding: ".5rem",
+                paddingRight: ".5rem",
+                // gap: ".5rem",
+                border: "6px solid black",
+                fontSize: "30px",
+                zIndex: "1500",
+                borderRadius: "15px",
+                backgroundColor: "white",
+                cursor: "pointer"
+            }}
+            onClick={() => {
+              if (nav==="100vw") {
+                setNav("0px")
+              }
+              else {
+                setNav("100vw")
+              }
+            }}
+        >
+            <MenuIcon
+                sx={ width > 600 && {
+                    marginRight: ".5rem"
+                }}
+            />
+            {window.innerWidth > 600 &&
+                <span>MENU</span>
+            }
+      </button>
+        <div
+          id='fulScrNav'
+          style={{
+            height: "100vh",
+            width: nav,
+            position: "fixed",
+            zIndex: "2000",
+            top: "0",
+            left: "0",
+            backgroundColor: "white",
+            color: "black",
+            overflowX: "hidden",
+            transition: "0.5s",
+          }}
+        >
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              textAlign: "center",
+              marginTop: "20px"
+            }}
+          >
+            {nav==="100vw" && 
+              <button
+                  style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "fixed",
+                      top: 20,
+                      right: 20,
+                      padding: ".5rem",
+                      paddingRight: ".5rem",
+                      // border: "6px solid black",
+                      // gap: ".5rem",
+                      fontSize: "2rem",
+                      borderRadius: "10px",
+                      backgroundColor: "red",
+                      color: "white",
+                      cursor: "pointer"
+                  }}
+                  onClick={() => {
+                    if (nav==="100vw") {
+                      setNav("0px")
+                    }
+                    else {
+                      setNav("100vw")
+                    }
+                  }}
+                >
+                  <CloseIcon
+                      sx={ width > 600 && {
+                          marginRight: ".5rem"
+                      }}
+                  />
+                  {window.innerWidth > 600 &&
+                      <span>CLOSE</span>
+                  }
+              </button>
+            }
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "baseline"
+              }}
+            >
+              <img src={titleImage} alt="Kuch bhi" width={"40%"}
+                style={{
+                  minWidth: "150px",
+                  maxWidth: "500px",
+                }}
+              ></img>
+              <div
+                style={{
+                  marginLeft: "2rem"
+                }}
+              >
+                <MusicNoteIcon />
+              </div>
+              <div
+                style={{
+                  marginLeft: "2rem"
+                }}
+              >
+                <ComputerIcon />
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      {/* <Navigation /> */}
       <div
         style={{
           display: "flex",
