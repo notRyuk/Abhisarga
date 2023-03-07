@@ -54,7 +54,7 @@ interface Props {
 }
 
 export default function CustomCard({ style, image, color, title, vertical }: Props) {
-    const reverse = !vertical || Math.random()>.5
+    const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (_: any, reason?: string) => {

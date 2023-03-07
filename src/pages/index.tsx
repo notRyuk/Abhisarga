@@ -13,6 +13,7 @@ import AboutUs from '../components/AboutUs';
 import Socials from '../components/Socials';
 import Quote from '../components/Quote';
 import LogoutIcon from '@mui/icons-material/Logout';
+import as from  '../assets/abhisarga_small.png'
 import Members from '../components/Members';
 import AuthCard from '../components/AuthCard';
 import Queries from '../components/Queries';
@@ -89,6 +90,35 @@ function App() {
 
   return (
     <>
+    <button
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "fixed",
+                top: 20,
+                left: 20,
+                // padding: ".5rem",
+                // paddingRight: "0.5rem",
+                // border: "6px solid black",
+                // fontSize: "25px",
+                zIndex: "1500",
+                borderRadius: "15px",
+                borderColor: "transparent",
+                backgroundColor: "transparent",
+                cursor: "pointer"
+            }}
+        >
+            <img 
+              src={as} 
+              height={"70rem"}
+              alt="kuch bhi"
+              style={{
+                borderRadius: "10px"
+              }}
+              />
+      </button>
     <button
             style={{
                 display: "flex",
@@ -256,9 +286,9 @@ function App() {
               <div
                 style={{
                   marginLeft: "2rem",
-                  color: "lightblue",
+                  color: "#3968CB",
                   cursor: "pointer",
-                  borderBottom: "5px solid lightblue",
+                  borderBottom: "5px solid #3968CB",
                   textAlign: "center"
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
@@ -338,15 +368,25 @@ function App() {
                 alignItems: "center"
               }}
             >
-              <img 
-                src={minimap} 
-                alt="kuch bhi"
+              <div
                 style={{
-                  borderRadius: "15px"
+                  border: "5px solid blue",
+                  padding: "10px",
+                  backgroundColor: "white",
+                  borderRadius: "10px"
                 }}
-                className={styles.minimap}  
-                >
-              </img>
+                className={styles.minimap}
+              >
+                <img 
+                  src={minimap} 
+                  alt="kuch bhi"
+                  style={{
+                    borderRadius: "15px"
+                  }}
+                  // className={styles.minimap}
+                  >
+                </img>
+              </div>
               <button
                   style={{
                       display: "flex",
@@ -403,13 +443,13 @@ function App() {
         <Modal 
           color={getRandomColor()} 
           title="TECHNICAL EVENT" 
-          vertical 
+          vertical={true}
         />
         <Modal 
           color={getRandomColor()} 
           title="TECHNICAL EVENT" 
           style={{ height: 385, marginTop: "5px" }}
-          vertical
+          vertical={true}
         />
         <Quote 
           className={`${styles.modal} ${styles.reg_card}`}
@@ -425,13 +465,13 @@ function App() {
           color={getRandomColor()} 
           title="TECHNICAL EVENT" 
           style={{ height: 385, marginTop: "12px" }}
-          vertical
+          vertical={true}
         />
         <Modal 
           color={getRandomColor()} 
           title="TECHNICAL EVENT" 
           style={{ height: 385 }}
-          vertical
+          vertical={true}
         />
       </div>
       <div className={styles.gridCenterMain}>
