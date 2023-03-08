@@ -28,8 +28,7 @@ export const events = [
                     end: "March 22nd, 6:00PM"
                 }
                 
-            }
-            ,
+            },
             {
                 roundNumber: 1,
                 type: "ONLINE",
@@ -122,7 +121,7 @@ export const events = [
                     " A maximum of 10 groups per college is allowed.",
                     "The top 5-10 entries will be screened offline for the audience.",
                     "A google form will be circulated in which you have to submit your short film.",
-                    "Upload your short film in YouTube so that would be easy to access ."
+                    "Upload your short film in YouTube so that would be easy to access."
                 ],		
                 roundRules: [
                     "Short film should be with a length between 5 to 10 minutes.",
@@ -289,8 +288,7 @@ export const events = [
                     end: "March 23, 11:59 PM"
                 }
 
-            }
-            ,
+            },
             {
                 roundNumber: 1,
                 type: "ONLINE",
@@ -534,6 +532,54 @@ export const events = [
             "The judging criteria will be the total score, with ties broken by penalty time.",
             "Do not share your codes during the contest.",
             "In case of any conflicts, the decision of the organizers will be final.",
-        ]
-    }
+        ],
+        type: "TECHNICAL"
+    },
+    {
+        name: "TECHNICAL EVENT TEST",
+        type: "TECHNICAL"
+    },
+    {
+        name: "TECHNICAL EVENT TEST",
+        type: "TECHNICAL"
+    },
+    {
+        name: "TECHNICAL EVENT TEST",
+        type: "TECHNICAL"
+    },
+    {
+        name: "CULTURAL EVENT TEST",
+        type: "CULTURAL"
+    },
+    {
+        name: "CULTURAL EVENT TEST",
+        type: "CULTURAL"
+    },
 ]
+
+export const technicalEvents = events.filter(e => e.type==="TECHNICAL")
+export const culturalEvents = events.filter(e => e.type==="CULTURAL")
+export const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
+
+export interface Timings {
+    start: string
+    end: string
+}
+
+export interface Round {
+    roundNumber?: number
+    type: "ONLINE" | "OFFLINE"
+    roundDesc?: string | string[]
+    registration: Timings
+    event: Timings
+    roundRules?: string | string[]
+}
+
+export interface Event {
+    name?: string
+    club?: string
+    description?: string
+    rounds?: Round[]
+    type?: "TECHNICAL" | "CULTURAL"
+    rules?: string[]
+}

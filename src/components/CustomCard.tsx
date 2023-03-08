@@ -23,6 +23,7 @@ import SouthWestIcon from '@mui/icons-material/SouthWest';
 import CodeIcon from '@mui/icons-material/Code';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { Event } from "../helper";
 
 const StyledBox = styled(Box)({
     position: 'absolute' as 'absolute',
@@ -49,11 +50,12 @@ interface Props {
     style?: SxProps
     image?: string
     color: string
-    title: string
+    event: Event
     vertical?: boolean
 }
 
-export default function CustomCard({ style, image, color, title, vertical }: Props) {
+export default function CustomCard({ style, image, color, event, vertical }: Props) {
+    console.log(event)
     const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
@@ -63,7 +65,10 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
         setOpen(false)
     }
 
-    const icons = [NorthEastIcon, NorthIcon, NorthWestIcon, SouthEastIcon, SouthIcon, SouthWestIcon]
+    const icons = [
+        NorthEastIcon, NorthIcon, NorthWestIcon, 
+        SouthEastIcon, SouthIcon, SouthWestIcon
+    ]
     const RandomIcon = icons[Math.floor(Math.random()*6)]
     return (
         <>
@@ -144,7 +149,7 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                     }}
                 >
                     <RandomIcon sx={{color: "white"}}  fontSize={"large"}/>
-                    <Typography variant="h5" fontFamily="Dosis" color="white">{title}</Typography>
+                    <Typography variant="h5" fontFamily="Dosis" color="white">{event.name || ""}</Typography>
                 </CardContent>
             </Card>
             <Modal

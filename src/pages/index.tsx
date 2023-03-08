@@ -1,46 +1,76 @@
-import { useEffect, useState, MouseEvent } from 'react'
-import backgroundImage from "../assets/background.png";
-import Logo from '../components/Logo';
-import Modal from "../components/CustomCard"
-import Prizes from '../components/Prizes';
-import RegistrationCard from '../components/RegistrationCard';
-import styles from "../styles/app.module.css";
-import SmallCircle from '../components/SmallCircle';
-import SmallBox from '../components/SmallBox';
-import StarIcon from '@mui/icons-material/Star';
-import AboutUs from '../components/AboutUs';
-import Socials from '../components/Socials';
-import gradient from '../assets/mesh-715.png';
-import abhisargaGrad from '../assets/abhisargaGrad.png';
-import landingPage from '../assets/Landing Page.png'
-import Quote from '../components/Quote';
-import LogoutIcon from '@mui/icons-material/Logout';
-import sand from "../assets/sand.png"
-import as from  '../assets/abhisarga_small.png'
-import Members from '../components/Members';
-import AuthCard from '../components/AuthCard';
-import Queries from '../components/Queries';
-import Sponsors from '../components/Sponsors';
-import ComputerIcon from '@mui/icons-material/Computer'
-import Fun from '../components/Fun'
-import IconButton from '@mui/material/IconButton'
-import bgImg from "../assets/title-background.svg"
+import ComputerIcon from '@mui/icons-material/Computer';
 import GroupsIcon from '@mui/icons-material/Groups';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
-import titleImage from "../assets/Final Iteration.png"
-// import Navigation from '../components/Navigation';
-import EastIcon from '@mui/icons-material/East';
+import StarIcon from '@mui/icons-material/Star';
+import { useEffect, useState } from 'react';
+import as from '../assets/abhisarga_small.png';
+import backgroundImage from "../assets/background.png";
+import titleImage from "../assets/Final Iteration.png";
+import gradient from '../assets/mesh-715.png';
+import AboutUs from '../components/AboutUs';
+import AuthCard from '../components/AuthCard';
+import Modal from "../components/CustomCard";
+import Fun from '../components/Fun';
+import Logo from '../components/Logo';
+import Members from '../components/Members';
+import Prizes from '../components/Prizes';
+import Queries from '../components/Queries';
+import Quote from '../components/Quote';
+import RegistrationCard from '../components/RegistrationCard';
+import SmallBox from '../components/SmallBox';
+import SmallCircle from '../components/SmallCircle';
+import Socials from '../components/Socials';
+import Sponsors from '../components/Sponsors';
+import styles from "../styles/app.module.css";
 import CloseIcon from '@mui/icons-material/Close';
+import EastIcon from '@mui/icons-material/East';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import minimap from '../assets/mini-map.png';
 import waterImage from '../assets/water.png';
+import { 
+  technicalEvents as tEvents, 
+  culturalEvents as cEvents, 
+  colors as defaultColors, 
+  shuffle, Event
+} from '../helper';
 
-const getRandomColor = () => {
-  const colors = ["#FF68A8", "#64CFF7", "#01a863", "#CA7CD8", "#3968CB"];
-  return colors[Math.floor(Math.random()*colors.length)]
+
+const accommodationEvent: Event = {
+  name: "ACCOMMODATION",
+  rules: [
+    "The user must treat the property with care and respect and ensure that they do not cause any damage to the property during their stay",
+    "Tny damage caused to the property by the user must be reported immediately to the owner or property manager",
+    "The user must not engage in any illegal activity on the property",
+    "The user must not bring any pets onto the property without the express permission of the owner or property manager",
+    "The user must keep the property clean and tidy during their stay",
+    "The user must not smoke inside the property",
+    "The user must not tamper with any appliances or equipment on the property",
+    "The user must not remove any items from the property without the express permission of the owner or property manager",
+    "The user must take responsibility for their own personal belongings and ensure that they are securely stored during their stay",
+    "The user must comply with any additional rules or regulations set out by the owner or property manager for the duration of their stay"
+  ],
+  description: "The first 200 people to register for the accommodations are gonna get a 100% discount. The other have to pay ₹100/-"
+}
+
+const workshopEvent: Event = {
+  name: "WORKSHOPS"
+}
+
+const culturalEvent: Event = {
+  name: "CULTURAL EVENTS INFO"
+}
+
+const technicalEvent: Event = {
+  name: "TECHNICAL EVENTS INFO"
 }
 
 function App() {
+  const colors = shuffle(defaultColors)
+  const technicalEvents = shuffle(tEvents)
+  var technicalCounter = 0
+  const culturalEvents = shuffle(cEvents)
+  var culturalCounter = 0
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [nav, setNav] = useState<string>("0px")
   setTimeout(() => setIsLoading(false), 10000)
@@ -473,13 +503,13 @@ function App() {
         }}
       >
         <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
+          color={colors[0]} 
+          event={culturalEvents[culturalCounter++]} 
           vertical={true}
         />
         <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
+          color={colors[0]} 
+          event={culturalEvents[culturalCounter++]} 
           style={{ height: 385, marginTop: "5px" }}
           vertical={true}
         />
@@ -494,14 +524,14 @@ function App() {
           }}
         />
         <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
+          color={colors[0]}
+          event={culturalEvents[culturalCounter++]}  
           style={{ height: 385, marginTop: "12px" }}
           vertical={true}
         />
         <Modal 
-          color={getRandomColor()} 
-          title="TECHNICAL EVENT" 
+          color={colors[0]} 
+          event={culturalEvents[culturalCounter++]}  
           style={{ height: 385 }}
           vertical={true}
         />
@@ -521,8 +551,8 @@ function App() {
               <div className={styles.top1leftbottom}>
                 <div></div>
                 <div className={styles.tempflex}>
-                  <Modal color={getRandomColor()} title="ACCOMODATION" style={{ height: 385, width: 600}} />
-                  <Modal color={getRandomColor()} title="CULTURAL EVENTS" style={{ height: 385, width: 600}} />
+                  <Modal color={colors[2]} event={accommodationEvent} style={{ height: 385, width: 600}} />
+                  <Modal color={colors[3]} event={technicalEvent} style={{ height: 385, width: 600}} />
                 </div>
               </div>
             </div>
@@ -531,12 +561,12 @@ function App() {
                 
               </div>
               <div>
-                <RegistrationCard />
+                <RegistrationCard color={colors[4]}/>
               </div>
             </div>
           </div>
           <div className={styles.top2}>
-            <Prizes />
+            <Prizes color={colors[4]}/>
             <div className={styles.logo}>
               <Logo />
             </div>
@@ -544,20 +574,20 @@ function App() {
         </div>
         <div className={styles.gridCenterBottom}>
           <div className={styles.gridBottomLeft}>
-            <Modal color={getRandomColor()} title="TECHNICAL EVENTS" style={{ height: 385 }}/>
+            <Modal color={colors[0]} event={culturalEvents[culturalCounter++]} style={{ height: 385 }}/>
             <div className={styles.nav}>
               <div className={styles.navtop}>
-                <SmallBox  title='CULTURAL EVENTS' color={getRandomColor()} />
-                <SmallCircle title='TEAM' color={getRandomColor()} />
+                <SmallBox  title='CULTURAL EVENTS' color={colors[0]} />
+                <SmallCircle title='TEAM' color={colors[2]} />
               </div>
               <div className={styles.navbot}>
-                <SmallCircle title='SPONSORS' color={getRandomColor()} />
-                <SmallBox title='TECHNICAL EVENTS' color={getRandomColor()} />/
+                <SmallCircle title='SPONSORS' color={colors[3]} />
+                <SmallBox title='TECHNICAL EVENTS' color={colors[1]} />/
               </div>
             </div>
             <Modal 
-              color={getRandomColor()} 
-              title="TECHNICAL EVENT #1" 
+              color={colors[0]} 
+              event={culturalEvents[culturalCounter++]} 
               style={{ 
                 height: 385, 
                 width: 430, 
@@ -584,30 +614,30 @@ function App() {
             </div>
           </div>
           <div className={styles.gridBottomRight}>
-            <AboutUs />
+            <AboutUs color={colors[2]} />
           </div>
         </div>
       </div>
       <div className={styles.rightGridMain}>
         <div className={styles.rightGridTop}>
           <div className={styles.topLeft}>
-            <Modal color={getRandomColor()} title="CULTURAL EVENT #2" style={{ height: 385 }} />
-            <Modal color={getRandomColor()} title="CULTURAL EVENT #1" style={{ height: 385, marginTop: "-3rem" }} />
+            <Modal color={colors[1]} event={technicalEvents[technicalCounter++]} style={{ height: 385 }} />
+            <Modal color={colors[1]} event={technicalEvents[technicalCounter++]} style={{ height: 385, marginTop: "-3rem" }} />
           </div>
           <div className={styles.topRight}>
               <div></div>
               <div className={styles.topRightMid}>
                 <Modal 
-                  color={getRandomColor()} 
-                  title="CULTURAL EVENT #3" 
+                  color={colors[1]} 
+                  event={technicalEvents[technicalCounter++]}
                   style={{ 
                     height: 400, 
                     marginLeft: "-.5rem" 
                   }} 
                 />
                 <Modal 
-                  color={getRandomColor()} 
-                  title="CULTURAL EVENT #4" 
+                  color={colors[1]} 
+                  event={technicalEvents[technicalCounter++]} 
                   style={{ 
                     height: 400, 
                     marginLeft: ".5rem" 
@@ -616,7 +646,6 @@ function App() {
               </div>
               <Fun 
                 sx={{
-                  backgroundColor: "#01a863",
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
@@ -625,8 +654,9 @@ function App() {
                   width: "23rem",
                   height: "10.5rem",
                   marginLeft: "22.5rem",
-                  marginTop: "-1.5rem"
+                  marginTop: "-1rem"
                 }}
+                color={colors[4]}
               />
           </div>
         </div>
@@ -648,8 +678,8 @@ function App() {
           </div>
           <div className={styles.bottomRight}>
             <div className={styles.bottomRightTop}>
-              <Modal color={getRandomColor()} title='WORKSHOPS' style={{ height: 385, marginLeft: "-.5rem" }} />
-              <Modal color={getRandomColor()} title='CULTURAL EVENT #5' style={{ height: 385, marginLeft: "-2rem" }} />
+              <Modal color={colors[2]} event={workshopEvent} style={{ height: 385, marginLeft: "-.5rem" }} />
+              <Modal color={colors[1]} event={technicalEvents[technicalCounter++]} style={{ height: 385, marginLeft: "-2rem" }} />
             </div>
             <div className={styles.bottomRightBottom}>
                 <Sponsors 
@@ -660,9 +690,10 @@ function App() {
                     width: "29rem",
                     borderWidth: "15px",
                     borderRadius: "10px"
-                  }} 
+                  }}
+                  color={colors[3]}
                 />
-                <Modal color={getRandomColor()} title='CULTURAL EVENT #6' style={{ height: 385, width: 420, marginLeft: "-19px" }} />
+                <Modal color={colors[3]} event={culturalEvent} style={{ height: 385, width: 420, marginLeft: "-19px" }} />
             </div>
           </div>
         </div>

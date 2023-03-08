@@ -5,17 +5,18 @@ import AddIcon from '@mui/icons-material/Add';
 
 interface Props {
   className?: string
+  color: string
 }
 
-const RegistrationCard = ({ className }: Props) => {
+const RegistrationCard = ({ className, color }: Props) => {
   return (
     <div 
       className={`${styles.main} ${className}`}
-      style={{ color: "#3968CB" }}
+      style={{ color }}
     >
       <div className={styles.nav}>
-        <AppRegistrationIcon className={styles.reg} />
-        <AddIcon className={styles.add} />
+        <AppRegistrationIcon className={styles.reg} sx={{borderColor: color}} />
+        <AddIcon className={styles.add} sx={{borderColor: color}} />
       </div>
       <div className={styles.text}>
         <p>
