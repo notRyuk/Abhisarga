@@ -3,7 +3,7 @@ import styles from '../styles/logo.module.css'
 import { Box } from '@mui/material'
 import { CSSProperties } from "react"
 import backgroundImage from "../assets/title-background.svg"
-import titleImage from "../assets/title.png"
+import titleImage from "../assets/Final Iteration.png"
 
 interface Props {
   sx?: CSSProperties

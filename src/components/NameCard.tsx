@@ -7,7 +7,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from '../styles/eventCard.module.css'
-import Marquee from 'react-fast-marquee'
 
 const NameCard = () => {
   return (

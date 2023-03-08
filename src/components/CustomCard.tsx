@@ -23,6 +23,7 @@ import SouthWestIcon from '@mui/icons-material/SouthWest';
 import CodeIcon from '@mui/icons-material/Code';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { Event } from "../helper";
 
 const StyledBox = styled(Box)({
     position: 'absolute' as 'absolute',
@@ -49,12 +50,13 @@ interface Props {
     style?: SxProps
     image?: string
     color: string
-    title: string
+    event: Event
     vertical?: boolean
 }
 
-export default function CustomCard({ style, image, color, title, vertical }: Props) {
-    const reverse = !vertical || Math.random()>.5
+export default function CustomCard({ style, image, color, event, vertical }: Props) {
+    console.log(event)
+    const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (_: any, reason?: string) => {
@@ -63,7 +65,10 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
         setOpen(false)
     }
 
-    const icons = [NorthEastIcon, NorthIcon, NorthWestIcon, SouthEastIcon, SouthIcon, SouthWestIcon]
+    const icons = [
+        NorthEastIcon, NorthIcon, NorthWestIcon, 
+        SouthEastIcon, SouthIcon, SouthWestIcon
+    ]
     const RandomIcon = icons[Math.floor(Math.random()*6)]
     return (
         <>
@@ -87,7 +92,7 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                 onClick={handleOpen}
             >
                 <img
-                    src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"
+                    src={event.banner || "https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
                     alt="SOM"
                     style={{
                         marginTop: "1rem",
@@ -144,7 +149,7 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                     }}
                 >
                     <RandomIcon sx={{color: "white"}}  fontSize={"large"}/>
-                    <Typography variant="h5" fontFamily="Dosis" color="white">{title}</Typography>
+                    <Typography variant="h5" fontFamily="Dosis" color="white">{event.name || ""}</Typography>
                 </CardContent>
             </Card>
             <Modal
@@ -202,7 +207,7 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                                     fontWeight: 500
                                 }}
                             >
-                                IIITS HACKATHON
+                                {event.name?event.name:"IIITS HACKATHON"} 
                             </p>
                         </div>
                         <div  
@@ -244,7 +249,7 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                                     fontSize: 16
                                 }}
                             >
-                                Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
+                                {event.description || ""}
                             </p>
                         </div>
                         <hr
@@ -270,11 +275,10 @@ export default function CustomCard({ style, image, color, title, vertical }: Pro
                                     color: color,
                                     marginTop: "-1%",
                                     fontSize: 20,
-                                    fontStyle: "italic",
-                                    fontWeight: 500
+                                    fontWeight: "bold"
                                 }}
                             >
-                                "It's harder to read code than to write it."
+                                {`" Organized by ${event.club}"` || ""}
                             </p>
                         </div>
                         <Button 
