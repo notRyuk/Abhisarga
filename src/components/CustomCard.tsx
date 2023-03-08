@@ -92,7 +92,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                 onClick={handleOpen}
             >
                 <img
-                    src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"
+                    src={event.banner || "https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
                     alt="SOM"
                     style={{
                         marginTop: "1rem",
@@ -207,7 +207,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                     fontWeight: 500
                                 }}
                             >
-                                IIITS HACKATHON
+                                {event.name?event.name:"IIITS HACKATHON"} 
                             </p>
                         </div>
                         <div  
@@ -249,7 +249,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                     fontSize: 16
                                 }}
                             >
-                                Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
+                                {event.description || ""}
                             </p>
                         </div>
                         <hr
@@ -275,11 +275,10 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                     color: color,
                                     marginTop: "-1%",
                                     fontSize: 20,
-                                    fontStyle: "italic",
-                                    fontWeight: 500
+                                    fontWeight: "bold"
                                 }}
                             >
-                                "It's harder to read code than to write it."
+                                {`" Organized by ${event.club}"` || ""}
                             </p>
                         </div>
                         <Button 

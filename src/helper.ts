@@ -47,7 +47,7 @@ export const events = [
         type: "CULTURAL"
     },
     {
-        name: "MatrixModelMania",
+        name: "Analytics Arena",
         club: "Matrix",
         description: `Welcome to Analytics Arena, Matrix's Data analytics cum Machine learning hackathon is finally here!
 
@@ -61,11 +61,11 @@ export const events = [
                 roundNumber: 1,
                 type: "ONLINE",
                 registration: {
-                    start: "March 10, 9:00 AM	",
+                    start: "March 10, 9:00 AM",
                     end: "March 20, 6:00 PM	",
                 },
                 event: {
-                    start : "March 21, 6:00 AM	",
+                    start : "March 21, 6:00 AM",
                     end: "March 22, 9:30 PM	"
                 },
                 roundDesc: "It is an online quiz based on Analytics, Machine learning and Deep learning conducted on Unstop platform which acts as a first level qualifier for the Hackathon Participation.Top 50 teams will be qualified to the next round. If the number of registrations are less than 50 in this round then the teams which have participated in the quiz will be directly selected for the next round."													
@@ -82,7 +82,6 @@ export const events = [
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
                 }
-                
             }
         ],
         rules: [
@@ -322,9 +321,7 @@ export const events = [
     {
         name: "Drive to Drama",
         club: "Mise-En-Scene ",
-        description: `A Theatre competition (skit) where participants compete with other teams on basis of 
-        essence of their act. participants are allowed to do any kind of drama or act on stage 
-        (suggested to bring their own props).`,
+        description: `A Theatre competition (skit) where participants compete with other teams on basis of  essence of their act. participants are allowed to do any kind of drama or act on stage (suggested to bring their own props).`,
         rounds: [
             {
                 roundNumber: 1,
@@ -388,7 +385,7 @@ export const events = [
                     "The committee will have a maximum participation of 47 delegates. The Delegates will be selected in the ascending order of the ranked list provided by each institute. (1st rank -> 4th rank).",
                     "Note: not all the 4 registered participants may be selected",
                     "Dress Code: All participants must dress in formal business attire during the event."
-                    ]									
+                ]									
                 
             }
             
@@ -536,20 +533,28 @@ export const events = [
         type: "TECHNICAL"
     },
     {
-        name: "TECHNICAL EVENT TEST",
-        type: "TECHNICAL"
-    },
-    {
-        name: "TECHNICAL EVENT TEST",
-        type: "TECHNICAL"
-    },
-    {
-        name: "TECHNICAL EVENT TEST",
-        type: "TECHNICAL"
-    },
-    {
-        name: "CULTURAL EVENT TEST",
-        type: "CULTURAL"
+        name: "ML Battles",
+        descriptionL: `Welcome to our exciting hackathon event!
+
+        Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
+        
+        Over the course of 48 hrs, you will work on developing and presenting your ideas to a panel of expert judges. 
+        
+        This hackathon is open to all skill levels and backgrounds, so whether you are a seasoned programmer or a newcomer to the tech world, there is a place for you on our teams. Come with an open mind, a willingness to learn, and a passion for creating positive change.
+        
+        So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!`,
+        rounds: [
+            {
+                
+            }
+        ],
+        rules: [
+            "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.",
+            "Each question carriers 1 mark.",
+            "For each question, there will be a penalty of 0.25 for incorrect answers.",
+            "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
+        ],
+        type: "TECHNICAL",
     },
     {
         name: "CULTURAL EVENT TEST",
@@ -582,4 +587,5 @@ export interface Event {
     rounds?: Round[]
     type?: "TECHNICAL" | "CULTURAL"
     rules?: string[]
+    banner?: string
 }

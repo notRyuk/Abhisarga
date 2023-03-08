@@ -23,8 +23,8 @@ const index = () => {
   const [nav, setNav] = useState<string>("0px")
   const [width, setWidth] = useState<number>(window.innerWidth)
     useEffect(() => {
-        setWidth(window.innerWidth)
-    }, [window.innerWidth])
+      setWidth(window.innerWidth)
+    }, [window.innerWidth])          
 
     const navigate = useNavigate()
 
