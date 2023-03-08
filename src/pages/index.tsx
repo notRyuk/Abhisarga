@@ -37,7 +37,7 @@ const getRandomColor = () => {
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [nav, setNav] = useState<string>("0px")
-  setTimeout(() => setIsLoading(false), 3000)
+  setTimeout(() => setIsLoading(false), 10000)
   useEffect(() => {
     const element = document.getElementsByClassName(styles.main)[0]
     const view = document.defaultView
@@ -83,7 +83,7 @@ function App() {
     }
 
     function OnMouseUp() {
-        document.onmousemove = null;
+      document.onmousemove = null;
     }
   }, [])
 
