@@ -2,3 +2,14 @@ body {
     margin: 0;
     padding: 0;
 }
+
+
+.eventMainDiv {
+    margin-top: 10rem;
+}
+
+@media screen and (max-width: 450px) {
+    .eventMainDiv {
+        margin-top: 2rem;
+    }
+}

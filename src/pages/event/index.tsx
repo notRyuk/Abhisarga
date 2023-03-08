@@ -392,8 +392,8 @@ const index = () => {
           margin: 0,
           boxSizing: "border-box",
           minHeight: "100vh",
-          marginTop: "1rem"
         }}
+        className={styles.eventMainDiv}
       >
         <NameCard />
       </div>

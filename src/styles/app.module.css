@@ -328,6 +328,7 @@
 }
 
 @media screen and (max-width: 500px) {
+
     .navMainDiv {
         display: flex;
         flex-direction: column;
