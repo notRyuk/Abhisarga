@@ -37,6 +37,6 @@
     z-index: 1000;
     position: absolute;
     height: auto;
-    /* width: 60%; */
+    width: 60%;
     max-width: 35rem;
 }
