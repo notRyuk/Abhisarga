@@ -29,8 +29,8 @@ const ssrManifest = isProduction
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use("/user", userRouter)
-app.use('/query', queryRouter)
+app.use("/api/user", userRouter)
+app.use('/api/query', queryRouter)
 
 
 // Add Vite or respective production middlewares
