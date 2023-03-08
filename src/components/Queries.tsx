@@ -29,29 +29,7 @@ const Queries = ({ sx }: Props) => {
                     backgroundColor: "#EDEDED"
                 }
             }}>
-                FAQs
-        </Button>
-        <Button 
-            variant="outlined"
-            className={styles.signup}
-            sx={{
-                "&:hover": {
-                    backgroundColor: "#EDEDED"
-                },
-                marginTop: "10px",
-                color: "#CA7CD8",
-                borderTop: "3px solid #CA7CD8",
-                borderLeft: "3px solid #CA7CD8",
-                borderRight: "6px solid #CA7CD8",
-                borderBottom: "6px solid #CA7CD8",
-                borderRadius: "10px",
-                width: "70%",
-                marginBottom: "15px",
-                fontWeight: "500",
-                letterSpacing: 0.1
-            }}
-        >
-            Write  to  Us
+                WRITE TO US
         </Button>
     </div>
   )
