@@ -610,6 +610,7 @@ function App() {
                   padding: 0,
                   borderColor: "orange"
                 }}
+                color={colors[4]}
               />
             </div>
           </div>
