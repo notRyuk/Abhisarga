@@ -23,6 +23,11 @@ export default model("User", new Schema({
         type: String,
         required: [true, "The college name of the participant is required"]
     },
+    year: {
+        type: String,
+        enum: ["UG1", "UG2", "UG3", "UG4"],
+        default: "UG1"
+    },
     address: {
         type: String,
         required: false

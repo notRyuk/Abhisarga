@@ -9,6 +9,16 @@ export const shuffle = (array: Array<any>) => {
     return array
 }
 
+export function encrypt(text: string) {
+    var year: any = new Date().getFullYear()
+    var key = Math.floor((text.charCodeAt(0)*text.charCodeAt(1)+16)/year)
+    var text = shuffle(text.split("").map((e: any, i: any) => (e.charCodeAt(0)+key).toString().padStart(3, "0")+(i+key).toString().padStart(2, "0"))).join("")
+    year = year.toString().split("").map((e:any, i:any) => (i===0)?e.charCodeAt(0)-key:e.charCodeAt(0)+key).join("")
+    text += ":"+year+key.toString()+"-"+key.toString().length
+    return text
+}
+
+export const base = "http://localhost:5173/api/"
 
 export const events = [
     {

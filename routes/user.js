@@ -7,7 +7,6 @@ import { validateEmail, validatePhone } from '../helper.js';
 import Session from "../models/session.js";
 import User from '../models/user.js';
 
-
 const app = Router()
 
 app.post("/register", async (req, res) => {
@@ -38,14 +37,16 @@ app.post("/register", async (req, res) => {
         })
         return
     }
-    if(await User.findById(req.body.email.trim())) {
+    if (await User.findOne({ email: email })) {
         res.status(400).send({
             status: 400,
             message: "The registered email already exists!"
         })
         return
     }
+
     req.body._id = req.body.email.trim()
+    
     const user = await new User(req.body).save()
     if(!user) {
         res.status(404).send({
@@ -64,11 +65,11 @@ app.post("/register", async (req, res) => {
 })
 
 app.post("/login", async (req, res) => {
-    const { username, password } = req.body
-    if(!username) {
+    const { email, password } = req.body
+    if(!email) {
         res.status(403).send({
             status: 403,
-            message: "Unauthorized! The username field is empty"
+            message: "Unauthorized! The email field is empty"
         })
         return
     }
@@ -79,7 +80,16 @@ app.post("/login", async (req, res) => {
         })
         return
     }
-    const userSession = await Session.findOne({ username: username })
+    const existingUser = await User.findOne({ email: email }).exec()
+    if (!existingUser) {
+        res.status(404).send({
+            status: 404,
+            message: "No account exists with these credentials!"
+        })
+        return
+    }
+
+    const userSession = await Session.findOne({ username: email })
     if (userSession) {
         if (new Date(Date.now()) - new Date(userSession.timestamp)/86400000 <= 1) {
             res.status(200).send({
@@ -93,9 +103,9 @@ app.post("/login", async (req, res) => {
             await userSession.delete()
         }
     }
-    const hashDigest = sha256(username+password)
+    const hashDigest = sha256(email+password)
     const hmacDigest = Base64.stringify(hmacSHA512(new Date(Date.now()).toUTCString()+hashDigest, PRIVATE_KEY))
-    const session = await new Session({username, token: hmacDigest}).save()
+    const session = await new Session({username: email, token: hmacDigest}).save()
     if(!session) {
         res.status(404).send({
             status: 404,
