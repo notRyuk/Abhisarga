@@ -2,16 +2,41 @@ import { Button } from '@mui/material'
 import React from 'react'
 import styles from '../styles/aboutus.module.css'
 
-const AboutUs = () => {
+interface Props {
+  color: string
+}
+
+const AboutUs = ({ color }: Props) => {
   return (
-    <div className={styles.main}>
-      <p className={styles.heading}>
+    <div 
+      className={styles.main}
+      style={{
+        color,
+        borderColor: color
+      }}
+    >
+      <p 
+        className={styles.heading}
+        style={{
+          color,
+          borderColor: color
+        }}
+      >
         ABOUT US
       </p>
-      <div className={styles.miniCard}>
-        <p className={styles.p}>
-            IIIT Sri City is a University.
-        </p>
+      <div 
+        className={styles.miniCard}
+        style={{
+          color,
+          borderColor: color,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start"
+        }}
+      >
+        {/* <p className={styles.p}> */}
+          Abhisarga is the annual techno-cultural fest of the Indian Institute of Information Technology Sri City, which is a premier engineering institute located in Andhra Pradesh, India. This three-day carnival consists of Technical and Non-technical events organized by the clubs of our institute, and the expected participants are from institutes like IITs, NITs, IIITs and other well-known institutions.
+        {/* </p> */}
       </div>
       <Button 
         variant='contained' 
@@ -19,9 +44,9 @@ const AboutUs = () => {
           width: "90%", 
           fontFamily: "ArcadeClassic", 
           fontSize: "28px", 
-          backgroundColor: "#FF68A8", 
+          backgroundColor: color, 
           "&:hover": { 
-            backgroundColor: "#FF68A8",
+            backgroundColor: color,
             transform: "scale(1.01)",
           } 
         }}>

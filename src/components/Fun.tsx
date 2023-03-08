@@ -1,13 +1,13 @@
-import React, { CSSProperties } from 'react'
-import styles from '../styles/prizes.module.css'
-import { East } from '@mui/icons-material';
+import React, { CSSProperties } from 'react';
+import styles from '../styles/prizes.module.css';
 import arrowImage from "../assets/arrow.svg";
 
 interface Props {
-    sx?: CSSProperties
+  sx?: CSSProperties
+  color: string
 }
 
-const Prizes = ({ sx }: Props) => {
+const Prizes = ({ sx, color }: Props) => {
   return (
     <div 
       style={{
@@ -15,10 +15,11 @@ const Prizes = ({ sx }: Props) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        border: "8px solid #01a863",
+        border: `8px solid ${color}`,
         padding: 10,
         borderRadius: 15,
-        animation: "transform 0.2s"
+        animation: "transform 0.2s",
+        backgroundColor: color
       }}
       className={styles.main}
     >
