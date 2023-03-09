@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState, CSSProperties, ChangeEvent } from "react";
 import styles from "../styles/query.module.css";
 import {
   Card,
@@ -15,6 +15,8 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { base } from "../helper";
+import axios from "axios";
 
 interface Props {
   sx?: CSSProperties;
@@ -46,6 +48,12 @@ const StyledBox = styled(Box)({
   },
 });
 
+interface Query {
+  email: string
+  title: string
+  description: string
+}
+
 const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
@@ -53,9 +61,29 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
     if (reason && reason == "backdropClick") return;
     setOpen(false);
   };
+  const [buttonText, setButtonText] = useState<string>("SEND QUERY")
 
-  const handleSubmit = () => {
-    // send query post req
+  const [formData, setFormData] = useState<Query>({
+    email: "",
+    title: "",
+    description: ""
+  })
+
+  const handleChangeFormData = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({...prev, [event.target.name]: event.target.value}));
+  };
+
+  const handleSubmit = async () => {
+    const res = await axios.post(`${base}query/create`, formData)
+    console.log(res)
+    if(res.status === 200) {
+      setButtonText("QUERY SENT!")
+      setTimeout(() => setOpen(false), 2000)
+    }
+    else {
+      setButtonText("ERROR SENDING QUERY!")
+
+    }
   };
 
   return (
@@ -166,7 +194,9 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                       borderWidth: "3px 6px 6px 3px",
                       borderRadius: "2px",
                     }}
-                    type={"email"}
+                    type="email"
+                    name="email"
+                    onChange={handleChangeFormData}
                     id="outlined-basic"
                   />
                   <p style={{ marginBottom: "5px" }}>QUERY TITLE</p>
@@ -180,7 +210,9 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                       borderWidth: "3px 6px 6px 3px",
                       borderRadius: "2px",
                     }}
-                    type={"text"}
+                    type="text"
+                    name="title"
+                    onChange={handleChangeFormData}
                     id="outlined-basic"
                   />
                   <p style={{ marginBottom: "5px" }}>QUERY DESCRIPTION</p>
@@ -195,6 +227,8 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                       borderRadius: "2px",
                     }}
                     id="outlined-basic"
+                    name="description"
+                    onChange={handleChangeFormData}
                     rows={5}
                     maxLength={150}
                   />
@@ -214,7 +248,7 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                 marginTop: "2rem"
               }}
             >
-              SEND QUERY
+              {buttonText}
             </Button>
           </div>
         </StyledBox>

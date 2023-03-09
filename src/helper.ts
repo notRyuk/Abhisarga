@@ -54,7 +54,8 @@ export const events = [
             }
 
         ],
-        type: "CULTURAL"
+        type: "CULTURAL",
+        pool: 60000
     },
     {
         name: "Analytics Arena",
@@ -78,7 +79,7 @@ export const events = [
                     start : "March 21, 6:00 AM",
                     end: "March 22, 9:30 PM	"
                 },
-                roundDesc: "It is an online quiz based on Analytics, Machine learning and Deep learning conducted on Unstop platform which acts as a first level qualifier for the Hackathon Participation.Top 50 teams will be qualified to the next round. If the number of registrations are less than 50 in this round then the teams which have participated in the quiz will be directly selected for the next round."													
+                roundDesc: ["It is an online quiz based on Analytics, Machine learning and Deep learning conducted on Unstop platform which acts as a first level qualifier for the Hackathon Participation.Top 50 teams will be qualified to the next round. If the number of registrations are less than 50 in this round then the teams which have participated in the quiz will be directly selected for the next round."]													
                 
             },
             {
@@ -100,7 +101,8 @@ export const events = [
             "For each question, there will be a penalty of 0.25 for incorrect answers",
             "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
         ],
-        type: "TECHNICAL"
+        type: "TECHNICAL",
+        pool: 75000
     },
     {
         name: "Mini Masterpiece",
@@ -167,11 +169,10 @@ export const events = [
                     " There should be no damage done to props given to you.",
                     "Final winner will and decided by the judging committee."
                 ]
-                
             }
-
         ],
-        type: "CULTURAL"
+        type: "CULTURAL",
+        pool: 15000
     },
     {
         name: "GizmoCon",
@@ -269,7 +270,8 @@ export const events = [
             "If any team is found guilty of UFM, they would be ruled out of the contest.",
             "The UFM might be in any form including malpracticing, damaging other prototypes etc."
         ],
-        type: "TECHNICAL"
+        type: "TECHNICAL",
+        pool: 75000
     },
     {
         name: "HackFrenzy",
@@ -326,11 +328,12 @@ export const events = [
             }
 
         ],
-        type: "TECHNICAL" 
+        type: "TECHNICAL",
+        pool: 75000
     },
     {
         name: "Drive to Drama",
-        club: "Mise-En-Scene ",
+        club: "Mise-En-Scene",
         description: `A Theatre competition (skit) where participants compete with other teams on basis of  essence of their act. participants are allowed to do any kind of drama or act on stage (suggested to bring their own props).`,
         rounds: [
             {
@@ -361,7 +364,8 @@ export const events = [
             }
             
         ],
-        type: "CULTURAL"
+        type: "CULTURAL",
+        pool: 15000
     },
     {
         name: "ATMUN",
@@ -398,10 +402,9 @@ export const events = [
                 ]									
                 
             }
-            
-
         ],
-        type: "CULTURAL"	
+        type: "CULTURAL",
+        pool: 40000
     },
     {
         name: "The Ultimate Dance Battle",
@@ -498,7 +501,8 @@ export const events = [
                 
             }
         ],
-        type: "CULTURAL"
+        type: "CULTURAL",
+        pool: 60000
     },
     {
         name: "Elektra",
@@ -540,10 +544,12 @@ export const events = [
             "Do not share your codes during the contest.",
             "In case of any conflicts, the decision of the organizers will be final.",
         ],
-        type: "TECHNICAL"
+        type: "TECHNICAL",
+        pool: 60000
     },
     {
         name: "ML Battles",
+        club: "Epoch",
         descriptionL: `Welcome to our exciting hackathon event!
 
         Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
@@ -553,11 +559,11 @@ export const events = [
         This hackathon is open to all skill levels and backgrounds, so whether you are a seasoned programmer or a newcomer to the tech world, there is a place for you on our teams. Come with an open mind, a willingness to learn, and a passion for creating positive change.
         
         So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!`,
-        rounds: [
-            {
+        // rounds: [
+        //     {
                 
-            }
-        ],
+        //     }
+        // ],
         rules: [
             "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.",
             "Each question carriers 1 mark.",
@@ -565,12 +571,26 @@ export const events = [
             "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
         ],
         type: "TECHNICAL",
+        pool: 75000
     },
     {
-        name: "CULTURAL EVENT TEST",
-        type: "CULTURAL"
+        name: "Camera ON",
+        type: "CULTURAL",
+        pool: 40000,
+        description: `This contest is basically a mix-up of photography. There are different stages of photography competitions for the participants.`,
+        rounds: [
+            {
+                roundNumber: 1,
+                type: "OFFLINE",
+                roundDesc: [
+                    `Points will be awarded for getting the correct snaps of the photo. Also being a photography contest,
+                    capturing a visually appealing image, the one with 'WoW' factor will fetch the participants more points. We
+                    need an external judge for the judgement process.`
+                ]
+            }
+        ]
     },
-]
+] as Event[]
 
 export const technicalEvents = events.filter(e => e.type==="TECHNICAL")
 export const culturalEvents = events.filter(e => e.type==="CULTURAL")
@@ -584,10 +604,10 @@ export interface Timings {
 export interface Round {
     roundNumber?: number
     type: "ONLINE" | "OFFLINE"
-    roundDesc?: string | string[]
+    roundDesc?: string[]
     registration: Timings
     event: Timings
-    roundRules?: string | string[]
+    roundRules?: string[]
 }
 
 export interface Event {
@@ -598,4 +618,12 @@ export interface Event {
     type?: "TECHNICAL" | "CULTURAL"
     rules?: string[]
     banner?: string
+    pool?: number
+}
+
+export interface Session {
+    _id?: any
+    token: string
+    username: string
+    timestamp: string
 }

@@ -55,12 +55,11 @@ interface Props {
 }
 
 export default function CustomCard({ style, image, color, event, vertical }: Props) {
-    console.log(event)
     const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = (_: any, reason?: string) => {
-        if (reason && reason == "backdropClick")
+        if (reason && reason === "backdropClick")
             return
         setOpen(false)
     }
@@ -160,7 +159,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                 sx={{
                     border: "none",
                     outline: "none",
-                    background: "none"
+                    background: "none",
                 }}
             >
                 <StyledBox sx={{ border: '8px solid'+color }}>
@@ -285,7 +284,8 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                             variant="contained" 
                             sx={{ 
                                 "&:hover": { 
-                                    opacity: 0.9 
+                                    opacity: 0.9,
+                                    backgroundColor: color
                                 }, 
                                 textAlign: "center",
                                 backgroundColor: color, 

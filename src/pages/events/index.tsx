@@ -5,28 +5,51 @@ import MenuIcon from '@mui/icons-material/Menu';
 import styles from '../../styles/namecard.module.css'
 import styles2 from "../../styles/app.module.css";
 import as from  '../../assets/abhisarga_small.png'
-// import { shuffle } from '../helper';
 import StarIcon from '@mui/icons-material/Star';
 import gradient from '../../assets/mesh-715.png';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ComputerIcon from '@mui/icons-material/Computer'
 import GroupsIcon from '@mui/icons-material/Groups';
 import titleImage from "../../assets/Final Iteration.png"
-// import Navigation from '../components/Navigation';
 import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import minimap from '../../assets/mini-map.png'
 import { useNavigate } from 'react-router-dom';
+import { Session, events } from '../../helper';
 
 const index = () => {
+
+  const [currentUser, setCurrentUser] = useState<Session|null>()
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+
+  useEffect(() => {
+    setCurrentUser(JSON.parse(localStorage.getItem("session")))
+    if(currentUser && currentUser.timestamp) {
+      if((new Date(Date.now()).getTime() - new Date(currentUser.timestamp).getTime())>86400000) {
+        localStorage.removeItem("session")
+        setCurrentUser(null)
+      }
+      else {
+        setIsLoggedIn(true)
+      }
+    }
+  }, [])
+  
   const [nav, setNav] = useState<string>("0px")
   const [width, setWidth] = useState<number>(window.innerWidth)
-    useEffect(() => {
-      setWidth(window.innerWidth)
-    }, [window.innerWidth])          
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, [window.innerWidth])          
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.removeItem("session")
+    setCurrentUser(null)
+    setNav(nav==="0px"?"100vw":"0px")
+  }
+
 
   return (
     <div
@@ -142,14 +165,6 @@ const index = () => {
               }}
               className={styles2.navFlex}
             >
-              {/* <img
-                src={abhisargaGrad}
-                style={{
-                  position: "relative",
-                  minWidth: "150px",
-                  maxWidth:
-                }}>
-              </img> */}
               <img src={titleImage} alt="Kuch bhi" width={"85%"}
                 style={{
                   minWidth: "150px",
@@ -159,12 +174,7 @@ const index = () => {
                   backgroundColor: "#E6F5DA",
                 }}
                 className={styles2.abhisargaNav}
-              ></img>
-              {/* <Logo 
-                sx={{
-                  scale: "0.8"
-                }}
-              /> */}
+              />
               <div
                 style={{
                   marginLeft: "2rem",
@@ -196,7 +206,6 @@ const index = () => {
                   marginLeft: "2rem",
                   color: "white",
                   cursor: "pointer",
-                  // borderBottom: "5px solid white",
                   textAlign: "center",
                   fontFamily: "NimbusSansExtended",
                   fontWeight: "700"
@@ -222,7 +231,6 @@ const index = () => {
                   marginLeft: "2rem",
                   color: "white",
                   cursor: "pointer",
-                  // borderBottom: "5px solid white",
                   textAlign: "center",
                   paddingRight: "2rem",
                   fontFamily: "NimbusSansExtended",
@@ -300,7 +308,6 @@ const index = () => {
                     borderRadius: "15px",
                     maxWidth: "100%"
                   }}
-                  // className={styles.minimap}
                   >
                 </img>
               </div>
@@ -324,13 +331,16 @@ const index = () => {
                       border: "6px solid black"
                   }}
                   className={`${styles2.buttonScale} ${styles2.logoutButton}`}
+                  onClick={handleLogout}
                 >
                   <LogoutIcon
-                      sx={ width > 600 ? {
-                          marginRight: ".5rem"
-                      } : {
+                    sx={ 
+                      (width > 600)?{
+                        marginRight: ".5rem"
+                      }:{
                         fontSize: "40px"
-                      }}
+                      }
+                    }
                   />
                   <span style={{ marginRight: ".5rem" }}>
                     LOGOUT
@@ -367,10 +377,10 @@ const index = () => {
             }}
         >
             <MenuIcon
-                sx={ width > 600 && {
-                    marginRight: ".5rem",
-                    fontSize: "40px"
-                }}
+              sx={ width > 600 && {
+                  marginRight: ".5rem",
+                  fontSize: "40px"
+              }}
             />
             {window.innerWidth > 600 &&
               <span style={{ marginRight: "1.5rem" }}>
@@ -395,7 +405,7 @@ const index = () => {
         }}
         className={styles.eventMainDiv}
       >
-        <NameCard />
+        <NameCard event={events[1]}/>
       </div>
     </div>
   )

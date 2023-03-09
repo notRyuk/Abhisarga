@@ -34,6 +34,7 @@ import {
   colors as defaultColors,
   shuffle,
   Event,
+  Session
 } from "../helper";
 import axios from 'axios'
 
@@ -51,8 +52,7 @@ const accommodationEvent: Event = {
     "The user must take responsibility for their own personal belongings and ensure that they are securely stored during their stay",
     "The user must comply with any additional rules or regulations set out by the owner or property manager for the duration of their stay",
   ],
-  description:
-    "The first 200 people to register for the accommodations are gonna get a 100% discount. The other have to pay ₹100/-",
+  description: "The first 200 people to register for the accommodations are gonna get a 100% discount. The other have to pay ₹100/-",
 };
 
 const workshopEvent: Event = {
@@ -68,6 +68,23 @@ const technicalEvent: Event = {
 };
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState<Session|null>()
+  useEffect(() => {
+    setCurrentUser(JSON.parse(localStorage.getItem("session")))
+    if(currentUser && currentUser.timestamp) {
+      if((new Date(Date.now()).getTime() - new Date(currentUser.timestamp).getTime())>86400000) {
+        localStorage.removeItem("session")
+        setCurrentUser(null)
+      }
+    }
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.removeItem("session")
+    setCurrentUser(null)
+  }
+
   const colors = shuffle(defaultColors);
   const technicalEvents = shuffle(tEvents);
   var technicalCounter = 0;
@@ -482,6 +499,7 @@ function App() {
                   border: "6px solid black",
                 }}
                 className={`${styles.buttonScale} ${styles.logoutButton}`}
+                onClick={handleLogout}
               >
                 <LogoutIcon
                   sx={
@@ -694,6 +712,8 @@ function App() {
                   height: "17rem",
                   width: "20rem",
                 }}
+                user={currentUser}
+                setUser={setCurrentUser}
               />
               <Queries
                 color="black"

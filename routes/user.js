@@ -37,16 +37,14 @@ app.post("/register", async (req, res) => {
         })
         return
     }
-    if (await User.findOne({ email: email })) {
+    if (await User.findOne({ email: req.body.email })) {
         res.status(400).send({
             status: 400,
             message: "The registered email already exists!"
         })
         return
     }
-
     req.body._id = req.body.email.trim()
-    
     const user = await new User(req.body).save()
     if(!user) {
         res.status(404).send({
@@ -55,12 +53,36 @@ app.post("/register", async (req, res) => {
         })
         return
     }
-    delete user.__v
-    delete user._id
+    const userSession = await Session.findOne({ username: req.body.email })
+    if (userSession) {
+        if (new Date(Date.now()) - new Date(userSession.timestamp)/86400000 <= 1) {
+            res.status(200).send({
+                status: 200,
+                message: "Successfully logged in!",
+                session
+            })
+            return
+        }
+        else {
+            await Session.findOneAndRemove({ username: email })
+        }
+    }
+    const hashDigest = sha256(req.body.email+req.body.password)
+    const hmacDigest = Base64.stringify(hmacSHA512(new Date(Date.now()).toUTCString()+hashDigest, PRIVATE_KEY))
+    const session = await new Session({username: req.body.email, token: hmacDigest}).save()
+    if(!session) {
+        res.status(404).send({
+            status: 404,
+            message: "An error occurred in the database! Try logging in after sometime"
+        })
+        return
+    }
+    delete session._id
+    delete session.__v
     res.status(200).send({
         status: 200,
-        message: "Successfully registered!",
-        user
+        message: "Successfully signed up in!",
+        session
     })
 })
 
@@ -88,7 +110,6 @@ app.post("/login", async (req, res) => {
         })
         return
     }
-
     const userSession = await Session.findOne({ username: email })
     if (userSession) {
         if (new Date(Date.now()) - new Date(userSession.timestamp)/86400000 <= 1) {
@@ -97,10 +118,10 @@ app.post("/login", async (req, res) => {
                 message: "Successfully logged in!",
                 session
             })
-            return;
+            return
         }
         else {
-            await userSession.delete()
+            await Session.findOneAndRemove({ username: email })
         }
     }
     const hashDigest = sha256(email+password)
