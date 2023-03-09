@@ -1,3 +1,15 @@
+import beatRipperzBanner from "./assets/banners/Beatripperz - The Ultimate Dance Battle.png"
+import connexionBanner from "./assets/banners/Connexion - GizmoCon.png"
+import fStopsBanner from "./assets/banners/fstops - Camera ON.png"
+import gradientBanner from "./assets/banners/Gradient - Elektra.png"
+import iotaXgdscBanner from "./assets/banners/IOTAxGDSC - HackFrenzy.png"
+import kalayikamBanner from "./assets/banners/Kalayikam - Meraki.png"
+import litercyClubBanner from "./assets/banners/Literary Club - ATMUN.png"
+import matrixBanner from "./assets/banners/Matrix - Analytics Arena.png"
+import miseEnSceneBanner1 from "./assets/banners/Mise-En-Scene - Drive to Drama.png"
+import miseEnSceneBanner2 from "./assets/banners/Mise-En-Scene - Mini Masterpiece.png"
+import mlBattlesBanner from "./assets/banners/ML Battles.png"
+
 export const shuffle = (array: Array<any>) => {
     var m = array.length, t: any, i: any
     while(m) {
@@ -55,7 +67,8 @@ export const events = [
 
         ],
         type: "CULTURAL",
-        pool: 60000
+        pool: 60000,
+        banner: kalayikamBanner
     },
     {
         name: "Analytics Arena",
@@ -102,7 +115,8 @@ export const events = [
             "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
         ],
         type: "TECHNICAL",
-        pool: 75000
+        pool: 75000,
+        banner: matrixBanner
     },
     {
         name: "Mini Masterpiece",
@@ -172,7 +186,8 @@ export const events = [
             }
         ],
         type: "CULTURAL",
-        pool: 15000
+        pool: 15000,
+        banner: miseEnSceneBanner2
     },
     {
         name: "GizmoCon",
@@ -271,7 +286,8 @@ export const events = [
             "The UFM might be in any form including malpracticing, damaging other prototypes etc."
         ],
         type: "TECHNICAL",
-        pool: 75000
+        pool: 75000,
+        banner: connexionBanner
     },
     {
         name: "HackFrenzy",
@@ -329,7 +345,8 @@ export const events = [
 
         ],
         type: "TECHNICAL",
-        pool: 75000
+        pool: 75000,
+        banner: iotaXgdscBanner
     },
     {
         name: "Drive to Drama",
@@ -365,7 +382,8 @@ export const events = [
             
         ],
         type: "CULTURAL",
-        pool: 15000
+        pool: 15000,
+        banner: miseEnSceneBanner1
     },
     {
         name: "ATMUN",
@@ -404,7 +422,8 @@ export const events = [
             }
         ],
         type: "CULTURAL",
-        pool: 40000
+        pool: 40000,
+        banner: litercyClubBanner
     },
     {
         name: "The Ultimate Dance Battle",
@@ -502,7 +521,8 @@ export const events = [
             }
         ],
         type: "CULTURAL",
-        pool: 60000
+        pool: 60000,
+        banner: beatRipperzBanner
     },
     {
         name: "Elektra",
@@ -545,12 +565,13 @@ export const events = [
             "In case of any conflicts, the decision of the organizers will be final.",
         ],
         type: "TECHNICAL",
-        pool: 60000
+        pool: 60000,
+        banner: gradientBanner
     },
     {
         name: "ML Battles",
         club: "Epoch",
-        descriptionL: `Welcome to our exciting hackathon event!
+        description: `Welcome to our exciting hackathon event!
 
         Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
         
@@ -559,11 +580,6 @@ export const events = [
         This hackathon is open to all skill levels and backgrounds, so whether you are a seasoned programmer or a newcomer to the tech world, there is a place for you on our teams. Come with an open mind, a willingness to learn, and a passion for creating positive change.
         
         So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!`,
-        // rounds: [
-        //     {
-                
-        //     }
-        // ],
         rules: [
             "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.",
             "Each question carriers 1 mark.",
@@ -571,7 +587,8 @@ export const events = [
             "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
         ],
         type: "TECHNICAL",
-        pool: 75000
+        pool: 75000,
+        banner: mlBattlesBanner
     },
     {
         name: "Camera ON",
@@ -588,7 +605,8 @@ export const events = [
                     need an external judge for the judgement process.`
                 ]
             }
-        ]
+        ],
+        banner: fStopsBanner
     },
 ] as Event[]
 

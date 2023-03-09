@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import NameCard from '../../components/NameCard'
-import { alpha } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import styles from '../../styles/namecard.module.css'
 import styles2 from "../../styles/app.module.css";

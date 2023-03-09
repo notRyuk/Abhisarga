@@ -30,7 +30,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use("/api/user", userRouter)
-app.use('/api/query', queryRouter)
+app.use("/api/query", queryRouter)
 
 
 // Add Vite or respective production middlewares

@@ -225,7 +225,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                 style={{
                                     borderRadius: 16
                                 }}
-                                src="https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png" 
+                                src={ event.banner || "https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
                                 alt='Modal Image' 
                                 width='98%' 
                                 height='auto'
