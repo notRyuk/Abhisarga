@@ -24,6 +24,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Event } from "../helper";
+import { useNavigate } from "react-router-dom";
 
 const StyledBox = styled(Box)({
     position: 'absolute' as 'absolute',
@@ -55,6 +56,7 @@ interface Props {
 }
 
 export default function CustomCard({ style, image, color, event, vertical }: Props) {
+    const navigate = useNavigate()
     const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
@@ -175,7 +177,8 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                             zIndex: 2000, 
                             backgroundColor: "white", 
                             borderRadius: "10px", 
-                            border: "5px solid "+color 
+                            border: "5px solid "+color,
+                            maxHeight: "80%"
                         }}
                     >
                         <CloseIcon style={{color: color}} />
@@ -237,7 +240,12 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                 marginTop: "3%",
                                 alignSelf: "center",
                                 justifySelf: "center",
-                                textAlign: "center"
+                                textAlign: "center",
+                                maxHeight: "100px",
+                                overflowY: "scroll",
+                                scrollbarWidth: "auto",
+                                scrollbarColor: "black",
+                                scrollBehavior: "auto"
                             }}
                         >
                             <p 
@@ -245,7 +253,12 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                     color: color,
                                     fontWeight: 400,
                                     letterSpacing: 0.3,
-                                    fontSize: 16
+                                    fontSize: 16,
+                                    maxHeight: "100px",
+                                    overflowY: "scroll",
+                                    scrollbarWidth: "auto",
+                                    scrollbarColor: "black",
+                                    scrollBehavior: "auto"
                                 }}
                             >
                                 {event.description || ""}
@@ -294,6 +307,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                 flexDirection: "row",
                                 width: "90%"
                             }}
+                            onClick={() => navigate(`/event/${event.getUrl()}`)}
                         >
                             More Details 
                             <ArrowRightAltIcon 

@@ -30,7 +30,8 @@ const NameCard = ({ event }: Props) => {
           borderRadius: "15px",
           color: "white",
           maxWidth: "700px",
-          minWidth: "340px"
+          minWidth: "340px",
+          marginTop: window.innerWidth < 900 ? "110px" : "30px"
         }}
       >
         <div
@@ -77,6 +78,7 @@ const NameCard = ({ event }: Props) => {
           fontSize: "2.5rem",
           fontWeight: "600",
           letterSpacing: "2px",
+          fontFamily: "NimbusSansExtended"
         }}>
           {event.name || ""}
         </p>
@@ -89,7 +91,7 @@ const NameCard = ({ event }: Props) => {
           }} 
         />
         <img 
-          src='https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png'
+          src={event.banner || 'https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png'}
           alt='hackathon'
           width={'90%'}
           style={{
@@ -145,86 +147,133 @@ const NameCard = ({ event }: Props) => {
               paddingTop: "2rem"
             }}
           >
-            {
-              event.rounds?.map((round, i) => (
+            {event.rounds?.map((round, i) => (
+              <div
+                style={{
+                  border: "4px solid white",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  borderRadius: "5px"
+                }}
+              >
                 <div
                   style={{
-                    border: "4px solid white",
                     display: "flex",
-                    flexDirection: "column",
                     justifyContent: "space-between",
-                    borderRadius: "5px"
+                    alignItems: "center",
+                    padding: "0 2rem",
+                    fontSize: "15px"
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      padding: "0 3px",
-                      fontSize: "15px"
-                    }}
-                  >
-                    <h2>Round {round.roundNumber || i}</h2>
-                    <p style={{backgroundColor: "white", color: "#CA7CD8", borderRadius: "2px"}}>{round.type || "OFFLINE"}</p>
-                  </div>
-                  {round.roundDesc && (
-                    <>
-                      <hr
-                        style={{
-                          color: "white",
-                          marginTop: "3%",
-                          width: "100%",
-                          border: "1px dotted",
-                        }} 
-                      />
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          padding: "0 3px",
-                          fontSize: "15px"
-                        }}
-                        >
-                        <h2>Description</h2>
-                        {round.roundDesc?.map(e => <p>{e}</p>)}
-                      </div>
-                    </>
-                  )}
-                  {round.roundRules && (
-                    <>
-                      <hr
-                        style={{
-                          color: "white",
-                          marginTop: "3%",
-                          width: "100%",
-                          border: "1px dotted",
-                        }} 
-                      />
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          padding: "0 3px",
-                          fontSize: "15px",
-                          flexDirection: "column",
-                          textAlign: "left"
-                        }}
-                      >
-                        <h2>Rules</h2>
-                        <ul>
-                          {round.roundRules?.map(e => <li>{e}</li>)}
-                        </ul>
-                      </div>
-                    </>
-                  )}
+                  <h2>Round {round.roundNumber || i}</h2>
+                  <p style={{backgroundColor: "white", color: "#CA7CD8", borderRadius: "2px", padding: 2}}>{round.type || "OFFLINE"}</p>
                 </div>
-              ))
-            }
+                {round.roundDesc && (
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        padding: "0 2rem",
+                        fontSize: "15px",
+                        textAlign: "start"
+                      }}
+                    >
+                      <p>{round.roundDesc?.join("\t")}</p>
+                    </div>
+                  </>
+                )}
+                {round.roundRules && (
+                  <>
+                    <hr
+                      style={{
+                        color: "white",
+                        width: "100%",
+                        border: "1px dotted",
+                      }} 
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "0 3px",
+                        fontSize: "15px",
+                        flexDirection: "column",
+                        textAlign: "start"
+                      }}
+                    >
+                      <p style={{textAlign: "start", fontSize: 25}}>Rules</p>
+                      <ul style={{fontSize: 18}}>
+                        {round.roundRules?.map((e, k) => (
+                          <li style={{textAlign: "start"}} key={k}>{e}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
+                {round.registration && (
+                  <>
+                    <hr
+                      style={{
+                        color: "white",
+                        // marginTop: "3%",
+                        width: "100%",
+                        border: "1px dotted",
+                      }} 
+                    />
+                    <ul style={{listStyle: "none", fontSize: 18}}>
+                      <li style={{textAlign: "start"}}>Registration starts from {round.registration.start}</li>
+                      <li style={{textAlign: "start"}}>Registration end on {round.registration.end}</li>
+                    </ul>
+                  </>
+                )}
+                {round.event && (
+                  <>
+                    <hr
+                      style={{
+                        color: "white",
+                        // marginTop: "3%",
+                        width: "100%",
+                        border: "1px dotted",
+                      }} 
+                    />
+                    <ul style={{listStyle: "none", fontSize: 18}}>
+                      <li style={{textAlign: "start"}}>Event starts from {round.event.start}</li>
+                      <li style={{textAlign: "start"}}>Event end on {round.event.end}</li>
+                    </ul>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
+          {event.rules && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                paddingTop: "2rem"
+              }}
+            >
+              <hr
+                style={{
+                  color: "white",
+                  width: "100%",
+                  border: "1px solid",
+                }} 
+              />
+              <h2 style={{ fontFamily: "NimbusSansExtended"}}>Rules</h2>
+              <ul style={{fontSize: 18}}>
+                {event.rules?.map((e, i) => (
+                  <li style={{textAlign: "start"}} key={i}>{e}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </>

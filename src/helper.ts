@@ -30,6 +30,44 @@ export function encrypt(text: string) {
     return text
 }
 
+export function decrypt(token: string) {
+    var tokens = token.split("-")
+    var keyLength = Number(tokens[tokens.length-1])
+    var mainTokens = tokens[0].split(":")
+    var temp = mainTokens[1].split("").reverse()
+    var key = 0
+    var i = 0
+    while(i<keyLength) {
+        key += Number(temp.splice(0, 1))*(10**i)
+        i++
+    }
+    key = Number(key)
+    var keys: string[][] = []
+    var temp1 = mainTokens[0].split("")
+    for(var i=0; i<mainTokens[0].length/5; i++) {
+        temp = []
+        for(var k=0; k<5; k++) {
+            temp.push(temp1.splice(0, 1)[0])
+        }
+        keys.push(temp)
+    }
+    var values = Array(keys.length).fill("")
+    keys.forEach(k => {
+        var ascii = 0
+        var index = 0
+        i = 3
+        while(i--) {
+            ascii += (+(k.splice(0, 1)[0]))*(10**i)
+        }
+        i = 2
+        while(i--) {
+            index += (+(k.splice(0, 1)[0]))*(10**i)
+        }
+        values[index-key] = String.fromCharCode(ascii-key)
+    })
+    return values.join("")
+}
+
 export const base = "http://localhost:5173/api/"
 
 export const events = [
@@ -446,18 +484,14 @@ export const events = [
                     end: "April 8th, 10:00 PM"
                 },
                 roundDesc: [
-                    "Pick Your Poison ","This is a non-theme group-dance competition where guest institutes would participate",
-                    "Date : 8th april ",
-                    "Time : 5:30 pm",
-                    "Team size: 7-15",
-                    "Duration should not exceed 7 min.",
-                    "Judgment will be based on dance moves, expressions, selection of the music piece, props and costumes"
+                    "Pick Your Poison; This is a non-theme group-dance competition where guest institutes would participate",
                 ],
                 roundRules: [
                     "Top teams will go to the next round  and the remaining teams will me eliminated ",
-                    "Judges will decide how many people to eliminate from round 1 based on the registrations received "
-                    
-
+                    "Judges will decide how many people to eliminate from round 1 based on the registrations received ",
+                    "Team size: 7-15",
+                    "Duration should not exceed 7 min.",
+                    "Judgment will be based on dance moves, expressions, selection of the music piece, props and costumes"
                 ]									
                 
             },
@@ -606,9 +640,11 @@ export const events = [
                 ]
             }
         ],
-        banner: fStopsBanner
+        banner: fStopsBanner,
+        club: "f/Stops"
     },
 ] as Event[]
+events.forEach(e => e.getUrl = () => encrypt(`${e.club}=>${e.name}`))
 
 export const technicalEvents = events.filter(e => e.type==="TECHNICAL")
 export const culturalEvents = events.filter(e => e.type==="CULTURAL")
@@ -637,6 +673,7 @@ export interface Event {
     rules?: string[]
     banner?: string
     pool?: number
+    getUrl?: () => string
 }
 
 export interface Session {

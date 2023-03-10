@@ -408,13 +408,13 @@
 
 @media screen and (max-width: 600px) {
     .container {
-        padding: 10rem;
+        padding: 30rem;
     }
 }
 
 
 @media screen and (max-width: 400px) {
     .container {
-        padding: 20rem;
+        padding: 40rem;
     }
 }

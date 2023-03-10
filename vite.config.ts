@@ -4,7 +4,7 @@ import ssr from 'vite-plugin-ssr/plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), ssr()],
+  plugins: [react()],
   esbuild: {
     jsxFactory: 'React.createElement',
     jsxFragment: 'React.Fragment'

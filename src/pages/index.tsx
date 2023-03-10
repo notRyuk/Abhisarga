@@ -504,12 +504,12 @@ function App() {
                 <LogoutIcon
                   sx={
                     width > 600
-                      ? {
-                          marginRight: ".5rem",
-                        }
-                      : {
-                          fontSize: "40px",
-                        }
+                    ? {
+                        marginRight: ".5rem",
+                      }
+                    : {
+                        fontSize: "40px",
+                      }
                   }
                 />
                 <span style={{ marginRight: ".5rem" }}>LOGOUT</span>

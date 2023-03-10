@@ -381,7 +381,7 @@ const index = () => {
                   fontSize: "40px"
               }}
             />
-            {window.innerWidth > 600 &&
+            {window.innerWidth > 1050 &&
               <span style={{ marginRight: "1.5rem" }}>
                 MENU
               </span>
@@ -392,10 +392,8 @@ const index = () => {
           display: "flex",
           flexDirection: "column",
           width: "100%",
-          // backgroundImage: "",
           alignItems: "center",
           justifyContent: "center",
-          // backgroundColor: alpha("#CA7CD8", 0.2),
           top: 0,
           left: 0,
           margin: 0,
@@ -404,8 +402,8 @@ const index = () => {
         }}
         className={styles.eventMainDiv}
       >
-        <NameCard event={events[1]}/>
-      </div>
+        <NameCard event={events[8]}/>
+      </div>  
     </div>
   )
 }

@@ -174,7 +174,9 @@ const AboutUs = ({ color }: Props) => {
                 textAlign: "left",
                 fontFamily: "Dosis",
                 fontSize: "17px",
-                letterSpacing: "1px"
+                letterSpacing: "1px",
+                overflow: "scroll",
+                maxHeight: "350px"
               }}
             >
               <p>
