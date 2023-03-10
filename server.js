@@ -4,6 +4,7 @@ import { connect as mongooseConnect } from "mongoose"
 import { BASE as base, PORT, NODE_ENV, DB_URL } from "./config.js"
 import userRouter from "./routes/user.js"
 import queryRouter from "./routes/query.js"
+import cors from "cors"
 
 const isProduction = NODE_ENV.toUpperCase() === "PRODUCTION"
 
@@ -28,6 +29,7 @@ const ssrManifest = isProduction
 // Create http server
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use("/api/user", userRouter)
 app.use("/api/query", queryRouter)
