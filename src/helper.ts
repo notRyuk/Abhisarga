@@ -663,7 +663,7 @@ export interface Event {
     banner?: string
     pool?: number
     link?: string
-    registration: Timings
+    registration?: Timings
     getUrl?: (color: string) => string
 }
 

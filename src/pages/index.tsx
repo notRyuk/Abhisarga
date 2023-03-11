@@ -34,9 +34,11 @@ import {
   colors as defaultColors,
   shuffle,
   Event,
-  Session
+  Session,
+  encrypt
 } from "../helper";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const accommodationEvent: Event = {
   name: "ACCOMMODATION",
@@ -68,7 +70,7 @@ const technicalEvent: Event = {
 };
 
 function App() {
-
+  const navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState<Session|null>()
   useEffect(() => {
     setCurrentUser(JSON.parse(localStorage.getItem("session")))
@@ -351,6 +353,15 @@ function App() {
                   fontWeight: "700",
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
+                onClick={() => {
+                  navigate(`/events/${encrypt(`type=>CULTURAL=>${colors[0]}`)}`)
+                  if (nav === "100vw") {
+                    setNav("0px")
+                  }
+                  else {
+                    setNav("100vw")
+                  }
+                }}
               >
                 <MusicNoteIcon
                   sx={{
@@ -377,6 +388,15 @@ function App() {
                   fontWeight: "700",
                 }}
                 className={`${styles.hover} ${styles.menuItem}`}
+                onClick={() => {
+                  navigate(`/events/${encrypt(`type=>TECHNICAL=>${colors[1]}`)}`)
+                  if (nav === "100vw") {
+                    setNav("0px")
+                  }
+                  else {
+                    setNav("100vw")
+                  }
+                }}
               >
                 <ComputerIcon
                   sx={{
@@ -476,44 +496,45 @@ function App() {
                     maxWidth: "100%",
                   }}
                   // className={styles.minimap}
-                ></img>
-              </div>
-              <button
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "1rem",
-                  paddingRight: "0.5rem",
-                  fontSize: "30px",
-                  borderRadius: "10px",
-                  color: "black",
-                  cursor: "pointer",
-                  marginTop: "20px",
-                  maxWidth: "20rem",
-                  fontFamily: "NimbusSansExtended",
-                  fontWeight: "700",
-                  alignSelf:
-                    window.innerWidth > 768 ? "flex-end" : "flex-start",
-                  border: "6px solid black",
-                }}
-                className={`${styles.buttonScale} ${styles.logoutButton}`}
-                onClick={handleLogout}
-              >
-                <LogoutIcon
-                  sx={
-                    width > 600
-                    ? {
-                        marginRight: ".5rem",
-                      }
-                    : {
-                        fontSize: "40px",
-                      }
-                  }
                 />
-                <span style={{ marginRight: ".5rem" }}>LOGOUT</span>
-              </button>
+              </div>
+              {isLoggedIn && (
+                <button
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "1rem",
+                    paddingRight: "0.5rem",
+                    fontSize: "30px",
+                    borderRadius: "10px",
+                    color: "black",
+                    cursor: "pointer",
+                    marginTop: "20px",
+                    maxWidth: "20rem",
+                    fontFamily: "NimbusSansExtended",
+                    fontWeight: "700",
+                    alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
+                    border: "6px solid black"
+                  }}
+                  className={`${styles.buttonScale} ${styles.logoutButton}`}
+                  onClick={handleLogout}
+                >
+                    <LogoutIcon
+                      sx={
+                          (width > 600) ? {
+                              marginRight: ".5rem"
+                          } : {
+                              fontSize: "40px"
+                          }
+                      }
+                    />
+                    <span style={{ marginRight: ".5rem" }}>
+                      LOGOUT
+                    </span>
+                </button>
+              )}
             </div>
           </div>
         </div>

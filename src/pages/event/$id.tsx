@@ -15,12 +15,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import minimap from '../../assets/mini-map.png'
 import { useNavigate } from 'react-router-dom';
-import { Session, events, decrypt, } from '../../helper';
+import { Session, events, decrypt, encrypt, colors as defaultColors, shuffle } from '../../helper';
 import { useParams } from 'react-router-dom';
 import { alpha } from "@mui/material"
 
 const index = () => {
     const { id } = useParams();
+    const colors = shuffle(defaultColors)
     const eventInfo = decrypt(id).split("=>")
     const [currentUser, setCurrentUser] = useState<Session | null>()
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
@@ -191,6 +192,15 @@ const index = () => {
                                 fontWeight: "700"
                             }}
                             className={`${styles2.hover} ${styles2.menuItem}`}
+                            onClick={() => {
+                                navigate(`/events/${encrypt(`type=>CULTURAL=>${colors[0]}`)}`)
+                                if (nav === "100vw") {
+                                    setNav("0px")
+                                }
+                                else {
+                                    setNav("100vw")
+                                }
+                            }}
                         >
                             <MusicNoteIcon
                                 sx={{
@@ -216,6 +226,15 @@ const index = () => {
                                 fontWeight: "700"
                             }}
                             className={`${styles2.hover} ${styles2.menuItem}`}
+                            onClick={() => {
+                                navigate(`/events/${encrypt(`type=>TECHNICAL=>${colors[1]}`)}`)
+                                if (nav === "100vw") {
+                                    setNav("0px")
+                                }
+                                else {
+                                    setNav("100vw")
+                                }
+                            }}
                         >
                             <ComputerIcon
                                 sx={{
@@ -315,41 +334,43 @@ const index = () => {
                             >
                             </img>
                         </div>
-                        <button
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                padding: "1rem",
-                                paddingRight: "0.5rem",
-                                fontSize: "30px",
-                                borderRadius: "10px",
-                                color: "black",
-                                cursor: "pointer",
-                                marginTop: "20px",
-                                maxWidth: "20rem",
-                                fontFamily: "NimbusSansExtended",
-                                fontWeight: "700",
-                                alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
-                                border: "6px solid black"
-                            }}
-                            className={`${styles2.buttonScale} ${styles2.logoutButton}`}
-                            onClick={handleLogout}
-                        >
-                            <LogoutIcon
-                                sx={
-                                    (width > 600) ? {
-                                        marginRight: ".5rem"
-                                    } : {
-                                        fontSize: "40px"
+                        {isLoggedIn && (
+                            <button
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    padding: "1rem",
+                                    paddingRight: "0.5rem",
+                                    fontSize: "30px",
+                                    borderRadius: "10px",
+                                    color: "black",
+                                    cursor: "pointer",
+                                    marginTop: "20px",
+                                    maxWidth: "20rem",
+                                    fontFamily: "NimbusSansExtended",
+                                    fontWeight: "700",
+                                    alignSelf: window.innerWidth > 768 ? "flex-end" : "flex-start",
+                                    border: "6px solid black"
+                                }}
+                                className={`${styles2.buttonScale} ${styles2.logoutButton}`}
+                                onClick={handleLogout}
+                            >
+                                <LogoutIcon
+                                    sx={
+                                        (width > 600) ? {
+                                            marginRight: ".5rem"
+                                        } : {
+                                            fontSize: "40px"
+                                        }
                                     }
-                                }
-                            />
-                            <span style={{ marginRight: ".5rem" }}>
-                                LOGOUT
-                            </span>
-                        </button>
+                                />
+                                <span style={{ marginRight: ".5rem" }}>
+                                    LOGOUT
+                                </span>
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
