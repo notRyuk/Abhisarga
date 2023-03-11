@@ -82,32 +82,69 @@ export const events = [
         rounds: [
             {
                 roundNumber: 0,
+                name: "Online screening",
                 type: "ONLINE",
                 event: {
-                    start : "March 11th, 6:00PM",
-                    end: "March 26th, 6:00PM"
-                }
+                    start : "March 26, 6:00PM",
+                    end: "March 26, 11:59PM"
+                },
+                roundDesc = ["Participants will be filtered to certain number of group through this. Here participants are supposed to choose a theme and make painting and sketching based on it"],
+                roundRules = [
+                    "Based on the participants registered there will be an online screening for qualifying to next stage.",
+                    "Date: 26th March 23",
+                    "Time duration: 1hr 30 minutes",
+                    "In the first 15 minute team should submit a description of the art they are going to make and an intermediate stage snapshot will be collected to ensure art is made then itself",
+                    "The mode of submission will be decided and announced before the start",
+                    "Note: Scores from this are only taken for filtering and will not be added to further stages of evaluation"
+
+                ]
                 
             },
             {
                 roundNumber: 1,
+                name: "GroupUpArt",
                 type: "OFFLINE",
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
-                }
+                },
+                roundDesc = ["Offline Round participants/groups have to make an painting and sketching based on given theme and evaluation will be done on various parameters and scores will be cumulative for the qualified teams"],
+                roundRules = [
+                    "The team should submit a painting (on canvas) and sketch (on A3 paper) according to the theme",
+                    "The theme will be released at the time of the event",
+                    "Time duration: 3hrs 20 minutes",
+                    "3 hours for making of art and 20min for getting a reference for the given  theme after releasing the theme you can start at any point of time",
+                    "Event venue: Indian Institue Of Information Technology Sri City",
+                    "Acrylic paint of 12 shades, palette, canvas and pencil set, gsm paper will be provided",
+                    "The best teams will be qualified to next stage"
+                ]
                 
             },
             {
                 roundNumber: 2,
+                name: "Wall Painting",
                 type: "OFFLINE",
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
-                }
+                },
+                roundDesc = ["Offline Round. Here qualified teams should do wall painting of the painting that has been done in 'GroupUpArt' .This will be the final round"],
+                roundRules = [
+                    "Qualified teams should do wall painting",
+                    "The dimensions of the wall area provided are x feet (width) x y feet (height). The surface on which the painting is to be made is a stone wall which has white primer put up.",
+                    "Teams must make exactly the same Wall Painting as the submitted art piece from stage1",
+                    "Time duration:3hrs 15min",
+                    "set of 5 primary shades(white, yellow, ultramarine, black, red) will be provided",
+                ]
                 
             }
 
+        ],
+        rules: [
+            "No extra time but if any team completes before the allotted time there will be no penalty or reward.",
+            "No reference once you start",
+            "Deviation from the theme will result in the deduction of points.",
+            "No extra items will be allowed or provided, if required it must be taken permission from the event organizer before event starts",
         ],
         type: "CULTURAL",
         pool: 60000,
@@ -132,28 +169,63 @@ export const events = [
             {
                 roundNumber: 1,
                 type: "ONLINE",
-                
+                name: "Analytics Ace Quiz : Quiz Round (on Unstop)",
                 event: {
-                    start : "March 21, 6:00 AM",
-                    end: "March 22, 9:30 PM	"
+                    start : "March 22, 6:00 AM",
+                    end: "March 23, 9:30 PM	"
                 },
-                roundDesc: ["It is an online quiz based on Analytics, Machine learning and Deep learning conducted on Unstop platform which acts as a first level qualifier for the Hackathon Participation.Top 50 teams will be qualified to the next round. If the number of registrations are less than 50 in this round then the teams which have participated in the quiz will be directly selected for the next round."]													
-                
+                roundDesc: ["It is an online quiz based on Analytics, Machine learning and Deep learning conducted on Unstop platform which acts as a first level qualifier for the Hackathon Participation.Top 50 teams will be qualified to the next round. If the number of registrations are less than 50 in this round then the teams which have participated in the quiz will be directly selected for the next round."],												
+                roundRules: [
+                    "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.", 
+                    "Each question carriers 1 mark.",
+                    "For each question, there will be a penalty of 0.25 for incorrect answers",
+                    "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
+                ]
             },
             {
                 roundNumber: 2,
                 type: "ONLINE",
+                name: "The Modelling Sprint : (Online Round)",
                 event: {
-                    start : "March 21, 9:00 AM	",
-                    end: "March 22, 6:00 PM	"
-                }
+                    start : "March 25, 6:30 AM	",
+                    end: "March 27, 10:30 PM	"
+                },
+                roundDesc: ["A data set will be provided, and participants will be required to build models. The model is run on the test data, and the results are compared. The model that performs well will rise to the top of the leaderboard. The top 10-15 teams will advance to the next round. the second round of our event will be hosted on a different platform. Details regarding the platform and instructions on how to participate will be communicated to the participants cleared the 1st round."],
+                roundRules: [
+                    "Only the teams who have cleared the first round will be advanced to this round.", 
+                    "Each team should only submit one model.",
+                    "All decisions in the matter of eligibility, authenticity & final judgement will be with the organizers.",
+                    "All other specifics will be provided during the event.",
+                    "The top 10-15 outperformed teams will be selected from this round, and they will be getting a chance to attend the Hackathon at IIIT Sri City during the Abhisargha'23 and can win exciting prizes!",
+                    "Prove your skills and earn your spot at the Hackathon!"
+                ]
+            },
+            {
+                roundNumber: 3,
+                type: "OFFLINE",
+                name: "Analytics Arena (Offline at IIIT Sri City)",
+                event: {
+                    start : "April 7, 11:00 AM	",
+                    end: "April 9, 11:00 AM	"
+                },
+                roundDesc: ["It will be a 48 hrs long hackathon. Problem statement will be provided on the starting day of hackathon. Details regarding the Dataset and other constraints will be communicated along with problem statement."],
+                roundRules: [
+                    "The participants attending the hackathon should bring their college ID failing to provide a valid document may lead to disqualification of team.", 
+                    "Participants should follow the guidelines of organizers while attending the hackathon.",
+                    "All decisions in the matter of eligibility, authenticity & final judgement will be with the organizers.",
+                ]
             }
+
         ],
         rules: [
-            "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.", 
-            "Each question carriers 1 mark.",
-            "For each question, there will be a penalty of 0.25 for incorrect answers",
-            "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
+            "Liability: The organizers of the event are not responsible for any injuries, loss, or damage including personal properties that may occur during the event.",
+            "Code of Conduct: Participants are expected to behave in a professional and respectful manner towards other participants, staff, and event organizers. Any form of harassment or discrimination will not be tolerated, and the organizers reserve the right to remove any participant who violates this policy.",
+            "Privacy Policy: Participant data collected during the registration process will be used solely for event-related communication and will not be shared with any third party.",
+            "Disclaimer: The organizers of the event make every effort to provide accurate and up-to-date information about the event. However, they are not responsible for any errors or omissions in the event information.",
+            "Admission to the event is at the discretion of the event organizers. The organizers reserve the right to refuse entry or remove any person from the event without giving a reason.",
+            "The event organizers reserve the right to change the date, time, location, or any other aspect of the event without notice.",
+            "The number of participants we filter through each round may be subject to change.",
+            "Force Majeure: The organizers reserve the right to postpone or cancel the event in case of unforeseeable circumstances such as natural disasters, pandemics, or other emergencies."
         ],
         type: "TECHNICAL",
         pool: 75000,
@@ -177,11 +249,12 @@ export const events = [
         rounds: [
             {
                 roundNumber: 1,
+                name: "Online Screening",
                 type: "ONLINE",
                 
                 event: {
-                    start : "note needed ",
-                    end: "note needed"
+                    start : "March 10, 12:00 AM",
+                    end: "March 31, 12:00 AM"
                 },
                 roundDesc: [
                     "There is no entry fee to participate in the competition",
@@ -647,6 +720,7 @@ export interface Timings {
 
 export interface Round {
     roundNumber?: number
+    name: string
     type: "ONLINE" | "OFFLINE"
     roundDesc?: string[]
     event: Timings
