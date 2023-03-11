@@ -17,6 +17,7 @@ import minimap from '../../assets/mini-map.png'
 import { useNavigate } from 'react-router-dom';
 import { Session, events, decrypt, } from '../../helper';
 import { useParams } from 'react-router-dom';
+import { alpha } from "@mui/material"
 
 const index = () => {
     const { id } = useParams();
@@ -55,6 +56,9 @@ const index = () => {
     return (
         <div
             className={styles.main}
+            style={{
+                backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5)
+            }}
         >
             {width > 600 && (
                 <button
@@ -403,7 +407,10 @@ const index = () => {
                 }}
                 className={styles.eventMainDiv}
             >
-                <NameCard event={events.filter(({ club, name }) => (club === eventInfo[0] && name === eventInfo[1]))[0]} />
+                <NameCard 
+                    event={events.filter(({ club, name }) => (club === eventInfo[0] && name === eventInfo[1]))[0]} 
+                    color={eventInfo?.[2]}
+                />
             </div>
         </div>
     )

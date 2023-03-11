@@ -68,34 +68,39 @@ export function decrypt(token: string) {
     return values.join("")
 }
 
-export const base = "http://localhost:5173/api/"
+export const base = "http://abhisarga.org/api/"
 
 export const events = [
     {
         name: "Kalayikam",
         club: "Meraki",
         description: "Art is not a thing it is a way that makes things more realistic than any other. In the mind of every artist there is a masterpiece. let's bring the imaginary masterpiece out by painting and sketching and let the people see the magic of your talent and beauty of your imagination.",
+        registration: {
+            start: "March 7th, 9:00AM",
+            end: "March 25st, 12:00AM",
+        },
         rounds: [
             {
                 roundNumber: 0,
                 type: "ONLINE",
-                registration: {
-                    start: "March 7th, 9:00AM",
-                    end: "March 21st, 9:00AM",
-                },
                 event: {
-                    start : "March 21st, 6:00PM",
-                    end: "March 22nd, 6:00PM"
+                    start : "March 11th, 6:00PM",
+                    end: "March 26th, 6:00PM"
                 }
                 
             },
             {
                 roundNumber: 1,
-                type: "ONLINE",
-                registration: {
-                    start: "March 21, 9:00 AM",
-                    end: "March 22, 6:00 PM	",
-                },
+                type: "OFFLINE",
+                event: {
+                    start : "March 21, 9:00 AM	",
+                    end: "March 22, 6:00 PM	"
+                }
+                
+            },
+            {
+                roundNumber: 2,
+                type: "OFFLINE",
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
@@ -106,7 +111,8 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 60000,
-        banner: kalayikamBanner
+        banner: kalayikamBanner,
+        link: "https://unstop.com/p/kalayikam-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-633542"
     },
     {
         name: "Analytics Arena",
@@ -118,14 +124,15 @@ export const events = [
         Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
         
         So, what are you waiting for? Register now to join us for Abhisarga'23's one and only data science hackathon!`,
+        registration: {
+            start: "March 10, 9:00 AM",
+            end: "March 21, 6:00 PM	",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "ONLINE",
-                registration: {
-                    start: "March 10, 9:00 AM",
-                    end: "March 20, 6:00 PM	",
-                },
+                
                 event: {
                     start : "March 21, 6:00 AM",
                     end: "March 22, 9:30 PM	"
@@ -136,10 +143,6 @@ export const events = [
             {
                 roundNumber: 2,
                 type: "ONLINE",
-                registration: {
-                    start: "March 24, 6:00 AM ",
-                    end: "March 22, 10:30 PM ",
-                },
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
@@ -154,7 +157,8 @@ export const events = [
         ],
         type: "TECHNICAL",
         pool: 75000,
-        banner: matrixBanner
+        banner: matrixBanner,
+        link: "https://unstop.com/hackathons/analytics-arena-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-634488"
     },
     {
         name: "Mini Masterpiece",
@@ -166,14 +170,15 @@ export const events = [
         time not to be considered a feature film and this competition is aimed at 
         promoting the talents and skills of students in the fields of writing, editing, 
         cinematography, and direction.`,
+        registration: {
+            start: "March 7, 9:00 PM",
+            end: "March 30, 12:00 PM",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "ONLINE",
-                registration: {
-                    start: "March 7, 9:00 PM",
-                    end: "March 30, 12:00 PM",
-                },
+                
                 event: {
                     start : "note needed ",
                     end: "note needed"
@@ -204,10 +209,6 @@ export const events = [
             {
                 roundNumber: 2,
                 type: "ONLINE",
-                registration: {
-                    start: "Note needed",
-                    end: "Note needed",
-                },
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
@@ -225,7 +226,8 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 15000,
-        banner: miseEnSceneBanner2
+        banner: miseEnSceneBanner2,
+        link: "https://unstop.com/events/mini-masterpiece-mm-a-short-film-competition-abhisarga-2023-indian-institute-of-information-technology-sri-city-i-633378"
     },
     {
         name: "GizmoCon",
@@ -240,14 +242,15 @@ export const events = [
         
         So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!
         `,
+        registration: {
+            start: "March 8, 9:00 AM",
+            end: "March 22, 6:00 PM	",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "ONLINE",
-                registration: {
-                    start: "March 8, 9:00 AM",
-                    end: "March 22, 6:00 PM	",
-                },
+              
                 event: {
                     start : "March 24, 4:30 PM	",
                     end: "March 24, 6:30 PM	"
@@ -266,11 +269,7 @@ export const events = [
             },
             {
                 roundNumber: 2,
-                type: "ONLINE",
-                registration: {
-                    start: "March 25, 5:00 PM",
-                    end: "March 30, 6:00 PM	",
-                },
+                type: "OFFLINE",
                 event: {
                     start : "April 7, 11:00 AM	",
                     end: "April 7, 5:00 PM "
@@ -291,11 +290,7 @@ export const events = [
             },
             {
                 roundNumber: 3,
-                type: "ONLINE",
-                registration: {
-                    start: "not needed",
-                    end: "not needed",
-                },
+                type: "OFFLINE",
                 event: {
                     start : "April 7, 5:30PM",
                     end: "April 9, 9:00 AM"
@@ -325,7 +320,8 @@ export const events = [
         ],
         type: "TECHNICAL",
         pool: 75000,
-        banner: connexionBanner
+        banner: connexionBanner,
+        link: "https://unstop.com/hackathons/gizmocon-abhisarga-2023-indian-institute-of-information-technology-sri-city-indian-institute-of-information-t-633656"
     },
     {
         name: "HackFrenzy",
@@ -340,14 +336,15 @@ export const events = [
         
         So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!
         `,
+        registration: {
+            start: "March 8, 11:58 PM",
+            end: "March 22, 5:00 PM	",
+        },
         rounds: [
             {
                 roundNumber: 0,
                 type: "ONLINE",
-                registration: {
-                    start: "March 8, 11:58 PM",
-                    end: "March 22, 5:00 PM	",
-                },
+                
                 event: {
                     start : "March 22, 6:00 PM",
                     end: "March 23, 11:59 PM"
@@ -356,11 +353,7 @@ export const events = [
             },
             {
                 roundNumber: 1,
-                type: "ONLINE",
-                registration: {
-                    start: "note needed",
-                    end: "note needed",
-                },
+                type: "OFFLINE",
                 event: {
                     start : "March 24, 5:00 PM",
                     end: "March 30, 5:00 PM	"
@@ -369,11 +362,7 @@ export const events = [
             },
             {
                 roundNumber: 2,
-                type: "ONLINE",
-                registration: {
-                    start: "note needed",
-                    end: "note needed",
-                },
+                type: "OFFLINE",
                 event: {
                     start : "April 7, 10:00 AM	",
                     end: "April 8, 10:00 PM	"
@@ -384,20 +373,22 @@ export const events = [
         ],
         type: "TECHNICAL",
         pool: 75000,
-        banner: iotaXgdscBanner
+        banner: iotaXgdscBanner,
+        link: "https://unstop.com/hackathons/hackfrenzy-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-633631"
     },
     {
         name: "Drive to Drama",
         club: "Mise-En-Scene",
         description: `A Theatre competition (skit) where participants compete with other teams on basis of  essence of their act. participants are allowed to do any kind of drama or act on stage (suggested to bring their own props).`,
+        registration: {
+            start: "March 7, 9:00 PM ",
+            end: "March 30, 12:00 PM ",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "OFFLINE",
-                registration: {
-                    start: "March 7, 9:00 PM ",
-                    end: "March 30, 12:00 PM ",
-                },
+                
                 event: {
                     start : "April 8 6:30 PM",
                     end: "April 8, 9:30 PM	"
@@ -421,7 +412,8 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 15000,
-        banner: miseEnSceneBanner1
+        banner: miseEnSceneBanner1,
+        link: "https://unstop.com/events/drive-to-drama-dd-on-stage-abhisarga-2023-indian-institute-of-information-technology-sri-city-indian-institute-of-633388"
     },
     {
         name: "ATMUN",
@@ -433,14 +425,15 @@ export const events = [
         ATMUN will provide students a platform where they can sharpen their  leadership and diplomatic skills, decision making, engage in constructive debates, enhance their understanding of Geo-politics and international relations. 
         
         Join us for this exciting and challenging experience!`,
+        registration: {
+            start: "March 6th, 9:00 AM	",
+            end: "March 31, 12:00 AM	",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "ONLINE",
-                registration: {
-                    start: "March 6th, 9:00 AM	",
-                    end: "March 31, 12:00 AM	",
-                },
+                
                 event: {
                     start : "6th April, 5:00 PM	",
                     end: "April 7th, 6:00 PM"
@@ -461,7 +454,8 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 40000,
-        banner: litercyClubBanner
+        banner: litercyClubBanner,
+        link: "https://unstop.com/conferences/techno-cultural-model-united-nations-abhisarga-2023-indian-institute-of-information-technology-sri-city-indi-633308"
     },
     {
         name: "The Ultimate Dance Battle",
@@ -471,14 +465,15 @@ export const events = [
         Dancing with the feet is one thing, but dancing with the heart is another.Get ready to set the stage on fire with your moves.
         
         Let dance speak your emotions,thoughts and style together.`,
+        registration: {
+            start: "March 10, 9:00 AM",
+            end: "March 25, 6:00 PM	",
+        },
         rounds: [
             {
                 roundNumber: 1,
                 type: "OFFLINE",
-                registration: {
-                    start: "March 10, 9:00 AM",
-                    end: "March 25, 6:00 PM	",
-                },
+                
                 event: {
                     start : "April 8, 5:30 PM",
                     end: "April 8th, 10:00 PM"
@@ -498,10 +493,6 @@ export const events = [
             {
                 roundNumber: 2,
                 type: "OFFLINE",
-                registration: {
-                    start: "March 10, 9:00 AM	",
-                    end: "March 25, 6:00 PM	",
-                },
                 event: {
                     start : "April 8, 5:30 AM",
                     end: "April 8, 10:00 PM	"
@@ -524,10 +515,6 @@ export const events = [
             {
                 roundNumber: 3,
                 type: "OFFLINE",
-                registration: {
-                    start: "March 10, 9:00 AM",
-                    end: "March 25, 6:00 PM	",
-                },
                 event: {
                     start : "April 8, 5:30 PM",
                     end: "April 8th, 10:00 PM"
@@ -556,12 +543,17 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 60000,
-        banner: beatRipperzBanner
+        banner: beatRipperzBanner,
+        link: "https://unstop.com/events/the-ultimate-dance-battle-abhisarga-2023-indian-institute-of-information-technology-sri-city-indian-institute-of--634472"
     },
     {
         name: "Elektra",
         club: "Gradient",
         description: "",
+        registration: {
+            start: "Started",
+            end: "30 Mar 23, 12:00AM"
+        },
         rounds: [
             {
                 type: "ONLINE",
@@ -572,10 +564,7 @@ export const events = [
                     start: "31 Mar 23, 08:00PM",
                     end: "31 Mar 23, 10:00PM",
                 },
-                registration: {
-                    start: "Started",
-                    end: "30 Mar 23, 12:00AM"
-                }
+                
             },
             {
                 type: "OFFLINE",
@@ -600,10 +589,11 @@ export const events = [
         ],
         type: "TECHNICAL",
         pool: 60000,
-        banner: gradientBanner
+        banner: gradientBanner,
+        link: "https://unstop.com/hackathons/elektra-coding-contest-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-633450"
     },
     {
-        name: "ML Battles",
+        name: "Innovate Or Iterate",
         club: "Epoch",
         description: `Welcome to our exciting hackathon event!
 
@@ -644,7 +634,7 @@ export const events = [
         club: "f/Stops"
     },
 ] as Event[]
-events.forEach(e => e.getUrl = () => encrypt(`${e.club}=>${e.name}`))
+events.forEach(e => e.getUrl = (color: string) => encrypt(`${e.club}=>${e.name}=>${color}`))
 
 export const technicalEvents = events.filter(e => e.type==="TECHNICAL")
 export const culturalEvents = events.filter(e => e.type==="CULTURAL")
@@ -659,7 +649,6 @@ export interface Round {
     roundNumber?: number
     type: "ONLINE" | "OFFLINE"
     roundDesc?: string[]
-    registration: Timings
     event: Timings
     roundRules?: string[]
 }
@@ -673,7 +662,9 @@ export interface Event {
     rules?: string[]
     banner?: string
     pool?: number
-    getUrl?: () => string
+    link?: string
+    registration: Timings
+    getUrl?: (color: string) => string
 }
 
 export interface Session {
