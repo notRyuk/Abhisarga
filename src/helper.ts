@@ -88,8 +88,8 @@ export const events = [
                     start : "March 26, 6:00PM",
                     end: "March 26, 11:59PM"
                 },
-                roundDesc = ["Participants will be filtered to certain number of group through this. Here participants are supposed to choose a theme and make painting and sketching based on it"],
-                roundRules = [
+                roundDesc: ["Participants will be filtered to certain number of group through this. Here participants are supposed to choose a theme and make painting and sketching based on it"],
+                roundRules: [
                     "Based on the participants registered there will be an online screening for qualifying to next stage.",
                     "Date: 26th March 23",
                     "Time duration: 1hr 30 minutes",
@@ -108,8 +108,8 @@ export const events = [
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
                 },
-                roundDesc = ["Offline Round participants/groups have to make an painting and sketching based on given theme and evaluation will be done on various parameters and scores will be cumulative for the qualified teams"],
-                roundRules = [
+                roundDesc: ["Offline Round participants/groups have to make an painting and sketching based on given theme and evaluation will be done on various parameters and scores will be cumulative for the qualified teams"],
+                roundRules: [
                     "The team should submit a painting (on canvas) and sketch (on A3 paper) according to the theme",
                     "The theme will be released at the time of the event",
                     "Time duration: 3hrs 20 minutes",
@@ -128,8 +128,8 @@ export const events = [
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
                 },
-                roundDesc = ["Offline Round. Here qualified teams should do wall painting of the painting that has been done in 'GroupUpArt' .This will be the final round"],
-                roundRules = [
+                roundDesc: ["Offline Round. Here qualified teams should do wall painting of the painting that has been done in 'GroupUpArt' .This will be the final round"],
+                roundRules:  [
                     "Qualified teams should do wall painting",
                     "The dimensions of the wall area provided are x feet (width) x y feet (height). The surface on which the painting is to be made is a stone wall which has white primer put up.",
                     "Teams must make exactly the same Wall Painting as the submitted art piece from stage1",
@@ -329,14 +329,14 @@ export const events = [
                     end: "March 24, 6:30 PM	"
                 },
                 roundDesc: [
-                    "Hosting a virtual event which can effectively filter the potential candidates who has the ability to create a solution for a pre existing problems by applying his theoretical knowledge into practical applications. All the registered teams would be participating this stage, where we are purifying the top 18 according to our institution norms.Then these teams are further invited to the campus for subsequent stages."
+                    "Hosting a virtual event which can effectively filter the potential candidates who has the ability to create a solution for a pre existing problems by applying his theoretical knowledge into practical applications. All the registered teams would be participating this stage, where we are purifying the top performing teams. Then these teams are further invited to the campus for subsequent stages."
                 ]
                 ,		
                 roundRules: [
                     "Stage 1 questions would be based on Embedded systems and relavant topics .",
                     "Number of questions for stage 1 would be 30.",
-                    " Would be conducted in Quizizz.",
-                    "Top 18 teams would be selected for stage 2 (offline).",
+                    "Would be conducted in Quizizz.",
+                    "Top 20 teams would be selected for stage 2 (offline).",
                 ]									
                 
             },
@@ -357,7 +357,7 @@ export const events = [
                     "Candidates must bring their own laptops with charging cables and necessary accessories for the laptop.",
                     "Candidates must have their arduino cables and other mandatory accesories for hardware development.",
                     "Duration for stage 2 is tentatively 5 hours.",
-                    "8 teams would be selected after the filtering process in stage 2."
+                    "10 teams would be selected after the filtering process in stage 2."
                 ]
                 
             },
@@ -365,8 +365,8 @@ export const events = [
                 roundNumber: 3,
                 type: "OFFLINE",
                 event: {
-                    start : "April 7, 5:30PM",
-                    end: "April 9, 9:00 AM"
+                    start : "April 7, 11:00 AM",
+                    end: "April 9, 2:00 PM"
                 },
                 roundDesc: [
                     "The ultimate hackathon is here. The teams would be given a problem statement and the components required for it's solutions. The competing teams must build an efficient hardware prototype with an user interface."
@@ -384,11 +384,12 @@ export const events = [
 
         ],
         rules: [
-            "Quartet team is must with three hardware experts and a software expert.",
+            "A team with triplet or quartet preffered with three hardware experts and a software expert.(the breakup is upto teams wish).",
             "Inter-college team members not allowed.",
             "Inter-specialization team members allowed.",
+            "Team names can be fixed as per your wish, else random name would be assigned by unstop.",
             "In stage 3, students must only utilise the components given by the organising committe, to build the prototype.",
-            "If any team is found guilty of UFM, they would be ruled out of the contest.",
+            "If any team is found guilty of Unfair Means(UFM), they would be ruled out of the contest.",
             "The UFM might be in any form including malpracticing, damaging other prototypes etc."
         ],
         type: "TECHNICAL",
@@ -685,27 +686,63 @@ export const events = [
         ],
         type: "TECHNICAL",
         pool: 75000,
-        banner: mlBattlesBanner
+        banner: mlBattlesBanner,
+        // link: ""
     },
     {
         name: "Camera ON",
-        type: "CULTURAL",
-        pool: 40000,
-        description: `This contest is basically a mix-up of photography. There are different stages of photography competitions for the participants.`,
+        club: "F/Stops",
+        description: "",
         rounds: [
             {
-                roundNumber: 1,
-                type: "OFFLINE",
+                type: "ONLINE",
+                roundDesc : [
+                    "This is a team event where participants should take panorama pictures with a Mobile"
+                ],
+                event: {
+                    start: "7 Apr 23, 08:00AM",
+                    end: "7 Apr 23, 08:00PM",
+                },
+                registration: {
+                    start: "Not Started",
+                    end: "7 Apr 23, 08:00AM"
+                }
+            },
+            {
+                type: "ONLINE",
                 roundDesc: [
-                    `Points will be awarded for getting the correct snaps of the photo. Also being a photography contest,
-                    capturing a visually appealing image, the one with 'WoW' factor will fetch the participants more points. We
-                    need an external judge for the judgement process.`
-                ]
+                    "This is an individual event based on macro, sunset photography"
+                ],
+                event: {
+                    start: "8 Apr 23, 08:00AM",
+                    end: "8 Apr 23, 08:00PM"
+                },
+                registration: {
+                    start: "Not Started",
+                    end: "7 Apr 23, 08:00AM"
+                }
             }
         ],
-        banner: fStopsBanner,
-        club: "f/Stops"
+        rules: [
+            "Participants should take pictures with a Mobile only.",
+            "Each photograph submitted should contain the Location info (GPS Coordinates), the Date & Time of capture in the EXIF Data.",
+            "There should be no watermarks of any form on the image",
+            "Post processing the image in any form is not allowed.",
+            "Same photo should not be submitted by more than one contestant. If found contestants will be disqualified.",
+            "Pictures should be taken only within the event venue when the event is going on. No previously clicked images allowed"
+        ],
+        type: "CULTURAL",
+        pool: 40000,
+        banner: fStopsBanner
     },
+    {
+        name: "CULTURAL EVENT TEST",
+        type: "CULTURAL"
+    },
+    {
+        name: "TECHNICAL EVENT TEST",
+        tyoe: "TECHNICAL"
+    }
 ] as Event[]
 events.forEach(e => e.getUrl = (color: string) => encrypt(`${e.club}=>${e.name}=>${color}`))
 

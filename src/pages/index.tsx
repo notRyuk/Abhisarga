@@ -521,18 +521,18 @@ function App() {
                   className={`${styles.buttonScale} ${styles.logoutButton}`}
                   onClick={handleLogout}
                 >
-                    <LogoutIcon
-                      sx={
-                          (width > 600) ? {
-                              marginRight: ".5rem"
-                          } : {
-                              fontSize: "40px"
-                          }
-                      }
-                    />
-                    <span style={{ marginRight: ".5rem" }}>
-                      LOGOUT
-                    </span>
+                  <LogoutIcon
+                    sx={
+                        (width > 600) ? {
+                            marginRight: ".5rem"
+                        } : {
+                            fontSize: "40px"
+                        }
+                    }
+                  />
+                  <span style={{ marginRight: ".5rem" }}>
+                    LOGOUT
+                  </span>
                 </button>
               )}
             </div>
@@ -598,13 +598,13 @@ function App() {
                   <div></div>
                   <div className={styles.tempflex}>
                     <Modal
-                      color={colors[2]}
-                      event={accommodationEvent}
+                      color={colors[0]}
+                      event={culturalEvents[culturalCounter++]}
                       style={{ height: 385, width: 600 }}
                     />
                     <Modal
-                      color={colors[3]}
-                      event={technicalEvent}
+                      color={colors[2]}
+                      event={accommodationEvent}
                       style={{ height: 385, width: 600 }}
                     />
                   </div>
@@ -772,8 +772,8 @@ function App() {
                   color={colors[3]}
                 />
                 <Modal
-                  color={colors[3]}
-                  event={culturalEvent}
+                  color={colors[1]}
+                  event={technicalEvents[technicalCounter++]}
                   style={{ height: 385, width: 420, marginLeft: "-19px" }}
                 />
               </div>
