@@ -11,14 +11,15 @@ import { Event } from '../helper';
 
 interface Props {
   event: Event
+  color?: string
 }
 
-const NameCard = ({ event }: Props) => {
+const NameCard = ({ event, color }: Props) => {
   return (
     <>
       <div 
         style={{ 
-          backgroundColor: "#CA7CD8",
+          backgroundColor: color,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -46,11 +47,11 @@ const NameCard = ({ event }: Props) => {
             style={{
               textAlign: "center",
               fontSize: "1.5rem",
-              border: "5px solid #CA7CD8",
+              border: `5px solid ${color}`,
               borderRadius: "10px",
               padding: "8px",
               backgroundColor: "white",
-              color: "#CA7CD8"
+              color: color
             }}
           >
             T01
@@ -59,11 +60,11 @@ const NameCard = ({ event }: Props) => {
             style={{
               textAlign: "center",
               fontSize: "1.5rem",
-              border: "5px solid #CA7CD8",
+              border: `5px solid ${color}`,
               borderRadius: "10px",
               padding: "8px",
               backgroundColor: "white",
-              color: "#CA7CD8",
+              color: color,
               alignItems: "center"
             }}
           >
@@ -122,15 +123,6 @@ const NameCard = ({ event }: Props) => {
           >
             "Talk is cheap. Show me the code."
           </p>
-          <hr 
-            style={{
-              color: "white",
-              marginTop: "3%",
-              width: "100%",
-              border: "1px dotted",
-            }} 
-          />
-          {event.description || ""}
           {event.description && <hr 
             style={{
               color: "white",
@@ -139,6 +131,31 @@ const NameCard = ({ event }: Props) => {
               border: "1px dotted",
             }} 
           />}
+          {event.description || ""}
+          {event.registration && (
+            <>
+              <hr
+                style={{
+                  color: "white",
+                  // marginTop: "3%",
+                  width: "100%",
+                  border: "1px dotted",
+                }} 
+              />
+              <ul style={{listStyle: "none", fontSize: 18}}>
+                <li style={{textAlign: "start"}}>Registration starts from {event.registration.start}</li>
+                <li style={{textAlign: "start"}}>Registration end on {event.registration.end}</li>
+              </ul>
+              <hr
+                style={{
+                  color: "white",
+                  // marginTop: "3%",
+                  width: "100%",
+                  border: "1px dotted",
+                }} 
+              />
+            </>
+          )}
           <div
             style={{
               display: "flex",
@@ -167,7 +184,7 @@ const NameCard = ({ event }: Props) => {
                   }}
                 >
                   <h2>Round {round.roundNumber || i}</h2>
-                  <p style={{backgroundColor: "white", color: "#CA7CD8", borderRadius: "2px", padding: 2}}>{round.type || "OFFLINE"}</p>
+                  <p style={{backgroundColor: "white", color: color, borderRadius: "2px", padding: 2}}>{round.type || "OFFLINE"}</p>
                 </div>
                 {round.roundDesc && (
                   <>
@@ -215,22 +232,6 @@ const NameCard = ({ event }: Props) => {
                     </div>
                   </>
                 )}
-                {round.registration && (
-                  <>
-                    <hr
-                      style={{
-                        color: "white",
-                        // marginTop: "3%",
-                        width: "100%",
-                        border: "1px dotted",
-                      }} 
-                    />
-                    <ul style={{listStyle: "none", fontSize: 18}}>
-                      <li style={{textAlign: "start"}}>Registration starts from {round.registration.start}</li>
-                      <li style={{textAlign: "start"}}>Registration end on {round.registration.end}</li>
-                    </ul>
-                  </>
-                )}
                 {round.event && (
                   <>
                     <hr
@@ -273,6 +274,24 @@ const NameCard = ({ event }: Props) => {
                 ))}
               </ul>
             </div>
+          )}
+          {event.link && (
+            <a href={event.link}>
+              <button 
+                style={{
+                  textAlign: "center",
+                  fontSize: "1.5rem",
+                  border: `5px solid ${color}`,
+                  borderRadius: "10px",
+                  padding: "8px",
+                  backgroundColor: "white",
+                  color: color,
+                  cursor: "pointer"
+                }}
+              >
+                Register
+              </button>
+            </a>
           )}
         </div>
       </div>

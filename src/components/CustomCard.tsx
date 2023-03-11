@@ -307,7 +307,7 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                                 flexDirection: "row",
                                 width: "90%"
                             }}
-                            onClick={() => navigate(`/event/${event.getUrl()}`)}
+                            onClick={() => navigate(`/event/${event.getUrl(color)}`)}
                         >
                             More Details 
                             <ArrowRightAltIcon 
