@@ -68,7 +68,7 @@ export function decrypt(token: string) {
     return values.join("")
 }
 
-export const base = "http://abhisarga.org/api/"
+export const base = "https://abhisarga.org/api/"
 
 export const events = [
     {
