@@ -599,7 +599,8 @@ function App() {
                   <div className={styles.tempflex}>
                     <Modal
                       color={colors[0]}
-                      event={culturalEvents[culturalCounter++]}
+                      // event={culturalEvents[culturalCounter++]}
+                      event={culturalEvent}
                       style={{ height: 385, width: 600 }}
                     />
                     <Modal
@@ -773,7 +774,8 @@ function App() {
                 />
                 <Modal
                   color={colors[1]}
-                  event={technicalEvents[technicalCounter++]}
+                  // event={technicalEvents[technicalCounter++]}
+                  event={technicalEvent}
                   style={{ height: 385, width: 420, marginLeft: "-19px" }}
                 />
               </div>
