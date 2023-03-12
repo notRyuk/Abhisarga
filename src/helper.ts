@@ -79,6 +79,7 @@ export const events = [
             start: "March 7th, 9:00AM",
             end: "March 25st, 12:00AM",
         },
+        qoute: "Talk is cheap. Show me what you can do.",
         rounds: [
             {
                 roundNumber: 0,
@@ -165,6 +166,7 @@ export const events = [
             start: "March 10, 9:00 AM",
             end: "March 21, 6:00 PM	",
         },
+        qoute: "Talk is cheap. Show me the code.",
         rounds: [
             {
                 roundNumber: 1,
@@ -246,6 +248,7 @@ export const events = [
             start: "March 7, 9:00 PM",
             end: "March 30, 12:00 PM",
         },
+        qoute: "Talk is cheap. Show me your creativity.",
         rounds: [
             {
                 roundNumber: 1,
@@ -263,21 +266,7 @@ export const events = [
                     "The top 5-10 entries will be screened offline for the audience.",
                     "A google form will be circulated in which you have to submit your short film.",
                     "Upload your short film in YouTube so that would be easy to access."
-                ],		
-                roundRules: [
-                    "Short film should be with a length between 5 to 10 minutes.",
-                    "The film should only be in 16:9 aspect ratio.",
-                    " All languages accepted and subtitles are must and should be present in English",
-                    "There is no limit on the number of characters.",
-                    "The script of the play must be original. Movies or plays can inspire characters, but the whole story cannot be inspired by movies/ plays.",
-                    "Vulgarity is strictly prohibited and can lead to disqualification.",
-                    " Obscenity of any kind that is harmful to the interests or beliefs of specific but not limited to social, economic, religious, gender or political groups will lead to the disqualification of the team.",
-                    "The decision of the judging panel will be final and binding.",
-                    " Mention your college name, team name, and contact number along with submissions.",
-                    "Next proceedings : Top 5 or 10 groups based on participants will be selected for second round which will be an offline round."
-
-                ]									
-                
+                ]							
             },
             {
                 roundNumber: 2,
@@ -287,6 +276,9 @@ export const events = [
                     end: "March 22, 6:00 PM	"
                 },
                 roundDesc: [
+                    "The groups which are qualified for the 2nd round need to select slips by lottery in which different props will be provided by using those props they need to take a reel or short video or perform an property act ."
+                ],
+                roundRules: [
                     "2-3 hours of time will be given, participants have to submit the work within the time this will be a team participation round.",
                     " The video time should within 5 mins.",
                     "Time constraint : Group should submit the work with in the time .",
@@ -296,6 +288,18 @@ export const events = [
                     "Final winner will and decided by the judging committee."
                 ]
             }
+        ],
+        rules: [
+                "Short film should be with a length between 5 to 10 minutes.",
+                "The film should only be in 16:9 aspect ratio.",
+                " All languages accepted and subtitles are must and should be present in English",
+                "There is no limit on the number of characters.",
+                "The script of the play must be original. Movies or plays can inspire characters, but the whole story cannot be inspired by movies/ plays.",
+                "Vulgarity is strictly prohibited and can lead to disqualification.",
+                " Obscenity of any kind that is harmful to the interests or beliefs of specific but not limited to social, economic, religious, gender or political groups will lead to the disqualification of the team.",
+                "The decision of the judging panel will be final and binding.",
+                " Mention your college name, team name, and contact number along with submissions.",
+                "Next proceedings : Top 5 or 10 groups based on participants will be selected for second round which will be an offline round."
         ],
         type: "CULTURAL",
         pool: 15000,
@@ -319,6 +323,7 @@ export const events = [
             start: "March 8, 9:00 AM",
             end: "March 22, 6:00 PM	",
         },
+        qoute: "Build With Fun",
         rounds: [
             {
                 roundNumber: 1,
@@ -336,7 +341,7 @@ export const events = [
                     "Stage 1 questions would be based on Embedded systems and relavant topics .",
                     "Number of questions for stage 1 would be 30.",
                     "Would be conducted in Quizizz.",
-                    "Top 20 teams would be selected for stage 2 (offline).",
+                    "Top 20% teams would be selected for stage 2 (offline).",
                 ]									
                 
             },
@@ -357,7 +362,7 @@ export const events = [
                     "Candidates must bring their own laptops with charging cables and necessary accessories for the laptop.",
                     "Candidates must have their arduino cables and other mandatory accesories for hardware development.",
                     "Duration for stage 2 is tentatively 5 hours.",
-                    "10 teams would be selected after the filtering process in stage 2."
+                    "50% teams would be selected after the filtering process in stage 2."
                 ]
                 
             },
@@ -414,11 +419,15 @@ export const events = [
             start: "March 8, 11:58 PM",
             end: "March 22, 5:00 PM	",
         },
+        qoute: "Talk is cheap. Show me the code.",
         rounds: [
             {
                 roundNumber: 0,
+                name: "Quiz Round (on Unstop)",
                 type: "ONLINE",
-                
+                roundDesc: [
+                    "This will be an online quiz round! You will see the “Play” button here, once the round is live. Questions would be based on: Aptitude Reasoning (10), Computer Fundamentals (10), App DEV (5), Web DEV (5)."
+                ],
                 event: {
                     start : "March 22, 6:00 PM",
                     end: "March 23, 11:59 PM"
@@ -427,23 +436,43 @@ export const events = [
             },
             {
                 roundNumber: 1,
+                name: "Ideation Round (via Unstop)",
                 type: "OFFLINE",
                 event: {
                     start : "March 24, 5:00 PM",
                     end: "March 30, 5:00 PM	"
-                }
+                },
+                roundDesc: [
+                    "This will be a submission round! You will see the “Submit” button here, once the round is live. The Hackathon Themes would be released in this (Ideation) Round. We will release a PPT Template, which would have to be edited with the chosen theme and submitted right here. The shared PPT would have all the details the participants require to continue in HackFrenzy."
+                ]
     
             },
             {
                 roundNumber: 2,
+                name: "Hackathon Round @IIIT Sri City",
                 type: "OFFLINE",
                 event: {
-                    start : "April 7, 10:00 AM	",
-                    end: "April 8, 10:00 PM	"
+                    start : "April 7, 12:00 AM	",
+                    end: "April 8, 12:30 PM	"
                 },
+                roundDesc: [
+                    "This is the offline/in-person Finals, which will take place at Indian Institute of Information Technology, Sri City Campus."
+                ]
                 
             }
 
+        ],
+        rules: [
+            "Individual teams will comprise 3-5 members who can be from different colleges or different streams or both.",
+            "Participants selected for the next stage will be requested to come to the Indian Institute of Information Technology, Sri City campus and are required to stay on the campus for both April 7th and 8th.",
+            "Participants should bring their own laptop, hardware and software support to develop their ideas.",
+            "Participants must ensure that all materials, including software code, images and videos, used in their hackathon submission comply with all relevant intellectual property laws and are not plagiarised or copied.",
+            "The organizers will provide a workspace for all participants and necessary equipment such as power outlets and Wi-Fi.",
+            "Participants must submit their final project by the end of the hackathon.",
+            "All participants must adhere to the college's code of conduct and maintain a respectful and collaborative environment.",
+            "The organizers reserve the right to disqualify any team for inappropriate behaviour or violation of rules.",
+            "The final decision will be given by the judges and will be binding. ",
+            "Living Accommodation and Food Services would be provided to the teams, either free or at very nominal charges."
         ],
         type: "TECHNICAL",
         pool: 75000,
@@ -458,15 +487,19 @@ export const events = [
             start: "March 7, 9:00 PM ",
             end: "March 30, 12:00 PM ",
         },
+        qoute: "Talk is cheap. Show me what you can do.",
         rounds: [
             {
                 roundNumber: 1,
                 type: "OFFLINE",
                 
                 event: {
-                    start : "April 8 6:30 PM",
-                    end: "April 8, 9:30 PM	"
+                    start : "April 9, 5:00 PM",
+                    end: "April 9, 7:00 PM	"
                 },
+                roundDesc: [
+                    "A Theatre competition (skit) where participants compete with other teams on basis of essence of their act. participants are allowed to do any kind of drama or act on stage (suggested to bring their own props)."
+                ],
                 roundRules: [
                     "Vulgarity is strictly prohibited and can lead to disqualification.",
                     " Obscenity of any kind that is harmful to the interests or beliefs of specific but not limited to social, economic, religious, gender or political groups will lead to the disqualification of the team.",
@@ -483,6 +516,20 @@ export const events = [
                 
             }
             
+        ],
+        rules: [
+            "Vulgarity is strictly prohibited and can lead to disqualification.",
+            "Obscenity of any kind that is harmful to the interests or beliefs of specific but not limited to social, economic,  religious, gender or political groups will lead to the disqualification of the team.",
+            "The decision of the judging panel will be final and binding.",
+            "Duration: The act should not exceed from 7-15 minutes .",
+            "Theme flexibility: The theme of the act can be anything (but not offensive in terms of  discrimination, foul language is forbidden).",
+            "On-Stage: The judgement will be according to following criteria's:",
+            "Acting skills",
+            "Script writing",
+            "Dialogue delivery",
+            "Behaviour on stage",
+            "Living Accommodation and Food Services would be provided to the teams who are for offline rounds, either free or at very nominal charges.",
+            "Participants should upload the college id where the photo should be included in the id while registration."
         ],
         type: "CULTURAL",
         pool: 15000,
@@ -503,14 +550,16 @@ export const events = [
             start: "March 6th, 9:00 AM	",
             end: "March 31, 12:00 AM	",
         },
+        qoute: "Diplomacy, Debate, and Deliberation",
         rounds: [
             {
                 roundNumber: 1,
+                name: "Conference",
                 type: "ONLINE",
                 
                 event: {
-                    start : "6th April, 5:00 PM	",
-                    end: "April 7th, 6:00 PM"
+                    start : "April 7, 10:00 AM	",
+                    end: "April 8, 6:00 PM"
                 },
                 roundDesc:[
                     "Committee: Human Rights Council",
@@ -543,36 +592,46 @@ export const events = [
             start: "March 10, 9:00 AM",
             end: "March 25, 6:00 PM	",
         },
+        qoute: "Talk is cheap. Show me what you can do.",
         rounds: [
             {
                 roundNumber: 1,
                 type: "OFFLINE",
-                
+                name: "Pick You Poison",
                 event: {
-                    start : "April 8, 5:30 PM",
-                    end: "April 8th, 10:00 PM"
+                    start : "March 9, 6:00 PM",
+                    end: "March 28, 11:59 PM"
                 },
                 roundDesc: [
                     "Pick Your Poison; This is a non-theme group-dance competition where guest institutes would participate",
                 ],
                 roundRules: [
+                    "This is a non-theme group-dance competition where guest institutes are required to submit a video.The duration of the video should be of 3-7 mins. The video has to be in the size of 50MB.",
+                    "Team size: 5-15",
+                    "Duration should not exceed 7 min.",
+                    "The song should not contain any foul language.",
+                    "Only video compilation is allowed, No additional effects/editing.",
+                    "Plagarism will lead to disqualification.",
                     "Top teams will go to the next round  and the remaining teams will me eliminated ",
                     "Judges will decide how many people to eliminate from round 1 based on the registrations received ",
-                    "Team size: 7-15",
-                    "Duration should not exceed 7 min.",
-                    "Judgment will be based on dance moves, expressions, selection of the music piece, props and costumes"
+                    "Judgment will be based on dance moves, expressions, selection of the music piece, props and costumes",
+                    "Naming format: TeamName_collegeName_Abhisarga",
                 ]									
                 
             },
             {
                 roundNumber: 2,
                 type: "OFFLINE",
+                name: "Battle of the Beats",
                 event: {
                     start : "April 8, 5:30 AM",
                     end: "April 8, 10:00 PM	"
                 },
                 roundDesc: [
-                    " Battle of the Beats","This is a theme group-dance competition where the  selected teams will participate.",
+                    "Themes provided: Classical,Retro,Mass .Participants have to choose only one theme from the above mentioned themes."
+                ],
+                roundRules: [
+                    "This is a theme group-dance competition where the  selected teams will participate.",
                     "Themes provided:",
                     "Classical",
                     "Retro",
@@ -580,21 +639,22 @@ export const events = [
                     "Participants have to choose only one theme from the above mentioned themes.",
                     "Duration: 4 min - 7 min",
                     "The top 5 groups with highest marks will be allowed to advance to the next round"
-                ],
-                roundRules: [
-                    "Rules and Event Guidelines:Participants have to choose only one theme for this round "
                 ]									
                 
             },
             {
                 roundNumber: 3,
+                name: "Step-Up Showdown",
                 type: "OFFLINE",
                 event: {
                     start : "April 8, 5:30 PM",
                     end: "April 8th, 10:00 PM"
                 },
                 roundDesc: [
-                    "Step-Up Showdown","This is a theme group-dance competition where the  selected teams will participate",
+                    "Themes provided: Locking,Breaking, Whacking.Mentioned all three themes should be there in the performance.",
+                ],
+                roundRules: [
+                    "This is a theme group-dance competition where the selected teams will participate",
                     "Themes provided:",
                     "Locking",
                     "Breaking",
@@ -603,17 +663,17 @@ export const events = [
                     "Duration: 4 min - 7 min.",
                     "The group with highest marks will be declared as winners and the group with the next highest score will be declared as 1st runner up and the 2nd runner up.",
                     "Marks will be awarded based on the choreography, justification to the theme,costumes, coordination & involvement of the group."
-                ],
-                roundRules: [
-                    "Max of 3 teams from a single college can participate.",
-                    "The event comprises 3 rounds.",
-                    " Best will be taken on cumulative scores by the judge.",
-                    "Group name and institute name should be mentioned while registering.",
-                    "Three rounds are to be held in IIIT Sri City Campus on 8th of April 2023.",
-                    "In case of any unforeseen circumstances, the committee has the sole authority to make decisions."
                 ]									
                 
             }
+        ],
+        rules: [
+                "Max of 3 teams from a single college can participate.",
+                "The event comprises 3 rounds.",
+                " Best will be taken on cumulative scores by the judge.",
+                "Group name and institute name should be mentioned while registering.",
+                "Three rounds are to be held in IIIT Sri City Campus on 8th of April 2023.",
+                "In case of any unforeseen circumstances, the committee has the sole authority to make decisions."
         ],
         type: "CULTURAL",
         pool: 60000,
@@ -628,9 +688,11 @@ export const events = [
             start: "Started",
             end: "30 Mar 23, 12:00AM"
         },
+        qoute: "Talk is cheap. Show me the code.",
         rounds: [
             {
                 type: "ONLINE",
+                name: "Elektra: Round 1",
                 roundDesc: [
                     "This will be a coding contest on Unstop! You will see the “Code” button here, once the round is live."
                 ],
@@ -642,7 +704,10 @@ export const events = [
             },
             {
                 type: "OFFLINE",
-                roundDesc: ["This round will be conducted offline at the campus of IIIT Sri City as part our techno-cultural fest Abhisarga"],
+                name: "Final Round",
+                roundDesc: [
+                    "This round will be conducted offline at the campus of IIIT Sri City as part our techno-cultural fest Abhisarga"
+                ],
                 event: {
                     start: "09 Apr 23, 10:00",
                     end: "09 Apr 23, 01:00"
@@ -678,48 +743,115 @@ export const events = [
         This hackathon is open to all skill levels and backgrounds, so whether you are a seasoned programmer or a newcomer to the tech world, there is a place for you on our teams. Come with an open mind, a willingness to learn, and a passion for creating positive change.
         
         So, what are you waiting for? Register now and join us for an unforgettable hackathon experience that could change the course of your career!`,
+        registration: {
+            start: "March 10, 1:00PM",
+            end: "March 23, 12:00AM"
+        },
+        qoute: "Talk is cheap. Show me the code.",
+        rounds: [
+            {
+                roundNumber: 1,
+                type: "ONLINE",
+                name: "Quiz Round (Qualifiers)",
+                roundDesc: [
+                    "This will be a quiz round which will consist of questions about basic Machine Learning and related the Math. Let's see who can answer the most questions in the least time. The top 18 teams will qualify for the offline rounds."
+                ],
+                roundRules: [
+                    "Quiz Round will be conducted on Quizizz and the top 18 teams will qualify to attend the rest of the rounds online.",
+                    "There will be approximately 30 questions, which will test your basic Machine Learning skills.",
+                    "Duration: 1 hour",
+                ],
+                event: {
+                    start: "Mar 26, 10:00AM",
+                    end: "Mar 26, 11:30PM",
+                },
+                
+            },
+            {
+                roundNumber: 2,
+                type: "OFFLINE",
+                name: "Crack The Function",
+                roundDesc: [
+                    "Congratulations on qualifying the Quiz Round. In this round, teams will be given a set of independent variables and the resulting value when plugged into a random function. Your job is to find the function that is closest to the actual function."
+                ],
+                roundRules: [
+                    "The top 9 teams will move forward to the Final round.",
+                    "Duration: 3 hours"
+                ],
+                event: {
+                    start: "April 7, 11:00AM",
+                    end: "April 7, 02:00PM"
+                }
+            },
+            {
+                roundNumber: 3,
+                type: "OFFLINE",
+                name: "EmojiMania",
+                roundDesc: [
+                    "Welcome to the Final Round. You will be given a dataset hand made by us specifically for this round. Given a dataset of hand-drawn emojis, you will have to classify them correctly. Keep in mind that these images might be rotated, cropped or shifted. Let's see who handles this data the best."
+                ],
+                roundRules: [
+                    "The top 3 teams will be given prizes. Duration: 5 hours.",
+                ],
+                event: {
+                    start: "April 8, 10:00AM",
+                    end: "April 8, 04:00PM"
+                }
+            }
+        ],
         rules: [
-            "It will be conducted in the full screen mode of your browser. Switching tabs may leads to disqualification from the event.",
-            "Each question carriers 1 mark.",
-            "For each question, there will be a penalty of 0.25 for incorrect answers.",
-            "All decisions in the matter of eligibility, authenticity & final judgement will be with Unstop and the organizer."
+            "The questions in the Quiz Round will be prepared by a faculty and/or an external guest. There is no collusion with any party.",
+            "All judging criteria will be transparent and will be shown to all teams as a leaderboard table.",
+            "Any team that is found to be colluding or communicating with other teams during the course of any rounds will be disqualified.",
+            "There should not be any sharing of laptops or material with any other groups.",
+            "Accommodation and food will be provided to all the participants selected for the offline rounds."
         ],
         type: "TECHNICAL",
         pool: 75000,
         banner: mlBattlesBanner,
-        // link: ""
+        link: "https://unstop.com/hackathons/innovate-or-iterate-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-634554"
     },
     {
         name: "Camera ON",
         club: "F/Stops",
-        description: "",
+        description: `Join our Mix-Up Photography Contest! Take stunning panoramic, macro, and sunset photos as a team with your mobiles and win the grand prize!`,
+        registration: {
+            start: "March 10, 08:00AM",
+            end: "March 28, 12:00AM"
+        },
         rounds: [
             {
                 type: "ONLINE",
+                name: "Street Photography",
                 roundDesc : [
-                    "This is a team event where participants should take panorama pictures with a Mobile"
+                    "This is an online round based on street photography. Submit the pictures (through UnStop) according to the format: fstops_abhisarga2023_[your name]"
                 ],
                 event: {
-                    start: "7 Apr 23, 08:00AM",
-                    end: "7 Apr 23, 08:00PM",
+                    start: "March 29, 12:00AM",
+                    end: "March 31, 12:00AM",
                 },
-                registration: {
-                    start: "Not Started",
-                    end: "7 Apr 23, 08:00AM"
+               
+            },
+            {
+                type: "OFFLINE",
+                name: "Panorama Photography",
+                roundDesc: [
+                    "This is an offline round based on Panorama Photography (mobile only)"
+                ],
+                event: {
+                    start: "April 7, 04:00PM",
+                    end: "April 7, 05:30PM"
                 }
             },
             {
-                type: "ONLINE",
+                type: "OFFLINE",
+                name: "Macro and Sunset Photography",
                 roundDesc: [
-                    "This is an individual event based on macro, sunset photography"
+                    "This is an offline round based on Macro and Sunset photography (mobile only)"
                 ],
                 event: {
-                    start: "8 Apr 23, 08:00AM",
-                    end: "8 Apr 23, 08:00PM"
-                },
-                registration: {
-                    start: "Not Started",
-                    end: "7 Apr 23, 08:00AM"
+                    start: "April 8, 04:00PM",
+                    end: "April 8, 05:30PM"
                 }
             }
         ],
@@ -729,15 +861,71 @@ export const events = [
             "There should be no watermarks of any form on the image",
             "Post processing the image in any form is not allowed.",
             "Same photo should not be submitted by more than one contestant. If found contestants will be disqualified.",
-            "Pictures should be taken only within the event venue when the event is going on. No previously clicked images allowed"
+            "Pictures should be taken only within the event venue when the event is going on. No previously clicked images allowed",
+            "No previously clicked images are allowed.",
+            "The Photos are to be submitted to the members of the organization during the respective time slots in the respective rooms (mentioned on the website) (a trailing mail will be forwarded later regarding the submission)."
         ],
         type: "CULTURAL",
         pool: 40000,
-        banner: fStopsBanner
+        banner: fStopsBanner,
+        link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356"
     },
     {
-        name: "CULTURAL EVENT TEST",
-        type: "CULTURAL"
+        name: "Rhythm Riot - The Music Battle",
+        club: "Reverb",
+        description: `A competition where musical bands, consisting of multiple musicians playing various instruments and vocals, compete against each other to showcase their talents and win prizes.
+
+        This competition may feature different genres of music, and judges will evaluate the bands based on factors such as musicality, stage presence, and overall performance.
+        
+        Get ready to rock and roll! Join us for a music experience that will leave you grooving for days!`,
+        registration: {
+            start: "March 10, 08:00AM",
+            end: "March 31, 12:00AM"
+        },
+        rounds: [
+            {
+                type: "OFFLINE",
+                name: "Offline Round 1",
+                event: {
+                    start: "April 7, 06:00PM",
+                    end: "April 7, 10:00PM"
+                },
+                roundRules: [
+                    "Single 5-8 minutes performance from each band",
+                    "Top 6 bands will be selected for the next round",
+                    "Round 1 is just a qualification round. Scores from round 1 will not be taken for consideration in final round"
+                ]
+            },
+            {
+                type: "OFFLINE",
+                name: "Offline Round 2",
+                event: {
+                    start: "April 9, 07:00PM",
+                    end: "April 9, 08:00PM"
+                },
+                roundRules: [
+                    "Single 5-8 minutes performance from each band.",
+                    "Teams selected for final round will get a day for preparation.",
+                    "Top 6 bands will compete for the winner title and a grand cash prize"
+                ]
+            }
+        ],
+        rules: [
+            "The event will be held offline at our campus.",
+            "Inter-college teams are not allowed.",
+            "A band can have any number of vocalist, instrumentalist, beatboxers,etc",
+            "You can bring your own Instruments as well as use our instruments(Instrument list will be given below).",
+            "Any genre/language is allowed.",
+            "No track/karaoke is allowed.",
+            "Teams are advised to prepare for both rounds.",
+            "Judges' decision is final and binding.",
+            "If any team is found guilty of malpractice, they would be ruled out of the contest.",
+            "Living Accommodation and Food Services would be provided to the teams who qualify for offline rounds, either free or at very nominal charges."
+        ],
+        type: "CULTURAL",
+        pool: 40000,
+        banner: fStopsBanner,
+        link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356"
     },
     {
         name: "TECHNICAL EVENT TEST",
@@ -774,6 +962,7 @@ export interface Event {
     banner?: string
     pool?: number
     link?: string
+    qoute?: string
     registration?: Timings
     getUrl?: (color: string) => string
 }

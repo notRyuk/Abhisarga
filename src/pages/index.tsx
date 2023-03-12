@@ -600,7 +600,7 @@ function App() {
                     <Modal
                       color={colors[0]}
                       // event={culturalEvents[culturalCounter++]}
-                      event={culturalEvent}
+                      event={culturalEvents[culturalCounter++]}
                       style={{ height: 385, width: 600 }}
                     />
                     <Modal
