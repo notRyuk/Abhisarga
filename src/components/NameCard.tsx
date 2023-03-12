@@ -121,7 +121,7 @@ const NameCard = ({ event, color }: Props) => {
               letterSpacing: "1.3px"
             }}
           >
-            "Talk is cheap. Show me the code."
+            {event.qoute ||"Talk is cheap. Show me the code."}
           </p>
           {event.description && <hr 
             style={{
