@@ -76,10 +76,12 @@ const technicalEvent: Event = {
   club: "Abhisarga IIIT Sri City"
 };
 
+const technicalEvents = shuffle(tEvents);
+const culturalEvents = shuffle(cEvents);
 function App() {
+  const colors = shuffle(defaultColors);
   const navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState<Session|null>()
-
   
   useEffect(() => {
     setCurrentUser(JSON.parse(localStorage.getItem("session")))
@@ -96,10 +98,7 @@ function App() {
     setCurrentUser(null)
   }
 
-  const colors = shuffle(defaultColors);
-  const technicalEvents = shuffle(tEvents);
   var technicalCounter = 0;
-  const culturalEvents = shuffle(cEvents);
   var culturalCounter = 0;
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
