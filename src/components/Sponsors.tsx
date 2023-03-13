@@ -13,6 +13,9 @@ const Sponsors = ({ sx, color }: Props) => {
         <p className={styles.heading} style={{ color }}>
             SPONSORS
         </p>
+        <p className={styles.heading} style={{ color }}>
+          (COMING SOON)
+        </p>
     </div>
   )
 }

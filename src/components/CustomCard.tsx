@@ -93,12 +93,13 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                 onClick={handleOpen}
             >
                 <img
-                    src={event.banner || "https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
+                    src={event.banner || "https://thumbs.dreamstime.com/b/coming-soon-glowing-purple-violet-neon-text-brick-wall-204111095.jpg"}
                     alt="SOM"
                     style={{
                         marginTop: "1rem",
                         border: `6px solid white`,
                         width: "90%",
+                        maxHeight: "220px",
                         borderTopLeftRadius: !reverse?"1.2rem":0,
                         borderTopRightRadius: !reverse?"1.2rem":0,
                         borderBottomLeftRadius: reverse?"1.2rem":0,

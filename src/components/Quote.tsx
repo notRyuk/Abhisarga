@@ -20,7 +20,7 @@ const Quote = ({ className, sx }: Props) => {
       </div>
       <div className={styles.text}>
         <p>
-          "SOME QUOTE HERE"
+          "Try, try, but don't cry. One day you will touch the sky"
         </p>
       </div>
     </div>

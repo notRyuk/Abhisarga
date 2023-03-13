@@ -1,39 +1,32 @@
 import React from 'react';
 import { alpha } from '@mui/material';
 import ComputerIcon from '@mui/icons-material/Computer';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from '../styles/eventCard.module.css'
-import { Event } from '../helper';
 
-interface Props {
-  event: Event
-  color?: string
-}
-
-const NameCard = ({ event, color }: Props) => {
+const NameCard = () => {
   return (
     <>
-      <div 
-        style={{ 
-          backgroundColor: color,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "80%",
-          padding: "3%",
-          paddingTop: "1%",
-          paddingBottom: "2%",
-          borderRadius: "15px",
-          color: "white",
-          maxWidth: "700px",
-          minWidth: "340px",
-          marginTop: window.innerWidth < 900 ? "110px" : "30px"
-        }}
+    <div 
+      style={{ 
+        backgroundColor: "#CA7CD8",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "80%",
+        padding: "3%",
+        paddingTop: "1%",
+        paddingBottom: "2%",
+        borderRadius: "15px",
+        color: "white",
+        maxWidth: "700px",
+        minWidth: "340px"
+      }}
       >
         <div
           style={{
@@ -47,11 +40,11 @@ const NameCard = ({ event, color }: Props) => {
             style={{
               textAlign: "center",
               fontSize: "1.5rem",
-              border: `5px solid ${color}`,
+              border: "5px solid #CA7CD8",
               borderRadius: "10px",
               padding: "8px",
               backgroundColor: "white",
-              color: color
+              color: "#CA7CD8"
             }}
           >
             T01
@@ -60,29 +53,33 @@ const NameCard = ({ event, color }: Props) => {
             style={{
               textAlign: "center",
               fontSize: "1.5rem",
-              border: `5px solid ${color}`,
+              border: "5px solid #CA7CD8",
               borderRadius: "10px",
               padding: "8px",
               backgroundColor: "white",
-              color: color,
-              alignItems: "center"
+              color: "#CA7CD8"
             }}
           >
-            <CurrencyRupeeIcon 
+            <ComputerIcon 
               fontSize='medium'
             />
-            {" "}{event.pool}
           </div>
         </div>
+        
         <p style={{
           marginTop: "-1%",
           fontSize: "2.5rem",
           fontWeight: "600",
           letterSpacing: "2px",
-          fontFamily: "NimbusSansExtended"
         }}>
-          {event.name || ""}
+            IIITS HACKATHON
         </p>
+        {/* <ComputerIcon 
+          sx={{
+            marginTop: "-1%",
+            scale: "3"
+          }}
+        /> */}
         <hr 
           style={{
             color: "white",
@@ -92,7 +89,7 @@ const NameCard = ({ event, color }: Props) => {
           }} 
         />
         <img 
-          src={event.banner || 'https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png'}
+          src='https://thumbs.dreamstime.com/b/coming-soon-glowing-purple-violet-neon-text-brick-wall-204111095.jpg'
           alt='hackathon'
           width={'90%'}
           style={{
@@ -101,7 +98,7 @@ const NameCard = ({ event, color }: Props) => {
             marginTop: "10px",
             border: "5px solid white"
           }}
-        />
+        ></img>
         <div 
           style={{
             width: "90%",
@@ -121,181 +118,194 @@ const NameCard = ({ event, color }: Props) => {
               letterSpacing: "1.3px"
             }}
           >
-            {event.qoute ||"Talk is cheap. Show me the code."}
+              "Talk is cheap. Show me the code."
           </p>
-          {event.description && <hr 
+            <hr 
             style={{
               color: "white",
               marginTop: "3%",
               width: "100%",
               border: "1px dotted",
             }} 
-          />}
-          {event.description || ""}
-          {event.registration && (
-            <>
-              <hr
-                style={{
-                  color: "white",
-                  // marginTop: "3%",
-                  width: "100%",
-                  border: "1px dotted",
-                }} 
-              />
-              <ul style={{listStyle: "none", fontSize: 18}}>
-                <li style={{textAlign: "start"}}>Registration starts from {event.registration.start}</li>
-                <li style={{textAlign: "start"}}>Registration end on {event.registration.end}</li>
-              </ul>
-              <hr
-                style={{
-                  color: "white",
-                  // marginTop: "3%",
-                  width: "100%",
-                  border: "1px dotted",
-                }} 
-              />
-            </>
-          )}
+          />
+          Participate in this 48 hour hackathon based on the one of 10 themes! You can participate as a team or as an individual.
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            minWidth: "320px",
+            color: "white",
+          }}
+          className={styles.flex}
+        >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "1rem",
-              paddingTop: "2rem"
+              // justifyContent: "center",
+              backgroundColor: alpha("#CA7CD8", 0.5),
+              // padding: "5px 5px 5px 5px",
+              textAlign: "center",
+              borderRadius: "10px",
+              minWidth: "140px",
+              fontFamily: "ArcadeClassic",
+              fontSize: "1.2rem",
+              border: "4px solid white",
+              paddingBottom: "1rem"
             }}
           >
-            {event.rounds?.map((round, i) => (
-              <div
-                style={{
-                  border: "4px solid white",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  borderRadius: "5px"
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0 2rem",
-                    fontSize: "15px"
-                  }}
-                >
-                  <h2>Round {round.roundNumber || i} - {round.name}</h2>
-                  <p style={{backgroundColor: "white", color: color, borderRadius: "2px", padding: 2}}>{round.type || "OFFLINE"}</p>
-                </div>
-                {round.roundDesc && (
-                  <>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        padding: "0 2rem",
-                        fontSize: "15px",
-                        textAlign: "start"
-                      }}
-                    >
-                      <p>{round.roundDesc?.join("\t")}</p>
-                    </div>
-                  </>
-                )}
-                {round.roundRules && (
-                  <>
-                    <hr
-                      style={{
-                        color: "white",
-                        width: "100%",
-                        border: "1px dotted",
-                      }} 
-                    />
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "0 3px",
-                        fontSize: "15px",
-                        flexDirection: "column",
-                        textAlign: "start"
-                      }}
-                    >
-                      <p style={{textAlign: "start", fontSize: 25}}>Rules</p>
-                      <ul style={{fontSize: 18}}>
-                        {round.roundRules?.map((e, k) => (
-                          <li style={{textAlign: "start"}} key={k}>{e}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                )}
-                {round.event && (
-                  <>
-                    <hr
-                      style={{
-                        color: "white",
-                        // marginTop: "3%",
-                        width: "100%",
-                        border: "1px dotted",
-                      }} 
-                    />
-                    <ul style={{listStyle: "none", fontSize: 18}}>
-                      <li style={{textAlign: "start"}}>Event starts from {round.event.start}</li>
-                      <li style={{textAlign: "start"}}>Event end on {round.event.end}</li>
-                    </ul>
-                  </>
-                )}
-              </div>
-            ))}
+            <p
+              style={{
+                marginBottom: "15px"
+              }}
+            >
+              TIMINGS
+            </p>
+            07/04/2023 - 09/04/2023
           </div>
-          {event.rules && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              backgroundColor: alpha("#CA7CD8", 0.5),
+              textAlign: "center",
+              borderRadius: "10px",
+              minWidth: "140px",
+              fontSize: "1.2rem",
+              border: "4px solid white",
+            }}
+          >
+            <p
+              style={{
+                marginBottom: "-5px"
+              }}
+            >
+              PRIZES
+            </p>
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                paddingTop: "2rem"
+                flexDirection: "row",
+                textAlign: "center",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "ArcadeClassic",
+                gap: "0.2rem",
+                
               }}
-            >
-              <hr
-                style={{
-                  color: "white",
-                  width: "100%",
-                  border: "1px solid",
-                }} 
-              />
-              <h2 style={{ fontFamily: "NimbusSansExtended"}}>Rules</h2>
-              <ul style={{fontSize: 18}}>
-                {event.rules?.map((e, i) => (
-                  <li style={{textAlign: "start"}} key={i}>{e}</li>
-                ))}
-              </ul>
+            >   
+                <p
+                  style={{
+                    // marginTop: "-3px",,
+                    fontFamily: "ArcadeClassic"
+                    // lineHeight: "15px"
+                  }}
+                >
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "gold"
+                    }}
+                  /> 1L
+                </p>
+                <p
+                  style={{
+                    // marginTop: "-8px",,
+                    fontFamily: "ArcadeClassic"
+                    
+                    // lineHeight: "18px"
+                  }}
+                >
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "silver"
+                    }}
+                   /> 50k
+                </p>
+                <p
+                  style={{
+                    // marginTop: "-7px",
+                    fontFamily: "ArcadeClassic"
+                    // lineHeight: "15px"
+                  }}
+                >
+                  <EmojiEventsIcon
+                    sx={{
+                      color: "#BE7023"
+                    }}
+                   /> 20k
+                </p>
             </div>
-          )}
-          {event.link && (
-            <a href={event.link}>
-              <button 
-                style={{
-                  textAlign: "center",
-                  fontSize: "1.5rem",
-                  border: `5px solid ${color}`,
-                  borderRadius: "10px",
-                  padding: "8px",
-                  backgroundColor: "white",
-                  color: color,
-                  cursor: "pointer"
-                }}
-              >
-                Register
-              </button>
-            </a>
-          )}
+          </div>
         </div>
-      </div>
-    </>
+        </div>
+        {/* <marquee bgcolor = "green" direction = 'left' loop='' scrolldelay='2' >
+              <p>hello hello</p>
+              <p>hello hello</p>
+        </marquee> */}
+        {/* <Marquee pauseOnHover>
+          <div
+            style={{
+              
+            }}
+          >
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ex qui soluta, error nostrum eveniet quidem molestiae ut deleniti enim.</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+          <div>
+            <p>Hello bwdbwdb</p>
+          </div>
+        </Marquee> */}
+        <Accordion
+          sx={{
+            width: "80%",
+            maxWidth: "780px",
+            minWidth: "340px",
+            marginTop: "1rem",
+            borderRadius: "10px",
+            bgcolor: "#CA7CD8",
+            border: "5px solid white"
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            sx={{
+              borderRadius: "20px",
+              height: "3rem",
+              color: "white",
+              fontSize: "1.5rem"
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "ArcadeClassic",
+                fontSize: "2rem"
+              }}
+            >RULES</p>
+          </AccordionSummary>
+          <AccordionDetails
+            sx={{
+              color: "white"
+            }}
+          >
+            <ul>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum sit unde odio, inventore soluta sequi error itaque cumque cupiditate eius!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum sit unde odio, inventore soluta sequi error itaque cumque cupiditate eius!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum sit unde odio, inventore soluta sequi error itaque cumque cupiditate eius!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum sit unde odio, inventore soluta sequi error itaque cumque cupiditate eius!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum sit unde odio, inventore soluta sequi error itaque cumque cupiditate eius!</li>
+            </ul>
+          </AccordionDetails>
+      </Accordion>
+      </>
   )
 }
 
