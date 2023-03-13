@@ -53,6 +53,16 @@ const index = () => {
         setNav(nav === "0px" ? "100vw" : "0px")
     }
 
+    useEffect(() => {
+        const element = document.getElementsByClassName(styles.main)[0];
+        const view = document.defaultView;
+        window.addEventListener("load", () => {
+        view.scrollTo({
+            top: 0,
+            })
+        });
+      }, []);
+
 
     return (
         <div

@@ -20,6 +20,7 @@ interface Props {
   color: string;
   user: Session|null
   setUser: Dispatch<SetStateAction<Session>>
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
 interface User {
@@ -32,7 +33,7 @@ interface User {
   address?: string;
 }
 
-const AuthCard = ({ sx, style, image, color, user, setUser }: Props) => {
+const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) => {
   const modalStyle = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -57,12 +58,17 @@ const AuthCard = ({ sx, style, image, color, user, setUser }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [heading, setHeading] = useState<string>("LOGIN");
   const [page, setPage] = useState<Number>(1);
-  const handleOpen = () => setOpen(true);
-  const handleClose = (event: any, reason?: string) => {
-    setPage(1);
-    if (reason && reason == "backdropClick") return;
-    setOpen(false);
-  };
+
+  const handleOpen = () => {
+    setOpen(true) 
+    setIsOpen(true)
+  }
+  const handleClose = (_: any, reason?: string) => {
+      if (reason && reason === "backdropClick")
+          return
+      setOpen(false)
+      setIsOpen(false)
+  }
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

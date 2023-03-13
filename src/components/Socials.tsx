@@ -1,5 +1,6 @@
 import React from 'react'
 import { Instagram, Twitter, LinkedIn, YouTube } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
 
 const Socials = () => {
   return (
@@ -19,46 +20,86 @@ const Socials = () => {
         backgroundColor: "white"
       }}
     >
-      <Instagram 
-        fontSize={'large'} 
-        sx={{ 
-          fontSize: "4.5rem",
-          "&:hover": {
-            scale: 1.02,
-            cursor: "pointer"
-          }
-        }} 
-      />
-      <Twitter 
-        fontSize={'large'} 
-        sx={{ 
-          fontSize: "4.5rem",
-          "&:hover": {
-            scale: 1.02,
-            cursor: "pointer"
-          } 
-        }} 
-      />
-      <LinkedIn 
-        fontSize={'large'} 
-        sx={{ 
-          fontSize: "4.5rem",
-          "&:hover": {
-            scale: 1.02,
-            cursor: "pointer"
-          }
+      <IconButton
+        style={{
+          padding: "0",
+          margin: "0",
+          color: "black"
         }}  
-      />
-      <YouTube 
-        fontSize={'large'} 
-        sx={{ 
-          fontSize: "4.5rem",
-          "&:hover": {
-            scale: 1.02,
-            cursor: "pointer"
-          }
-        }} 
-      />
+        href='https://www.instagram.com/abhisarga/?hl=en'
+        target={'_blank'}
+      >
+        <Instagram
+          fontSize={'large'} 
+          sx={{ 
+            fontSize: "4.5rem",
+            "&:hover": {
+              scale: 1.02,
+              cursor: "pointer"
+            }
+          }} 
+        />
+      </IconButton>
+      <IconButton
+        style={{
+          padding: "0",
+          margin: "0",
+          color: "black"
+        }}  
+        href='https://twitter.com/IIITSC'
+        target='_blank'
+      >
+        <Twitter
+          fontSize={'large'} 
+          sx={{ 
+            fontSize: "4.5rem",
+            "&:hover": {
+              scale: 1.02,
+              cursor: "pointer"
+            }
+          }} 
+        />
+      </IconButton>
+      <IconButton
+        style={{
+          padding: "0",
+          margin: "0",
+          color: "black"
+        }}  
+        href='https://www.linkedin.com/school/indian-institute-of-information-technology-sricity/?originalSubdomain=in'
+        target='_blank'
+      >
+        <LinkedIn
+          fontSize={'large'} 
+          sx={{ 
+            fontSize: "4.5rem",
+            "&:hover": {
+              scale: 1.02,
+              cursor: "pointer"
+            }
+          }} 
+        />
+      </IconButton>
+      <IconButton
+        style={{
+          padding: "0",
+          margin: "0",
+          color: "black"
+        }}  
+        href='https://www.youtube.com/@iiitsricity-abhisarga6830'
+        target={'_blank'}
+      >
+        <YouTube
+          fontSize={'large'} 
+          sx={{ 
+            fontSize: "4.5rem",
+            "&:hover": {
+              scale: 1.02,
+              cursor: "pointer"
+            }
+          }} 
+        />
+      </IconButton>
     </div>
   )
 }

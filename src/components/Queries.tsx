@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties, ChangeEvent } from "react";
+import React, { useState, CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
 import styles from "../styles/query.module.css";
 import {
   Card,
@@ -25,6 +25,7 @@ interface Props {
   color: string;
   vertical?: boolean;
   email: string;
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
 const StyledBox = styled(Box)({
@@ -54,12 +55,16 @@ interface Query {
   description: string
 }
 
-const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
+const Queries = ({ style, sx, image, color, vertical, email, setIsOpen }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true)
+    setIsOpen(true)
+  } ;
   const handleClose = (_: any, reason?: string) => {
     if (reason && reason == "backdropClick") return;
     setOpen(false);
+    setIsOpen(false)
   };
   const [buttonText, setButtonText] = useState<string>("SEND QUERY")
 
@@ -199,41 +204,41 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                     onChange={handleChangeFormData}
                     id="outlined-basic"
                   />
-                  <p style={{ marginBottom: "5px" }}>QUERY TITLE</p>
-                  <input
-                    style={{
-                      height: "40px",
-                      paddingLeft: "5px",
-                      fontSize: "18px",
-                      paddingRight: "5px",
-                      border: "solid black",
-                      borderWidth: "3px 6px 6px 3px",
-                      borderRadius: "2px",
-                    }}
-                    type="text"
-                    name="title"
-                    onChange={handleChangeFormData}
-                    id="outlined-basic"
-                  />
-                  <p style={{ marginBottom: "5px" }}>QUERY DESCRIPTION</p>
-                  <textarea
-                    style={{
-                      height: "100px",
-                      paddingLeft: "5px",
-                      fontSize: "18px",
-                      paddingRight: "5px",
-                      border: "solid black",
-                      borderWidth: "3px 6px 6px 3px",
-                      borderRadius: "2px",
-                    }}
-                    id="outlined-basic"
-                    name="description"
-                    onChange={handleChangeFormData}
-                    rows={5}
-                    maxLength={150}
-                  />
                 </>
               )}
+              <p style={{ marginBottom: "5px" }}>QUERY TITLE</p>
+              <input
+                style={{
+                  height: "40px",
+                  paddingLeft: "5px",
+                  fontSize: "18px",
+                  paddingRight: "5px",
+                  border: "solid black",
+                  borderWidth: "3px 6px 6px 3px",
+                  borderRadius: "2px",
+                }}
+                type="text"
+                name="title"
+                onChange={handleChangeFormData}
+                id="outlined-basic"
+              />
+              <p style={{ marginBottom: "5px" }}>QUERY DESCRIPTION</p>
+              <textarea
+                style={{
+                  height: "100px",
+                  paddingLeft: "5px",
+                  fontSize: "18px",
+                  paddingRight: "5px",
+                  border: "solid black",
+                  borderWidth: "3px 6px 6px 3px",
+                  borderRadius: "2px",
+                }}
+                id="outlined-basic"
+                name="description"
+                onChange={handleChangeFormData}
+                rows={5}
+                maxLength={150}
+              />
             </div>
             <Button
               variant="contained"

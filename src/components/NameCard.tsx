@@ -121,7 +121,7 @@ const NameCard = ({ event, color }: Props) => {
               letterSpacing: "1.3px"
             }}
           >
-            "Talk is cheap. Show me the code."
+            {event.qoute ||"Talk is cheap. Show me the code."}
           </p>
           {event.description && <hr 
             style={{
@@ -183,7 +183,7 @@ const NameCard = ({ event, color }: Props) => {
                     fontSize: "15px"
                   }}
                 >
-                  <h2>Round {round.roundNumber || i}</h2>
+                  <h2>Round {round.roundNumber || i} - {round.name}</h2>
                   <p style={{backgroundColor: "white", color: color, borderRadius: "2px", padding: 2}}>{round.type || "OFFLINE"}</p>
                 </div>
                 {round.roundDesc && (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { 
     Card, 
     SxProps, 
@@ -53,17 +53,22 @@ interface Props {
     color: string
     event: Event
     vertical?: boolean
+    setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function CustomCard({ style, image, color, event, vertical }: Props) {
+export default function CustomCard({ style, image, color, event, vertical, setIsOpen }: Props) {
     const navigate = useNavigate()
     const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        setOpen(true) 
+        setIsOpen(true)
+    }
     const handleClose = (_: any, reason?: string) => {
         if (reason && reason === "backdropClick")
             return
         setOpen(false)
+        setIsOpen(false)
     }
 
     const icons = [
@@ -93,12 +98,13 @@ export default function CustomCard({ style, image, color, event, vertical }: Pro
                 onClick={handleOpen}
             >
                 <img
-                    src={event.banner || "https://edison365.com/wp-content/uploads/2022/03/How-do-hackathons-work.png"}
+                    src={event.banner || "https://thumbs.dreamstime.com/b/coming-soon-glowing-purple-violet-neon-text-brick-wall-204111095.jpg"}
                     alt="SOM"
                     style={{
                         marginTop: "1rem",
                         border: `6px solid white`,
                         width: "90%",
+                        maxHeight: "220px",
                         borderTopLeftRadius: !reverse?"1.2rem":0,
                         borderTopRightRadius: !reverse?"1.2rem":0,
                         borderBottomLeftRadius: reverse?"1.2rem":0,
