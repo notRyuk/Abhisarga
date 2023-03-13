@@ -199,41 +199,41 @@ const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
                     onChange={handleChangeFormData}
                     id="outlined-basic"
                   />
-                  <p style={{ marginBottom: "5px" }}>QUERY TITLE</p>
-                  <input
-                    style={{
-                      height: "40px",
-                      paddingLeft: "5px",
-                      fontSize: "18px",
-                      paddingRight: "5px",
-                      border: "solid black",
-                      borderWidth: "3px 6px 6px 3px",
-                      borderRadius: "2px",
-                    }}
-                    type="text"
-                    name="title"
-                    onChange={handleChangeFormData}
-                    id="outlined-basic"
-                  />
-                  <p style={{ marginBottom: "5px" }}>QUERY DESCRIPTION</p>
-                  <textarea
-                    style={{
-                      height: "100px",
-                      paddingLeft: "5px",
-                      fontSize: "18px",
-                      paddingRight: "5px",
-                      border: "solid black",
-                      borderWidth: "3px 6px 6px 3px",
-                      borderRadius: "2px",
-                    }}
-                    id="outlined-basic"
-                    name="description"
-                    onChange={handleChangeFormData}
-                    rows={5}
-                    maxLength={150}
-                  />
                 </>
               )}
+              <p style={{ marginBottom: "5px" }}>QUERY TITLE</p>
+              <input
+                style={{
+                  height: "40px",
+                  paddingLeft: "5px",
+                  fontSize: "18px",
+                  paddingRight: "5px",
+                  border: "solid black",
+                  borderWidth: "3px 6px 6px 3px",
+                  borderRadius: "2px",
+                }}
+                type="text"
+                name="title"
+                onChange={handleChangeFormData}
+                id="outlined-basic"
+              />
+              <p style={{ marginBottom: "5px" }}>QUERY DESCRIPTION</p>
+              <textarea
+                style={{
+                  height: "100px",
+                  paddingLeft: "5px",
+                  fontSize: "18px",
+                  paddingRight: "5px",
+                  border: "solid black",
+                  borderWidth: "3px 6px 6px 3px",
+                  borderRadius: "2px",
+                }}
+                id="outlined-basic"
+                name="description"
+                onChange={handleChangeFormData}
+                rows={5}
+                maxLength={150}
+              />
             </div>
             <Button
               variant="contained"

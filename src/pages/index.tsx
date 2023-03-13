@@ -79,6 +79,8 @@ const technicalEvent: Event = {
 function App() {
   const navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState<Session|null>()
+
+  
   useEffect(() => {
     setCurrentUser(JSON.parse(localStorage.getItem("session")))
     if(currentUser && currentUser.timestamp) {
@@ -99,64 +101,53 @@ function App() {
   var technicalCounter = 0;
   const culturalEvents = shuffle(cEvents);
   var culturalCounter = 0;
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [nav, setNav] = useState<string>("0px");
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
+  const [email, setEmail] = useState<string>("")
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  
   setTimeout(() => setIsLoading(false), 10000);
+  
   const [width, setWidth] = useState<number>(window.innerWidth);
+  useEffect(() => {
+    const session = (JSON.parse(localStorage.getItem("session")) as Session) 
+    setEmail(session ? session.username : "")
+    if (email.length > 0) {
+      setIsLoggedIn(true)
+    }
+  }, [email])
+
   useEffect(() => {
     setWidth(window.innerWidth);
   }, [window.innerWidth]);
+
   useEffect(() => {
     const element = document.getElementsByClassName(styles.main)[0];
     const view = document.defaultView;
     window.addEventListener("load", () => {
-      width < 750 ? 
-      width < 650 ? 
-      width <= 600 ?
-      width <=400 ? 
-      view.scrollTo({
+      width < 750 ? (width < 650 ? (width <= 600 ? (width <=400 ? view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2 + 500,
         top: (element.clientHeight - view.innerHeight) / 2 + 600,
-      })
-      : 
-      view.scrollTo({
+      }): view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2 + 330,
         top: (element.clientHeight - view.innerHeight) / 2 + 450,
-      })
-      :
-      view.scrollTo({
+      })): view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2 + 30,
         top: (element.clientHeight - view.innerHeight) / 2 + 200,
-      })
-      :
-      view.scrollTo({
+      })): view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2 - 170,
         top: (element.clientHeight - view.innerHeight) / 2 - 100,
-      })
-      :
-      view.scrollTo({
+      })): view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2,
         top: (element.clientHeight - view.innerHeight) / 2,
       });
     });
-    // view.scrollTo({
-    //   left: (element.clientWidth - view.innerWidth) / 2,
-    //   top: (element.clientHeight - view.innerHeight) / 2,
-    // });
   }, []);
 
-
   useEffect(() => {
-    let _startX = 0,
-      _startY = 0,
-      _scrollTop = 0,
-      _scrollLeft = 0;
-
-    document.onmousedown = OnMouseDown;
-    document.onmouseup = OnMouseUp;
-
+    let _startX = 0, _startY = 0, _scrollTop = 0, _scrollLeft = 0;
     function OnMouseDown(event) {
       document.onmousemove = OnMouseMove;
       _startX = event.clientX;
@@ -164,18 +155,24 @@ function App() {
       _scrollTop = document.documentElement.scrollTop;
       _scrollLeft = document.documentElement.scrollLeft;
     }
-
     function OnMouseMove(event) {
       window.scrollTo({
         left: _scrollLeft + (_startX - event.clientX),
         top: _scrollTop + (_startY - event.clientY),
       });
     }
-
     function OnMouseUp() {
       document.onmousemove = null;
     }
-  }, []);
+    if(!isOpen) {
+      document.onmousedown = OnMouseDown;
+      document.onmouseup = OnMouseUp;
+    }
+    else {
+      document.onmousedown = null
+      document.onmouseup = null
+    }
+  }, [isOpen]);
 
   return (
     <div
@@ -529,7 +526,7 @@ function App() {
                   // className={styles.minimap}
                 />
               </div>
-              {isLoggedIn && (
+              {isLoggedIn ? (
                 <button
                   style={{
                     display: "flex",
@@ -565,7 +562,7 @@ function App() {
                     LOGOUT
                   </span>
                 </button>
-              )}
+              ): ""}
             </div>
           </div>
         </div>
@@ -585,12 +582,14 @@ function App() {
             color={colors[0]}
             event={culturalEvents[culturalCounter++]}
             vertical={true}
+            setIsOpen={setIsOpen}
           />
           <Modal
             color={colors[0]}
             event={culturalEvents[culturalCounter++]}
             style={{ height: 385, marginTop: "5px" }}
             vertical={true}
+            setIsOpen={setIsOpen}
           />
           <Quote
             className={`${styles.modal} ${styles.reg_card}`}
@@ -607,12 +606,14 @@ function App() {
             event={culturalEvents[culturalCounter++]}
             style={{ height: 385, marginTop: "12px" }}
             vertical={true}
+            setIsOpen={setIsOpen}
           />
           <Modal
             color={colors[0]}
             event={culturalEvents[culturalCounter++]}
             style={{ height: 385 }}
             vertical={true}
+            setIsOpen={setIsOpen}
           />
         </div>
         <div className={styles.gridCenterMain}>
@@ -633,11 +634,13 @@ function App() {
                       // event={culturalEvents[culturalCounter++]}
                       event={culturalEvents[culturalCounter++]}
                       style={{ height: 385, width: 600 }}
+                      setIsOpen={setIsOpen}
                     />
                     <Modal
                       color={colors[2]}
                       event={accommodationEvent}
                       style={{ height: 385, width: 600 }}
+                      setIsOpen={setIsOpen}
                     />
                   </div>
                 </div>
@@ -662,6 +665,7 @@ function App() {
                 color={colors[0]}
                 event={culturalEvents[culturalCounter++]}
                 style={{ height: 385 }}
+                setIsOpen={setIsOpen}
               />
               <div className={styles.nav}>
                 <div className={styles.navtop}>
@@ -682,6 +686,7 @@ function App() {
                   marginTop: "-7rem",
                   marginRight: "1rem",
                 }}
+                setIsOpen={setIsOpen}
               />
               <div className={styles.team}>
                 <Members
@@ -714,11 +719,13 @@ function App() {
                 color={colors[1]}
                 event={technicalEvents[technicalCounter++]}
                 style={{ height: 385 }}
+                setIsOpen={setIsOpen}
               />
               <Modal
                 color={colors[1]}
                 event={technicalEvents[technicalCounter++]}
                 style={{ height: 385, marginTop: "-3rem" }}
+                setIsOpen={setIsOpen}
               />
             </div>
             <div className={styles.topRight}>
@@ -731,6 +738,7 @@ function App() {
                     height: 400,
                     marginLeft: "-.5rem",
                   }}
+                  setIsOpen={setIsOpen}
                 />
                 <Modal
                   color={colors[1]}
@@ -739,6 +747,7 @@ function App() {
                     height: 400,
                     marginLeft: ".5rem",
                   }}
+                  setIsOpen={setIsOpen}
                 />
               </div>
               <Fun
@@ -784,11 +793,13 @@ function App() {
                   color={colors[2]}
                   event={workshopEvent}
                   style={{ height: 385, marginLeft: "-.5rem" }}
+                  setIsOpen={setIsOpen}
                 />
                 <Modal
                   color={colors[1]}
                   event={technicalEvents[technicalCounter++]}
                   style={{ height: 385, marginLeft: "-2rem" }}
+                  setIsOpen={setIsOpen}
                 />
               </div>
               <div className={styles.bottomRightBottom}>
@@ -808,6 +819,7 @@ function App() {
                   // event={technicalEvents[technicalCounter++]}
                   event={technicalEvent}
                   style={{ height: 385, width: 420, marginLeft: "-19px" }}
+                  setIsOpen={setIsOpen}
                 />
               </div>
             </div>

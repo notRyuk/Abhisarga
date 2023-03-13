@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { 
     Card, 
     SxProps, 
@@ -53,17 +53,22 @@ interface Props {
     color: string
     event: Event
     vertical?: boolean
+    setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function CustomCard({ style, image, color, event, vertical }: Props) {
+export default function CustomCard({ style, image, color, event, vertical, setIsOpen }: Props) {
     const navigate = useNavigate()
     const reverse = vertical?!vertical:Math.random()>0.5
     const [open, setOpen] = useState<boolean>(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        setOpen(true) 
+        setIsOpen(true)
+    }
     const handleClose = (_: any, reason?: string) => {
         if (reason && reason === "backdropClick")
             return
         setOpen(false)
+        setIsOpen(false)
     }
 
     const icons = [
