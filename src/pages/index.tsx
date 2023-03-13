@@ -1,13 +1,19 @@
+import CloseIcon from "@mui/icons-material/Close";
 import ComputerIcon from "@mui/icons-material/Computer";
+import EastIcon from "@mui/icons-material/East";
 import GroupsIcon from "@mui/icons-material/Groups";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import StarIcon from "@mui/icons-material/Star";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import as from "../assets/abhisarga_small.png";
 import backgroundImage from "../assets/background.png";
 import titleImage from "../assets/Final Iteration.png";
 import gradient from "../assets/mesh-715.png";
+import minimap from "../assets/mini-map.png";
+import waterImage from "../assets/water.png";
 import AboutUs from "../components/AboutUs";
 import AuthCard from "../components/AuthCard";
 import Modal from "../components/CustomCard";
@@ -22,23 +28,11 @@ import SmallBox from "../components/SmallBox";
 import SmallCircle from "../components/SmallCircle";
 import Socials from "../components/Socials";
 import Sponsors from "../components/Sponsors";
-import styles from "../styles/app.module.css";
-import CloseIcon from "@mui/icons-material/Close";
-import EastIcon from "@mui/icons-material/East";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import minimap from "../assets/mini-map.png";
-import waterImage from "../assets/water.png";
 import {
-  technicalEvents as tEvents,
-  culturalEvents as cEvents,
-  colors as defaultColors,
-  shuffle,
-  Event,
-  Session,
-  encrypt
+  colors as defaultColors, culturalEvents as cEvents, encrypt, Event,
+  Session, shuffle, technicalEvents as tEvents
 } from "../helper";
-import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import styles from "../styles/app.module.css";
 
 const accommodationEvent: Event = {
   name: "ACCOMMODATION",

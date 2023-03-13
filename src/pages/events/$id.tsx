@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import NameCard from '../../components/NameCard'
-import MenuIcon from '@mui/icons-material/Menu';
-import styles from '../../styles/namecard.module.css'
-import styles2 from "../../styles/app.module.css";
-import as from '../../assets/abhisarga_small.png'
-import StarIcon from '@mui/icons-material/Star';
-import gradient from '../../assets/mesh-715.png';
-import LogoutIcon from '@mui/icons-material/Logout';
-import ComputerIcon from '@mui/icons-material/Computer'
-import GroupsIcon from '@mui/icons-material/Groups';
-import titleImage from "../../assets/Final Iteration.png"
-import EastIcon from '@mui/icons-material/East';
 import CloseIcon from '@mui/icons-material/Close';
+import ComputerIcon from '@mui/icons-material/Computer';
+import EastIcon from '@mui/icons-material/East';
+import GroupsIcon from '@mui/icons-material/Groups';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import minimap from '../../assets/mini-map.png'
-import { useNavigate } from 'react-router-dom';
-import { Session, events, decrypt, colors as defaultColors, shuffle, encrypt } from '../../helper';
-import { useParams } from 'react-router-dom';
-import { alpha } from "@mui/material"
+import StarIcon from '@mui/icons-material/Star';
+import { alpha } from "@mui/material";
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import as from '../../assets/abhisarga_small.png';
+import titleImage from "../../assets/Final Iteration.png";
+import gradient from '../../assets/mesh-715.png';
+import minimap from '../../assets/mini-map.png';
+import NameCard from '../../components/NameCard';
+import { colors as defaultColors, decrypt, encrypt, events, Session, shuffle } from '../../helper';
+import styles2 from "../../styles/app.module.css";
+import styles from '../../styles/namecard.module.css';
 
 const index = () => {
     const { id } = useParams();
