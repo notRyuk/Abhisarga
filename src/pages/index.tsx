@@ -171,14 +171,6 @@ function App() {
       document.onmousedown = null
       document.onmouseup = null
     }
-    // if (nav !== "100vw") {
-    //   document.onmousedown = OnMouseDown;
-    //   document.onmouseup = OnMouseUp;
-    // }
-    // else {
-    //   document.onmousedown = null
-    //   document.onmouseup = null
-    // }
   }, [isOpen]);
 
   return (
