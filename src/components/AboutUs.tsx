@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from "react";
+import { useState, CSSProperties, Dispatch, SetStateAction } from "react";
 import styles from "../styles/aboutus.module.css";
 import {
   Card,
@@ -21,6 +21,7 @@ interface Props {
   image?: string;
   color: string;
   vertical?: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
 const StyledBox = styled(Box)({
@@ -44,12 +45,16 @@ const StyledBox = styled(Box)({
   },
 });
 
-const AboutUs = ({ color }: Props) => {
+const AboutUs = ({ color, setIsOpen }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setIsOpen(true)
+    setOpen(true)
+  };
   const handleClose = (_: any, reason?: string) => {
     if (reason && reason == "backdropClick") return;
     setOpen(false);
+    setIsOpen(false)
   };
 
   const handleSubmit = () => {

@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties, ChangeEvent } from "react";
+import React, { useState, CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
 import styles from "../styles/query.module.css";
 import {
   Card,
@@ -25,6 +25,7 @@ interface Props {
   color: string;
   vertical?: boolean;
   email: string;
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
 const StyledBox = styled(Box)({
@@ -54,12 +55,16 @@ interface Query {
   description: string
 }
 
-const Queries = ({ style, sx, image, color, vertical, email }: Props) => {
+const Queries = ({ style, sx, image, color, vertical, email, setIsOpen }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true)
+    setIsOpen(true)
+  } ;
   const handleClose = (_: any, reason?: string) => {
     if (reason && reason == "backdropClick") return;
     setOpen(false);
+    setIsOpen(false)
   };
   const [buttonText, setButtonText] = useState<string>("SEND QUERY")
 

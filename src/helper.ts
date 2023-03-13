@@ -596,7 +596,7 @@ export const events = [
         rounds: [
             {
                 roundNumber: 1,
-                type: "ONLINE",
+                type: "OFFLINE",
                 name: "Pick You Poison",
                 event: {
                     start : "March 9, 6:00 PM",
@@ -923,7 +923,7 @@ export const events = [
             "Living Accommodation and Food Services would be provided to the teams who qualify for offline rounds, either free or at very nominal charges."
         ],
         type: "CULTURAL",
-        pool: 60000,
+        pool: 40000,
         banner: fStopsBanner,
         link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356"
     },

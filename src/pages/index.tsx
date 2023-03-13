@@ -172,6 +172,14 @@ function App() {
       document.onmousedown = null
       document.onmouseup = null
     }
+    // if (nav !== "100vw") {
+    //   document.onmousedown = OnMouseDown;
+    //   document.onmouseup = OnMouseUp;
+    // }
+    // else {
+    //   document.onmousedown = null
+    //   document.onmouseup = null
+    // }
   }, [isOpen]);
 
   return (
@@ -233,8 +241,10 @@ function App() {
         onClick={() => {
           if (nav === "100vw") {
             setNav("0px");
+            setIsOpen(false)
           } else {
             setNav("100vw");
+            setIsOpen(true)
           }
         }}
       >
@@ -313,8 +323,10 @@ function App() {
                 onClick={() => {
                   if (nav === "100vw") {
                     setNav("0px");
+                    setIsOpen(false)
                   } else {
                     setNav("100vw");
+                    setIsOpen(true)
                   }
                 }}
               >
@@ -385,9 +397,11 @@ function App() {
                   navigate(`/events/${encrypt(`type=>CULTURAL=>${colors[0]}`)}`)
                   if (nav === "100vw") {
                     setNav("0px")
+                    setIsOpen(false)
                   }
                   else {
                     setNav("100vw")
+                    setIsOpen(true)
                   }
                 }}
               >
@@ -420,9 +434,11 @@ function App() {
                   navigate(`/events/${encrypt(`type=>TECHNICAL=>${colors[1]}`)}`)
                   if (nav === "100vw") {
                     setNav("0px")
+                    setIsOpen(false)
                   }
                   else {
                     setNav("100vw")
+                    setIsOpen(true)
                   }
                 }}
               >
@@ -708,7 +724,7 @@ function App() {
               </div>
             </div>
             <div className={styles.gridBottomRight}>
-              <AboutUs color={colors[2]} />
+              <AboutUs color={colors[2]} setIsOpen={setIsOpen} />
             </div>
           </div>
         </div>
@@ -769,6 +785,7 @@ function App() {
           <div className={styles.rightGridBottom}>
             <div className={styles.bottomLeft}>
               <AuthCard
+                setIsOpen={setIsOpen}
                 color="black"
                 sx={{
                   height: "17rem",
@@ -780,6 +797,7 @@ function App() {
               <Queries
                 color="black"
                 email={email}
+                setIsOpen={setIsOpen}
                 sx={{
                   height: "19rem",
                   width: "20rem",
