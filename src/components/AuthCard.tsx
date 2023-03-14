@@ -64,16 +64,16 @@ const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) 
     setIsOpen(true)
   }
   const handleClose = (_: any, reason?: string) => {
-      if (reason && reason === "backdropClick")
-          return
-      setOpen(false)
-      setIsOpen(false)
+    if (reason && reason === "backdropClick")
+      return
+    setOpen(false)
+    setIsOpen(false)
   }
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const [formData, setFormData] = useState<User | null>({
+  const [formData, setFormData] = useState<User|null>({
     name: "",
     email: "",
     phone: "",

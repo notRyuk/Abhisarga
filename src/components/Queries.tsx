@@ -1,22 +1,11 @@
-import React, { useState, CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
-import styles from "../styles/query.module.css";
-import {
-  Card,
-  SxProps,
-  Container,
-  Typography,
-  CardContent,
-  alpha,
-  Modal,
-  Box,
-  IconButton,
-  Button,
-  styled,
-} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { base } from "../helper";
+import {
+  Box, Button, IconButton, Modal, styled, SxProps
+} from "@mui/material";
 import axios from "axios";
+import { ChangeEvent, CSSProperties, Dispatch, SetStateAction, useState } from "react";
+import { base } from "../helper";
+import styles from "../styles/query.module.css";
 
 interface Props {
   sx?: CSSProperties;

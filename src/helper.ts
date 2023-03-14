@@ -9,6 +9,7 @@ import matrixBanner from "./assets/banners/Matrix - Analytics Arena.png"
 import miseEnSceneBanner1 from "./assets/banners/Mise-En-Scene - Drive to Drama.png"
 import miseEnSceneBanner2 from "./assets/banners/Mise-En-Scene - Mini Masterpiece.png"
 import mlBattlesBanner from "./assets/banners/ML Battles.png"
+import musicClubBanner from "./assets/banners/Music Club - Rhythm Riot.png"
 
 export const shuffle = (array: Array<any>) => {
     var m = array.length, t: any, i: any
@@ -924,7 +925,7 @@ export const events = [
         ],
         type: "CULTURAL",
         pool: 40000,
-        banner: fStopsBanner,
+        banner: musicClubBanner,
         link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356"
     },
     {

@@ -81,7 +81,7 @@ const index = () => {
                         backgroundColor: "transparent",
                         cursor: "pointer"
                     }}
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate('/home')}
                 >
                     <img
                         src={as}
