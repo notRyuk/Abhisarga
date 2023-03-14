@@ -120,29 +120,57 @@ function App() {
     const element = document.getElementsByClassName(styles.main)[0];
     const view = document.defaultView;
     window.addEventListener("load", () => {
-      width < 750 ? (
-        width < 650 ? (
-            width <= 600 ? (
-                width <= 400 ? view.scrollTo({
-                    left: (element.clientWidth - view.innerWidth) / 2 + 500,
-                    top: (element.clientHeight - view.innerHeight) / 2 + 600,
-                }): view.scrollTo({
-                    left: (element.clientWidth - view.innerWidth) / 2 + 330,
-                    top: (element.clientHeight - view.innerHeight) / 2 + 450,
-                })
-            ): view.scrollTo({
-                left: (element.clientWidth - view.innerWidth) / 2 + 30,
-                top: (element.clientHeight - view.innerHeight) / 2 + 200,
-            })
-        ): view.scrollTo({
+        width < 1100 ? (width < 1000 ? (width < 940 ? (width < 750 ? (width < 650 ? (width <= 600 ? (width <=400 ? view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 + 500,
+            top: (element.clientHeight - view.innerHeight) / 2 + 600,
+            }): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 + 330,
+            top: (element.clientHeight - view.innerHeight) / 2 + 450,
+            })): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 + 30,
+            top: (element.clientHeight - view.innerHeight) / 2 + 200,
+            })): view.scrollTo({
             left: (element.clientWidth - view.innerWidth) / 2 - 170,
             top: (element.clientHeight - view.innerHeight) / 2 - 100,
+            })): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 - 180,
+            top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 - 200,
+            top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2 - 150,
+            top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+            left: (element.clientWidth - view.innerWidth) / 2,
+            top: (element.clientHeight - view.innerHeight) / 2,
         })
-    ): view.scrollTo({
+    });
+    width < 1100 ? (width < 1000 ? (width < 940 ? (width < 750 ? (width < 650 ? (width <= 600 ? (width <=400 ? view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 + 500,
+        top: (element.clientHeight - view.innerHeight) / 2 + 700,
+        }): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 + 330,
+        top: (element.clientHeight - view.innerHeight) / 2 + 450,
+        })): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 + 30,
+        top: (element.clientHeight - view.innerHeight) / 2 + 200,
+        })): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 - 170,
+        top: (element.clientHeight - view.innerHeight) / 2 - 100,
+        })): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 - 180,
+        top: (element.clientHeight - view.innerHeight) / 2,
+        })): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 - 200,
+        top: (element.clientHeight - view.innerHeight) / 2,
+        })): view.scrollTo({
+        left: (element.clientWidth - view.innerWidth) / 2 - 150,
+        top: (element.clientHeight - view.innerHeight) / 2,
+        })): view.scrollTo({
         left: (element.clientWidth - view.innerWidth) / 2,
         top: (element.clientHeight - view.innerHeight) / 2,
-      });
-    });
+    })
   }, []);
 
   useEffect(() => {
@@ -182,75 +210,79 @@ function App() {
         height: 2809,
       }}
     >
-      <button
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "fixed",
-          top: 20,
-          left: 20,
-          // padding: ".5rem",
-          // paddingRight: "0.5rem",
-          // border: "6px solid black",
-          // fontSize: "25px",
-          zIndex: "1500",
-          borderRadius: "15px",
-          borderColor: "transparent",
-          backgroundColor: "transparent",
-          cursor: "pointer",
-        }}
-      >
-        <img
-          src={as}
-          height={"70rem"}
-          alt="kuch bhi"
-          style={{
-            borderRadius: "10px",
-          }}
-        />
-      </button>
-      <button
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "fixed",
-          top: 20,
-          right: 20,
-          padding: ".5rem",
-          paddingRight: "0.5rem",
-          border: "6px solid black",
-          fontSize: "25px",
-          zIndex: "1500",
-          borderRadius: "15px",
-          backgroundColor: "white",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          if (nav === "100vw") {
-            setNav("0px");
-            setIsOpen(false)
-          } else {
-            setNav("100vw");
-            setIsOpen(true)
-          }
-        }}
-      >
-        <MenuIcon
-          sx={
-            width > 600 && {
-              marginRight: ".5rem",
-              fontSize: "40px",
-            }
-          }
-        />
-        {window.innerWidth > 600 && (
-          <span style={{ marginRight: "1.5rem" }}>MENU</span>
-        )}
-      </button>
+      {!isOpen && (
+        <>
+            <button
+                style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "fixed",
+                top: 20,
+                left: 20,
+                // padding: ".5rem",
+                // paddingRight: "0.5rem",
+                // border: "6px solid black",
+                // fontSize: "25px",
+                zIndex: "1500",
+                borderRadius: "15px",
+                borderColor: "transparent",
+                backgroundColor: "transparent",
+                cursor: "pointer",
+                }}
+            >
+                <img
+                    src={as}
+                    height={"70rem"}
+                    alt="kuch bhi"
+                    style={{
+                        borderRadius: "10px",
+                    }}
+                />
+            </button>
+            <button
+                style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "fixed",
+                top: 20,
+                right: 20,
+                padding: ".5rem",
+                paddingRight: "0.5rem",
+                border: "6px solid black",
+                fontSize: "25px",
+                zIndex: "1500",
+                borderRadius: "15px",
+                backgroundColor: "white",
+                cursor: "pointer",
+                }}
+                onClick={() => {
+                    if (nav === "100vw") {
+                        setNav("0px");
+                        setIsOpen(false)
+                    } else {
+                        setNav("100vw");
+                        setIsOpen(true)
+                    }
+                }}
+            >
+                <MenuIcon
+                    sx={
+                        width > 600 && {
+                            marginRight: ".5rem",
+                            fontSize: "40px",
+                        }
+                    }
+                />
+                {window.innerWidth > 600 && (
+                    <span style={{ marginRight: "1.5rem" }}>MENU</span>
+                )}
+            </button>
+        </>
+      )}
       <div
         className={styles.main}
         style={{
@@ -297,7 +329,7 @@ function App() {
                   alignItems: "center",
                   justifyContent: "center",
                   position: "fixed",
-                  top: window.innerWidth > 450 ? 40 : 20,
+                  top: window.innerWidth > 450 ? 20 : 20,
                   right: window.innerWidth > 450 ? 20 : 5,
                   padding: ".5rem",
                   paddingRight: "0.5rem",
@@ -328,7 +360,7 @@ function App() {
                           marginRight: ".5rem",
                         }
                       : {
-                          fontSize: "40px",
+                          fontSize: "35px",
                         }
                   }
                 />

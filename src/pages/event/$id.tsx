@@ -61,36 +61,32 @@ const index = () => {
                 backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5)
             }}
         >
-            {width > 600 && (
-                <button
+            <button
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "fixed",
+                    top: 40,
+                    left: 20,
+                    zIndex: "1500",
+                    borderRadius: "15px",
+                    borderColor: "transparent",
+                    backgroundColor: "transparent",
+                    cursor: "pointer"
+                }}
+                onClick={() => navigate('/home')}
+            >
+                <img
+                    src={as}
+                    height={"70rem"}
+                    alt="kuch bhi"
                     style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "fixed",
-                        top: 40,
-                        left: 20,
-                        zIndex: "1500",
-                        borderRadius: "15px",
-                        borderColor: "transparent",
-                        backgroundColor: "transparent",
-                        cursor: "pointer"
+                        borderRadius: "10px"
                     }}
-                    onClick={() => navigate('/home')}
-                >
-                    <img
-                        src={as}
-                        height={"70rem"}
-                        alt="kuch bhi"
-                        style={{
-                            borderRadius: "10px"
-                        }}
-                    />
-                </button>
-            )
-
-            }
+                />
+            </button>
             <div
                 id='fulScrNav'
                 style={{
@@ -402,7 +398,7 @@ const index = () => {
                 }}
             >
                 <MenuIcon
-                    sx={width > 600 && {
+                    sx={{
                         marginRight: ".5rem",
                         fontSize: "40px"
                     }}

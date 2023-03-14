@@ -406,7 +406,7 @@ const index = () => {
                 }}
             >
                 <MenuIcon
-                    sx={width > 600 && {
+                    sx={{
                         marginRight: ".5rem",
                         fontSize: "40px"
                     }}
@@ -432,10 +432,11 @@ const index = () => {
                 }}
                 className={styles.eventMainDiv}
             >
-                {events.filter(e => e[eventInfo?.[0]] === eventInfo?.[1]).map(e => (
+                {events.filter(e => e[eventInfo?.[0]] === eventInfo?.[1]).map((e, i) => (
                     <NameCard 
                         event={e} 
                         color={eventInfo?.[2]}
+                        index={i+1}
                     />
                 ))}
             </div>

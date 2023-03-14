@@ -869,7 +869,8 @@ export const events = [
         type: "CULTURAL",
         pool: 40000,
         banner: fStopsBanner,
-        link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356"
+        link: "https://unstop.com/events/camera-on-abhisarga-2023-indian-institute-of-information-technology-iiit-sri-city-640356",
+        qoute: "Shutterbug showdown: May the best shot win!"
     },
     {
         name: "Rhythm Riot - The Music Battle",
