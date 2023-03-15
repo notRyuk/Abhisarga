@@ -5,6 +5,7 @@ import { BASE as base, PORT, NODE_ENV, DB_URL } from "./config.js"
 import userRouter from "./routes/user.js"
 import queryRouter from "./routes/query.js"
 import cors from "cors"
+import { encrypt } from './helper.js'
 
 const isProduction = NODE_ENV.toUpperCase() === "PRODUCTION"
 
@@ -31,8 +32,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
-app.use("/api/user", userRouter)
-app.use("/api/query", queryRouter)
 
 
 // Add Vite or respective production middlewares
@@ -51,6 +50,8 @@ if (!isProduction) {
   app.use(compression())
   app.use(base, sirv('./dist/client', { extensions: [] }))
 }
+app.use("/api/user", userRouter)
+app.use("/api/query", queryRouter)
 
 // Serve HTML
 app.use('*', async (req, res) => {
@@ -74,7 +75,7 @@ app.use('*', async (req, res) => {
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
-
+    ;
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     vite?.ssrFixStacktrace(e)

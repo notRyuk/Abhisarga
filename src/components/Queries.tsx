@@ -69,7 +69,6 @@ const Queries = ({ style, sx, image, color, vertical, email, setIsOpen }: Props)
 
   const handleSubmit = async () => {
     const res = await axios.post(`${base}query/create`, formData)
-    console.log(res)
     if(res.status === 200) {
       setButtonText("QUERY SENT!")
       setTimeout(() => setOpen(false), 2000)

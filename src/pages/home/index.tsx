@@ -90,6 +90,13 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("session")
     setCurrentUser(null)
+    if (nav === "100vw") {
+      setNav("0px")
+    }
+    else {
+      setNav("100vw")
+    }
+    setIsOpen(false)
   }
 
   var technicalCounter = 0;
@@ -708,12 +715,20 @@ function App() {
               />
               <div className={styles.nav}>
                 <div className={styles.navtop}>
-                  <SmallBox title="CULTURAL EVENTS" color={colors[0]} />
+                  <SmallBox 
+                    title="CULTURAL EVENTS" 
+                    color={colors[0]}
+                    link={`/events/${encrypt(`type=>CULTURAL=>${colors[0]}`)}`}
+                  />
                   <SmallCircle title="TEAM" color={colors[2]} />
                 </div>
                 <div className={styles.navbot}>
                   <SmallCircle title="SPONSORS" color={colors[3]} />
-                  <SmallBox title="TECHNICAL EVENTS" color={colors[1]} />/
+                  <SmallBox 
+                    title="TECHNICAL EVENTS" 
+                    color={colors[1]}
+                    link={`/events/${encrypt(`type=>TECHNICAL=>${colors[1]}`)}`}
+                  />/
                 </div>
               </div>
               <Modal

@@ -19,7 +19,7 @@ interface Props {
 
 const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
   const navigate = useNavigate()
-  const [registerText, setRegisterText] = useState<"Please Login/Signup First"|"Register">("Register")
+  const [registerText, setRegisterText] = useState<"Please Login/Signup First"|"Register"|"Redirecting to login page...">("Register")
   return (
     <>
       <div 
@@ -294,7 +294,15 @@ const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
               }}
               onClick={() => {
                 if(!isLoggedIn) {
-                  setRegisterText("Please Login/Signup First")
+                  if(registerText === "Please Login/Signup First") {
+                    setRegisterText("Redirecting to login page...")
+                    setTimeout(() => {
+                      navigate("/home")
+                    }, 2000);
+                  }
+                  else {
+                    setRegisterText("Please Login/Signup First")
+                  }
                 }
                 else {
                   navigate(event.link, { replace: true})

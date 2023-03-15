@@ -69,7 +69,7 @@ export function decrypt(token: string) {
     return values.join("")
 }
 
-export const base = "https://abhisarga.org/api/"
+export const base = process.env.NODE_ENV === "production"? "https://abhisarga.org/api/":"http://localhost:5173/api/"
 
 export const events = [
     {

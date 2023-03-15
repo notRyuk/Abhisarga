@@ -21,13 +21,13 @@
 
 .reg {
     background-color: white;
-    border: 4px solid #3968CB;
+    border: 4px solid;
     border-radius: 15px;
 }
 
 .add {
     background-color: white;
-    border: 4px solid #3968CB;
+    border: 4px solid;
     border-radius: 15px;
 }
 

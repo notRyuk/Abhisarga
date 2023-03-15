@@ -58,7 +58,7 @@ const index = () => {
         <div
             className={styles.main}
             style={{
-                backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5)
+                backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5),
             }}
         >
             <button
@@ -427,6 +427,7 @@ const index = () => {
                 <NameCard 
                     event={events.filter(({ club, name }) => (club === eventInfo[0] && name === eventInfo[1]))[0]} 
                     color={eventInfo?.[2]}
+                    isLoggedIn={isLoggedIn}
                 />
             </div>
         </div>
