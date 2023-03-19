@@ -103,7 +103,6 @@ app.post("/login", async (req, res) => {
         return
     }
     const existingUser = await User.findOne({ email })
-    console.log(existingUser)
     if (!existingUser || decrypt(existingUser.password) !== decrypt(password)) {
         res.status(404).send({
             status: 404,

@@ -26,7 +26,6 @@ export function decrypt(token) {
     var tokens = token.split("-")
     var keyLength = Number(tokens[tokens.length-1])
     var mainTokens = tokens[0].split(":")
-    console.log(mainTokens)
     var temp = mainTokens[1].split("").reverse()
     var key = 0
     var i = 0
