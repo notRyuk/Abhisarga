@@ -271,7 +271,7 @@ export const events = [
             },
             {
                 roundNumber: 2,
-                type: "ONLINE",
+                type: "OFFLINE",
                 event: {
                     start : "March 21, 9:00 AM	",
                     end: "March 22, 6:00 PM	"
