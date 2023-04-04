@@ -120,22 +120,31 @@ function App() {
     const element = document.getElementsByClassName(styles.main)[0];
     const view = document.defaultView;
     window.addEventListener("load", () => {
-      width < 750 ? (width < 650 ? (width <= 600 ? (width <=400 ? view.scrollTo({
-        left: (element.clientWidth - view.innerWidth) / 2 + 500,
-        top: (element.clientHeight - view.innerHeight) / 2 + 600,
-      }): view.scrollTo({
-        left: (element.clientWidth - view.innerWidth) / 2 + 330,
-        top: (element.clientHeight - view.innerHeight) / 2 + 450,
-      })): view.scrollTo({
-        left: (element.clientWidth - view.innerWidth) / 2 + 30,
-        top: (element.clientHeight - view.innerHeight) / 2 + 200,
-      })): view.scrollTo({
-        left: (element.clientWidth - view.innerWidth) / 2 - 170,
-        top: (element.clientHeight - view.innerHeight) / 2 - 100,
-      })): view.scrollTo({
-        left: (element.clientWidth - view.innerWidth) / 2,
-        top: (element.clientHeight - view.innerHeight) / 2,
-      });
+      width < 1100 ? (width < 1000 ? (width < 940 ? (width < 750 ? (width < 650 ? (width <= 600 ? (width <=400 ? view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 + 500,
+              top: (element.clientHeight - view.innerHeight) / 2 + 600,
+            }): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 + 330,
+              top: (element.clientHeight - view.innerHeight) / 2 + 450,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 + 30,
+              top: (element.clientHeight - view.innerHeight) / 2 + 200,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 - 170,
+              top: (element.clientHeight - view.innerHeight) / 2 - 100,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 - 180,
+              top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 - 200,
+              top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2 - 150,
+              top: (element.clientHeight - view.innerHeight) / 2,
+            })): view.scrollTo({
+              left: (element.clientWidth - view.innerWidth) / 2,
+              top: (element.clientHeight - view.innerHeight) / 2,
+            })
     });
   }, []);
 
