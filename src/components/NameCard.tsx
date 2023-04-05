@@ -7,7 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from '../styles/eventCard.module.css'
-import { Event } from '../helper';
+import { Event, decrypt } from '../helper';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -79,15 +79,30 @@ const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
             {" "}{event.pool}
           </div>
         </div>
-        <p style={{
-          marginTop: "-1%",
-          fontSize: "2.5rem",
-          fontWeight: "600",
-          letterSpacing: "2px",
-          fontFamily: "NimbusSansExtended"
-        }}>
-          {event.name || ""}
-        </p>
+        {Object.keys(event).includes("getSponsorUrl") && event.getSponsorUrl()? (
+          <>
+            <img 
+              style={{ 
+                backgroundColor: "white"
+              }} 
+              src={decrypt(event.getSponsorUrl())} 
+              height="auto" 
+              width="150px"
+            />
+            <span style={{ fontSize: "12px", paddingTop: "5px"}}>PRESENTS</span>
+          </>
+        ): ""}
+        <div>
+          <p style={{
+            marginTop: "-1%",
+            fontSize: "2.5rem",
+            fontWeight: "600",
+            letterSpacing: "2px",
+            fontFamily: "NimbusSansExtended"
+          }}>
+            {event.name || ""}
+          </p>
+        </div>
         <hr 
           style={{
             color: "white",
@@ -305,12 +320,13 @@ const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
                     setRegisterText("Please Login/Signup First")
                   }
                 }
-                else {
-                  navigate(event.link, { replace: true})
-                }
               }}
             >
-              {registerText}
+              {isLoggedIn? (
+                <a href={event.link} style={{ textDecoration: "none"}}>
+                {registerText}
+                </a>
+              ): registerText}
             </button>
           )}
         </div>

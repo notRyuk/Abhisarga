@@ -156,6 +156,7 @@ export const events = [
     {
         name: "Analytics Arena",
         club: "Matrix",
+        getSponsorUrl: () => encrypt("https://gl-m.linker-cdn.net/logo/6e0/6e07b8256ccd2356be4cc9c07fc5e739_t.jpg"),
         description: `Welcome to Analytics Arena, Matrix's Data analytics cum Machine learning hackathon is finally here!
 
         Unleashing the power of analytics and machine learning: Solve Real-World problems with data-driven solutions! Experience an adrenaline fuelled test of skill in this 48-hour long hackathon where you will be provided a problem statement from top industry experts.
@@ -310,6 +311,7 @@ export const events = [
     {
         name: "GizmoCon",
         club: "ConnexIon",
+        getSponsorUrl: () => encrypt("https://logos-world.net/wp-content/uploads/2023/01/Foxconn-Logo.png"),
         description: `Welcome to our exciting hackathon event!
 
         Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
@@ -406,6 +408,7 @@ export const events = [
     {
         name: "HackFrenzy",
         club: "IOTAxGDSC",
+        getSponsorUrl: () => encrypt("https://upload.wikimedia.org/wikipedia/en/c/c8/Sonata_Software_Logo.png"),
         description: `Welcome to our exciting hackathon event!
 
         Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
@@ -540,6 +543,7 @@ export const events = [
     {
         name: "ATMUN",
         club: "Literary Club",
+        getSponsorUrl: () => encrypt("https://brendle-representadas.es/wp-content/uploads/2021/04/BMQRep_Logos_Interior_Sundram.png"),
         description: `Welcome to the Abhisarga Techno-cultural fest Model United Nations (ATMUN)!
 
         This will be a two day event to be held on April 7th and 8th. Our MUN will only have the United Nations Human Right Council. 
@@ -684,6 +688,7 @@ export const events = [
     {
         name: "Elektra",
         club: "Gradient",
+        getSponsorUrl: () => encrypt("https://www.companieshistory.com/wp-content/uploads/2013/07/Indian-Oil.png"),
         description: "",
         registration: {
             start: "Started",
@@ -735,6 +740,7 @@ export const events = [
     {
         name: "Innovate Or Iterate",
         club: "Epoch",
+        getSponsorUrl: () => encrypt("https://www.vhv.rs/dpng/d/438-4388830_indian-bank-logo-download-vector-indian-bank-logo.png"),
         description: `Welcome to our exciting hackathon event!
 
         Get ready to unleash your creativity and problem-solving skills in a collaborative environment with like-minded individuals. Our hackathon will be an intensive, fun, and challenging event where you will have the opportunity to work with others to create innovative and impactful solutions.
@@ -874,6 +880,7 @@ export const events = [
     },
     {
         name: "Rhythm Riot - The Music Battle",
+        getSponsorUrl: () => encrypt("https://indianpsu.com/wp-content/uploads/2021/08/nlc-logo-890x395_c-780x395.jpg"),
         club: "Reverb",
         description: `A competition where musical bands, consisting of multiple musicians playing various instruments and vocals, compete against each other to showcase their talents and win prizes.
 
@@ -967,6 +974,7 @@ export interface Event {
     qoute?: string
     registration?: Timings
     getUrl?: (color: string) => string
+    getSponsorUrl?: () => string
 }
 
 export interface Session {
