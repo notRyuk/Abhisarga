@@ -76,7 +76,7 @@ const Sponsors = ({ sx, color }: Props) => {
               fontSize: "16px",
               padding: "0",
               margin: "0",
-              marginTop: "20px"
+              // marginTop: "20px"
             }}
           >GOLD SPONSOR</p>
           <div 
