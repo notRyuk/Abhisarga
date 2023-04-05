@@ -21,7 +21,7 @@ const Socials = () => {
       }}
     >
       <IconButton
-        style={{
+        sx={{
           padding: "0",
           margin: "0",
           color: "black"
@@ -34,8 +34,9 @@ const Socials = () => {
           sx={{ 
             fontSize: "4.5rem",
             "&:hover": {
-              scale: 1.02,
-              cursor: "pointer"
+              scale: 1.05,
+              cursor: "pointer",
+              color: "red"
             }
           }} 
         />

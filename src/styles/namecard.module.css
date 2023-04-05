@@ -5,7 +5,7 @@ body {
 
 
 .eventMainDiv {
-    margin-top: 10rem;
+   padding: 5rem 0
 }
 
 @media screen and (max-width: 450px) {

@@ -11,7 +11,6 @@ for(let line of readFile(resolve(__dirname, "..", "emails.txt"), "utf-8").split(
         continue
     }
     line = line.trim()
-    console.log(line)
     const loginDetails = line.split("::")
     adminLogins.push({
         username: loginDetails?.[0]?.trim(),

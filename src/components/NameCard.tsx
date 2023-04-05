@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { alpha } from '@mui/material';
 import ComputerIcon from '@mui/icons-material/Computer';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
@@ -7,14 +7,19 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from '../styles/eventCard.module.css'
-import { Event } from '../helper';
+import { Event, decrypt } from '../helper';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   event: Event
   color?: string
+  index?: number
+  isLoggedIn?: boolean
 }
 
-const NameCard = ({ event, color }: Props) => {
+const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
+  const navigate = useNavigate()
+  const [registerText, setRegisterText] = useState<"Please Login/Signup First"|"Register"|"Redirecting to login page...">("Register")
   return (
     <>
       <div 
@@ -54,7 +59,7 @@ const NameCard = ({ event, color }: Props) => {
               color: color
             }}
           >
-            T01
+            {event.type === "TECHNICAL"?"T":"C"}0{index || 1}
           </div>
           <div
             style={{
@@ -74,15 +79,30 @@ const NameCard = ({ event, color }: Props) => {
             {" "}{event.pool}
           </div>
         </div>
-        <p style={{
-          marginTop: "-1%",
-          fontSize: "2.5rem",
-          fontWeight: "600",
-          letterSpacing: "2px",
-          fontFamily: "NimbusSansExtended"
-        }}>
-          {event.name || ""}
-        </p>
+        {Object.keys(event).includes("getSponsorUrl") && event.getSponsorUrl()? (
+          <>
+            <img 
+              style={{ 
+                backgroundColor: "white"
+              }} 
+              src={decrypt(event.getSponsorUrl())} 
+              height="auto" 
+              width="150px"
+            />
+            <span style={{ fontSize: "12px", paddingTop: "5px"}}>PRESENTS</span>
+          </>
+        ): ""}
+        <div>
+          <p style={{
+            marginTop: "-1%",
+            fontSize: "2.5rem",
+            fontWeight: "600",
+            letterSpacing: "2px",
+            fontFamily: "NimbusSansExtended"
+          }}>
+            {event.name || ""}
+          </p>
+        </div>
         <hr 
           style={{
             color: "white",
@@ -276,22 +296,37 @@ const NameCard = ({ event, color }: Props) => {
             </div>
           )}
           {event.link && (
-            <a href={event.link}>
-              <button 
-                style={{
-                  textAlign: "center",
-                  fontSize: "1.5rem",
-                  border: `5px solid ${color}`,
-                  borderRadius: "10px",
-                  padding: "8px",
-                  backgroundColor: "white",
-                  color: color,
-                  cursor: "pointer"
-                }}
-              >
-                Register
-              </button>
-            </a>
+            <button 
+              style={{
+                textAlign: "center",
+                fontSize: "1.5rem",
+                border: `5px solid ${color}`,
+                borderRadius: "10px",
+                padding: "8px",
+                backgroundColor: "white",
+                color: color,
+                cursor: "pointer"
+              }}
+              onClick={() => {
+                if(!isLoggedIn) {
+                  if(registerText === "Please Login/Signup First") {
+                    setRegisterText("Redirecting to login page...")
+                    setTimeout(() => {
+                      navigate("/home")
+                    }, 2000);
+                  }
+                  else {
+                    setRegisterText("Please Login/Signup First")
+                  }
+                }
+              }}
+            >
+              {isLoggedIn? (
+                <a href={event.link} style={{ textDecoration: "none"}}>
+                {registerText}
+                </a>
+              ): registerText}
+            </button>
           )}
         </div>
       </div>

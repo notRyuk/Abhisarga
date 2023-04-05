@@ -3,7 +3,7 @@ import hmacSHA512 from 'crypto-js/hmac-sha512.js';
 import sha256 from 'crypto-js/sha256.js';
 import { Router } from "express";
 import { PRIVATE_KEY } from "../config.js";
-import { validateEmail, validatePhone } from '../helper.js';
+import { decrypt, validateEmail, validatePhone } from '../helper.js';
 import Session from "../models/session.js";
 import User from '../models/user.js';
 
@@ -102,8 +102,8 @@ app.post("/login", async (req, res) => {
         })
         return
     }
-    const existingUser = await User.findOne({ email: email }).exec()
-    if (!existingUser) {
+    const existingUser = await User.findOne({ email })
+    if (!existingUser || decrypt(existingUser.password) !== decrypt(password)) {
         res.status(404).send({
             status: 404,
             message: "No account exists with these credentials!"
@@ -142,5 +142,7 @@ app.post("/login", async (req, res) => {
         session
     })
 })
+
+app.post("/something", (_, res) => res.send("something"))
 
 export default app

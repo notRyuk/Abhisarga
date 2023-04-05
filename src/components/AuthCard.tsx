@@ -1,10 +1,11 @@
-import { ChangeEvent, CSSProperties, SetStateAction, useState, Dispatch } from "react";
-import styles from "../styles/authcard.module.css";
-import { SxProps, Button, IconButton, Modal, Box, Typography } from "@mui/material";
-import styles2 from "../styles/modal.module.css";
 import CloseIcon from "@mui/icons-material/Close";
-import axios from "axios";
+import { Box, Button, IconButton, Modal, SxProps, Snackbar, Alert } from "@mui/material";
+import axios, { AxiosResponse } from "axios";
+import { ChangeEvent, CSSProperties, Dispatch, SetStateAction, useState } from "react";
 import { base, encrypt, Session } from "../helper";
+import styles from "../styles/authcard.module.css";
+import styles2 from "../styles/modal.module.css";
+import { SyntheticEvent } from "react"
 
 enum Year {
   UG1 = "UG1",
@@ -34,6 +35,15 @@ interface User {
 }
 
 const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) => {
+  const [snackBarOpen, setSnackBarOpen] = useState<boolean>(false)
+  const handleCloseSnackBar = (e: SyntheticEvent|Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackBarOpen(false);
+  }
+  const [isSuccess, setIsSuccess] = useState<boolean>(false)
+  const [message, setMessage] = useState<string>("")
   const modalStyle = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -64,16 +74,16 @@ const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) 
     setIsOpen(true)
   }
   const handleClose = (_: any, reason?: string) => {
-      if (reason && reason === "backdropClick")
-          return
-      setOpen(false)
-      setIsOpen(false)
+    if (reason && reason === "backdropClick")
+      return
+    setOpen(false)
+    setIsOpen(false)
   }
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const [formData, setFormData] = useState<User | null>({
+  const [formData, setFormData] = useState<User|null>({
     name: "",
     email: "",
     phone: "",
@@ -89,17 +99,23 @@ const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) 
 
   const handleSubmit = async () => {
     if (heading === "LOGIN") {
-      const res = await axios.post(base + "user/login", {
+      await axios.post(base + "user/login", {
         email: email,
         password: encrypt(password),
-      });
-      if(res.status === 200) {
+      }).then(res => {
+        setIsSuccess(res.status === 200)
         localStorage.setItem("session", JSON.stringify(res.data.session))
         setUser(res.data.session)
         setEmail("")
         setPassword("")
+        setMessage(res.data.message as string)
         setOpen(false)
-      }
+        setSnackBarOpen(true)
+      }).catch(err => {
+        setPassword("")
+        setMessage(err.response.data.message as string)
+        setSnackBarOpen(true)
+      })
     } else {
       if (page === 1) {
         setPage(2);
@@ -121,437 +137,452 @@ const AuthCard = ({ sx, style, image, color, user, setUser, setIsOpen }: Props) 
     }
   };
   return (
-    <div
-      style={{
-        borderLeft: "9px",
-        borderRight: "12px",
-        borderBottom: "12px",
-        borderTop: "9px",
-        padding: "10px",
-        borderColor: "black",
-        borderStyle: "solid",
-        width: "19%",
-        minWidth: "150px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: "Dosis",
-        animation: "transform 0.2s",
-        borderRadius: "15px",
-        backgroundColor: "white",
-        ...sx,
-      }}
-    >
-      {user?(
-        <>
-          <p 
-            style={{
-              fontSize: "30px",
-              textAlign: "center"
-            }}
-        >
-          WELCOME! {user.username}
-          </p>
-        </>
-      ):(
-        <>
-          <Button
-            variant="outlined"
-            style={{
-              fontFamily: "ArcadeClassic",
-              color: "black",
-              borderTop: "3px solid black",
-              borderLeft: "3px solid black",
-              borderRight: "6px solid black",
-              borderBottom: "6px solid black",
-              borderRadius: "10px",
-              width: "80%",
-              padding: "1rem",
-              marginTop: "15px",
-              fontSize: "30px",
-              marginBottom: "10px",
-              animation: "transform 0.2s",
-            }}
-            onClick={() => {
-              handleOpen();
-              setHeading("LOGIN");
-            }}
-            sx={{
-              "&:hover": {
-                backgroundColor: "#EDEDED",
-                scale: "1.02",
-              },
-            }}
+    <>
+      <div
+        style={{
+          borderLeft: "9px",
+          borderRight: "12px",
+          borderBottom: "12px",
+          borderTop: "9px",
+          padding: "10px",
+          borderColor: "black",
+          borderStyle: "solid",
+          width: "19%",
+          minWidth: "150px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          fontFamily: "Dosis",
+          animation: "transform 0.2s",
+          borderRadius: "15px",
+          backgroundColor: "white",
+          ...sx,
+        }}
+      >
+        {user?(
+          <>
+            <p 
+              style={{
+                fontSize: "30px",
+                textAlign: "center"
+              }}
           >
-            LOGIN
-          </Button>
-          <Button
-            variant="outlined"
-            style={{
-              fontFamily: "ArcadeClassic",
-              color: "black",
-              borderTop: "3px solid black",
-              borderLeft: "3px solid black",
-              borderRight: "6px solid black",
-              borderBottom: "6px solid black",
-              width: "80%",
-              padding: "1rem",
-              marginBottom: "15px",
-              fontSize: "30px",
-              marginTop: "10px",
-              animation: "transform 0.2s",
-            }}
-            onClick={() => {
-              handleOpen();
-              setHeading("SIGN UP");
-            }}
-            sx={{
-              "&:hover": {
-                backgroundColor: "#EDEDED",
-                scale: "1.02",
-              },
-            }}
-          >
-            SIGN UP
-          </Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-            sx={{
-              border: "none",
-              outline: "none",
-              background: "none",
-            }}
-          >
-            <Box sx={modalStyle}>
-              <IconButton
-                onClick={handleClose}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "#EDEDED",
-                  },
-                  position: "fixed",
-                  top: -20,
-                  right: 10,
-                  zIndex: 2000,
-                  backgroundColor: "white",
-                  borderRadius: "10px",
-                  border: "5px solid " + color,
-                }}
-              >
-                <CloseIcon style={{ color: color }} />
-              </IconButton>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "2%",
-                  textAlign: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+            WELCOME! {user.username}
+            </p>
+          </>
+        ):(
+          <>
+            <Button
+              variant="outlined"
+              style={{
+                fontFamily: "ArcadeClassic",
+                color: "black",
+                borderTop: "3px solid black",
+                borderLeft: "3px solid black",
+                borderRight: "6px solid black",
+                borderBottom: "6px solid black",
+                borderRadius: "10px",
+                width: "80%",
+                padding: "1rem",
+                marginTop: "15px",
+                fontSize: "30px",
+                marginBottom: "10px",
+                animation: "transform 0.2s",
+              }}
+              onClick={() => {
+                handleOpen();
+                setHeading("LOGIN");
+              }}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#EDEDED",
+                  scale: "1.02",
+                },
+              }}
+            >
+              LOGIN
+            </Button>
+            <Button
+              variant="outlined"
+              style={{
+                fontFamily: "ArcadeClassic",
+                color: "black",
+                borderTop: "3px solid black",
+                borderLeft: "3px solid black",
+                borderRight: "6px solid black",
+                borderBottom: "6px solid black",
+                width: "80%",
+                padding: "1rem",
+                marginBottom: "15px",
+                fontSize: "30px",
+                marginTop: "10px",
+                animation: "transform 0.2s",
+              }}
+              onClick={() => {
+                handleOpen();
+                setHeading("SIGN UP");
+              }}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#EDEDED",
+                  scale: "1.02",
+                },
+              }}
+            >
+              SIGN UP
+            </Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              sx={{
+                border: "none",
+                outline: "none",
+                background: "none",
+              }}
+            >
+              <Box sx={modalStyle}>
+                <IconButton
+                  onClick={handleClose}
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "#EDEDED",
+                    },
+                    position: "fixed",
+                    top: -20,
+                    right: 10,
+                    zIndex: 2000,
+                    backgroundColor: "white",
+                    borderRadius: "10px",
+                    border: "5px solid " + color,
                   }}
                 >
-                  <p
-                    style={{
-                      color: color,
-                      fontFamily: "ArcadeClassic",
-                      fontSize: "36px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    {heading}
-                  </p>
-                </div>
+                  <CloseIcon style={{ color: color }} />
+                </IconButton>
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    width: "70%",
-                    // fontFamily: 'ArcadeClassic',
-                    textAlign: "left",
-                    fontFamily: "Dosis",
-                    fontSize: "24px",
-                    letterSpacing: "1px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "2%",
+                    textAlign: "center",
                   }}
                 >
-                  {heading === "LOGIN" ? (
-                    <>
-                      <p style={{ marginBottom: "5px" }}>EMAIL</p>
-                      <input
-                        style={{
-                          height: "40px",
-                          paddingLeft: "5px",
-                          fontSize: "18px",
-                          paddingRight: "5px",
-                          border: "solid black",
-                          borderWidth: "3px 6px 6px 3px",
-                          borderRadius: "2px",
-                        }}
-                        type={"email"}
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                      />
-                      <p style={{ marginBottom: "5px" }}>PASSWORD</p>
-                      <input
-                        style={{
-                          height: "40px",
-                          fontSize: "18px",
-                          paddingLeft: "5px",
-                          paddingRight: "5px",
-                          border: "solid black",
-                          borderWidth: "3px 6px 6px 3px",
-                          borderRadius: "2px",
-                        }}
-                        type={"password"}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      {page === 1 ? (
-                        <>
-                          <p style={{ marginBottom: "5px" }}>NAME</p>
-                          <input
-                            style={{
-                              height: "40px",
-                              fontSize: "18px",
-                              paddingLeft: "5px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            name="name"
-                            type={"text"}
-                            value={formData.name}
-                            onChange={handleChangeFormData}
-                          />
-                          <p style={{ marginBottom: "5px" }}>EMAIL</p>
-                          <input
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            type={"email"}
-                            name="email"
-                            
-                            value={formData.email}
-                            onChange={handleChangeFormData}
-                          />
-                          <p style={{ marginBottom: "5px" }}>PASSWORD</p>
-                          <input
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            type={"password"}
-                            name="password"
-                            
-                            value={formData.password}
-                            onChange={handleChangeFormData}
-                          />
-                        </>
-                      ) : (
-                        <>
-                          <p style={{ marginBottom: "5px" }}>PHONE NUMBER</p>
-                          <input
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            type={"text"}
-                            name="phone"
-                            
-                            value={formData.phone}
-                            onChange={handleChangeFormData}
-                          />
-
-                          <p style={{ marginBottom: "5px" }}>COLLEGE</p>
-                          <input
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            name="collegeName"
-                            type={"text"}
-                            
-                            value={formData.collegeName}
-                            onChange={handleChangeFormData}
-                          />
-
-                          <p style={{ marginBottom: "5px" }}>YEAR</p>
-                          {/* <input
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            name="address"
-                          /> */}
-                          <select
-                            style={{
-                              height: "40px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            name="year"
-                            onChange={handleChangeFormData}
-                          >
-                            <option value={""}>Select your year</option>
-                            <option value={Year.UG1}>{Year.UG1}</option>
-                            <option value={Year.UG2}>{Year.UG2}</option>
-                            <option value={Year.UG3}>{Year.UG3}</option>
-                            <option value={Year.UG4}>{Year.UG4}</option>
-                          </select>
-
-                          <p style={{ marginBottom: "5px" }}>ADDRESS</p>
-                          <textarea
-                            style={{
-                              height: "100px",
-                              paddingLeft: "5px",
-                              fontSize: "18px",
-                              paddingRight: "5px",
-                              border: "solid black",
-                              borderWidth: "3px 6px 6px 3px",
-                              borderRadius: "2px",
-                            }}
-                            rows={5}
-                            maxLength={150}
-                            name="address"
-                            
-                            value={formData.address}
-                            onChange={handleChangeFormData}
-                          />
-                        </>
-                      )}
-                    </>
-                  )}
-                </div>
-                <div className={styles2.modalDescDiv}>
-                  <span>
-                    <p
-                      className={styles2.desc}
-                      style={{
-                        color: color,
-                      }}
-                    >
-                      {heading === "LOGIN" ? (
-                        <>
-                          <p>
-                            Don't have an account yet?
-                            <Button
-                              onClick={() => setHeading("SIGNUP")}
-                              style={{
-                                cursor: "pointer",
-                                color: "#3968CB",
-                                padding: "2px",
-                                marginLeft: "10px",
-                                borderBottom: "2px solid black",
-                              }}
-                            >
-                              SIGN UP
-                            </Button>
-                          </p>
-                        </>
-                      ) : (
-                        <>
-                          <p>
-                            Already have an account?
-                            <Button
-                              onClick={() => setHeading("LOGIN")}
-                              style={{
-                                cursor: "pointer",
-                                color: "#3968CB",
-                                padding: "2px",
-                                marginLeft: "10px",
-                                borderBottom: "2px solid black",
-                              }}
-                            >
-                              LOGIN
-                            </Button>
-                          </p>
-                        </>
-                      )}
-                    </p>
-                  </span>
-                </div>
-                {heading === "LOGIN" && (
-                  <Button
+                  <div
                     style={{
-                      cursor: "pointer",
-                      color: "#3968CB",
-                      padding: "2px",
-                      marginLeft: "10px",
-                      borderBottom: "2px solid black",
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
                     }}
                   >
-                    FORGOT PASSWORD
+                    <p
+                      style={{
+                        color: color,
+                        fontFamily: "ArcadeClassic",
+                        fontSize: "36px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      {heading}
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      width: "70%",
+                      // fontFamily: 'ArcadeClassic',
+                      textAlign: "left",
+                      fontFamily: "Dosis",
+                      fontSize: "24px",
+                      letterSpacing: "1px",
+                    }}
+                  >
+                    {heading === "LOGIN" ? (
+                      <>
+                        <p style={{ marginBottom: "5px" }}>EMAIL</p>
+                        <input
+                          style={{
+                            height: "40px",
+                            paddingLeft: "5px",
+                            fontSize: "18px",
+                            paddingRight: "5px",
+                            border: "solid black",
+                            borderWidth: "3px 6px 6px 3px",
+                            borderRadius: "2px",
+                          }}
+                          type={"email"}
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
+                        />
+                        <p style={{ marginBottom: "5px" }}>PASSWORD</p>
+                        <input
+                          style={{
+                            height: "40px",
+                            fontSize: "18px",
+                            paddingLeft: "5px",
+                            paddingRight: "5px",
+                            border: "solid black",
+                            borderWidth: "3px 6px 6px 3px",
+                            borderRadius: "2px",
+                          }}
+                          type={"password"}
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        {page === 1 ? (
+                          <>
+                            <p style={{ marginBottom: "5px" }}>NAME</p>
+                            <input
+                              style={{
+                                height: "40px",
+                                fontSize: "18px",
+                                paddingLeft: "5px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              name="name"
+                              type={"text"}
+                              value={formData.name}
+                              onChange={handleChangeFormData}
+                            />
+                            <p style={{ marginBottom: "5px" }}>EMAIL</p>
+                            <input
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              type={"email"}
+                              name="email"
+                              
+                              value={formData.email}
+                              onChange={handleChangeFormData}
+                            />
+                            <p style={{ marginBottom: "5px" }}>PASSWORD</p>
+                            <input
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              type={"password"}
+                              name="password"
+                              
+                              value={formData.password}
+                              onChange={handleChangeFormData}
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <p style={{ marginBottom: "5px" }}>PHONE NUMBER</p>
+                            <input
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              type={"text"}
+                              name="phone"
+                              
+                              value={formData.phone}
+                              onChange={handleChangeFormData}
+                            />
+
+                            <p style={{ marginBottom: "5px" }}>COLLEGE</p>
+                            <input
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              name="collegeName"
+                              type={"text"}
+                              
+                              value={formData.collegeName}
+                              onChange={handleChangeFormData}
+                            />
+
+                            <p style={{ marginBottom: "5px" }}>YEAR</p>
+                            {/* <input
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              name="address"
+                            /> */}
+                            <select
+                              style={{
+                                height: "40px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              name="year"
+                              onChange={handleChangeFormData}
+                            >
+                              <option value={""}>Select your year</option>
+                              <option value={Year.UG1}>{Year.UG1}</option>
+                              <option value={Year.UG2}>{Year.UG2}</option>
+                              <option value={Year.UG3}>{Year.UG3}</option>
+                              <option value={Year.UG4}>{Year.UG4}</option>
+                            </select>
+
+                            <p style={{ marginBottom: "5px" }}>ADDRESS</p>
+                            <textarea
+                              style={{
+                                height: "100px",
+                                paddingLeft: "5px",
+                                fontSize: "18px",
+                                paddingRight: "5px",
+                                border: "solid black",
+                                borderWidth: "3px 6px 6px 3px",
+                                borderRadius: "2px",
+                              }}
+                              rows={5}
+                              maxLength={150}
+                              name="address"
+                              
+                              value={formData.address}
+                              onChange={handleChangeFormData}
+                            />
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
+                  <div className={styles2.modalDescDiv}>
+                    <span>
+                      <p
+                        className={styles2.desc}
+                        style={{
+                          color: color,
+                        }}
+                      >
+                        {heading === "LOGIN" ? (
+                          <>
+                            <p>
+                              Don't have an account yet?
+                              <Button
+                                onClick={() => setHeading("SIGNUP")}
+                                style={{
+                                  cursor: "pointer",
+                                  color: "#3968CB",
+                                  padding: "2px",
+                                  marginLeft: "10px",
+                                  borderBottom: "2px solid black",
+                                }}
+                              >
+                                SIGN UP
+                              </Button>
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p>
+                              Already have an account?
+                              <Button
+                                onClick={() => setHeading("LOGIN")}
+                                style={{
+                                  cursor: "pointer",
+                                  color: "#3968CB",
+                                  padding: "2px",
+                                  marginLeft: "10px",
+                                  borderBottom: "2px solid black",
+                                }}
+                              >
+                                LOGIN
+                              </Button>
+                            </p>
+                          </>
+                        )}
+                      </p>
+                    </span>
+                  </div>
+                  {heading === "LOGIN" && (
+                    <Button
+                      style={{
+                        cursor: "pointer",
+                        color: "#3968CB",
+                        padding: "2px",
+                        marginLeft: "10px",
+                        borderBottom: "2px solid black",
+                      }}
+                    >
+                      FORGOT PASSWORD
+                    </Button>
+                  )}
+                  <hr
+                    className={styles2.ruler}
+                    style={{ backgroundColor: color }}
+                  ></hr>
+                  <Button
+                    variant="contained"
+                    sx={{ "&:hover": { opacity: 0.9 }, textAlign: "center" }}
+                    className={styles.moreDetailsButton}
+                    onClick={handleSubmit}
+                    style={{
+                      backgroundColor: color,
+                      marginBottom: "20px",
+                      paddingLeft: "2rem",
+                      paddingRight: "2rem",
+                    }}
+                  >
+                    {heading === "LOGIN" ? heading : page === 1 ? "NEXT" : heading}
                   </Button>
-                )}
-                <hr
-                  className={styles2.ruler}
-                  style={{ backgroundColor: color }}
-                ></hr>
-                <Button
-                  variant="contained"
-                  sx={{ "&:hover": { opacity: 0.9 }, textAlign: "center" }}
-                  className={styles.moreDetailsButton}
-                  onClick={handleSubmit}
-                  style={{
-                    backgroundColor: color,
-                    marginBottom: "20px",
-                    paddingLeft: "2rem",
-                    paddingRight: "2rem",
-                  }}
-                >
-                  {heading === "LOGIN" ? heading : page === 1 ? "NEXT" : heading}
-                </Button>
-              </div>
-            </Box>
-          </Modal>
-        </>
-      )}
-    </div>
+                </div>
+              </Box>
+            </Modal>
+          </>
+        )}
+      </div>
+      <Snackbar 
+        open={snackBarOpen} 
+        autoHideDuration={3000} 
+        onClose={handleCloseSnackBar}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right"
+        }}
+      >
+        <Alert onClose={handleClose} severity={isSuccess?"success":"error"} sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
+    </>
   );
 };
 

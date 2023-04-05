@@ -52,54 +52,40 @@ const index = () => {
         setNav(nav === "0px" ? "100vw" : "0px")
     }
 
-    useEffect(() => {
-        const element = document.getElementsByClassName(styles.main)[0];
-        const view = document.defaultView;
-        window.addEventListener("load", () => {
-        view.scrollTo({
-            top: 0,
-            })
-        });
-      }, []);
-
 
     return (
         <div
             className={styles.main}
             style={{
-                backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5)
+                backgroundColor: alpha(eventInfo?.[2] || "#CA7CD8", 0.5),
             }}
         >
-            {width > 600 && (
-                <button
+            <button
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "fixed",
+                    top: 40,
+                    left: 20,
+                    zIndex: "1500",
+                    borderRadius: "15px",
+                    borderColor: "transparent",
+                    backgroundColor: "transparent",
+                    cursor: "pointer"
+                }}
+                onClick={() => navigate('/home')}
+            >
+                <img
+                    src={as}
+                    height={"70rem"}
+                    alt="kuch bhi"
                     style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "fixed",
-                        top: 40,
-                        left: 20,
-                        zIndex: "1500",
-                        borderRadius: "15px",
-                        borderColor: "transparent",
-                        backgroundColor: "transparent",
-                        cursor: "pointer"
+                        borderRadius: "10px"
                     }}
-                    onClick={() => navigate('/')}
-                >
-                    <img
-                        src={as}
-                        height={"70rem"}
-                        alt="kuch bhi"
-                        style={{
-                            borderRadius: "10px"
-                        }}
-                    />
-                </button>
-            )
-
-            }
+                />
+            </button>
             <div
                 id='fulScrNav'
                 style={{
@@ -411,7 +397,7 @@ const index = () => {
                 }}
             >
                 <MenuIcon
-                    sx={width > 600 && {
+                    sx={{
                         marginRight: ".5rem",
                         fontSize: "40px"
                     }}
@@ -440,6 +426,7 @@ const index = () => {
                 <NameCard 
                     event={events.filter(({ club, name }) => (club === eventInfo[0] && name === eventInfo[1]))[0]} 
                     color={eventInfo?.[2]}
+                    isLoggedIn={isLoggedIn}
                 />
             </div>
         </div>

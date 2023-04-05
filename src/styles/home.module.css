@@ -1,0 +1,200 @@
+.main {
+    top: 0;
+    background-image: url(../assets/landing-page.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.main img:hover {
+    text-decoration: none;
+}
+
+.button {
+    top: 45rem;
+
+}
+
+@media screen and (max-width: 1700px) {
+    .button {
+        top: 40rem;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .button {
+        top: 37rem;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .button {
+        top: 35rem;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .button {
+        top: 33rem;
+        left: 34rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main {
+        background-image: url(../assets/landing-page-tablet-landscape.png);
+    }
+    .button {
+        top: 30rem;
+        left: 30rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .button {
+        top: 30rem;
+        left: 29rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main {
+        background-image: url(../assets/landing-page-tablet.png);
+    }
+    .button {
+        top: 46rem;
+        left: 16.6rem;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .button {
+        top: 46rem;
+        left: 16rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .button {
+        top: 44rem;
+        left: 14rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .button {
+        top: 40rem;
+        left: 12rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .button {
+        top: 37rem;
+        left: 11rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .button {
+        top: 35rem;
+        left: 10rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .button {
+        top: 34rem;
+        left: 9.5rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .main {
+        background-image: url(../assets/landing-page-phone.png);
+    }
+    .button {
+        top: 35rem;
+        left: 6.5rem;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .button {
+        top: 35rem;
+        left: 6rem;
+        scale: 0.95;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .button {
+        top: 35rem;
+        left: 5rem;
+        scale: .95;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .button {
+        top: 35rem;
+        left: 4.5rem;
+        scale: .9;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .button {
+        top: 35rem;
+        left: 4.2rem;
+        scale: .9;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .button {
+        top: 35rem;
+        left: 4rem;
+        scale: .85;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .button {
+        top: 35rem;
+        left: 3.5rem;
+        scale: .85;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .button {
+        top: 30rem;
+        left: 3rem;
+        scale: .8;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .button {
+        top: 30rem;
+        left: 2rem;
+        scale: .7;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .button {
+        top: 25rem;
+        left: .8rem;
+        scale: .6;
+    }
+}
