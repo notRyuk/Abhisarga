@@ -10,7 +10,7 @@ interface Props {
 const Sponsors = ({ sx, color }: Props) => {
   return (
     <div className={styles.main} style={{...sx, color, borderColor: color, marginTop: "0", paddingBottom: "0", justifyContent: "flex-start"}}>
-        <p className={styles.heading} style={{ color, margin: "0", padding: "1rem" }}>
+        <p className={styles.heading} style={{ color, margin: "0", padding: ".5rem" }}>
             SPONSORS
         </p>
         <div
@@ -21,15 +21,15 @@ const Sponsors = ({ sx, color }: Props) => {
             gap: "0"
           }}
         >
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-            <div style={{maxWidth: "50%"}}>
+          {/* <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}> */}
+            <div>
               <p
               style={{
                 fontWeight: "500",
                 fontSize: "16px",
                 padding: "0",
                 margin: "0",
-                marginTop: "10px"
+                marginTop: "-10 px"
               }}
               >TITLE SPONSORS</p>
               <div 
@@ -41,11 +41,11 @@ const Sponsors = ({ sx, color }: Props) => {
                   maxHeight: "4rem"
                 }}
               >
-                <img width={'25%'} src='https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2021/12/16075732/nationalherald_2020-03_2a0bf455-a127-4b79-92b5-5c0941549436_AXIS.png'></img>
-                <img width={'25%'} src='https://1000logos.net/wp-content/uploads/2018/03/SBI-Logo.png'></img>
+                <img width={'15%'} src='https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2021/12/16075732/nationalherald_2020-03_2a0bf455-a127-4b79-92b5-5c0941549436_AXIS.png'></img>
+                <img width={'15%'} src='https://1000logos.net/wp-content/uploads/2018/03/SBI-Logo.png'></img>
               </div>
             </div>
-            <div style={{maxWidth: "50%"}}>
+            <div>
               <p
                 style={{
                   fontWeight: "500",
@@ -68,7 +68,7 @@ const Sponsors = ({ sx, color }: Props) => {
                 <img width={'15%'} src='https://www.sricityjobs.in/img/SC-Logo.png'></img>
               </div>
             </div>
-          </div>
+          {/* </div> */}
           
           <p
             style={{

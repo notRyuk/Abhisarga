@@ -105,9 +105,9 @@ function App() {
   
   const [width, setWidth] = useState<number>(window.innerWidth);
   useEffect(() => {
-    const session = (JSON.parse(localStorage.getItem("session")) as Session) 
+    const session = (JSON.parse(localStorage.getItem("session")) as Session)
     setEmail(session ? session.username : "")
-    if (email.length > 0) {
+    if (email?.length > 0) {
       setIsLoggedIn(true)
     }
   }, [email])
