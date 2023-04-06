@@ -20,7 +20,7 @@ const RegistrationCard = ({ className, color }: Props) => {
       </div>
       <div className={styles.text}>
         <p>
-          REGISTRATIONS ARE OPEN!
+          ONLINE ROUNDS COMPLETING SOON!
         </p>
       </div>
     </div>

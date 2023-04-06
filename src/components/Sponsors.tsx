@@ -21,7 +21,7 @@ interface Props {
 const Sponsors = ({ sx, color }: Props) => {
   return (
     <div className={styles.main} style={{...sx, color, borderColor: color, marginTop: "0", paddingBottom: "0", justifyContent: "flex-start"}}>
-        <p className={styles.heading} style={{ color, margin: "0", padding: "1rem" }}>
+        <p className={styles.heading} style={{ color, margin: "0", padding: ".5rem" }}>
             SPONSORS
         </p>
         <div
@@ -32,15 +32,15 @@ const Sponsors = ({ sx, color }: Props) => {
             gap: "0"
           }}
         >
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-            <div style={{maxWidth: "50%"}}>
+          {/* <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}> */}
+            <div>
               <p
               style={{
                 fontWeight: "500",
                 fontSize: "16px",
                 padding: "0",
                 margin: "0",
-                marginTop: "10px"
+                marginTop: "-10 px"
               }}
               >TITLE SPONSORS</p>
               <div 
@@ -56,7 +56,7 @@ const Sponsors = ({ sx, color }: Props) => {
                 <img width={'25%'} src={sbi}></img>
               </div>
             </div>
-            <div style={{maxWidth: "50%"}}>
+            <div>
               <p
                 style={{
                   fontWeight: "500",
@@ -79,7 +79,7 @@ const Sponsors = ({ sx, color }: Props) => {
                 <img width={'18%'} src={sricity}></img>
               </div>
             </div>
-          </div>
+          {/* </div> */}
           
           <p
             style={{
@@ -87,7 +87,7 @@ const Sponsors = ({ sx, color }: Props) => {
               fontSize: "16px",
               padding: "0",
               margin: "0",
-              marginTop: "20px"
+              // marginTop: "20px"
             }}
           >GOLD SPONSOR</p>
           <div 

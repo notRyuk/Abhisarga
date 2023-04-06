@@ -308,6 +308,7 @@ const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
                 cursor: "pointer"
               }}
               onClick={() => {
+                console.log(event.link)
                 if(!isLoggedIn) {
                   if(registerText === "Please Login/Signup First") {
                     setRegisterText("Redirecting to login page...")
