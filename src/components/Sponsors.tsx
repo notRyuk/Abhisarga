@@ -1,6 +1,17 @@
 import { Button } from '@mui/material'
 import React, { CSSProperties } from 'react'
 import styles from '../styles/aboutus.module.css'
+import foxconn from '../assets/foxconn.png'
+import sonata from '../assets/sonata.png'
+import sundaram from '../assets/sundaram.png'
+import tnpl from '../assets/tnpl.png'
+import axisbank from '../assets/AXISBANK.BO_BIG.png'
+import cityunionbank from '../assets/city-union-bank-logo-D71F765DDB-seeklogo.com.png'
+import indianbank from '../assets/indian-bank.png'
+import indianoil from '../assets/indian-oil.png'
+import nlc from '../assets/nlc.png'
+import sbi from '../assets/sbi.png'
+import sricity from '../assets/sricity.png'
 
 interface Props {
     sx?: CSSProperties
@@ -41,8 +52,8 @@ const Sponsors = ({ sx, color }: Props) => {
                   maxHeight: "4rem"
                 }}
               >
-                <img width={'25%'} src='https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2021/12/16075732/nationalherald_2020-03_2a0bf455-a127-4b79-92b5-5c0941549436_AXIS.png'></img>
-                <img width={'25%'} src='https://1000logos.net/wp-content/uploads/2018/03/SBI-Logo.png'></img>
+                {/* <img width={'25%'} src={axisbank}></img> */}
+                <img width={'25%'} src={sbi}></img>
               </div>
             </div>
             <div style={{maxWidth: "50%"}}>
@@ -64,8 +75,8 @@ const Sponsors = ({ sx, color }: Props) => {
                   maxHeight: "4rem"
                 }}
               >
-                <img width={'15%'} src='https://companieslogo.com/img/orig/NLCINDIA.NS-fdcb06f1.png?t=1604232066'></img>
-                <img width={'15%'} src='https://www.sricityjobs.in/img/SC-Logo.png'></img>
+                <img width={'18%'} src={nlc}></img>
+                <img width={'18%'} src={sricity}></img>
               </div>
             </div>
           </div>
@@ -88,7 +99,7 @@ const Sponsors = ({ sx, color }: Props) => {
               maxHeight: "4rem"
             }}
           >
-            <img width={'15%'} src='https://images.moneycontrol.com/static-mcnews/2020/06/city-union-bank-770x433.jpg?impolicy=website&width=770&height=431'></img>
+            <img width={'12%'} src={cityunionbank}></img>
           </div>
           <p
             style={{
@@ -112,13 +123,13 @@ const Sponsors = ({ sx, color }: Props) => {
               gap: "10px"
             }}
           >
-            <img width={'75px'} src='https://www.vhv.rs/dpng/d/438-4388830_indian-bank-logo-download-vector-indian-bank-logo.png'></img>
+            <img width={'75px'} src={indianbank}></img>
             <img width={'75px'} src='https://gl-m.linker-cdn.net/logo/6e0/6e07b8256ccd2356be4cc9c07fc5e739_t.jpg'></img>
-            <img width={'75px'} src='https://www.companieshistory.com/wp-content/uploads/2013/07/Indian-Oil.png'></img>
-            <img width={'75px'} src='https://logos-world.net/wp-content/uploads/2023/01/Foxconn-Logo.png'></img>
-            <img width={'75px'} src='https://upload.wikimedia.org/wikipedia/en/c/c8/Sonata_Software_Logo.png'></img>
-            <img width={'100px'} src='https://brendle-representadas.es/wp-content/uploads/2021/04/BMQRep_Logos_Interior_Sundram.png'></img>
-            <img width={'75px'} src='http://pwidirectory.haymarketsac.in/wp-content/uploads/2019/02/TNPL-Logo1.jpg'></img>
+            <img width={'75px'} src={indianoil}></img>
+            <img width={'75px'} src={foxconn}></img>
+            <img width={'75px'} src={sonata}></img>
+            <img width={'100px'} src={sundaram}></img>
+            <img width={'75px'} src={tnpl}></img>
           </div>
       </div>
     </div>
