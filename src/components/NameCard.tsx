@@ -17,9 +17,10 @@ interface Props {
   isLoggedIn?: boolean
 }
 
-const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
+const NameCard = ({ event, color, index }: Props) => {
   const navigate = useNavigate()
   const [registerText, setRegisterText] = useState<"Please Login/Signup First"|"Register"|"Redirecting to login page...">("Register")
+  const isLoggedIn = JSON.parse(localStorage.getItem("session"))?.token !== undefined
   return (
     <>
       <div 
@@ -323,8 +324,8 @@ const NameCard = ({ event, color, index, isLoggedIn }: Props) => {
               }}
             >
               {isLoggedIn? (
-                <a href={event.link} style={{ textDecoration: "none"}}>
-                {registerText}
+                <a href={event.link} style={{ textDecoration: "none", color: "white"}} target='_blank'>
+                  {registerText}
                 </a>
               ): registerText}
             </button>

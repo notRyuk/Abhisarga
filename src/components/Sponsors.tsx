@@ -128,7 +128,7 @@ const Sponsors = ({ sx, color }: Props) => {
             <img width={'75px'} src={indianoil}></img>
             <img width={'75px'} src={foxconn}></img>
             <img width={'75px'} src={sonata}></img>
-            <img width={'100px'} src={sundaram}></img>
+            {/* <img width={'100px'} src={sundaram}></img> */}
             <img width={'75px'} src={tnpl}></img>
           </div>
       </div>
