@@ -47,7 +47,6 @@ export default function Home() {
         }}
         sx={{
           "&:hover": {
-            scale: "1.02",
             backgroundColor: "#ffffff"
           }
         }}

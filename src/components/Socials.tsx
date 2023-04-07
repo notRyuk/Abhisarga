@@ -34,9 +34,8 @@ const Socials = () => {
           sx={{ 
             fontSize: "4.5rem",
             "&:hover": {
-              scale: 1.05,
-              cursor: "pointer",
-              color: "red"
+              scale: 1.02,
+              cursor: "pointer"
             }
           }} 
         />

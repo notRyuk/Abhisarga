@@ -299,30 +299,58 @@ export default function CustomCard({ style, image, color, event, vertical, setIs
                                 {`" Organized by ${event.club}"` || ""}
                             </p>
                         </div>
-                        <Button 
-                            variant="contained" 
-                            sx={{ 
-                                "&:hover": { 
-                                    opacity: 0.9,
-                                    backgroundColor: color
-                                }, 
-                                textAlign: "center",
-                                backgroundColor: color, 
-                                marginBottom: "20px",
-                                display: "flex",
-                                flexDirection: "row",
-                                width: "90%"
-                            }}
-                            onClick={() => navigate(`/event/${event.getUrl(color)}`)}
-                        >
-                            More Details 
-                            <ArrowRightAltIcon 
-                                fontSize='large'
-                                style={{
-                                    marginLeft: "20px"
-                                }} 
-                            />
-                        </Button>
+                        {event.name !== "LIVE"?(
+                            <Button 
+                                variant="contained" 
+                                sx={{ 
+                                    "&:hover": { 
+                                        opacity: 0.9,
+                                        backgroundColor: color
+                                    }, 
+                                    textAlign: "center",
+                                    backgroundColor: color, 
+                                    marginBottom: "20px",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    width: "90%"
+                                }}
+                                onClick={() => navigate(`/event/${event.getUrl(color)}`)}
+                            >
+                                More Details 
+                                <ArrowRightAltIcon 
+                                    fontSize='large'
+                                    style={{
+                                        marginLeft: "20px"
+                                    }} 
+                                />
+                            </Button>
+                        ):(
+                            <a href={event.getUrl(color)} style={{ textDecoration: "none" }}>
+                                <Button 
+                                    variant="contained" 
+                                    sx={{ 
+                                        "&:hover": { 
+                                            opacity: 0.9,
+                                            backgroundColor: color
+                                        }, 
+                                        textAlign: "center",
+                                        backgroundColor: color, 
+                                        marginBottom: "20px",
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        width: "90%"
+                                    }}
+                                >
+                                    More Details 
+                                    <ArrowRightAltIcon 
+                                        fontSize='large'
+                                        style={{
+                                            marginLeft: "20px"
+                                        }} 
+                                    />
+                                </Button>
+                            </a>
+                        )}
                     </div>
                 </StyledBox>
             </Modal>
